@@ -1,0 +1,18 @@
+{
+  "iteration_index": 11,
+  "timestamp_tag": "04061415",
+  "location": "ATP.temTH.CandidateTheorems.T6.RouteB:candidate_T6_routeB",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 15:14\n│    simpa using data.hgauss\n│               ^^^\n╰─ error: Invalid field `hgauss`: The environment does not contain `CandidateTheorems.T6.StandardScaleData.hgauss`\n  data\nhas type\n  StandardScaleData"
+    }
+  ],
+  "message_count": 2
+}

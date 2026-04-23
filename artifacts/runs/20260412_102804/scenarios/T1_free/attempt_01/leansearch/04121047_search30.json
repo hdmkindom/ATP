@@ -1,0 +1,14 @@
+{
+  "search_index": 30,
+  "timestamp": "2026-04-12T10:47:06.943670",
+  "timestamp_tag": "04121047",
+  "query": "Character.sum_eq_zero_of_ne_one",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 2.285567,
+  "error": null,
+  "result_text": "=== Character.sum_eq_zero_of_ne_one (20 matches) ===\n\n• quadraticChar_sum_zero [theorem]\n  (hF : ringChar F ≠ 2) : ∑ a : F, quadraticChar F a = 0\n\n• gaussSum_eq_zero_of_isPrimitive_of_not_isPrimitive [theorem]\n  [IsDomain R] {χ : DirichletCharacter R N} (hχ : IsPrimitive χ) (he : ¬IsPrimitive e) : gaussSum χ e = 0\n\n• AddChar.expect_eq_ite [theorem]\n  (ψ : AddChar G R) : 𝔼 a, ψ a = if ψ = 0 then 1 else 0\n\n• AddChar.zmod_char_ne_one_iff [theorem]\n  (n : ℕ) [NeZero n] (ψ : AddChar (ZMod n) C) : ψ ≠ 1 ↔ ψ 1 ≠ 1\n\n• AddChar.one_eq_zero [theorem]\n  : (1 : AddChar A M) = (0 : AddChar A M)\n\n• MulChar.sum_one_eq_card_units [theorem]\n  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ\n\n• AddChar.ne_zero_iff [theorem]\n  : ψ ≠ 0 ↔ ∃ x, ψ x ≠ 1\n\n• Finset.sum_eq_zero_iff [theorem]\n  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M} [Subsingleton (AddUnits M)],\n  ∑ i ∈ s, f i = 0 ↔ ∀ i ∈ s, f i = 0\n\n• jacobiSum_eq_sum_sdiff [theorem]\n  (χ ψ : MulChar F R) : jacobiSum χ ψ = ∑ x ∈ univ \\ {0, 1}, χ x * ψ (1 - x)\n\n• AddChar.wInner_cWeight_eq_zero_iff_ne [theorem]\n  [Fintype G] : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = 0 ↔ ψ₁ ≠ ψ₂\n\n• AddChar.coe_ne_zero [theorem]\n  (ψ : AddChar A M₀) : (ψ : A → M₀) ≠ 0\n\n• Finset.sum_eq_ite [theorem]\n  ∀ {ι : Type u_1} {M : Type u_4} [inst : AddCommMonoid M] [inst_1 : DecidableEq ι] {s : Finset ι} {f : ι → M} (a : ι),\n  (∀ b ∈ s, b ≠ a → f b = 0) → ∑ x ∈ s, f x = if a ∈ s then f a else 0\n\n• AddChar.map_zero_eq_one [theorem]\n  (ψ : AddChar A M) : ψ 0 = 1\n\n• finsum_apply_ne_zero [theorem]\n  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] (f : α → M) (a : α), ∑ᶠ (_ : f a ≠ 0), f a = f a\n\n• AddChar.map_zero_eq_one' [theorem]\n  ∀ {A : Type u_1} [inst : AddMonoid A] {M : Type u_2} [inst_1 : Monoid M] (self : AddChar A M), self.toFun 0 = 1\n\n• AddChar.zero_apply [theorem]\n  (a : A) : (0 : AddChar A M) a = 1\n\n• AddChar.instZero [instance]\n  : Zero (AddChar A M)\n\n• finsum_mem_of_eqOn_zero [theorem]\n  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M} {s : Set α},\n  Set.EqOn f 0 s → ∑ᶠ (i : α) (_ : i ∈ s), f i = 0\n\n• Cardinal.sum_zero_pow [theorem]\n  : sum (fun n ↦ (0 : Cardinal) ^ n) = 1\n\n• finsum_eq_zero_of_forall_eq_zero [theorem]\n  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M}, (∀ (x : α), f x = 0) → ∑ᶠ (i : α), f i = 0"
+}

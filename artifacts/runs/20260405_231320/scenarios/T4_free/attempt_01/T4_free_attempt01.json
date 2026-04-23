@@ -1,0 +1,33 @@
+{
+  "scenario_key": "T4.free",
+  "theorem_id": "T4",
+  "mode_family": "free",
+  "attempt_index": 1,
+  "target_file": "ATP/temTH/CandidateTheorems/T4/Free.lean",
+  "theorem_name": "candidate_T4_free",
+  "success": false,
+  "valid": false,
+  "observed_route": "unknown",
+  "route_compliance": null,
+  "policy_violations": [],
+  "summary": "",
+  "error": "AttributeError: 'NoneType' object has no attribute 'ainvoke'",
+  "prompt_excerpt": "Target scenario: T4.free\nTarget file: ATP/temTH/CandidateTheorems/T4/Free.lean\n\nTheorem: T4 - Frequency orthogonality on the cyclic group\n\nATP benchmark protocol:\n1. Keep the theorem statement unchanged.\n2. Do not import solved route files such as `CandidateTheorems.Tk.RouteA` or `CandidateTheorems.Tk.RouteB`.\n3. Do not solve the goal by citing an already-solved `CandidateTheorems.Tk.candidate_Tk_routeA/routeB` theorem.\n4. You may add Mathlib imports or support-file imports when they are genuinely necessary.\n5. Prefer explicit intermediate names over anonymous one-letter names when the proof becomes nontrivial.\n6. Finish with a complete Lean proof and do not leave any `sorry`.\n\nrouteA: 几何级数路线. 固定 `x ∈ Z / N Z`，令\n`ω = Exp(2π i x / N)`。\n当 `x = 0` 时直接求和；当 `x ≠ 0` 时，把求和看成\n`∑_{a=0}^{N-1} ω^a`\n并用几何级数公式显式计算。\nrouteB: 加性角色路线. 把函数\n`a ↦ Exp(2π i a x / N)`\n看成群 `Z / N Z` 上的加性角色。\n当 `x = 0` 时它是平凡角色；当 `x ≠ 0` 时它是非平凡角色，再利用有限阿贝尔群上的标准结论得到求和。\n\nMode: free.\nDo not force a route up front; choose the proof direction that looks most natural.\n请先不要预设固定证明路线，自行选择你认为最自然的证明方法完成证明。\n可以按 `x = 0` 与 `x ≠ 0` 分情况显式求和，也可以把它理解为加性角色的标准正交关系，但不必预先限定。",
+  "iterations": 0,
+  "compilation_errors": 0,
+  "build_timeouts": 0,
+  "reviewer_rejections": 0,
+  "max_iterations_reached": false,
+  "started_at": "2026-04-05T23:14:58.281465",
+  "finished_at": "2026-04-05T23:15:07.777394",
+  "artifact_paths": {
+    "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T4_free/attempt_01/T4_free_attempt01.json",
+    "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T4_free/attempt_01/T4_free_attempt01.lean",
+    "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T4_free/attempt_01",
+    "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T4_free/attempt_01/iterations",
+    "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T4_free/attempt_01/iterations/04052315_iter01.lean",
+    "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T4_free/attempt_01/source/04052314_original.lean",
+    "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T4_free/attempt_01/source/04052315_final.lean",
+    "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T4_free/attempt_01/source/04052315_restored.lean"
+  }
+}

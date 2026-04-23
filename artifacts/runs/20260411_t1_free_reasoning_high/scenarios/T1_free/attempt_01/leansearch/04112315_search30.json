@@ -1,0 +1,14 @@
+{
+  "search_index": 30,
+  "timestamp": "2026-04-11T23:15:49.013796",
+  "timestamp_tag": "04112315",
+  "query": "Character G notation monoid hom to ℂˣ",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 3.275189,
+  "error": null,
+  "result_text": "=== Character G notation monoid hom to ℂˣ (20 matches) ===\n\n• MulCharClass.toMonoidHomClass [theorem]\n  ∀ {F : Type u_3} {R : outParam (Type u_4)} {R' : outParam (Type u_5)} {inst : CommMonoid R}\n  {inst_1 : CommMonoidWithZero R'} {inst_2 : FunLike F R R'} [self : MulCharClass F R R'], MonoidHomClass F R R'\n\n• Complex.expMonoidHom [definition]\n  : MonoidHom (Multiplicative ℂ) ℂ\n\n• IsCyclic.monoidHom_equiv_self [theorem]\n  (G M : Type*) [CommGroup G] [Finite G] [IsCyclic G] [CommMonoid M] [HasEnoughRootsOfUnity M (Nat.card G)] :\n  Nonempty ((G →* Mˣ) ≃* G)\n\n• Circle.coeHom [definition]\n  : Circle →* ℂ\n\n• BoundedContinuousFunction.charMonoidHom [definition]\n  (he : Continuous e) (hL : Continuous fun p : V × W ↦ L p.1 p.2) : Multiplicative W →* (V →ᵇ ℂ)\n\n• MulChar.toMonoidWithZeroHom_apply [theorem]\n  ∀ {R' : Type u_2} [inst : CommMonoidWithZero R'] {R : Type u_3} [inst_1 : CommMonoidWithZero R] [inst_2 : Nontrivial R]\n  (χ : MulChar R R') (a : R), ↑χ a = (↑χ.toMonoidHom).toFun a\n\n• MulChar.toMonoidHom [definition]\n  {R : Type u_1} → [inst : CommMonoid R] → {R' : Type u_2} → [inst_1 : CommMonoidWithZero R'] → MulChar R R' → R →* R'\n\n• MulChar.toUnitHom_eq [theorem]\n  (χ : MulChar R R') : toUnitHom χ = equivToUnitHom χ\n\n• MulChar.toUnitHom [definition]\n  (χ : MulChar R R') : Rˣ →* R'ˣ\n\n• MulChar.coe_toMonoidHom [theorem]\n  (χ : MulChar R R') (x : R) : χ.toMonoidHom x = χ x\n\n• MulChar.ofUnitHom_eq [theorem]\n  (χ : Rˣ →* R'ˣ) : ofUnitHom χ = equivToUnitHom.symm χ\n\n• MonoidHom.instCommGroup [instance]\n  [MulOneClass M] [CommGroup N] : CommGroup (M →* N)\n\n• AddChar.toMonoidHomEquiv [definition]\n  : AddChar A M ≃ (Multiplicative A →* M)\n\n• MulChar.mulEquivToUnitHom [definition]\n  : MulChar R R' ≃* (Rˣ →* R'ˣ)\n\n• MonoidHom.toHomUnitsMulEquiv [definition]\n  : (G →* M) ≃* (G →* Mˣ)\n\n• AddChar.toMonoidHom [definition]\n  (φ : AddChar A M) : Multiplicative A →* M\n\n• IsCyclic.monoidHom_mulEquiv_rootsOfUnity [theorem]\n  (G : Type*) [CommGroup G] [IsCyclic G] (G' : Type*) [CommGroup G'] :\n  Nonempty <| (G →* G') ≃* rootsOfUnity (Nat.card G) G'\n\n• IsCyclic.monoidHomMulEquivRootsOfUnityOfGenerator [definition]\n  {G : Type*} [CommGroup G] {g : G} (hg : ∀ (x : G), x ∈ Subgroup.zpowers g) (G' : Type*) [CommGroup G'] :\n  (G →* G') ≃* rootsOfUnity (Nat.card G) G'\n\n• AddChar.toMonoidHomMulEquiv [definition]\n  : AddChar A M ≃* (Multiplicative A →* M)\n\n• Circle.toUnits [definition]\n  : Circle →* Units ℂ"
+}

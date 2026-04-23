@@ -1,0 +1,14 @@
+{
+  "search_index": 34,
+  "timestamp": "2026-04-11T23:16:55.577192",
+  "timestamp_tag": "04112316",
+  "query": "sum_hom_units_eq_zero Character G finite group",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 5.323714,
+  "error": null,
+  "result_text": "=== sum_hom_units_eq_zero Character G finite group (20 matches) ===\n\n• MulChar.toUnitHom [definition]\n  (χ : MulChar R R') : Rˣ →* R'ˣ\n\n• Fintype.card_units [theorem]\n  [GroupWithZero α] [Fintype α] [DecidableEq α] : Fintype.card αˣ = Fintype.card α - 1\n\n• WithZero.toMonoidWithZeroHom_withZeroUnitsEquiv [theorem]\n  [GroupWithZero M₀] [DecidablePred fun x : M₀ ↦ x = 0] :\n  MonoidWithZeroHomClass.toMonoidWithZeroHom WithZero.withZeroUnitsEquiv = WithZero.lift' (Units.coeHom M₀)\n\n• AddChar.forall_apply_eq_zero [theorem]\n  : (∀ ψ : AddChar α ℂ, ψ a = 1) ↔ a = 0\n\n• finsum_eq_zero_of_forall_eq_zero [theorem]\n  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M}, (∀ (x : α), f x = 0) → ∑ᶠ (i : α), f i = 0\n\n• DFinsupp.sumZeroHom_apply [theorem]\n  [∀ i, AddZeroClass (β i)] [∀ (i) (x : β i), Decidable (x ≠ 0)] [AddCommMonoid γ] (φ : ∀ i, ZeroHom (β i) γ)\n  (f : Π₀ i, β i) : sumZeroHom φ f = f.sum fun x => φ x\n\n• MonoidWithZeroHom.valueMonoid_eq_valueGroup [theorem]\n  : (valueMonoid f) = (valueGroup f).toSubmonoid\n\n• Nat.card_eq_card_units_add_one [theorem]\n  [GroupWithZero α] [Finite α] : Nat.card α = Nat.card αˣ + 1\n\n• MonoidWithZeroHom.valueMonoid_eq_valueGroup' [theorem]\n  : (valueMonoid f : Set Bˣ) = valueGroup f\n\n• Fintype.sum_balance [theorem]\n  (f : ι → G) : ∑ x, balance f x = 0\n\n• MonoidWithZeroHom.map_eq_zero_iff [theorem]\n  {G₀ M₀ : Type*} [GroupWithZero G₀] [MulZeroOneClass M₀] [Nontrivial M₀] {f : G₀ →*₀ M₀} {x : G₀} : f x = 0 ↔ x = 0\n\n• MulChar.toUnitHom_eq [theorem]\n  (χ : MulChar R R') : toUnitHom χ = equivToUnitHom χ\n\n• Representation.leftRegular_norm_eq_zero_iff [theorem]\n  (x : G →₀ k) : (leftRegular k G).norm x = 0 ↔ x.linearCombination k (fun _ => (1 : k)) = 0\n\n• unitsEquivNeZero [definition]\n  : G₀ˣ ≃ { a : G₀ // a ≠ 0 }\n\n• WithZero.expEquiv [definition]\n  : G ≃ (Gᵐ⁰)ˣ\n\n• Subgroup.centerUnitsEquivUnitsCenter [definition]\n  (G₀ : Type*) [GroupWithZero G₀] : center G₀ˣ ≃* (Submonoid.center G₀)ˣ\n\n• MonoidWithZeroHom.instCommGroupWithZeroValueGroup₀ [instance]\n  : CommGroupWithZero (ValueGroup₀ f)\n\n• instIsCyclicUnitsWithZero [instance]\n  (G : Type*) [Group G] [IsCyclic G] : IsCyclic (WithZero G)ˣ\n\n• WithZero.unitsWithZeroEquiv_apply [theorem]\n  ∀ {α : Type u_1} [inst : Group α] (a : (WithZero α)ˣ), WithZero.unitsWithZeroEquiv a = WithZero.unzero ⋯\n\n• WithZero.logEquiv [definition]\n  : (Gᵐ⁰)ˣ ≃ G"
+}

@@ -1,0 +1,66 @@
+=== theorem Character G := G →* ℂˣ (20 matches) ===
+
+• CharacterModule [definition]
+  : Type uA
+
+• CharacterModule.dual_apply [theorem]
+  ∀ {R : Type uR} [inst : CommRing R] {A : Type uA} [inst_1 : AddCommGroup A] {B : Type uB} [inst_2 : AddCommGroup B]
+  [inst_3 : Module R A] [inst_4 : Module R B] (f : A →ₗ[R] B) (L : CharacterModule B),
+  (CharacterModule.dual f) L = AddMonoidHom.comp L f.toAddMonoidHom
+
+• AddChar.card_eq [theorem]
+  [Fintype α] : card (AddChar α ℂ) = card α
+
+• CharacterModule.homEquiv_symm_apply_apply_apply [theorem]
+  ∀ {R : Type uR} [inst : CommRing R] {A : Type uA} [inst_1 : AddCommGroup A] {B : Type uB} [inst_2 : AddCommGroup B]
+  [inst_3 : Module R A] [inst_4 : Module R B] (a : CharacterModule (TensorProduct R A B)) (x : A) (a_1 : B),
+  ((CharacterModule.homEquiv.symm a) x) a_1 = a (x ⊗ₜ[R] a_1)
+
+• FDRep.char_iso [theorem]
+  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character
+
+• CharacterModule.ext [theorem]
+  {c c' : CharacterModule A} (h : ∀ x, c x = c' x) : c = c'
+
+• MulChar.coe_toMonoidHom [theorem]
+  (χ : MulChar R R') (x : R) : χ.toMonoidHom x = χ x
+
+• FDRep.char_tensor [theorem]
+  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character
+
+• AddChar.linearIndependent [theorem]
+  [Finite G] : LinearIndependent R ((⇑) : AddChar G R → G → R)
+
+• FDRep.char_dual [theorem]
+  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹
+
+• AddChar.coe_complexBasis [theorem]
+  : ⇑(complexBasis α) = ((⇑) : AddChar α ℂ → α → ℂ)
+
+• MulChar.inv_apply_eq_inv' [theorem]
+  {R' : Type*} [CommGroupWithZero R'] (χ : MulChar R R') (a : R) : χ⁻¹ a = (χ a)⁻¹
+
+• MeasureTheory.Measure.modularCharacterFun [definition]
+  (g : G) : ℝ≥0
+
+• MulChar.coe_equivToUnitHom [theorem]
+  (χ : MulChar R R') (a : Rˣ) : ↑(equivToUnitHom χ a) = χ a
+
+• AddChar.norm_apply [theorem]
+  {G : Type*} [AddLeftCancelMonoid G] [Finite G] (ψ : AddChar G α) (x : G) : ‖ψ x‖ = 1
+
+• MulChar.apply_mem_rootsOfUnity_orderOf [theorem]
+  (χ : MulChar F R) {a : F} (ha : a ≠ 0) : ∃ ζ ∈ rootsOfUnity (orderOf χ) R, ζ = χ a
+
+• FDRep.char_orthonormal [theorem]
+  (V W : FDRep k G) [Simple V] [Simple W] :
+  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0
+
+• modularCyclotomicCharacter.comp [theorem]
+  (g h : L ≃+* L) : χ₀ n (g * h) = χ₀ n g * χ₀ n h
+
+• modularCyclotomicCharacter' [definition]
+  (n : ℕ) [NeZero n] : (L ≃+* L) →* (ZMod (Fintype.card { x // x ∈ rootsOfUnity n L }))ˣ
+
+• AddChar.wInner_cWeight_eq_boole [theorem]
+  [Fintype G] (ψ₁ ψ₂ : AddChar G R) : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = if ψ₁ = ψ₂ then 1 else 0

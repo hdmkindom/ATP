@@ -1,0 +1,14 @@
+{
+  "search_index": 5,
+  "timestamp": "2026-04-12T10:28:48.143643",
+  "timestamp_tag": "04121028",
+  "query": "CandidateTheorems.T1 Character G := G →* ℂˣ",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.358608,
+  "error": null,
+  "result_text": "=== CandidateTheorems.T1 Character G := G →* ℂˣ (20 matches) ===\n\n• MulChar.pow_card_eq_one [theorem]\n  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1\n\n• MulChar.map_one [theorem]\n  (χ : MulChar R R') : χ (1 : R) = 1\n\n• MulChar.toUnitHom_eq [theorem]\n  (χ : MulChar R R') : toUnitHom χ = equivToUnitHom χ\n\n• MulChar.apply_mem_rootsOfUnity [theorem]\n  [Fintype Rˣ] (a : Rˣ) {χ : MulChar R R'} : equivToUnitHom χ a ∈ rootsOfUnity (Fintype.card Rˣ) R'\n\n• FDRep.char_mul_comm [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)\n\n• Circle.toUnits [definition]\n  : Circle →* Units ℂ\n\n• AddChar.circleEquivComplex [definition]\n  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ\n\n• MulChar.coe_equivToUnitHom [theorem]\n  (χ : MulChar R R') (a : Rˣ) : ↑(equivToUnitHom χ a) = χ a\n\n• MulChar.ofUnitHom_eq [theorem]\n  (χ : Rˣ →* R'ˣ) : ofUnitHom χ = equivToUnitHom.symm χ\n\n• ZMod.rootsOfUnityAddChar.congr_simp [theorem]\n  ∀ (n : ℕ) [inst : NeZero n], ZMod.rootsOfUnityAddChar n = ZMod.rootsOfUnityAddChar n\n\n• modularCyclotomicCharacter.toFun_spec [theorem]\n  (g : L ≃+* L) {n : ℕ} [NeZero n] (t : rootsOfUnity n L) : g (t : Lˣ) = (t ^ (χ₀ n g).val : Lˣ)\n\n• AddChar.map_neg_eq_conj [theorem]\n  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)\n\n• MulChar.mulEquivToUnitHom [definition]\n  : MulChar R R' ≃* (Rˣ →* R'ˣ)\n\n• CharacterModule [definition]\n  : Type uA\n\n• MulChar.ofRootOfUnity_spec [theorem]\n  {ζ : Rˣ} (hζ : ζ ∈ rootsOfUnity (Fintype.card Mˣ) R) {g : Mˣ} (hg : ∀ x, x ∈ Subgroup.zpowers g) :\n  ofRootOfUnity hζ hg g = ζ\n\n• MulChar.commGroup [instance]\n  : CommGroup (MulChar R R')\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• modularCyclotomicCharacter' [definition]\n  (n : ℕ) [NeZero n] : (L ≃+* L) →* (ZMod (Fintype.card { x // x ∈ rootsOfUnity n L }))ˣ\n\n• MeasureTheory.Measure.modularCharacter [definition]\n  : G →* ℝ≥0\n\n• FDRep.simple_iff_char_is_norm_one [theorem]\n  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G"
+}

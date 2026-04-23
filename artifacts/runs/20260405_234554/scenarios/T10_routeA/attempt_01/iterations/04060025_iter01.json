@@ -1,0 +1,18 @@
+{
+  "iteration_index": 1,
+  "timestamp_tag": "04060025",
+  "location": "ATP.temTH.CandidateTheorems.T10.RouteA:candidate_T10_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T10/tmp_RouteA_fpg8h_td.lean:17:24: error(lean.unknownIdentifier): Unknown identifier `mul_right_inv`\n\n╭─ Error at line 17:17\n│        _ = χ 1 := by rw [mul_right_inv]\n│                  ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝ : Group G\nχ : G →* ℂˣ\ng : G\n⊢ χ (g * g⁻¹) = χ 1\nATP/temTH/CandidateTheorems/T10/tmp_RouteA_fpg8h_td.lean:19:8: error(lean.unknownIdentifier): Unknown identifier `inv_eq_of_mul_inv_eq_one_left`"
+    }
+  ],
+  "message_count": 2
+}

@@ -1,0 +1,14 @@
+{
+  "search_index": 41,
+  "timestamp": "2026-04-12T01:09:39.983576",
+  "timestamp_tag": "04120109",
+  "query": "Mathlib Character G := G →* ℂˣ",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 2.317644,
+  "error": null,
+  "result_text": "=== Mathlib Character G := G →* ℂˣ (20 matches) ===\n\n• FDRep.character [definition]\n  (V : FDRep k G) (g : G)\n\n• FDRep.char_mul_comm [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)\n\n• AddChar.circleEquivComplex [definition]\n  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ\n\n• AddChar.map_neg_eq_conj [theorem]\n  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)\n\n• toUnits [definition]\n  [Group G] : G ≃* Gˣ\n\n• MulChar.commGroup [instance]\n  : CommGroup (MulChar R R')\n\n• CharacterModule.instAddCommGroup [instance]\n  : AddCommGroup (CharacterModule A)\n\n• FDRep.char_linHom [theorem]\n  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g\n\n• AddChar.complexBasis [definition]\n  : Basis (AddChar α ℂ) ℂ (α → ℂ)\n\n• MeasureTheory.Measure.modularCharacter [definition]\n  : G →* ℝ≥0\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• MeasureTheory.distribHaarChar [definition]\n  : G →* ℝ≥0\n\n• ZMod.stdAddChar [definition]\n  : AddChar (ZMod N) ℂ\n\n• AddChar.coe_complexBasis [theorem]\n  : ⇑(complexBasis α) = ((⇑) : AddChar α ℂ → α → ℂ)\n\n• MulChar.mulEquivToUnitHom [definition]\n  : MulChar R R' ≃* (Rˣ →* R'ˣ)\n\n• Representation.asGroupHom [definition]\n  : G →* Units (V →ₗ[k] V)\n\n• Real.fourierChar [definition]\n  : AddChar ℝ Circle\n\n• AddChar.instCommGroup [instance]\n  : CommGroup (AddChar A M)\n\n• MeasureTheory.Measure.addModularCharacterFun [definition]\n  {G : Type u_1} →\n  [inst : TopologicalSpace G] → [inst_1 : AddGroup G] → [IsTopologicalAddGroup G] → [LocallyCompactSpace G] → G → NNReal\n\n• MeasureTheory.Measure.modularCharacterFun [definition]\n  (g : G) : ℝ≥0"
+}

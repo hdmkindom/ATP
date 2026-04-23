@@ -1,0 +1,69 @@
+=== CandidateTheorems.T1.Support Character (20 matches) ===
+
+• Continuous.isOpen_support [theorem]
+  ∀ {X : Type u_1} {Y : Type u_2} [inst : TopologicalSpace X] [T1Space X] [inst_2 : Zero X] [inst_3 : TopologicalSpace Y]
+  {f : Y → X}, Continuous f → IsOpen (Function.support f)
+
+• Function.locallyFinsuppWithin.discreteSupport [theorem]
+  [Zero Y] [T1Space X] (D : locallyFinsuppWithin U Y) : IsDiscrete D.support
+
+• subset_tsupport [theorem]
+  ∀ {X : Type u_1} {α : Type u_2} [inst : Zero α] [inst_1 : TopologicalSpace X] (f : X → α),
+  Function.support f ⊆ tsupport f
+
+• Function.locallyFinsuppWithin.closedSupport [theorem]
+  [T1Space X] [Zero Y] (D : locallyFinsuppWithin U Y) (hU : IsClosed U) : IsClosed D.support
+
+• Finsupp.support [definition]
+  {α : Type u_9} → {M : Type u_10} → [inst : Zero M] → (α →₀ M) → Finset α
+
+• supportDiscreteWithin_iff_locallyFiniteWithin [theorem]
+  [T1Space X] [Zero Y] {f : X → Y} (h : f.support ⊆ U) :
+  f =ᶠ[codiscreteWithin U] 0 ↔ ∀ z ∈ U, ∃ t ∈ 𝓝 z, Set.Finite (t ∩ f.support)
+
+• Function.support_subset_iff' [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] {f : ι → M} {s : Set ι},
+  Function.support f ⊆ s ↔ ∀ (x : ι), ¬x ∈ s → f x = 0
+
+• Function.support_one [theorem]
+  : support (1 : ι → R) = univ
+
+• Finsupp.support_subset_iff [theorem]
+  {s : Set α} {f : α →₀ M} : ↑f.support ⊆ s ↔ ∀ a ∉ s, f a = 0
+
+• Function.support_eq_preimage [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] (f : ι → M), Function.support f = f ⁻¹' {0}ᶜ
+
+• Function.support_subset_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] {f : ι → M} {s : Set ι},
+  Function.support f ⊆ s ↔ ∀ (x : ι), f x ≠ 0 → x ∈ s
+
+• Function.support_eq_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] {f : ι → M} {s : Set ι},
+  Function.support f = s ↔ (∀ (x : ι), x ∈ s → f x ≠ 0) ∧ ∀ (x : ι), ¬x ∈ s → f x = 0
+
+• Finsupp.rangeSingleton_support [theorem]
+  ∀ {ι : Type u_1} {α : Type u_2} [inst : Zero α] (f : ι →₀ α), f.rangeSingleton.support = f.support
+
+• Finsupp.mem_supported' [theorem]
+  {s : Set α} (p : α →₀ M) : p ∈ supported M R s ↔ ∀ x ∉ s, p x = 0
+
+• Finsupp.support_indicator_subset [theorem]
+  : ((indicator s f).support : Set ι) ⊆ s
+
+• Set.support_indicator_subset [theorem]
+  ∀ {α : Type u_1} {M : Type u_3} [inst : Zero M] {s : Set α} {f : α → M}, Function.support (s.indicator f) ⊆ s
+
+• DFinsupp.support_mk_subset [theorem]
+  {s : Finset ι} {x : ∀ i : (↑s : Set ι), β i.1} : (mk s x).support ⊆ s
+
+• tsupport_add [theorem]
+  ∀ {X : Type u_1} {α : Type u_2} [inst : TopologicalSpace X] [inst_1 : AddZeroClass α] (f g : X → α),
+  (tsupport fun x => f x + g x) ⊆ tsupport f ∪ tsupport g
+
+• Function.mulSupport_subset_iff [theorem]
+  : mulSupport f ⊆ s ↔ ∀ x, f x ≠ 1 → x ∈ s
+
+• Set.support_indicator [theorem]
+  ∀ {α : Type u_1} {M : Type u_3} [inst : Zero M] {s : Set α} {f : α → M},
+  Function.support (s.indicator f) = s ∩ Function.support f

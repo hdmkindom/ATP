@@ -1,0 +1,63 @@
+=== Units.coeHom comp (20 matches) ===
+
+• Units.coeHom [definition]
+  : Mˣ →* M
+
+• Units.coeHom_apply [theorem]
+  (x : Mˣ) : coeHom M x = ↑x
+
+• MonoidHom.toHomUnitsMulEquiv [definition]
+  : (G →* M) ≃* (G →* Mˣ)
+
+• Units.coe_map [theorem]
+  (f : M →* N) (x : Mˣ) : ↑(map f x) = f x
+
+• Units.map [definition]
+  (f : M →* N) : Mˣ →* Nˣ
+
+• MulChar.coe_toUnitHom [theorem]
+  (χ : MulChar R R') (a : Rˣ) : ↑(χ.toUnitHom a) = χ a
+
+• MulChar.ofUnitHom_coe [theorem]
+  (f : Rˣ →* R'ˣ) (a : Rˣ) : ofUnitHom f ↑a = f a
+
+• OneHom.coe_comp [theorem]
+  [One M] [One N] [One P] (g : OneHom N P) (f : OneHom M N) : ↑(g.comp f) = g ∘ f
+
+• Units.map_comp [theorem]
+  (f : M →* N) (g : N →* P) : map (g.comp f) = (map g).comp (map f)
+
+• AddUnits.coeHom_apply [theorem]
+  ∀ {M : Type u} [inst : AddMonoid M] (x : AddUnits M), (AddUnits.coeHom M) x = ↑x
+
+• MulHom.coe_comp [theorem]
+  [Mul M] [Mul N] [Mul P] (g : N →ₙ* P) (f : M →ₙ* N) : ↑(g.comp f) = g ∘ f
+
+• AddUnits.coeHom [definition]
+  (M : Type u) → [inst : AddMonoid M] → AddUnits M →+ M
+
+• MulHom.coeFn [definition]
+  (α β : Type*) [Mul α] [CommSemigroup β] : (α →ₙ* β) →ₙ* α → β
+
+• Units.instCoeHead [instance]
+  : CoeHead αˣ α
+
+• MonoidHom.coeFn [definition]
+  (α β : Type*) [MulOneClass α] [CommMonoid β] : (α →* β) →* α → β
+
+• MonoidHom.coeToMulHom [instance]
+  [MulOne M] [MulOne N] : Coe (M →* N) (M →ₙ* N)
+
+• unitary.coe_map [theorem]
+  ∀ {R : Type u_2} {S : Type u_3} [inst : Monoid R] [inst_1 : StarMul R] [inst_2 : Monoid S] [inst_3 : StarMul S]
+  (f : R →⋆* S) (x : ↥(unitary R)), ↑((Unitary.map f) x) = f ↑x
+
+• AddMonoidHom.coe_toHomAddUnits [theorem]
+  ∀ {G : Type u_1} {M : Type u_2} [inst : AddGroup G] [inst_1 : AddMonoid M] (f : G →+ M) (g : G),
+  ↑(f.toHomAddUnits g) = f g
+
+• MonoidHom.coe_toHomUnits [theorem]
+  (f : G →* M) (g : G) : (f.toHomUnits g : M) = f g
+
+• Units.coe_liftRight [theorem]
+  {f : M →* N} {g : M → Nˣ} (h : ∀ x, ↑(g x) = f x) (x) : (liftRight f g h x : N) = f x

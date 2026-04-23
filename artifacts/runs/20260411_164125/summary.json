@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "repo_root": "/Users/hdm/math/elementary-number-theory",
+    "repeats": 1,
+    "scenario_count": 1,
+    "elapsed_seconds": 123.289,
+    "llm_request_count": 13,
+    "llm_failed_request_count": 0,
+    "llm_total_tokens": 27415,
+    "estimated_total_seconds": 86.858,
+    "estimate_source": "历史 EWMA"
+  },
+  "results": [
+    {
+      "scenario_key": "T1.free",
+      "theorem_id": "T1",
+      "mode_family": "free",
+      "attempt_index": 1,
+      "target_file": "ATP/temTH/CandidateTheorems/T1/Free.lean",
+      "theorem_name": "candidate_T1_free",
+      "success": false,
+      "valid": false,
+      "observed_route": "unknown",
+      "route_compliance": null,
+      "policy_violations": [],
+      "summary": "**Theorem:** `candidate_T1_free` at `ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free`  \n**Status:** ❌ Not proven (6/6 iterations, all failed at compilation)\n\n### Why it failed\nThe final attempt used:\n```lean\nCharacter.sum_eq_zero_of_ne_one\n```\nbut that lemma is not available in this environment (`unknown identifier`). This was the recurring blocker: attempts depended on missing convenience lemmas for character orthogonality.\n\nFrom the run history/experience notes, there were also repeated issues with:\n- unavailable variants like `χ.sum_eq_zero_of_ne_one` / `Character.sum_coe_eq_zero_of_ne_one`,\n- mismatch-prone sum reindexing attempts (`Fintype.sum_bijective` shape issues),\n- coercion pitfalls between `ℂˣ` and `ℂ` (`χ g = 1` vs `(χ g : ℂ) = 1`).\n\n### Main approaches tried\n1. **Direct library lemma shortcut** for `∑ g, (χ g : ℂ) = 0` (failed: lemma absent).\n2. **Alternative similarly named orthogonality lemmas** (also absent).\n3. **More manual finite-sum manipulation/reindexing** (ran into typing/binder/coercion mismatches).\n\n### Suggested next steps\n1. **Prove via translation invariance of the group sum** (manual orthogonality proof):\n   - pick `g₀` with `χ g₀ ≠ 1` (from `hχ`),\n   - show `∑ g, (χ (g₀*g) : ℂ) = ∑ g, (χ g : ℂ)` by permutation `g ↦ g₀*g`,\n   - rewrite left as `(χ g₀ : ℂ) * ∑ g, (χ g : ℂ)`,\n   - conclude `((χ g₀ : ℂ)-1) * S = 0`, then `S=0` since `(χ g₀ : ℂ) ≠ 1`.\n2. **Handle `ℂˣ → ℂ` coercions explicitly** at every key step:\n   - keep nontriviality as `χ g₀ ≠ 1` in `ℂˣ`,\n   - use explicit coercion lemmas to derive `(χ g₀ : ℂ) ≠ 1`.\n3. **Avoid fragile APIs** (`sum_bijective` variants with tricky binders); prefer robust permutation lemmas (`Finset.sum_bij` with explicit inverse data, or an existing `sum_left_mul_eq_sum`-style lemma if present).",
+      "error": null,
+      "prompt_excerpt": "",
+      "iterations": 6,
+      "compilation_errors": 6,
+      "build_timeouts": 0,
+      "reviewer_rejections": 0,
+      "max_iterations_reached": true,
+      "elapsed_seconds": 123.287799,
+      "llm_request_count": 13,
+      "llm_failed_request_count": 0,
+      "llm_input_tokens": 24091,
+      "llm_output_tokens": 3324,
+      "llm_total_tokens": 27415,
+      "started_at": "2026-04-11T16:41:26.038499",
+      "finished_at": "2026-04-11T16:43:29.326298",
+      "artifact_paths": {
+        "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/T1_free_attempt01.json",
+        "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/T1_free_attempt01.lean",
+        "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01",
+        "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/iterations",
+        "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/iterations/04111641_iter01.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/iterations/04111641_iter02.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/iterations/04111642_iter03.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/iterations/04111642_iter04.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/iterations/04111642_iter05.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/iterations/04111643_iter06.lean",
+        "leansearch_trace_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/leansearch",
+        "leansearch_trace_index": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/leansearch/index.json",
+        "leansearch_search_count": "0",
+        "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/source/04111641_original.lean",
+        "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/source/04111643_final.lean",
+        "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/source/04111643_restored.lean",
+        "message_trace_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_164125/scenarios/T1_free/attempt_01/messages.json"
+      }
+    }
+  ]
+}

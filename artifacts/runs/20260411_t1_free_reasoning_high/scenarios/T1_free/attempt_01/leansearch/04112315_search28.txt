@@ -1,0 +1,66 @@
+=== Character G := G →* ℂˣ import (20 matches) ===
+
+• MulChar.instFunLike [instance]
+  : FunLike (MulChar R R') R R'
+
+• WeakDual.CharacterSpace.toCLM [definition]
+  (φ : characterSpace 𝕜 A) : A →L[𝕜] 𝕜
+
+• MulChar.ofRootOfUnity_spec [theorem]
+  {ζ : Rˣ} (hζ : ζ ∈ rootsOfUnity (Fintype.card Mˣ) R) {g : Mˣ} (hg : ∀ x, x ∈ Subgroup.zpowers g) :
+  ofRootOfUnity hζ hg g = ζ
+
+• MulChar.toUnitHom [definition]
+  (χ : MulChar R R') : Rˣ →* R'ˣ
+
+• AddChar.map_neg_eq_conj [theorem]
+  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)
+
+• modularCyclotomicCharacter.toFun [definition]
+  (n : ℕ) [NeZero n] (g : L ≃+* L) : ZMod (Fintype.card (rootsOfUnity n L))
+
+• MulChar.instMulCharClass [instance]
+  : MulCharClass (MulChar R R') R R'
+
+• AddChar.toMonoidHomMulEquiv [definition]
+  : AddChar A M ≃* (Multiplicative A →* M)
+
+• WeakDual.CharacterSpace.toNonUnitalAlgHom [definition]
+  (φ : characterSpace 𝕜 A) : A →ₙₐ[𝕜] 𝕜
+
+• ZMod.stdAddChar [definition]
+  : AddChar (ZMod N) ℂ
+
+• CharacterModule.dual_apply [theorem]
+  ∀ {R : Type uR} [inst : CommRing R] {A : Type uA} [inst_1 : AddCommGroup A] {B : Type uB} [inst_2 : AddCommGroup B]
+  [inst_3 : Module R A] [inst_4 : Module R B] (f : A →ₗ[R] B) (L : CharacterModule B),
+  (CharacterModule.dual f) L = AddMonoidHom.comp L f.toAddMonoidHom
+
+• CharacterModule.homEquiv_symm_apply_apply_apply [theorem]
+  ∀ {R : Type uR} [inst : CommRing R] {A : Type uA} [inst_1 : AddCommGroup A] {B : Type uB} [inst_2 : AddCommGroup B]
+  [inst_3 : Module R A] [inst_4 : Module R B] (a : CharacterModule (TensorProduct R A B)) (x : A) (a_1 : B),
+  ((CharacterModule.homEquiv.symm a) x) a_1 = a (x ⊗ₜ[R] a_1)
+
+• ZMod.rootsOfUnityAddChar [definition]
+  (n : ℕ) [NeZero n] : AddChar (ZMod n) (rootsOfUnity n Circle)
+
+• AddChar.complexBasis.congr_simp [theorem]
+  ∀ (α : Type u_1) [inst : AddCommGroup α] [inst_1 : Finite α], AddChar.complexBasis α = AddChar.complexBasis α
+
+• Representation.asGroupHom [definition]
+  : G →* Units (V →ₗ[k] V)
+
+• AddChar.linearIndependent [theorem]
+  [Finite G] : LinearIndependent R ((⇑) : AddChar G R → G → R)
+
+• BoundedContinuousFunction.charMonoidHom [definition]
+  (he : Continuous e) (hL : Continuous fun p : V × W ↦ L p.1 p.2) : Multiplicative W →* (V →ᵇ ℂ)
+
+• modularCyclotomicCharacter' [definition]
+  (n : ℕ) [NeZero n] : (L ≃+* L) →* (ZMod (Fintype.card { x // x ∈ rootsOfUnity n L }))ˣ
+
+• MulChar.ofRootOfUnity [definition]
+  {ζ : Rˣ} (hζ : ζ ∈ rootsOfUnity (Fintype.card Mˣ) R) {g : Mˣ} (hg : ∀ x, x ∈ Subgroup.zpowers g) : MulChar M R
+
+• gelfandStarTransform [definition]
+  : A ≃⋆ₐ[ℂ] C(characterSpace ℂ A, ℂ)

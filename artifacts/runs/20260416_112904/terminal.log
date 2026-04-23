@@ -1,0 +1,28 @@
+
+===== ATP terminal session started at 2026-04-16T11:29:04.542323 =====
+[96m----------------------
+欢迎使用 ax-prover—ATP
+本次使用的模型：openai:gpt-5.3-codex
+最大证明轮次：5
+单次尝试模型请求上限：10
+运行轮数：1
+场景尝试数量：总计 1，正式 1
+本次运行预估所需时间：00:12:49（历史平均）
+作者：刘泽博
+----------------------[0m
+[96m--T1-free-----------[0m
+[34m2026-04-16 11:29:06 - INFO - [proving.py:25 - get_item_from_location()] - Proving theorem at: ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free[0m
+[34m2026-04-16 11:29:07 - INFO - [lean_search.py:272 - warmup_lean_search()] - Warming up LeanSearch server at https://leansearch.net...[0m
+[34m2026-04-16 11:29:10 - INFO - [lean_search.py:275 - warmup_lean_search()] - LeanSearch warm-up successful[0m
+[34m2026-04-16 11:29:10 - INFO - [agent.py:567 - chat()] - Starting prover run: prove:candidate_T1_free[0m
+[34m2026-04-16 11:29:10 - INFO - [agent.py:251 - _proposer_node()] - Proposing proof (iteration 1) for: ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free[0m
+[34m2026-04-16 11:29:10 - INFO - [llm_request] - Sending LLM request #1 via ainvoke model=gpt-5.3-codex attempt_request=1/10[0m
+[34m2026-04-16 11:29:15 - INFO - [lean_search.py:170 - _process_lean_search_response()] - LeanSearch: Found 6 matches for 'Character G sum over group equals 0 if χ ≠ 1'[0m
+[34m2026-04-16 11:29:15 - INFO - [llm_request] - Sending LLM request #2 via ainvoke model=gpt-5.3-codex attempt_request=2/10[0m
+[34m2026-04-16 11:29:21 - INFO - [lean_search.py:170 - _process_lean_search_response()] - LeanSearch: Found 6 matches for 'theorem for Character G coercion to ℂ sum_eq_zero_of_ne_one'[0m
+[34m2026-04-16 11:29:21 - INFO - [lean_search.py:170 - _process_lean_search_response()] - LeanSearch: Found 6 matches for 'def Character'[0m
+[34m2026-04-16 11:29:22 - INFO - [lean_search.py:170 - _process_lean_search_response()] - LeanSearch: Found 6 matches for 'sum_hom_units_eq_zero import'[0m
+[34m2026-04-16 11:29:22 - INFO - [llm_request] - Sending LLM request #3 via ainvoke model=gpt-5.3-codex attempt_request=3/10[0m
+[33mInterrupted by user. Partial artifacts and terminal log have been preserved.[0m
+[96mArtifacts written to /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260416_112904[0m
+===== ATP terminal session ended at 2026-04-16T11:29:32.200853 =====

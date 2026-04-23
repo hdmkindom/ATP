@@ -1,0 +1,73 @@
+=== "Character" "sum" "ℂˣ" "= 0" (20 matches) ===
+
+• gaussSum_eq_zero_of_isPrimitive_of_not_isPrimitive [theorem]
+  [IsDomain R] {χ : DirichletCharacter R N} (hχ : IsPrimitive χ) (he : ¬IsPrimitive e) : gaussSum χ e = 0
+
+• DirichletCharacter.sum_char_inv_mul_char_eq [theorem]
+  {a : ZMod n} (ha : IsUnit a) (b : ZMod n) :
+  ∑ χ : DirichletCharacter R n, χ a⁻¹ * χ b = if a = b then (n.totient : R) else 0
+
+• quadraticChar_sum_zero [theorem]
+  (hF : ringChar F ≠ 2) : ∑ a : F, quadraticChar F a = 0
+
+• MulChar.map_zero [theorem]
+  {R : Type*} [CommMonoidWithZero R] [Nontrivial R] (χ : MulChar R R') : χ (0 : R) = 0
+
+• dirichletSummandHom [definition]
+  {n : ℕ} (χ : DirichletCharacter ℂ n) (hs : s ≠ 0) : ℕ →*₀ ℂ
+
+• MulChar.pow_card_eq_one [theorem]
+  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1
+
+• MulChar.map_nonunit [theorem]
+  (χ : MulChar R R') {a : R} (ha : ¬IsUnit a) : χ a = 0
+
+• jacobiSum [definition]
+  (χ ψ : MulChar R R') : R'
+
+• FDRep.simple_iff_char_is_norm_one [theorem]
+  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G
+
+• AddChar.exists_apply_ne_zero [theorem]
+  : (∃ ψ : AddChar α ℂ, ψ a ≠ 1) ↔ a ≠ 0
+
+• AddChar.wInner_cWeight_eq_boole [theorem]
+  [Fintype G] (ψ₁ ψ₂ : AddChar G R) : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = if ψ₁ = ψ₂ then 1 else 0
+
+• AddChar.prod_eq_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∏ i ∈ s, ψ i = ∑ i ∈ s, ψ i
+
+• AddChar.sum_apply [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) (a : A) : (∑ i ∈ s, ψ i) a = ∏ i ∈ s, ψ i a
+
+• AddChar.IsPrimitive.zmod_char_eq_one_iff [theorem]
+  (n : ℕ) [NeZero n] {ψ : AddChar (ZMod n) C} (hψ : IsPrimitive ψ) (a : ZMod n) : ψ a = 1 ↔ a = 0
+
+• AddChar.zmod_zero [theorem]
+  : zmod n 0 = 1
+
+• AddChar.complexBasis_apply [theorem]
+  (ψ : AddChar α ℂ) : complexBasis α ψ = ψ
+
+• AddChar.circleEquivComplex [definition]
+  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ
+
+• AddChar.map_zero_eq_one [theorem]
+  (ψ : AddChar A M) : ψ 0 = 1
+
+• AddChar.instZero [instance]
+  : Zero (AddChar A M)
+
+• AddChar.casesOn [definition]
+  {A : Type u_1} →
+  [inst : AddMonoid A] →
+    {M : Type u_2} →
+      [inst_1 : Monoid M] →
+        {motive : AddChar A M → Sort u} →
+          (t : AddChar A M) →
+            ((toFun : A → M) →
+                (map_zero_eq_one' : toFun 0 = 1) →
+                  (map_add_eq_mul' : ∀ (a b : A), toFun (a + b) = toFun a * toFun b) →
+                    motive
+                      { toFun := toFun, map_zero_eq_one' := map_zero_eq_one', map_add_eq_mul' := map_add_eq_mul' }) →
+              motive t

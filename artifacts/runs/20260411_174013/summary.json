@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "repo_root": "/Users/hdm/math/elementary-number-theory",
+    "repeats": 1,
+    "scenario_count": 1,
+    "elapsed_seconds": 109.472,
+    "llm_request_count": 13,
+    "llm_failed_request_count": 0,
+    "llm_total_tokens": 22468,
+    "estimated_total_seconds": 300.76,
+    "estimate_source": "历史 EWMA"
+  },
+  "results": [
+    {
+      "scenario_key": "T1.free",
+      "theorem_id": "T1",
+      "mode_family": "free",
+      "attempt_index": 1,
+      "target_file": "ATP/temTH/CandidateTheorems/T1/Free.lean",
+      "theorem_name": "candidate_T1_free",
+      "success": false,
+      "valid": false,
+      "observed_route": "unknown",
+      "route_compliance": null,
+      "policy_violations": [],
+      "summary": "The proof of\n\n- **`candidate_T1_free`** at **`ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free`**\n\nwas **not successful**.\n\n### Why it failed\nThe run hit the iteration cap (6/6), with compilation errors each time. The final/manual approach was mathematically on track (standard nontrivial-character sum argument), but Lean failures were mainly due to library/lemma mismatches and coercion issues:\n\n1. **Logical extraction mismatch** from `¬ ∃ g, χ g ≠ 1`:\n   - `not_exists.mp hforall g` yields `¬ (χ g ≠ 1)` (i.e. `χ g = 1`), but the proof tried to use it in a stronger/coercion-dependent form via `ext`.\n\n2. **Missing/incorrect lemma names**:\n   - `Finset.mul_sum` not found in this environment.\n   - `eq_zero_of_mul_left_eq_zero` not found.\n   - Previously guessed character-orthogonality lemmas were also unavailable.\n\n3. **Malformed bijection sum rewrite**:\n   - `Fintype.sum_bijective` was applied with arguments in the wrong shape; Lean expected a `Function.Bijective` proof.\n\n4. **Coercion/extensionality issues**:\n   - `Subtype.ext` was used with an equality on coerced complex values, but the expected equality type didn’t match directly.\n\n### Main approaches tried\n- Direct use of presumed orthogonality lemmas (failed: lemmas absent).\n- Manual contradiction proof:\n  - pick `g` with `χ g ≠ 1`,\n  - show left-multiplication permutes `G`,\n  - derive `((χ g)-1) * S = 0` for `S = ∑ x, χ x`,\n  - conclude `S = 0`.\n- Attempts to implement the permutation/bijection sum step and nonzero factor argument in Lean.\n\n### Concrete next steps\n1. **Stabilize basic helper lemmas in this environment**:\n   - Find actual names for scalar-over-sum and zero-divisor cancellation in `ℂ` (via `#check`/grep), e.g. alternatives to missing `Finset.mul_sum` and `eq_zero_of_mul_left_eq_zero`.\n\n2. **Avoid fragile `Subtype.ext` path**:\n   - Prove `((χ g : ℂ) - 1) ≠ 0` by converting `χ g ≠ 1` through `Units.ext`/`CharLike.ext`-style lemmas (whatever exists), or by proving `(χ g : ℂ) = 1 → χ g = 1` with a dedicated coercion lemma.\n\n3. **Use a permutation API that is easier than `sum_bijective`**:\n   - Build an explicit `Equiv` for `x ↦ g*x` and rewrite sum via `Finset.univ.map` / `Fintype.sum_equiv` (whichever is available), to avoid low-level bijection argument shape errors.",
+      "error": null,
+      "prompt_excerpt": "",
+      "iterations": 6,
+      "compilation_errors": 6,
+      "build_timeouts": 0,
+      "reviewer_rejections": 0,
+      "max_iterations_reached": true,
+      "elapsed_seconds": 109.471335,
+      "llm_request_count": 13,
+      "llm_failed_request_count": 0,
+      "llm_input_tokens": 19863,
+      "llm_output_tokens": 2605,
+      "llm_total_tokens": 22468,
+      "started_at": "2026-04-11T17:40:13.570255",
+      "finished_at": "2026-04-11T17:42:03.041590",
+      "artifact_paths": {
+        "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/T1_free_attempt01.json",
+        "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/T1_free_attempt01.lean",
+        "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01",
+        "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/iterations",
+        "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/iterations/04111740_iter01.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/iterations/04111740_iter02.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/iterations/04111740_iter03.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/iterations/04111741_iter04.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/iterations/04111741_iter05.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/iterations/04111741_iter06.lean",
+        "leansearch_trace_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/leansearch",
+        "leansearch_trace_index": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/leansearch/index.json",
+        "leansearch_search_count": "0",
+        "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/source/04111740_original.lean",
+        "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/source/04111742_final.lean",
+        "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/source/04111742_restored.lean",
+        "message_trace_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_174013/scenarios/T1_free/attempt_01/messages.json"
+      }
+    }
+  ]
+}

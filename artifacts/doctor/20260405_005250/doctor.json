@@ -1,0 +1,55 @@
+{
+  "started_at": "2026-04-05T00:52:50.688173",
+  "finished_at": "2026-04-05T00:53:00.792197",
+  "checks": [
+    {
+      "name": "ax_prover_import",
+      "status": "ok",
+      "message": "ax_prover import ok (/Users/hdm/ax-prover-env/lib/python3.11/site-packages/ax_prover/__init__.py)",
+      "duration_seconds": 1.2089949450455606e-06,
+      "details": {}
+    },
+    {
+      "name": "llm_credentials",
+      "status": "ok",
+      "message": "OPENAI_API_KEY is set for provider openai.",
+      "duration_seconds": 4.5000051613897085e-06,
+      "details": {}
+    },
+    {
+      "name": "llm_base_url",
+      "status": "ok",
+      "message": "No base_url configured; provider default endpoint will be used.",
+      "duration_seconds": 1.167005393654108e-06,
+      "details": {}
+    },
+    {
+      "name": "lean_repo_build",
+      "status": "ok",
+      "message": "Lean repository build succeeded.",
+      "duration_seconds": 4.457542249998369,
+      "details": {}
+    },
+    {
+      "name": "template_smoke_file",
+      "status": "ok",
+      "message": "Lean can parse ATP/temTH/ testTH/test.lean.",
+      "duration_seconds": 0.7405457499990007,
+      "details": {}
+    },
+    {
+      "name": "llm_ping",
+      "status": "error",
+      "message": "RateLimitError: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}",
+      "duration_seconds": 4.545395082997857,
+      "details": {}
+    },
+    {
+      "name": "smoke_proof",
+      "status": "skipped",
+      "message": "Skipped by CLI flag.",
+      "duration_seconds": 0.0,
+      "details": {}
+    }
+  ]
+}

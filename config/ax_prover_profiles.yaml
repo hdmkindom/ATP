@@ -1,0 +1,72 @@
+llm_profiles: # 可复用的模型档案；每个 provider 仅保留一份配置，思考模式作为其内部参数维护
+  openai: # OpenAI 或 OpenAI 兼容接口档案
+    model: openai:gpt-5.2 # LangChain / ax-prover 使用的模型标识；格式一般为 provider:model_name；若切换 Nebius DeepSeek，可改为 `openai:deepseek-ai/DeepSeek-R1-0528`
+    provider_config: # provider 调用参数；留空或设为 null 的键会在运行前自动移除
+      temperature: null # 生成温度，证明任务建议保持确定性
+      api_key: sk-dMw2GfIkTffUOqY6TXM92KmGi4j8aI2im2SJnrdJx7J6f9LP # 可直接在 YAML 中填写密钥；留空时继续读取环境变量中的 OPENAI_API_KEY
+      api_key_env: null # ATP 扩展字段；如需从自定义环境变量取密钥可写例如 `NEBIUS_API_KEY`；运行前会自动转写到 OPENAI_API_KEY，并不会传给 provider SDK
+      base_url: https://codeflow.asia/v1 # 这里应填写 API 根路径而不是最终 endpoint；OpenAI 兼容中转通常写到 /v1；Nebius DeepSeek 示例为 `https://api.tokenfactory.nebius.com/v1`
+      use_responses_api: true # `gpt-5.3-codex` 在当前链路下默认走 Responses API；Nebius DeepSeek-R1-0528 应改为 `false`，走 chat/completions
+      reasoning: # 思考模式参数；如需关闭可设为 null，或把 effort 改为 medium/high/xhigh；DeepSeek-R1-0528 这类 OpenAI 兼容模型一般建议设为 null
+        effort: high # 当前正式实验默认开启高思考
+    retry_config: # LLM 请求失败时的重试策略
+      stop_after_attempt: 100 # 最多重试次数；调试阶段尽量保持短重试，避免长时间挂住
+      wait_exponential_jitter: true # 是否启用带抖动的指数退避
+      exponential_jitter_params: # 指数退避参数
+        initial: 0.5 # 初始等待时间（秒）
+        max: 3 # 单次最大等待时间（秒）
+        exp_base: 2.0 # 指数退避底数
+        jitter: 1.0 # 随机抖动强度
+  deepseek: # DeepSeek-R1-0528 的 Nebius / OpenAI 兼容档案
+    model: openai:deepseek-ai/DeepSeek-R1-0528 # 仍使用 openai provider，因为底层接口是 OpenAI 兼容的 chat/completions
+    provider_config: # DeepSeek 调用参数；建议优先通过 `NEBIUS_API_KEY` 环境变量供给密钥
+      temperature: null # DeepSeek-R1 自带推理能力，证明任务一般不额外设置温度
+      api_key: v1.CmQKHHN0YXRpY2tleS1lMDBmdHBxbTc2c3ZiY3d0em4SIXNlcnZpY2VhY2NvdW50LWUwMHFqZ2FlNnNtN3EwMWhrMDIMCPjKv84GEOnNqoQDOgwI-M3XmQcQgN-hnwFAAloDZTAw.AAAAAAAAAAGZ52MgzB9tGrlCFY_dHpm2DPOefIfKUuGBqHcjFwcFkpOq9yak4t1g3j4oWO9t4SmUfKkYMO8g2S8Ga-wmf0wP # 可直接在 YAML 中填写 Nebius 密钥；留空时会继续尝试读取 `api_key_env`
+      api_key_env: NEBIUS_API_KEY # ATP 扩展字段；会先从该环境变量读取，再自动同步到 OPENAI_API_KEY
+      base_url: https://api.tokenfactory.nebius.com/v1 # Nebius OpenAI 兼容 API 根路径
+      use_responses_api: false # Nebius DeepSeek-R1-0528 按 chat/completions 调用，不走 Responses API
+      reasoning: null # 不额外注入 OpenAI reasoning 参数，避免与 DeepSeek 自身推理机制冲突
+    retry_config: # LLM 请求失败时的重试策略
+      stop_after_attempt: 100 # 最多重试次数；调试阶段建议临时调小
+      wait_exponential_jitter: true # 是否启用带抖动的指数退避
+      exponential_jitter_params: # 指数退避参数
+        initial: 0.5 # 初始等待时间（秒）
+        max: 3 # 单次最大等待时间（秒）
+        exp_base: 2.0 # 指数退避底数
+        jitter: 1.0 # 随机抖动强度
+  anthropic: # Anthropic Claude 档案
+    model: anthropic:claude-opus-4-6 # Anthropic 模型标识
+    provider_config: # Anthropic provider 参数；未填写额外入口时使用官方默认端点
+      api_key: sk-1aFKVrH8AMI5boNMizMUlBBGX6F1RDuQhg93vK0Ii1Je2qFc # 可直接在 YAML 中填写密钥；留空时继续读取环境变量中的 ANTHROPIC_API_KEY
+      base_url: https://codeflow.asia # Anthropic 兼容中转或代理的 API 根路径；留空时使用官方默认端点
+      temperature: 1.0 # 生成温度，证明任务建议保持确定性
+      thinking: 
+        type: "adaptive"
+        budget_tokens: 10000 # Claude 思考模式可在这里配置；当前默认不显式开启
+    retry_config: # LLM 请求失败时的重试策略
+      stop_after_attempt: 1 # 最多重试次数
+      wait_exponential_jitter: true # 是否启用带抖动的指数退避
+      exponential_jitter_params: # 指数退避参数
+        initial: 0.5 # 初始等待时间（秒）
+        max: 3 # 单次最大等待时间（秒）
+        exp_base: 2.0 # 指数退避底数
+        jitter: 1.0 # 随机抖动强度
+  gemini: # Google Gemini 档案
+    model: google_genai:gemini-2.5-flash # Google GenAI 模型标识
+    provider_config: # Gemini provider 参数；默认留空即可使用官方端点
+      api_key: null # 可直接在 YAML 中填写密钥；留空时继续读取环境变量中的 GOOGLE_API_KEY
+      temperature: 0 # 生成温度，证明任务建议保持确定性
+      reasoning_effort: null # Gemini 若需要显式思考强度，可在这里配置
+    retry_config: # LLM 请求失败时的重试策略
+      stop_after_attempt: 100 # 最多重试次数
+      wait_exponential_jitter: true # 是否启用带抖动的指数退避
+      exponential_jitter_params: # 指数退避参数
+        initial: 0.5 # 初始等待时间（秒）
+        max: 3 # 单次最大等待时间（秒）
+        exp_base: 2.0 # 指数退避底数
+        jitter: 1.0 # 随机抖动强度
+
+llm_runtime: # ATP 运行期默认实际选用的 LLM 档案
+  shared_profile: ${llm_profiles.deepseek} # 当前 doctor 与 experiment 默认共用同一套模型档案；如需切到 DeepSeek，可改为 `${llm_profiles.deepseek}`
+  experiment_profile: ${llm_runtime.shared_profile} # 正式实验默认使用共享档案
+  doctor_profile: ${llm_runtime.shared_profile} # doctor 默认使用共享档案；如需分离可单独改这里

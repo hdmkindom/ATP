@@ -1,0 +1,66 @@
+=== CandidateTheorems.T1.Support Character lemma (20 matches) ===
+
+• DFinsupp.mem_support_toFun [theorem]
+  (f : Π₀ i, β i) (i) : i ∈ f.support ↔ f i ≠ 0
+
+• Finsupp.support_subset_iff [theorem]
+  {s : Set α} {f : α →₀ M} : ↑f.support ⊆ s ↔ ∀ a ∉ s, f a = 0
+
+• DFinsupp.support_inf [theorem]
+  : (f ⊓ g).support = f.support ∩ g.support
+
+• Finsupp.support_single_subset [theorem]
+  : (single a b).support ⊆ { a }
+
+• Finsupp.support_subset_singleton' [theorem]
+  {f : α →₀ M} {a : α} : f.support ⊆ { a } ↔ ∃ b, f = single a b
+
+• Finset.support_sum_subset [theorem]
+  [AddCommMonoid M] (s : Finset (ι →₀ M)) : (s.sum id).support ⊆ Finset.sup s Finsupp.support
+
+• Function.support_eq_preimage [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] (f : ι → M), Function.support f = f ⁻¹' {0}ᶜ
+
+• Finsupp.mem_supported' [theorem]
+  {s : Set α} (p : α →₀ M) : p ∈ supported M R s ↔ ∀ x ∉ s, p x = 0
+
+• Function.mulSupport_one_add [theorem]
+  [AddLeftCancelMonoid R] (f : ι → R) : mulSupport (fun x ↦ 1 + f x) = support f
+
+• DFinsupp.support_subset_iff [theorem]
+  {s : Set ι} {f : Π₀ i, β i} : ↑f.support ⊆ s ↔ ∀ i ∉ s, f i = 0
+
+• Set.support_indicator [theorem]
+  ∀ {α : Type u_1} {M : Type u_3} [inst : Zero M] {s : Set α} {f : α → M},
+  Function.support (s.indicator f) = s ∩ Function.support f
+
+• Finsupp.support_indicator_subset [theorem]
+  : ((indicator s f).support : Set ι) ⊆ s
+
+• Finsupp.support_mono [theorem]
+  (hfg : f ≤ g) : f.support ⊆ g.support
+
+• DFinsupp.support_mk_subset [theorem]
+  {s : Finset ι} {x : ∀ i : (↑s : Set ι), β i.1} : (mk s x).support ⊆ s
+
+• tsupport_neg [theorem]
+  ∀ {X : Type u_1} {α : Type u_2} [inst : TopologicalSpace X] [inst_1 : SubtractionMonoid α] (f : X → α),
+  tsupport (-f) = tsupport f
+
+• Function.mulSupport_one_sub' [theorem]
+  [AddGroup R] (f : ι → R) : mulSupport (1 - f) = support f
+
+• Function.support_inf [theorem]
+  ∀ {α : Type u_2} {M : Type u_3} [inst : Zero M] [inst_1 : SemilatticeInf M] (f g : α → M),
+  (Function.support fun x => f x ⊓ g x) ⊆ Function.support f ∪ Function.support g
+
+• Function.locallyFinsuppWithin.supportWithinDomain' [theorem]
+  ∀ {X : Type u_1} [inst : TopologicalSpace X] {U : Set X} {Y : Type u_2} [inst_1 : Zero Y]
+  (self : Function.locallyFinsuppWithin U Y), Function.support self.toFun ⊆ U
+
+• Function.mulSupport_one_add' [theorem]
+  [AddLeftCancelMonoid R] (f : ι → R) : mulSupport (1 + f) = support f
+
+• HasCompactSupport.mono' [theorem]
+  ∀ {α : Type u_2} {β : Type u_4} {γ : Type u_5} [inst : TopologicalSpace α] [inst_1 : Zero β] [inst_2 : Zero γ]
+  {f : α → β} {f' : α → γ}, HasCompactSupport f → Function.support f' ⊆ tsupport f → HasCompactSupport f'

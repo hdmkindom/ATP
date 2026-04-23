@@ -1,0 +1,63 @@
+=== Character G := G →* ℂˣ sum over g χ g cast ℂ (20 matches) ===
+
+• FDRep.character [definition]
+  (V : FDRep k G) (g : G)
+
+• AddChar.sum_eq_ite [theorem]
+  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0
+
+• MulChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {χ : MulChar R R'} (hχ : χ ≠ 1) : ∑ a, χ a = 0
+
+• AddChar.sum_apply_eq_ite [theorem]
+  [Fintype α] [DecidableEq α] (a : α) : ∑ ψ : AddChar α ℂ, ψ a = if a = 0 then (Fintype.card α : ℂ) else 0
+
+• gaussSum_mulShift [theorem]
+  (χ : MulChar R R') (ψ : AddChar R R') (a : Rˣ) : χ a * gaussSum χ (mulShift ψ a) = gaussSum χ ψ
+
+• AddChar.sum_eq_zero_iff_ne_zero [theorem]
+  : ∑ x, ψ x = 0 ↔ ψ ≠ 0
+
+• gaussSum_mul_gaussSum_pow_orderOf_sub_one [theorem]
+  {χ : MulChar R R'} {ψ : AddChar R R'} (hχ : χ ≠ 1) (hψ : ψ.IsPrimitive) :
+  gaussSum χ ψ * gaussSum (χ ^ (orderOf χ - 1)) ψ = χ (-1) * Fintype.card R
+
+• gaussSum [definition]
+  (χ : MulChar R R') (ψ : AddChar R R') : R'
+
+• CharacterModule.instAddCommGroup [instance]
+  : AddCommGroup (CharacterModule A)
+
+• AddChar.circleEquivComplex [definition]
+  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ
+
+• AddChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {ψ : AddChar R R'} (hψ : ψ ≠ 1) : ∑ a, ψ a = 0
+
+• gaussSum_mul [theorem]
+  {R : Type u} [CommRing R] [Fintype R] {R' : Type v} [CommRing R'] (χ φ : MulChar R R') (ψ : AddChar R R') :
+  gaussSum χ ψ * gaussSum φ ψ = ∑ t : R, ∑ x : R, χ x * φ (t - x) * ψ t
+
+• AddChar.wInner_cWeight_eq_boole [theorem]
+  [Fintype G] (ψ₁ ψ₂ : AddChar G R) : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = if ψ₁ = ψ₂ then 1 else 0
+
+• AddChar.wInner_cWeight_self [theorem]
+  (ψ : AddChar G R) : ⟪(ψ : G → R), ψ⟫ₙ_[R] = 1
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• AddChar.expect_eq_ite [theorem]
+  (ψ : AddChar G R) : 𝔼 a, ψ a = if ψ = 0 then 1 else 0
+
+• AddChar.complexBasis.congr_simp [theorem]
+  ∀ (α : Type u_1) [inst : AddCommGroup α] [inst_1 : Finite α], AddChar.complexBasis α = AddChar.complexBasis α
+
+• AddChar.complexBasis [definition]
+  : Basis (AddChar α ℂ) ℂ (α → ℂ)
+
+• AddChar.linearIndependent [theorem]
+  [Finite G] : LinearIndependent R ((⇑) : AddChar G R → G → R)
+
+• mul_gaussSum_inv_eq_gaussSum [theorem]
+  (χ : MulChar R R') (ψ : AddChar R R') : χ (-1) * gaussSum χ ψ⁻¹ = gaussSum χ ψ

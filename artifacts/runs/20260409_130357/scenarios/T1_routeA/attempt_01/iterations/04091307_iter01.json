@@ -1,0 +1,18 @@
+{
+  "iteration_index": 1,
+  "timestamp_tag": "04091307",
+  "location": "ATP.temTH.CandidateTheorems.T1.RouteA:candidate_T1_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 51:5\n│      linarith\n│      ^^^\n╰─ error: unknown tactic\n\n╭─ Error at line 25:23\n│      specialize hforall g\n│                        ^^^\n╰─ error: Application type mismatch: The argument\n  g\nhas type\n  G\nof sort `Type u_1` but is expected to have type\n  ∃ h, ↑(χ h) ≠ 1\nof sort `Prop` in the application\n  hforall g\n\nATP/temTH/CandidateTheorems/T1/tmp_RouteA_qsn7u6oh.lean:34:20: error(lean.unknownIdentifier): Unknown identifier `mul_sum`\n\n╭─ Error at line 34:14\n│                simp [mul_sum]\n│               ^^^\n╰─ error: `simp` made no progress\n\n╭─ Error at line 41:15\n│                (Fintype.sum_bijective (f := fun g : G => h * g)\n│                ^^^\n╰─ error: failed to synthesize\n  AddCommMonoid G\n\nHint: Additional diagnostic information may be available using the `set_option diagnostics true` command.\n\n╭─ Error at line 43:26\n│                    intro a b hab\n│                           ^^^\n╰─ error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce\n\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\nhS : ∑ g, ↑(χ g) ≠ 0\nh : G\nhh : ↑(χ h) ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\na : G\n⊢ ?m.176\n\n╭─ Error at line 46:24\n│                    intro g\n│                         ^^^\n╰─ error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce\n\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\nhS : ∑ g, ↑(χ g) ≠ 0\nh : G\nhh : ↑(χ h) ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\n⊢ Function.Bijective fun a => sorry a\n\n╭─ Error at line 49:42\n│    have hχh_ne_zero : (χ h : ℂ) - 1 ≠ 0 := by\n│                                           ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\nhS : ∑ g, ↑(χ g) ≠ 0\nh : G\nhh : ↑(χ h) ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nhmul : ↑(χ h) * S = S\nthis : ↑(χ h) ≠ 1\n⊢ ↑(χ h) - 1 ≠ 0\n\n╭─ Error at line 17:30\n│      ∑ g : G, (χ g : ℂ) = 0 := by\n│                               ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\nhS : ∑ g, ↑(χ g) ≠ 0\nh : G\nhh : ↑(χ h) ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nhmul : ↑(χ h) * S = S\nhχh_ne_zero : ↑(χ h) - 1 ≠ 0\n⊢ False"
+    }
+  ],
+  "message_count": 2
+}

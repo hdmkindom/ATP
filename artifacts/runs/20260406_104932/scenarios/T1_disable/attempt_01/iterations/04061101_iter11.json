@@ -1,0 +1,18 @@
+{
+  "iteration_index": 11,
+  "timestamp_tag": "04061101",
+  "location": "ATP.temTH.CandidateTheorems.T1.Disable:candidate_T1_disable",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T1/tmp_Disable_0wvrt349.lean:18:15: error(lean.unknownIdentifier): Unknown identifier `sum_hom_units_eq_zero`"
+    }
+  ],
+  "message_count": 2
+}

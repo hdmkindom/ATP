@@ -1,0 +1,18 @@
+{
+  "iteration_index": 1,
+  "timestamp_tag": "04061354",
+  "location": "ATP.temTH.CandidateTheorems.T6.Free:candidate_T6_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 15:9\n│    simpa [data.scale_eq] using data.gaussSum_psi_a\n│          ^^^\n╰─ error: Invalid field `scale_eq`: The environment does not contain `CandidateTheorems.T6.ChangeOfVariablesData.scale_eq`\n  data\nhas type\n  ChangeOfVariablesData\n\n╭─ Error at line 15:30\n│    simpa [data.scale_eq] using data.gaussSum_psi_a\n│                               ^^^\n╰─ error: Invalid field `gaussSum_psi_a`: The environment does not contain `CandidateTheorems.T6.ChangeOfVariablesData.gaussSum_psi_a`\n  data\nhas type\n  ChangeOfVariablesData"
+    }
+  ],
+  "message_count": 2
+}

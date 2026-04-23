@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "repo_root": "/Users/hdm/math/elementary-number-theory",
+    "repeats": 1,
+    "scenario_count": 1,
+    "elapsed_seconds": 90.878,
+    "llm_request_count": 16,
+    "llm_failed_request_count": 0,
+    "llm_total_tokens": 33261,
+    "estimated_total_seconds": 146.862,
+    "estimate_source": "历史 EWMA"
+  },
+  "results": [
+    {
+      "scenario_key": "T1.free",
+      "theorem_id": "T1",
+      "mode_family": "free",
+      "attempt_index": 1,
+      "target_file": "ATP/temTH/CandidateTheorems/T1/Free.lean",
+      "theorem_name": "candidate_T1_free",
+      "success": false,
+      "valid": false,
+      "observed_route": "unknown",
+      "route_compliance": null,
+      "policy_violations": [],
+      "summary": "The run did **not** succeed.\n\n### Theorem\n- **Name/location:** `candidate_T1_free` at `ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free`\n- **Goal:**  \n  `theorem candidate_T1_free (χ : Character G) (hχ : χ ≠ 1) : ∑ g : G, (χ g : ℂ) = 0`\n\n### Why it failed\n- All 6 iterations ended in **compilation/parsing/context errors** (not logical proof failure).\n- The main blocker was missing or malformed surrounding context for `G` and typeclass assumptions (`[Fintype G] [Group G]`), so Lean couldn’t properly elaborate `Character G`, `χ`, or the `∑`.\n- As a result, the proof body was never meaningfully validated; no evidence yet that the core lemma application is wrong.\n\n### Approaches attempted\n- Direct proof via:\n  - introducing `hsum : ∑ g : G, (χ g : ℂ) = 0`\n  - `simpa using MulChar.sum_eq_zero_of_ne_one (χ := χ) hχ`\n  - `exact hsum`\n- This is likely a sound strategy, but it remained blocked by declaration/setup issues.\n\n### Next steps\n1. **Fix theorem context first**  \n   Ensure the file has valid declarations before the theorem, e.g.:\n   - `variable {G : Type*} [Group G] [Fintype G]`\n   - and correct imports for `Character`, sums, and `ℂ`.\n2. **Check namespace/type of `Character` and lemma names**  \n   Confirm whether `Character` is the expected alias/type in this file, and whether the lemma is exactly `MulChar.sum_eq_zero_of_ne_one` in scope.\n3. **Minimize and compile incrementally**  \n   First compile a tiny check:\n   - `#check Character`\n   - `#check MulChar.sum_eq_zero_of_ne_one`\n   - then add the theorem statement alone, then the proof line-by-line.",
+      "error": null,
+      "prompt_excerpt": "每次当准备证明的时候,都要尝试调用 leansearch 来确认相关结论的名称和表述,看看是否有现成的 lemma 可以直接调用,并进入本地 mathlib 仓库查看相关定理.\n搜索到 theorem 之后,必须先确认 import 是否正确,并确认 theorem 的参数类型和值域与当前对象完全一致,不要把 `MulChar` 或 `G →* ℂ` 的结论直接套到当前 `Character G := G →* ℂˣ` 的目标上.\n坚决拒绝直接 import mathlib 应该import所需定理的详细的位置\n避免一行完成证明,应当适当展开证明过程,使用多 `have` 或者 `apply` 来分解证明任务,保持证明过程的清晰和可读.\n\nSuggested LeanSearch queries if you need to verify library names:\n- finite group monoid hom sum_hom_units_eq_zero\n- finite group monoid hom sum_hom_units\n- reindex finite group sum left multiplication\n- Mathlib Algebra BigOperators Ring Finset mul_sum\nUse these only as search queries. After LeanSearch returns candidates, only cite a lemma after confirming the required import and that the theorem signature matches the current object/type in your local environment.",
+      "iterations": 6,
+      "compilation_errors": 6,
+      "build_timeouts": 0,
+      "reviewer_rejections": 0,
+      "max_iterations_reached": true,
+      "elapsed_seconds": 90.878898,
+      "llm_request_count": 16,
+      "llm_failed_request_count": 0,
+      "llm_input_tokens": 31060,
+      "llm_output_tokens": 2201,
+      "llm_total_tokens": 33261,
+      "started_at": "2026-04-11T22:33:31.990533",
+      "finished_at": "2026-04-11T22:35:02.869431",
+      "artifact_paths": {
+        "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/T1_free_attempt01.json",
+        "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/T1_free_attempt01.lean",
+        "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01",
+        "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/iterations",
+        "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/iterations/04112233_iter01.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/iterations/04112234_iter02.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/iterations/04112234_iter03.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/iterations/04112234_iter04.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/iterations/04112234_iter05.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/iterations/04112234_iter06.lean",
+        "leansearch_trace_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/leansearch",
+        "leansearch_trace_index": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/leansearch/index.json",
+        "leansearch_search_count": "3",
+        "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/source/04112233_original.lean",
+        "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/source/04112235_final.lean",
+        "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/source/04112235_restored.lean",
+        "message_trace_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_223331/scenarios/T1_free/attempt_01/messages.json"
+      }
+    }
+  ]
+}

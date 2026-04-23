@@ -1,0 +1,75 @@
+=== Equiv.mulLeft finite sum reindex univ (20 matches) ===
+
+• finsum_comp_equiv [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] (e : α ≃ β) {f : β → M},
+  ∑ᶠ (i : α), f (e i) = ∑ᶠ (i' : β), f i'
+
+• Equiv.sum_comp [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : Fintype ι] [inst_1 : Fintype κ] [inst_2 : AddCommMonoid M]
+  (e : ι ≃ κ) (g : κ → M), ∑ i, g (e i) = ∑ i, g i
+
+• Fintype.sum_equiv [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : Fintype ι] [inst_1 : Fintype κ] [inst_2 : AddCommMonoid M]
+  (e : ι ≃ κ) (f : ι → M) (g : κ → M), (∀ (x : ι), f x = g (e x)) → ∑ x, f x = ∑ x, g x
+
+• Finset.sum_equiv [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : AddCommMonoid M] {s : Finset ι} {t : Finset κ} {f : ι → M}
+  {g : κ → M} (e : ι ≃ κ), (∀ (i : ι), i ∈ s ↔ e i ∈ t) → (∀ i ∈ s, f i = g (e i)) → ∑ i ∈ s, f i = ∑ i ∈ t, g i
+
+• Finset.sum_comp_equiv [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : κ → M} (e : ι ≃ κ),
+  s.sum (f ∘ ⇑e) = (Finset.map e.toEmbedding s).sum f
+
+• finsum_comp [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] {g : β → M} (e : α → β),
+  Function.Bijective e → ∑ᶠ (i : α), g (e i) = ∑ᶠ (j : β), g j
+
+• Finset.sum_map_equiv [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M} (e : ι ≃ κ),
+  (Finset.map e.toEmbedding s).sum (f ∘ ⇑e.symm) = s.sum f
+
+• finsum_eq_of_bijective [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M} {g : β → M} (e : α → β),
+  Function.Bijective e → (∀ (x : α), f x = g (e x)) → ∑ᶠ (i : α), f i = ∑ᶠ (j : β), g j
+
+• MulEquiv.finite_left [instance]
+  {α β : Type*} [Mul α] [Mul β] [Finite α] : Finite (α ≃* β)
+
+• AddEquivClass.map_finsum [theorem]
+  ∀ {M : Type u_2} {N : Type u_3} {α : Sort u_4} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {F : Type u_7}
+  [inst_2 : EquivLike F M N] [AddEquivClass F M N] (g : F) (f : α → M), g (∑ᶠ (i : α), f i) = ∑ᶠ (i : α), g (f i)
+
+• AddEquiv.map_finsum_mem [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] (g : M ≃+ N)
+  (f : α → M) {s : Set α}, s.Finite → g (∑ᶠ (i : α) (_ : i ∈ s), f i) = ∑ᶠ (i : α) (_ : i ∈ s), g (f i)
+
+• map_finset_sum [theorem]
+  ∀ {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {α : Type u_7} {F : Type u_8}
+  [inst_2 : Fintype α] [inst_3 : EquivLike F M N] [AddEquivClass F M N] (f : F) (g : α → M), f (∑ i, g i) = ∑ i, f (g i)
+
+• Finset.prod_map_equiv [theorem]
+  (e : ι ≃ κ) : (s.map e).prod (f ∘ e.symm) = s.prod f
+
+• Fintype.sum_bijective [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : Fintype ι] [inst_1 : Fintype κ] [inst_2 : AddCommMonoid M]
+  (e : ι → κ), Function.Bijective e → ∀ (f : ι → M) (g : κ → M), (∀ (x : ι), f x = g (e x)) → ∑ x, f x = ∑ x, g x
+
+• AddEquiv.map_finsum [theorem]
+  ∀ {M : Type u_2} {N : Type u_3} {α : Sort u_4} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] (g : M ≃+ N)
+  (f : α → M), g (∑ᶠ (i : α), f i) = ∑ᶠ (i : α), g (f i)
+
+• Fintype.prod_equiv [theorem]
+  (e : ι ≃ κ) (f : ι → M) (g : κ → M) (h : ∀ x, f x = g (e x)) : ∏ x, f x = ∏ x, g x
+
+• finprod_eq_of_bijective [theorem]
+  {f : α → M} {g : β → M} (e : α → β) (he₀ : Bijective e) (he₁ : ∀ x, f x = g (e x)) : ∏ᶠ i, f i = ∏ᶠ j, g j
+
+• Finset.prod_comp_equiv [theorem]
+  {f : κ → M} (e : ι ≃ κ) : s.prod (f ∘ e) = (s.map e).prod f
+
+• finprod_comp [theorem]
+  {g : β → M} (e : α → β) (he₀ : Function.Bijective e) : (∏ᶠ i, g (e i)) = ∏ᶠ j, g j
+
+• Equiv.tsum_eq [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] (e : γ ≃ β)
+  (f : β → α), ∑' (c : γ), f (e c) = ∑' (b : β), f b

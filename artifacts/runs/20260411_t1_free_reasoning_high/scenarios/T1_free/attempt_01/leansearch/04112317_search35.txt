@@ -1,0 +1,71 @@
+=== Mathlib Algebra BigOperators Ring Finset mul_sum sum_hom_units (20 matches) ===
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• Units.coeHom [definition]
+  : Mˣ →* M
+
+• RingEquiv.map_sum [theorem]
+  [NonUnitalNonAssocSemiring R] [NonUnitalNonAssocSemiring S] (g : R ≃+* S) (f : α → R) (s : Finset α) :
+  g (∑ x ∈ s, f x) = ∑ x ∈ s, g (f x)
+
+• FreeGroup.sum.map_mul [theorem]
+  : sum (x * y) = sum x + sum y
+
+• mul_finsum_mem' [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] {s : Set α} (f : α → R) (r : R) (hs : s.Finite) :
+  (r * ∑ᶠ a ∈ s, f a) = ∑ᶠ a ∈ s, r * f a
+
+• algebraMap.coe_sum [theorem]
+  (a : ι → R) : ↑(∑ i ∈ s, a i) = ∑ i ∈ s, (↑(a i) : A)
+
+• finsum_mem_mul [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] [NoZeroDivisors R] {s : Set α} (f : α → R) (r : R) :
+  (∑ᶠ a ∈ s, f a) * r = ∑ᶠ a ∈ s, f a * r
+
+• finsum_mem_mul' [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] {s : Set α} (f : α → R) (r : R) (hs : s.Finite) :
+  (∑ᶠ a ∈ s, f a) * r = ∑ᶠ a ∈ s, f a * r
+
+• mul_finsum_mem [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] [NoZeroDivisors R] {s : Set α} (f : α → R) (r : R) :
+  (r * ∑ᶠ a ∈ s, f a) = ∑ᶠ a ∈ s, r * f a
+
+• toMul_sum [theorem]
+  (s : Finset ι) (f : ι → Additive M) : (∑ i ∈ s, f i).toMul = ∏ i ∈ s, (f i).toMul
+
+• NonUnitalRingHom.toMulHom [definition]
+  {α : Type u_5} →
+  {β : Type u_6} → [inst : NonUnitalNonAssocSemiring α] → [inst_1 : NonUnitalNonAssocSemiring β] → (α →ₙ+* β) → α →ₙ* β
+
+• RingEquiv.map_multiset_sum [theorem]
+  [NonUnitalNonAssocSemiring R] [NonUnitalNonAssocSemiring S] (f : R ≃+* S) (s : Multiset R) : f s.sum = (s.map f).sum
+
+• DirectSum.mulHom [definition]
+  : (⨁ i, A i) →+ (⨁ i, A i) →+ ⨁ i, A i
+
+• NonUnitalRingHomClass.toMulHomClass [theorem]
+  ∀ {F : Type u_5} {α : outParam (Type u_6)} {β : outParam (Type u_7)} {inst : NonUnitalNonAssocSemiring α}
+  {inst_1 : NonUnitalNonAssocSemiring β} {inst_2 : FunLike F α β} [self : NonUnitalRingHomClass F α β],
+  MulHomClass F α β
+
+• RingHom.map_geom_sum [theorem]
+  (x : R) (n : ℕ) (f : R →+* S) : f (∑ i ∈ range n, x ^ i) = ∑ i ∈ range n, f x ^ i
+
+• RingHom.map_dfinsuppSumAddHom [theorem]
+  [NonAssocSemiring R] [NonAssocSemiring S] [∀ i, AddZeroClass (β i)] (h : R →+* S) (f : Π₀ i, β i) (g : ∀ i, β i →+ R) :
+  h (sumAddHom g f) = sumAddHom (fun i => h.toAddMonoidHom.comp (g i)) f
+
+• Multiset.sumAddMonoidHom [definition]
+  : Multiset M →+ M
+
+• Pi.nonUnitalRingHom [definition]
+  {γ : Type w} [∀ i, NonUnitalNonAssocSemiring (f i)] [NonUnitalNonAssocSemiring γ] (g : ∀ i, γ →ₙ+* f i) :
+  γ →ₙ+* ∀ i, f i
+
+• DirectSum.mulHom_apply [theorem]
+  (a b : ⨁ i, A i) : mulHom A a b = a * b

@@ -1,0 +1,72 @@
+=== MonoidHom.ext funext theorem (20 matches) ===
+
+• MonoidHom.ext [theorem]
+  [MulOne M] [MulOne N] ⦃f g : M →* N⦄ (h : ∀ x, f x = g x) : f = g
+
+• MonoidHom.ext_iff [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} [inst : MulOne M] [inst_1 : MulOne N] {f g : M →* N}, f = g ↔ ∀ (x : M), f x = g x
+
+• MonCat.Hom.ext [theorem]
+  ∀ {A B : MonCat} {x y : A.Hom B}, x.hom' = y.hom' → x = y
+
+• MonoidWithZeroHom.ext_iff [theorem]
+  ∀ {α : Type u_2} {β : Type u_3} [inst : MulZeroOneClass α] [inst_1 : MulZeroOneClass β] {f g : α →*₀ β},
+  f = g ↔ ∀ (x : α), f x = g x
+
+• MonCat.ext [theorem]
+  {X Y : MonCat} {f g : X ⟶ Y} (w : ∀ x : X, f x = g x) : f = g
+
+• MonoidHom.ext_mnat_iff [theorem]
+  ∀ {M : Type u_1} [inst : Monoid M] {f g : Multiplicative ℕ →* M},
+  f = g ↔ f (Multiplicative.ofAdd 1) = g (Multiplicative.ofAdd 1)
+
+• MonCat.Hom.ext_iff [theorem]
+  ∀ {A B : MonCat} {x y : A.Hom B}, x = y ↔ x.hom' = y.hom'
+
+• AddMonoidHom.ext [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} [inst : AddZero M] [inst_1 : AddZero N] ⦃f g : M →+ N⦄, (∀ (x : M), f x = g x) → f = g
+
+• MonoidHom.functions_ext [theorem]
+  [Finite I] (N : Type*) [CommMonoid N] (g h : (∀ i, M i) →* N)
+  (H : ∀ i x, g (Pi.mulSingle i x) = h (Pi.mulSingle i x)) : g = h
+
+• MonCat.ext_iff [theorem]
+  ∀ {X Y : MonCat} {f g : X ⟶ Y},
+  f = g ↔ ∀ (x : ↑X), (CategoryTheory.ConcreteCategory.hom f) x = (CategoryTheory.ConcreteCategory.hom g) x
+
+• MonCat.hom_ext_iff [theorem]
+  ∀ {M N : MonCat} {f g : M ⟶ N}, f = g ↔ MonCat.Hom.hom f = MonCat.Hom.hom g
+
+• MonCat.hom_ext [theorem]
+  {M N : MonCat} {f g : M ⟶ N} (hf : f.hom = g.hom) : f = g
+
+• OrderMonoidHom.ext [theorem]
+  (h : ∀ a, f a = g a) : f = g
+
+• ContinuousMonoidHom.ext [theorem]
+  {f g : A →ₜ* B} (h : ∀ x, f x = g x) : f = g
+
+• AddCommMonCat.Hom.ext_iff [theorem]
+  ∀ {A B : AddCommMonCat} {x y : A.Hom B}, x = y ↔ x.hom' = y.hom'
+
+• OrderMonoidHom.ext_iff [theorem]
+  ∀ {α : Type u_2} {β : Type u_3} [inst : Preorder α] [inst_1 : Preorder β] [inst_2 : MulOneClass α]
+  [inst_3 : MulOneClass β] {f g : α →*o β}, f = g ↔ ∀ (a : α), f a = g a
+
+• AddMonoidHom.ext_iff [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} [inst : AddZero M] [inst_1 : AddZero N] {f g : M →+ N}, f = g ↔ ∀ (x : M), f x = g x
+
+• MonoidHom.functions_ext'_iff [theorem]
+  ∀ {I : Type u_7} [inst : DecidableEq I] {M : I → Type u_8} [inst_1 : (i : I) → CommMonoid (M i)] [Finite I]
+  {N : Type u_9} [inst_3 : CommMonoid N] {g h : ((i : I) → M i) →* N},
+  g = h ↔ ∀ (i : I), g.comp (MonoidHom.mulSingle M i) = h.comp (MonoidHom.mulSingle M i)
+
+• ContinuousMonoidHom.ext_iff [theorem]
+  ∀ {A : Type u_2} {B : Type u_3} [inst : Monoid A] [inst_1 : Monoid B] [inst_2 : TopologicalSpace A]
+  [inst_3 : TopologicalSpace B] {f g : A →ₜ* B}, f = g ↔ ∀ (x : A), f x = g x
+
+• MonoidHom.mk.congr_simp [theorem]
+  ∀ {M : Type u_10} {N : Type u_11} [inst : MulOne M] [inst_1 : MulOne N] (toOneHom toOneHom_1 : OneHom M N)
+  (e_toOneHom : toOneHom = toOneHom_1)
+  (map_mul' : ∀ (x y : M), toOneHom.toFun (x * y) = toOneHom.toFun x * toOneHom.toFun y),
+  { toOneHom := toOneHom, map_mul' := map_mul' } = { toOneHom := toOneHom_1, map_mul' := ⋯ }

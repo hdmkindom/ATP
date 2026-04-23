@@ -1,0 +1,24 @@
+{
+  "iteration_index": 20,
+  "timestamp_tag": "04061157",
+  "location": "ATP.temTH.CandidateTheorems.T1.RouteA:candidate_T1_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 55:5\n│      linarith\n│      ^^^\n╰─ error: unknown tactic\n\n╭─ Error at line 25:19\n│      exact h_no ⟨g, hg⟩\n│                    ^^^\n╰─ error: Application type mismatch: The argument\n  hg\nhas type\n  ¬↑(χ g) = ↑(1 g)\nbut is expected to have type\n  χ g ≠ 1\nin the application\n  Exists.intro g hg\n\n╭─ Error at line 30:34\n│        Function.Bijective.sum_comp (f := fun g : G => (χ g : ℂ)) (e := fun g : G => h * g)\n│                                   ^^^\n╰─ error: Invalid argument name `f` for function `Function.Bijective.sum_comp`\n\nHint: Perhaps you meant one of the following parameter names:\n  • `ι`: f̵ι̲\n  • `κ`: f̵κ̲\n  • `M`: f̵M̲\n  • `he`: f̵h̲e̲\n  • `g`: f̵g̲\nATP/temTH/CandidateTheorems/T1/tmp_RouteA_8itu7wyn.lean:41:29: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`\n\n╭─ Error at line 52:48\n│    have h_one_sub_ne_zero : 1 - (χ h : ℂ) ≠ 0 := by\n│                                                 ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ⋯\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\nh_mul_left : ∑ g, ↑(χ (h * g)) = ↑(χ h) * S\nh_eq : S = ↑(χ h) * S\nhchi_h_ne_one_complex : ↑(χ h) ≠ 1\nhz : 1 - ↑(χ h) = 0\n⊢ ↑(χ h) = 1\n\n╭─ Error at line 17:30\n│      ∑ g : G, (χ g : ℂ) = 0 := by\n│                               ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\nh_mul_left : ∑ g, ↑(χ (h * g)) = ↑(χ h) * S\nh_eq : S = ↑(χ h) * S\nhchi_h_ne_one_complex : ↑(χ h) ≠ 1\nh_one_sub_ne_zero : 1 - ↑(χ h) ≠ 0\n⊢ ∑ g, ↑(χ g) = 0"
+    },
+    {
+      "feedback_type": "max_iterations",
+      "is_success": false,
+      "is_terminal": true,
+      "content": "Maximum iteration limit (20) reached."
+    }
+  ],
+  "message_count": 3
+}

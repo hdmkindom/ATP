@@ -1,0 +1,14 @@
+{
+  "search_index": 19,
+  "timestamp": "2026-04-11T23:12:13.985327",
+  "timestamp_tag": "04112312",
+  "query": "Character G definition Mathlib",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 2.372341,
+  "error": null,
+  "result_text": "=== Character G definition Mathlib (20 matches) ===\n\n• FDRep.character [definition]\n  (V : FDRep k G) (g : G)\n\n• CharacterModule.ofSpanSingleton [definition]\n  (a : A) : CharacterModule (ℤ ∙ a)\n\n• CharacterModule [definition]\n  : Type uA\n\n• AddChar.instFintype [instance]\n  [Finite G] : Fintype (AddChar G R)\n\n• MeasureTheory.Measure.modularCharacter [definition]\n  : G →* ℝ≥0\n\n• MeasureTheory.Measure.modularCharacterFun [definition]\n  (g : G) : ℝ≥0\n\n• MulChar.commGroup [instance]\n  : CommGroup (MulChar R R')\n\n• AddChar.instFintype.congr_simp [theorem]\n  ∀ (G : Type u_1) (R : Type u_3) [inst : AddCommGroup G] [inst_1 : RCLike R] [inst_2 : Finite G],\n  AddChar.instFintype G R = AddChar.instFintype G R\n\n• MeasureTheory.Measure.addModularCharacterFun [definition]\n  {G : Type u_1} →\n  [inst : TopologicalSpace G] → [inst_1 : AddGroup G] → [IsTopologicalAddGroup G] → [LocallyCompactSpace G] → G → NNReal\n\n• CharacterModule.instAddCommGroup [instance]\n  : AddCommGroup (CharacterModule A)\n\n• FDRep.char_mul_comm [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)\n\n• IsCyclic [inductive]\n  (G : Type u) → [Pow G ℤ] → Prop\n\n• MeasureTheory.Measure.modularCharacterFun_pos [theorem]\n  (g : G) : 0 < modularCharacterFun g\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• AddChar.card_addChar_le [theorem]\n  [Fintype G] : card (AddChar G R) ≤ card G\n\n• MeasureTheory.Measure.modularCharacterFun_map_mul [theorem]\n  (g h : G) : modularCharacterFun (g * h) = modularCharacterFun g * modularCharacterFun h\n\n• commutator_def [theorem]\n  : commutator G = ⁅(⊤ : Subgroup G), ⊤⁆\n\n• AddSubgroup.topCharacteristic [theorem]\n  ∀ {G : Type u_1} [inst : AddGroup G], ⊤.Characteristic\n\n• MulSemiringAction.charpoly_eq [theorem]\n  (b : B) : charpoly G b = ∏ g : G, (X - C (g • b))\n\n• AddSubgroup.botCharacteristic [theorem]\n  ∀ {G : Type u_1} [inst : AddGroup G], ⊥.Characteristic"
+}

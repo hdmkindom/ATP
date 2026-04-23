@@ -1,0 +1,149 @@
+{
+  "search_count": 24,
+  "records": [
+    {
+      "search_index": 1,
+      "timestamp_tag": "04121233",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search01.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search01.txt"
+    },
+    {
+      "search_index": 2,
+      "timestamp_tag": "04121233",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search02.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search02.txt"
+    },
+    {
+      "search_index": 3,
+      "timestamp_tag": "04121233",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search03.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search03.txt"
+    },
+    {
+      "search_index": 4,
+      "timestamp_tag": "04121233",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search04.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search04.txt"
+    },
+    {
+      "search_index": 5,
+      "timestamp_tag": "04121233",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search05.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121233_search05.txt"
+    },
+    {
+      "search_index": 6,
+      "timestamp_tag": "04121234",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121234_search06.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121234_search06.txt"
+    },
+    {
+      "search_index": 7,
+      "timestamp_tag": "04121235",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121235_search07.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121235_search07.txt"
+    },
+    {
+      "search_index": 8,
+      "timestamp_tag": "04121235",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121235_search08.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121235_search08.txt"
+    },
+    {
+      "search_index": 9,
+      "timestamp_tag": "04121235",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121235_search09.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121235_search09.txt"
+    },
+    {
+      "search_index": 10,
+      "timestamp_tag": "04121235",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121235_search10.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121235_search10.txt"
+    },
+    {
+      "search_index": 11,
+      "timestamp_tag": "04121236",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search11.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search11.txt"
+    },
+    {
+      "search_index": 12,
+      "timestamp_tag": "04121236",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search12.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search12.txt"
+    },
+    {
+      "search_index": 13,
+      "timestamp_tag": "04121236",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search13.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search13.txt"
+    },
+    {
+      "search_index": 14,
+      "timestamp_tag": "04121236",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search14.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search14.txt"
+    },
+    {
+      "search_index": 15,
+      "timestamp_tag": "04121236",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search15.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search15.txt"
+    },
+    {
+      "search_index": 16,
+      "timestamp_tag": "04121236",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search16.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121236_search16.txt"
+    },
+    {
+      "search_index": 17,
+      "timestamp_tag": "04121237",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search17.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search17.txt"
+    },
+    {
+      "search_index": 18,
+      "timestamp_tag": "04121237",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search18.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search18.txt"
+    },
+    {
+      "search_index": 19,
+      "timestamp_tag": "04121237",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search19.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search19.txt"
+    },
+    {
+      "search_index": 20,
+      "timestamp_tag": "04121237",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search20.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search20.txt"
+    },
+    {
+      "search_index": 21,
+      "timestamp_tag": "04121237",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search21.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search21.txt"
+    },
+    {
+      "search_index": 22,
+      "timestamp_tag": "04121237",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search22.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search22.txt"
+    },
+    {
+      "search_index": 23,
+      "timestamp_tag": "04121237",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search23.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search23.txt"
+    },
+    {
+      "search_index": 24,
+      "timestamp_tag": "04121237",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search24.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260412_123255/scenarios/T1_free/attempt_01/leansearch/04121237_search24.txt"
+    }
+  ]
+}

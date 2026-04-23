@@ -1,0 +1,66 @@
+=== sum_hom_units_eq_zero theorem import (20 matches) ===
+
+• AddUnits.neg_val [theorem]
+  ∀ {α : Type u} [inst : AddMonoid α] (self : AddUnits α), self.neg + ↑self = 0
+
+• map_add_eq_zero [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} {F : Type u_9} [inst : AddZero M] [inst_1 : AddZero N] [inst_2 : FunLike F M N]
+  [AddMonoidHomClass F M N] (f : F) {a b : M}, a + b = 0 → f a + f b = 0
+
+• Subsingleton.addUnits_of_isAddUnit [theorem]
+  ∀ {M : Type u_1} [inst : AddMonoid M], (∀ (a : M), IsAddUnit a → a = 0) → Subsingleton (AddUnits M)
+
+• AddLeftCancelMonoid.add_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddLeftCancelMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• AddUnits.val_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddMonoid α] {a : AddUnits α}, ↑a = 0 ↔ a = 0
+
+• isAddUnit_iff_eq_zero [theorem]
+  ∀ {M : Type u_1} [inst : AddMonoid M] {a : M} [Subsingleton (AddUnits M)], IsAddUnit a ↔ a = 0
+
+• Multiset.sum_eq_zero [theorem]
+  ∀ {M : Type u_5} [inst : AddCommMonoid M] {s : Multiset M}, (∀ (x : M), x ∈ s → x = 0) → s.sum = 0
+
+• Finsupp.sum_zero_index [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} [inst : Zero M] [inst_1 : AddCommMonoid N] {h : α → M → N},
+  Finsupp.sum 0 h = 0
+
+• NonUnitalAlgHom.zero_apply [theorem]
+  (a : A) : (0 : A →ₛₙₐ[φ] B) a = 0
+
+• finsum_eq_zero_of_forall_eq_zero [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M}, (∀ (x : α), f x = 0) → ∑ᶠ (i : α), f i = 0
+
+• AddUnits.instZero [definition]
+  {α : Type u} → [inst : AddMonoid α] → Zero (AddUnits α)
+
+• rootsOfUnity_zero [theorem]
+  (M : Type*) [CommMonoid M] : rootsOfUnity 0 M = ⊤
+
+• MonoidWithZeroHom.valueMonoid_eq_valueGroup [theorem]
+  : (valueMonoid f) = (valueGroup f).toSubmonoid
+
+• DFinsupp.sum_eq_zero [theorem]
+  ∀ {ι : Type u} {γ : Type w} {β : ι → Type v} [inst : DecidableEq ι] [inst_1 : (i : ι) → Zero (β i)]
+  [inst_2 : (i : ι) → (x : β i) → Decidable (x ≠ 0)] [inst_3 : AddCommMonoid γ] {f : Π₀ (i : ι), β i}
+  {h : (i : ι) → β i → γ}, (∀ (i : ι), h i (f i) = 0) → f.sum h = 0
+
+• instZeroAddMonoidHom [definition]
+  {M : Type u_4} → {N : Type u_5} → [inst : AddZero M] → [inst_1 : AddZeroClass N] → Zero (M →+ N)
+
+• instIsCancelAddZeroHom [theorem]
+  ∀ {M : Type uM} {N : Type uN} [inst : Zero M] [inst_1 : AddZeroClass N] [IsCancelAdd N], IsCancelAdd (ZeroHom M N)
+
+• NonUnitalRingHom.zero_apply [theorem]
+  (x : α) : (0 : α →ₙ+* β) x = 0
+
+• WithZero.unitsWithZeroEquiv_apply [theorem]
+  ∀ {α : Type u_1} [inst : Group α] (a : (WithZero α)ˣ), WithZero.unitsWithZeroEquiv a = WithZero.unzero ⋯
+
+• ZeroHom.mk_coe [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} [inst : Zero M] [inst_1 : Zero N] (f : ZeroHom M N) (h1 : f 0 = 0),
+  { toFun := ⇑f, map_zero' := h1 } = f
+
+• NonUnitalAlgHom.instZero [instance]
+  : Zero (A →ₛₙₐ[φ] B)

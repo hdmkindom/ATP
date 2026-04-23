@@ -1,0 +1,14 @@
+{
+  "search_index": 7,
+  "timestamp": "2026-04-12T23:06:45.630996",
+  "timestamp_tag": "04122306",
+  "query": "Units.coeHom ℂ",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.995477,
+  "error": null,
+  "result_text": "=== Units.coeHom ℂ (20 matches) ===\n\n• Circle.coeHom [definition]\n  : Circle →* ℂ\n\n• Circle.toUnits [definition]\n  : Circle →* Units ℂ\n\n• NumberField.Units.complexEmbedding [definition]\n  (φ : K →+* ℂ) : (𝓞 K)ˣ →* ℂˣ\n\n• Circle.coeHom_apply [theorem]\n  ∀ (self : ↥(Submonoid.unitSphere ℂ)), Circle.coeHom self = ↑self\n\n• Circle.instCoeOut [instance]\n  : CoeOut Circle ℂ\n\n• NumberField.IsCMField.unitsMulComplexConjInv [definition]\n  : (𝓞 K)ˣ →* torsion K\n\n• Complex.ofRealHom_eq_coe [theorem]\n  (r : ℝ) : ofRealHom r = r\n\n• NumberField.IsCMField.unitsMulComplexConjInv.congr_simp [theorem]\n  ∀ (K : Type u_1) [inst : Field K] [inst_1 : CharZero K] [inst_2 : NumberField.IsCMField K] [inst_3 : NumberField K],\n  NumberField.IsCMField.unitsMulComplexConjInv K = NumberField.IsCMField.unitsMulComplexConjInv K\n\n• NumberField.Units.complexEmbedding_apply [theorem]\n  (φ : K →+* ℂ) (u : (𝓞 K)ˣ) : Units.complexEmbedding φ u = φ u\n\n• Complex.UnitDisc.instCoe [instance]\n  : Coe UnitDisc ℂ\n\n• Quaternion.ofComplex [definition]\n  : ℂ →ₐ[ℝ] ℍ\n\n• Units.coeHom [definition]\n  : Mˣ →* M\n\n• CliffordAlgebraComplex.ofComplex [definition]\n  : ℂ →ₐ[ℝ] CliffordAlgebra Q\n\n• Complex.ofRealHom [definition]\n  : ℝ →+* ℂ\n\n• Complex.UnitDisc.coe [definition]\n  : 𝔻 → ℂ\n\n• Units.coeHom_apply [theorem]\n  (x : Mˣ) : coeHom M x = ↑x\n\n• Complex.ofRealAm_coe [theorem]\n  : ⇑ofRealAm = ((↑) : ℝ → ℂ)\n\n• Quaternion.coe_ofComplex [theorem]\n  : ⇑ofComplex = coeComplex\n\n• Complex.coe_imAddGroupHom [theorem]\n  : (imAddGroupHom : ℂ → ℝ) = im\n\n• MulChar.coe_toUnitHom [theorem]\n  (χ : MulChar R R') (a : Rˣ) : ↑(χ.toUnitHom a) = χ a"
+}

@@ -1,0 +1,68 @@
+=== CandidateTheorems.T1 Character theorem sum (20 matches) ===
+
+• AddChar.sum_apply_eq_ite [theorem]
+  [Fintype α] [DecidableEq α] (a : α) : ∑ ψ : AddChar α ℂ, ψ a = if a = 0 then (Fintype.card α : ℂ) else 0
+
+• AddChar.sum_eq_zero_iff_ne_zero [theorem]
+  : ∑ x, ψ x = 0 ↔ ψ ≠ 0
+
+• AddChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {ψ : AddChar R R'} (hψ : ψ ≠ 1) : ∑ a, ψ a = 0
+
+• MulChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {χ : MulChar R R'} (hχ : χ ≠ 1) : ∑ a, χ a = 0
+
+• AddChar.sum_eq_ite [theorem]
+  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0
+
+• AddChar.sum_eq_card_of_eq_one [theorem]
+  {ψ : AddChar R R'} (hψ : ψ = 1) : ∑ a, ψ a = Fintype.card R
+
+• AddChar.sum_ne_zero_iff_eq_zero [theorem]
+  : ∑ x, ψ x ≠ 0 ↔ ψ = 0
+
+• AddChar.sum_apply_ne_zero_iff_eq_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a ≠ 0 ↔ a = 0
+
+• AddChar.sum_apply_eq_zero_iff_ne_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a = 0 ↔ a ≠ 0
+
+• MulChar.sum_one_eq_card_units [theorem]
+  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ
+
+• AddChar.sum_mulShift [theorem]
+  {R : Type*} [CommRing R] [Fintype R] [DecidableEq R] {R' : Type*} [CommRing R'] [IsDomain R'] {ψ : AddChar R R'}
+  (b : R) (hψ : IsPrimitive ψ) : ∑ x : R, ψ (x * b) = if b = 0 then Fintype.card R else 0
+
+• AddChar.prod_eq_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∏ i ∈ s, ψ i = ∑ i ∈ s, ψ i
+
+• AddChar.coe_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∑ i ∈ s, ψ i = ∏ i ∈ s, ⇑(ψ i)
+
+• AddChar.sum_apply [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) (a : A) : (∑ i ∈ s, ψ i) a = ∏ i ∈ s, ψ i a
+
+• AddChar.directSum_apply [theorem]
+  ∀ {ι : Type u_1} {R : Type u_2} {G : ι → Type u_3} [inst : DecidableEq ι] [inst_1 : (i : ι) → AddCommGroup (G i)]
+  [inst_2 : CommMonoid R] (ψ : (i : ι) → AddChar (G i) R) (a : DirectSum ι fun i => G i),
+  (AddChar.directSum ψ) a = (DirectSum.toAddMonoid fun i => AddChar.toAddMonoidHomEquiv (ψ i)) a
+
+• ValueDistribution.characteristic_sum_top_le [theorem]
+  {α : Type*} (s : Finset α) (f : α → ℂ → E) {r : ℝ} (hf : ∀ a, Meromorphic (f a)) (hr : 1 ≤ r) :
+  characteristic (∑ a ∈ s, f a) ⊤ r ≤ (∑ a ∈ s, (characteristic (f a) ⊤)) r + log s.card
+
+• AddChar.coe_add [theorem]
+  (ψ χ : AddChar A M) : ⇑(ψ + χ) = ψ * χ
+
+• ValueDistribution.characteristic_sum_top_eventuallyLE [theorem]
+  {α : Type*} (s : Finset α) (f : α → ℂ → E) (hf : ∀ a, Meromorphic (f a)) :
+  characteristic (∑ a ∈ s, f a) ⊤ ≤ᶠ[Filter.atTop] ∑ a ∈ s, (characteristic (f a) ⊤) + fun _ ↦ log s.card
+
+• Summable.tsum_eq_zero_add [theorem]
+  ∀ {G : Type u_2} [inst : AddCommGroup G] [inst_1 : TopologicalSpace G] [IsTopologicalAddGroup G] [T2Space G]
+  {f : ℕ → G}, Summable f → ∑' (b : ℕ), f b = f 0 + ∑' (b : ℕ), f (b + 1)
+
+• tsum_subtype [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] (s : Set β) (f : β → α),
+  ∑' (x : ↑s), f ↑x = ∑' (x : β), s.indicator f x

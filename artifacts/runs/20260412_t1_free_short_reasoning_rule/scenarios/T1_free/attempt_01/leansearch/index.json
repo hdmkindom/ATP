@@ -1,0 +1,23 @@
+{
+  "search_count": 3,
+  "records": [
+    {
+      "search_index": 1,
+      "timestamp_tag": "04120039",
+      "json_path": "ATP/artifacts/runs/20260412_t1_free_short_reasoning_rule/scenarios/T1_free/attempt_01/leansearch/04120039_search01.json",
+      "text_path": "ATP/artifacts/runs/20260412_t1_free_short_reasoning_rule/scenarios/T1_free/attempt_01/leansearch/04120039_search01.txt"
+    },
+    {
+      "search_index": 2,
+      "timestamp_tag": "04120039",
+      "json_path": "ATP/artifacts/runs/20260412_t1_free_short_reasoning_rule/scenarios/T1_free/attempt_01/leansearch/04120039_search02.json",
+      "text_path": "ATP/artifacts/runs/20260412_t1_free_short_reasoning_rule/scenarios/T1_free/attempt_01/leansearch/04120039_search02.txt"
+    },
+    {
+      "search_index": 3,
+      "timestamp_tag": "04120039",
+      "json_path": "ATP/artifacts/runs/20260412_t1_free_short_reasoning_rule/scenarios/T1_free/attempt_01/leansearch/04120039_search03.json",
+      "text_path": "ATP/artifacts/runs/20260412_t1_free_short_reasoning_rule/scenarios/T1_free/attempt_01/leansearch/04120039_search03.txt"
+    }
+  ]
+}

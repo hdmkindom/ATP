@@ -1,0 +1,18 @@
+{
+  "iteration_index": 15,
+  "timestamp_tag": "04061220",
+  "location": "ATP.temTH.CandidateTheorems.T2.RouteB:candidate_T2_routeB",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T2/tmp_RouteB_gbf_aglb.lean:18:14: error(lean.unknownIdentifier): Unknown identifier `sum_hom_units`"
+    }
+  ],
+  "message_count": 2
+}

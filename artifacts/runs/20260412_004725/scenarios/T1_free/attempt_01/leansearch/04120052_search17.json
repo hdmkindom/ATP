@@ -1,0 +1,14 @@
+{
+  "search_index": 17,
+  "timestamp": "2026-04-12T00:52:40.290977",
+  "timestamp_tag": "04120052",
+  "query": "Mathlib Character G := G →* ℂˣ",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.121726,
+  "error": null,
+  "result_text": "=== Mathlib Character G := G →* ℂˣ (20 matches) ===\n\n• FDRep.character [definition]\n  (V : FDRep k G) (g : G)\n\n• CharacterModule [definition]\n  : Type uA\n\n• FDRep.char_mul_comm [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)\n\n• AddChar.circleEquivComplex [definition]\n  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ\n\n• AddChar.map_neg_eq_conj [theorem]\n  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)\n\n• toUnits [definition]\n  [Group G] : G ≃* Gˣ\n\n• MulChar.ofRootOfUnity_spec [theorem]\n  {ζ : Rˣ} (hζ : ζ ∈ rootsOfUnity (Fintype.card Mˣ) R) {g : Mˣ} (hg : ∀ x, x ∈ Subgroup.zpowers g) :\n  ofRootOfUnity hζ hg g = ζ\n\n• MulChar.commGroup [instance]\n  : CommGroup (MulChar R R')\n\n• CharacterModule.instAddCommGroup [instance]\n  : AddCommGroup (CharacterModule A)\n\n• FDRep.char_dual [theorem]\n  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹\n\n• FDRep.char_linHom [theorem]\n  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g\n\n• AddChar.linearIndependent [theorem]\n  [Finite G] : LinearIndependent R ((⇑) : AddChar G R → G → R)\n\n• AddChar.complexBasis_apply [theorem]\n  (ψ : AddChar α ℂ) : complexBasis α ψ = ψ\n\n• AddChar.complexBasis [definition]\n  : Basis (AddChar α ℂ) ℂ (α → ℂ)\n\n• MeasureTheory.Measure.modularCharacter [definition]\n  : G →* ℝ≥0\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• MeasureTheory.distribHaarChar [definition]\n  : G →* ℝ≥0\n\n• MulChar.toUnitHom [definition]\n  (χ : MulChar R R') : Rˣ →* R'ˣ\n\n• CharacterModule.dual_apply [theorem]\n  ∀ {R : Type uR} [inst : CommRing R] {A : Type uA} [inst_1 : AddCommGroup A] {B : Type uB} [inst_2 : AddCommGroup B]\n  [inst_3 : Module R A] [inst_4 : Module R B] (f : A →ₗ[R] B) (L : CharacterModule B),\n  (CharacterModule.dual f) L = AddMonoidHom.comp L f.toAddMonoidHom\n\n• ZMod.toCircle_apply [theorem]\n  (j : ZMod N) : toCircle j = exp (2 * π * I * j.val / N)"
+}

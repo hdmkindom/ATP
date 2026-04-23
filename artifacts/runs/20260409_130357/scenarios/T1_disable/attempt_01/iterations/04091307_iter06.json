@@ -1,0 +1,24 @@
+{
+  "iteration_index": 6,
+  "timestamp_tag": "04091307",
+  "location": "ATP.temTH.CandidateTheorems.T1.Disable:candidate_T1_disable",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T1/tmp_Disable_7ubfd5gy.lean:29:23: error(lean.unknownIdentifier): Unknown identifier `mul_sum`\n\n╭─ Error at line 29:16\n│                  simpa [mul_sum]\n│                 ^^^\n╰─ error: Tactic `assumption` failed\n\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\ng : G\nhg : ¬↑(χ g) = ↑(1 g)\n⊢ ↑(χ g) * ∑ x, ↑(χ x) = ∑ x, ↑(χ g) * ↑(χ x)\n\n╭─ Error at line 35:14\n│                refine Finset.sum_bijective (fun x => g * x) ?_\n│               ^^^\n╰─ error: Type mismatch\n  Finset.sum_bijective (fun x => g * x) ?m.175\nhas type\n  (∀ (i : G), i ∈ ?m.166 ↔ g * i ∈ ?m.167) →\n    (∀ i ∈ ?m.166, ?m.168 i = ?m.169 (g * i)) → ∑ i ∈ ?m.166, ?m.168 i = ∑ i ∈ ?m.167, ?m.169 i\nbut is expected to have type\n  ∑ x, ↑(χ (g * x)) = ∑ y, ↑(χ y)\n\n╭─ Error at line 39:35\n│        exact mul_right_cancel₀ hsum hmul\n│                                    ^^^\n╰─ error: Application type mismatch: The argument\n  hmul\nhas type\n  ↑(χ g) * ∑ x, ↑(χ x) = ∑ x, ↑(χ x)\nbut is expected to have type\n  ↑(χ g) * ∑ g, ↑(χ g) = 1 * ∑ g, ↑(χ g)\nin the application\n  mul_right_cancel₀ hsum hmul\n\n╭─ Error at line 41:26\n│      exact Subtype.ext (by simpa using hg1)\n│                           ^^^\n╰─ error: Type mismatch: After simplification, term\n  hg1\n has type\n  χ g = 1\nbut is expected to have type\n  ↑?m.193 = ↑?m.194"
+    },
+    {
+      "feedback_type": "max_iterations",
+      "is_success": false,
+      "is_terminal": true,
+      "content": "Maximum iteration limit (6) reached."
+    }
+  ],
+  "message_count": 3
+}

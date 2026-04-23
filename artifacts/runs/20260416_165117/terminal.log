@@ -1,0 +1,25 @@
+
+===== ATP terminal session started at 2026-04-16T16:51:17.057447 =====
+[96m----------------------
+欢迎使用 ax-prover—ATP
+本次使用的模型：anthropic:claude-opus-4-6
+最大证明轮次：10
+单次尝试模型请求上限：不限制
+运行轮数：1
+场景尝试数量：总计 1，正式 1
+本次运行预估所需时间：00:14:22（历史平均）
+作者：刘泽博
+----------------------[0m
+[96m--T1-free-----------[0m
+[34m2026-04-16 16:51:19 - INFO - [proving.py:25 - get_item_from_location()] - Proving theorem at: ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free[0m
+[34m2026-04-16 16:51:19 - INFO - [lean_search.py:272 - warmup_lean_search()] - Warming up LeanSearch server at https://leansearch.net...[0m
+[34m2026-04-16 16:51:21 - INFO - [lean_search.py:275 - warmup_lean_search()] - LeanSearch warm-up successful[0m
+[34m2026-04-16 16:51:21 - INFO - [agent.py:567 - chat()] - Starting prover run: prove:candidate_T1_free[0m
+[34m2026-04-16 16:51:21 - INFO - [agent.py:251 - _proposer_node()] - Proposing proof (iteration 1) for: ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free[0m
+[34m2026-04-16 16:51:21 - INFO - [llm_request] - Sending LLM request #1 via ainvoke model=claude-opus-4-6[0m
+[31m2026-04-16 16:51:28 - ERROR - [agent.py:597 - chat()] - Error: Error code: 404 - 'error': 'message': 'Invalid URL (POST /v1/v1/messages)', 'type': 'invalid_request_error', 'param': ”, 'code': ”[0m
+[31mX T1.free attempt=1 prover_iters=0 success=False valid=False[0m
+[31mX error: NotFoundError: Error code: 404 - {'error': {'message': 'Invalid URL (POST /v1/v1/messages)', 'type': 'invalid_request_error', 'param': '', 'code': ''}}[0m
+[96mTIME 已运行 00:00:08 | 当前题目 00:00:08 | 剩余预估 00:00:00[0m
+[96mArtifacts written to /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260416_165117[0m
+===== ATP terminal session ended at 2026-04-16T16:51:28.022424 =====

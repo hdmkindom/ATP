@@ -1,0 +1,18 @@
+{
+  "iteration_index": 17,
+  "timestamp_tag": "04061155",
+  "location": "ATP.temTH.CandidateTheorems.T1.RouteA:candidate_T1_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 25:27\n│      exact h_not_exists ⟨g, hne⟩\n│                            ^^^\n╰─ error: Application type mismatch: The argument\n  hne\nhas type\n  ¬↑(χ g) = ↑(1 g)\nbut is expected to have type\n  χ g ≠ 1\nin the application\n  Exists.intro g hne\nATP/temTH/CandidateTheorems/T1/tmp_RouteA_sil9tgak.lean:41:18: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`\n\n╭─ Error at line 51:6\n│        simpa [sub_eq_add_neg, add_comm, add_left_comm, add_assoc] using this\n│       ^^^\n╰─ error: Type mismatch: After simplification, term\n  this\n has type\n  1 = ↑(χ h)\nbut is expected to have type\n  χ h = 1\n\n╭─ Error at line 53:22\n│      exact Subtype.ext hcoh\n│                       ^^^\n╰─ error: Application type mismatch: The argument\n  hcoh\nhas type\n  ↑(χ h) = 1\nbut is expected to have type\n  ↑?m.278 = ↑?m.279\nin the application\n  Subtype.ext hcoh\n\n╭─ Error at line 57:19\n│        _ = S - S := by rw [h_eq]\n│                    ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\nh_mul_left : ∑ g, ↑(χ (h * g)) = ↑(χ h) * S\nh_eq : S = ↑(χ h) * S\nh_one_sub_ne_zero : 1 - ↑(χ h) ≠ 0\n⊢ ↑(χ h) * S - ↑(χ h) * (↑(χ h) * S) = ↑(χ h) * S - ↑(χ h) * S\nATP/temTH/CandidateTheorems/T1/tmp_RouteA_sil9tgak.lean:60:10: error(lean.unknownIdentifier): Unknown identifier `right_eq_zero_of_mul_eq_zero_left`"
+    }
+  ],
+  "message_count": 2
+}

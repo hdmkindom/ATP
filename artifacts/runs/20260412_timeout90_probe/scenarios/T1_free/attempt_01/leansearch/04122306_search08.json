@@ -1,0 +1,14 @@
+{
+  "search_index": 8,
+  "timestamp": "2026-04-12T23:06:47.555979",
+  "timestamp_tag": "04122306",
+  "query": "sum_hom_units_eq_zero coercion to ℂ",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 3.920545,
+  "error": null,
+  "result_text": "=== sum_hom_units_eq_zero coercion to ℂ (20 matches) ===\n\n• NonUnitalRingHom.coe_zero [theorem]\n  : ⇑(0 : α →ₙ+* β) = 0\n\n• DFinsupp.sumAddHom_zero [theorem]\n  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] : (sumAddHom fun i => (0 : β i →+ γ)) = 0\n\n• AddUnits.coeHom_apply [theorem]\n  ∀ {M : Type u} [inst : AddMonoid M] (x : AddUnits M), (AddUnits.coeHom M) x = ↑x\n\n• Circle.instCoeOut [instance]\n  : CoeOut Circle ℂ\n\n• ZeroHom.toFun_eq_coe [theorem]\n  ∀ {M : Type u_4} {N : Type u_5} [inst : Zero M] [inst_1 : Zero N] (f : ZeroHom M N), f.toFun = ⇑f\n\n• NonUnitalStarRingHom.coe_zero [theorem]\n  : ((0 : A →⋆ₙ+* B) : A → B) = 0\n\n• Complex.ofRealAm_coe [theorem]\n  : ⇑ofRealAm = ((↑) : ℝ → ℂ)\n\n• DFinsupp.sumAddHom_toZeroHom [theorem]\n  ∀ {ι : Type u} {γ : Type w} {β : ι → Type v} [inst : DecidableEq ι] [inst_1 : (i : ι) → AddZeroClass (β i)]\n  [inst_2 : AddCommMonoid γ] (φ : (i : ι) → β i →+ γ), ↑(DFinsupp.sumAddHom φ) = DFinsupp.sumZeroHom fun i => ↑(φ i)\n\n• Complex.ofReal_zero [theorem]\n  : ((0 : ℝ) : ℂ) = 0\n\n• NonUnitalStarAlgHom.coe_zero [theorem]\n  : ((0 : A →⋆ₙₐ[R] B) : A → B) = 0\n\n• ZeroHom.mk_coe [theorem]\n  ∀ {M : Type u_4} {N : Type u_5} [inst : Zero M] [inst_1 : Zero N] (f : ZeroHom M N) (h1 : f 0 = 0),\n  { toFun := ⇑f, map_zero' := h1 } = f\n\n• NonUnitalAlgHom.coe_zero [theorem]\n  : ⇑(0 : A →ₛₙₐ[φ] B) = 0\n\n• Circle.toUnits_apply [theorem]\n  (z : Circle) : toUnits z = Units.mk0 (↑z) z.coe_ne_zero\n\n• Subgroup.val_centerUnitsEquivUnitsCenter_apply_coe [theorem]\n  ∀ (G₀ : Type u_1) [inst : GroupWithZero G₀] (a : ↥(Subgroup.center G₀ˣ)),\n  ↑↑((Subgroup.centerUnitsEquivUnitsCenter G₀) a) = ↑↑a\n\n• Complex.addGroupWithOne [instance]\n  : AddGroupWithOne ℂ\n\n• Complex.UnitDisc.star_eq_zero [theorem]\n  {z : 𝔻} : star z = 0 ↔ z = 0\n\n• CochainComplex.HomComplex.CohomologyClass.mk_zero [theorem]\n  : mk (0 : Cocycle K L n) = 0\n\n• NumberField.IsCMField.unitsMulComplexConjInv.congr_simp [theorem]\n  ∀ (K : Type u_1) [inst : Field K] [inst_1 : CharZero K] [inst_2 : NumberField.IsCMField K] [inst_3 : NumberField K],\n  NumberField.IsCMField.unitsMulComplexConjInv K = NumberField.IsCMField.unitsMulComplexConjInv K\n\n• AddCircle.toCircle_zero [theorem]\n  : toCircle (0 : AddCircle T) = 1\n\n• NumberField.IsCMField.unitsMulComplexConjInv [definition]\n  : (𝓞 K)ˣ →* torsion K"
+}

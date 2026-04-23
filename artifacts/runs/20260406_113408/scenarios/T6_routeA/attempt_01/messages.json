@@ -1,0 +1,248 @@
+[
+  {
+    "index": 1,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [data.scale_def, data.psi_a_def] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 2,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\n╭─ Error at line 15:9\n│    simpa [data.scale_def, data.psi_a_def] using\n│          ^^^\n╰─ error: Invalid field `scale_def`: The environment does not contain `CandidateTheorems.T6.ChangeOfVariablesData.scale_def`\n  data\nhas type\n  ChangeOfVariablesData\n\n╭─ Error at line 15:25\n│    simpa [data.scale_def, data.psi_a_def] using\n│                          ^^^\n╰─ error: Invalid field `psi_a_def`: The environment does not contain `CandidateTheorems.T6.ChangeOfVariablesData.psi_a_def`\n  data\nhas type\n  ChangeOfVariablesData\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_rwmapaqw.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 3,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [data.scale, data.ψₐ] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 4,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\n╭─ Error at line 15:9\n│    simpa [data.scale, data.ψₐ] using\n│          ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  ℂ\n\n╭─ Error at line 15:21\n│    simpa [data.scale, data.ψₐ] using\n│                      ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  α → ℂ\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_q6fz9avc.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 5,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa using data.gaussSum_scale\n```"
+  },
+  {
+    "index": 6,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\n╭─ Error at line 15:14\n│    simpa using data.gaussSum_scale\n│               ^^^\n╰─ error: Invalid field `gaussSum_scale`: The environment does not contain `CandidateTheorems.T6.ChangeOfVariablesData.gaussSum_scale`\n  data\nhas type\n  ChangeOfVariablesData"
+  },
+  {
+    "index": 7,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [mul_comm] using (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 8,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_7ivjp2ux.lean:15:26: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 9,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [data.scale, mul_comm] using (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 10,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\n╭─ Error at line 15:9\n│    simpa [data.scale, mul_comm] using (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n│          ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  ℂ\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_fd2phc7_.lean:15:38: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 11,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  have h := gaussSum_mulShift data.χ data.ψ₁ data.aUnit\n  simpa [data.scale, data.ψₐ, mul_comm] using h.symm\n```"
+  },
+  {
+    "index": 12,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_fsp17qps.lean:15:12: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`\n\n╭─ Error at line 14:70\n│      gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n│                                                                       ^^^\n╰─ error: unsolved goals\nα : Type u_1\ninst✝ : Fintype α\ndata : ChangeOfVariablesData\n⊢ gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁"
+  },
+  {
+    "index": 13,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  have h := gaussSum_mulShift data.χ data.ψ₁ data.aUnit\n  simpa [data.scale, data.ψₐ, mul_comm] using h.symm\n```"
+  },
+  {
+    "index": 14,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_qooxwkzj.lean:15:12: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`\n\n╭─ Error at line 14:70\n│      gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n│                                                                       ^^^\n╰─ error: unsolved goals\nα : Type u_1\ninst✝ : Fintype α\ndata : ChangeOfVariablesData\n⊢ gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁"
+  },
+  {
+    "index": 15,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  have h := gaussSum_mulShift data.χ data.ψ₁ data.aUnit\n  simpa [data.scale, data.ψₐ, mul_comm] using h.symm\n```"
+  },
+  {
+    "index": 16,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_d04gxxe4.lean:15:12: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`\n\n╭─ Error at line 14:70\n│      gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n│                                                                       ^^^\n╰─ error: unsolved goals\nα : Type u_1\ninst✝ : Fintype α\ndata : ChangeOfVariablesData\n⊢ gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁"
+  },
+  {
+    "index": 17,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  have h := gaussSum_mulShift data.χ data.ψ₁ data.aUnit\n  simpa [data.scale, data.ψₐ, mul_comm] using h.symm\n```"
+  },
+  {
+    "index": 18,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_grun6lk3.lean:15:12: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`\n\n╭─ Error at line 14:70\n│      gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n│                                                                       ^^^\n╰─ error: unsolved goals\nα : Type u_1\ninst✝ : Fintype α\ndata : ChangeOfVariablesData\n⊢ gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁"
+  },
+  {
+    "index": 19,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [data.scale, data.ψₐ, mul_comm] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 20,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\n╭─ Error at line 15:9\n│    simpa [data.scale, data.ψₐ, mul_comm] using\n│          ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  ℂ\n\n╭─ Error at line 15:21\n│    simpa [data.scale, data.ψₐ, mul_comm] using\n│                      ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  α → ℂ\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_i9gvqmhz.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 21,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [data.scale, data.ψₐ, mul_comm, mul_left_comm, mul_assoc] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 22,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\n╭─ Error at line 15:9\n│    simpa [data.scale, data.ψₐ, mul_comm, mul_left_comm, mul_assoc] using\n│          ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  ℂ\n\n╭─ Error at line 15:21\n│    simpa [data.scale, data.ψₐ, mul_comm, mul_left_comm, mul_assoc] using\n│                      ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  α → ℂ\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_kj58ltwy.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 23,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [data.scale] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 24,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\n╭─ Error at line 15:9\n│    simpa [data.scale] using\n│          ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  ℂ\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_34b58r66.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 25,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  have h := gaussSum_mulShift data.χ data.ψ₁ data.aUnit\n  simpa [data.ψₐ, data.scale] using h.symm\n```"
+  },
+  {
+    "index": 26,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_lfv4xyns.lean:15:12: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`\n\n╭─ Error at line 14:70\n│      gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n│                                                                       ^^^\n╰─ error: unsolved goals\nα : Type u_1\ninst✝ : Fintype α\ndata : ChangeOfVariablesData\n⊢ gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁"
+  },
+  {
+    "index": 27,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  have h := gaussSum_mulShift data.χ data.ψ₁ data.aUnit\n  simpa [data.scale, data.ψₐ] using h.symm\n```"
+  },
+  {
+    "index": 28,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_rtdwtfcj.lean:15:12: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`\n\n╭─ Error at line 14:70\n│      gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n│                                                                       ^^^\n╰─ error: unsolved goals\nα : Type u_1\ninst✝ : Fintype α\ndata : ChangeOfVariablesData\n⊢ gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁"
+  },
+  {
+    "index": 29,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  have h := gaussSum_mulShift data.χ data.ψ₁ data.aUnit\n  simpa [ChangeOfVariablesData.scale, ChangeOfVariablesData.ψₐ] using h.symm\n```"
+  },
+  {
+    "index": 30,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_5qf9c2d9.lean:15:12: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`\n\n╭─ Error at line 14:70\n│      gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n│                                                                       ^^^\n╰─ error: unsolved goals\nα : Type u_1\ninst✝ : Fintype α\ndata : ChangeOfVariablesData\n⊢ gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁"
+  },
+  {
+    "index": 31,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  have h := gaussSum_mulShift data.χ data.ψ₁ data.aUnit\n  simpa [ChangeOfVariablesData.scale, ChangeOfVariablesData.ψₐ] using h.symm\n```"
+  },
+  {
+    "index": 32,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_eul3ls4t.lean:15:12: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`\n\n╭─ Error at line 14:70\n│      gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n│                                                                       ^^^\n╰─ error: unsolved goals\nα : Type u_1\ninst✝ : Fintype α\ndata : ChangeOfVariablesData\n⊢ gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁"
+  },
+  {
+    "index": 33,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [ChangeOfVariablesData.scale, ChangeOfVariablesData.ψₐ] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 34,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_exatmapl.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 35,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [ChangeOfVariablesData.scale, ChangeOfVariablesData.ψₐ] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 36,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_aap4ybui.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 37,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [ChangeOfVariablesData.scale, ChangeOfVariablesData.ψₐ] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 38,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_qo7v3z05.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 39,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T6.RouteA:candidate_T6_routeA\n\nCode:\n```lean\ntheorem candidate_T6_routeA (data : ChangeOfVariablesData (α := α)) :\n    gaussSum data.χ data.ψₐ = data.scale * gaussSum data.χ data.ψ₁ := by\n  simpa [ChangeOfVariablesData.scale, ChangeOfVariablesData.ψₐ] using\n    (gaussSum_mulShift data.χ data.ψ₁ data.aUnit).symm\n```"
+  },
+  {
+    "index": 40,
+    "message_class": "BuildFailedFeedback",
+    "type": "feedback",
+    "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_RouteA_k8l2zh66.lean:16:5: error(lean.unknownIdentifier): Unknown identifier `gaussSum_mulShift`"
+  },
+  {
+    "index": 41,
+    "message_class": "MaxIterationsFeedback",
+    "type": "feedback",
+    "content": "Maximum iteration limit (20) reached."
+  }
+]

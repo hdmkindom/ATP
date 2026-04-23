@@ -1,0 +1,64 @@
+=== sum_hom_units_eq_zero (20 matches) ===
+
+• AddUnits.neg_val [theorem]
+  ∀ {α : Type u} [inst : AddMonoid α] (self : AddUnits α), self.neg + ↑self = 0
+
+• FreeGroup.sum.map_one [theorem]
+  : sum (1 : FreeGroup α) = 0
+
+• AddRightCancelMonoid.add_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddRightCancelMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• add_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddCommMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• IsAddUnit.sum_univ_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} [inst : Fintype ι] [inst_1 : AddCommMonoid M] {f : ι → M},
+  IsAddUnit (∑ a, f a) ↔ ∀ (a : ι), IsAddUnit (f a)
+
+• NonUnitalAlgHom.zero_apply [theorem]
+  (a : A) : (0 : A →ₛₙₐ[φ] B) a = 0
+
+• AddUnits.val_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddMonoid α] {a : AddUnits α}, ↑a = 0 ↔ a = 0
+
+• Multiset.sum_hom_ne_zero [theorem]
+  ∀ {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {s : Multiset M},
+  s ≠ 0 → ∀ {F : Type u_8} [inst_2 : FunLike F M N] [AddHomClass F M N] (f : F), (Multiset.map (⇑f) s).sum = f s.sum
+
+• Finsupp.sum_zero_index [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} [inst : Zero M] [inst_1 : AddCommMonoid N] {h : α → M → N},
+  Finsupp.sum 0 h = 0
+
+• finsum_eq_zero_of_forall_eq_zero [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M}, (∀ (x : α), f x = 0) → ∑ᶠ (i : α), f i = 0
+
+• MonoidWithZeroHom.valueMonoid [definition]
+  : Submonoid Bˣ
+
+• instZeroAddHom [definition]
+  {M : Type u_4} → {N : Type u_5} → [inst : Add M] → [inst_1 : AddZeroClass N] → Zero (M →ₙ+ N)
+
+• NonUnitalAlgHom.coe_zero [theorem]
+  : ⇑(0 : A →ₛₙₐ[φ] B) = 0
+
+• NonUnitalRingHom.zero_apply [theorem]
+  (x : α) : (0 : α →ₙ+* β) x = 0
+
+• instZeroZeroHom [definition]
+  {M : Type u_4} → {N : Type u_5} → [inst : Zero M] → [inst_1 : Zero N] → Zero (ZeroHom M N)
+
+• WithZero.unitsWithZeroEquiv_apply [theorem]
+  ∀ {α : Type u_1} [inst : Group α] (a : (WithZero α)ˣ), WithZero.unitsWithZeroEquiv a = WithZero.unzero ⋯
+
+• WithZero.withZeroUnitsEquiv [definition]
+  {G : Type*} [GroupWithZero G] [DecidablePred (fun a : G ↦ a = 0)] : WithZero Gˣ ≃* G
+
+• WithZero.logEquiv [definition]
+  : (Gᵐ⁰)ˣ ≃ G
+
+• Units.instSMulZeroClass [instance]
+  [Monoid M] [Zero α] [SMulZeroClass M α] : SMulZeroClass Mˣ α
+
+• AddUnits.instAddZeroClass [definition]
+  {α : Type u} → [inst : AddMonoid α] → AddZeroClass (AddUnits α)

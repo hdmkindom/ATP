@@ -1,0 +1,18 @@
+{
+  "iteration_index": 8,
+  "timestamp_tag": "04112149",
+  "location": "ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T1/tmp_Free_b37kvazi.lean:27:23: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`\n\n╭─ Error at line 27:16\n│                  simpa [Finset.mul_sum]\n│                 ^^^\n╰─ error: Tactic `assumption` failed\n\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\nhsum' : ∑ g, ↑(χ g) ≠ 0\na : G\n⊢ ↑(χ a) * ∑ g, ↑(χ g) = ∑ g, ↑(χ a) * ↑(χ g)\n\n\n╭─ Error at line 34:14\n│                simpa using Fintype.sum_bijective (fun g : G => a * g)\n│               ^^^\n╰─ error: Type mismatch: After simplification, term\n  Fintype.sum_bijective (fun g => a * g)\n    (have this :=\n      ⟨fun x y h => mul_left_cancel h, fun y =>\n        Exists.intro (a⁻¹ * y)\n          (of_eq_true (Eq.trans (congrArg (fun x => x = y) (mul_inv_cancel_left a y)) (eq_self y)))⟩;\n    this)\n has type\n  ∀ (f g : G → ?m.138), (∀ (x : G), f x = g (a * x)) → ∑ x, f x = ∑ x, g x\nbut is expected to have type\n  ∑ x, ↑(χ a) * ↑(χ x) = ∑ g, ↑(χ g)\n\n╭─ Error at line 41:26\n│      exact Subtype.ext (by exact_mod_cast haC)\n│                           ^^^\n╰─ error: mod_cast has type\n  ↑(χ a) = 1\nbut is expected to have type\n  ↑?m.232 = ↑?m.233\n\n╭─ Error at line 44:4\n│      exact hker a\n│     ^^^\n╰─ error: Type mismatch\n  hker a\nhas type\n  χ a = 1\nbut is expected to have type\n  ↑(χ a) = ↑(1 a)\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp ̵[̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]̵"
+    }
+  ],
+  "message_count": 2
+}

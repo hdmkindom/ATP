@@ -1,0 +1,65 @@
+=== theorem Character sum_eq_zero_of_ne_one (20 matches) ===
+
+• DirichletCharacter.sum_characters_eq [theorem]
+  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0
+
+• quadraticChar_sum_zero [theorem]
+  (hF : ringChar F ≠ 2) : ∑ a : F, quadraticChar F a = 0
+
+• DirichletCharacter.map_zero' [theorem]
+  (hn : n ≠ 1) : χ 0 = 0
+
+• AddChar.sum_mulShift [theorem]
+  {R : Type*} [CommRing R] [Fintype R] [DecidableEq R] {R' : Type*} [CommRing R'] [IsDomain R'] {ψ : AddChar R R'}
+  (b : R) (hψ : IsPrimitive ψ) : ∑ x : R, ψ (x * b) = if b = 0 then Fintype.card R else 0
+
+• gaussSum_ne_zero_of_nontrivial [theorem]
+  (h : (Fintype.card R : R') ≠ 0) {χ : MulChar R R'} (hχ : χ ≠ 1) {ψ : AddChar R R'} (hψ : ψ.IsPrimitive) :
+  gaussSum χ ψ ≠ 0
+
+• MulChar.ne_one_iff [theorem]
+  {χ : MulChar R R'} : χ ≠ 1 ↔ ∃ a : Rˣ, χ a ≠ 1
+
+• gaussSum_eq_zero_of_isPrimitive_of_not_isPrimitive [theorem]
+  [IsDomain R] {χ : DirichletCharacter R N} (hχ : IsPrimitive χ) (he : ¬IsPrimitive e) : gaussSum χ e = 0
+
+• AddChar.ne_one_iff [theorem]
+  : ψ ≠ 1 ↔ ∃ x, ψ x ≠ 1
+
+• DirichletCharacter.sum_char_inv_mul_char_eq [theorem]
+  {a : ZMod n} (ha : IsUnit a) (b : ZMod n) :
+  ∑ χ : DirichletCharacter R n, χ a⁻¹ * χ b = if a = b then (n.totient : R) else 0
+
+• jacobiSum_eq_sum_sdiff [theorem]
+  (χ ψ : MulChar F R) : jacobiSum χ ψ = ∑ x ∈ univ \ {0, 1}, χ x * ψ (1 - x)
+
+• AddChar.expect_eq_ite [theorem]
+  (ψ : AddChar G R) : 𝔼 a, ψ a = if ψ = 0 then 1 else 0
+
+• jacobiSum_one_nontrivial [theorem]
+  {χ : MulChar F R} (hχ : χ ≠ 1) : jacobiSum 1 χ = -1
+
+• AddChar.one_eq_zero [theorem]
+  : (1 : AddChar A M) = (0 : AddChar A M)
+
+• Real.fourierChar_ne_one [theorem]
+  : fourierChar ≠ 1
+
+• AddChar.map_zero_eq_one' [theorem]
+  ∀ {A : Type u_1} [inst : AddMonoid A] {M : Type u_2} [inst_1 : Monoid M] (self : AddChar A M), self.toFun 0 = 1
+
+• MulChar.sum_one_eq_card_units [theorem]
+  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ
+
+• Finset.sum_eq_ite [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} [inst : AddCommMonoid M] [inst_1 : DecidableEq ι] {s : Finset ι} {f : ι → M} (a : ι),
+  (∀ b ∈ s, b ≠ a → f b = 0) → ∑ x ∈ s, f x = if a ∈ s then f a else 0
+
+• CharacterModule.exists_character_apply_ne_zero_of_ne_zero [theorem]
+  {a : A} (ne_zero : a ≠ 0) : ∃ (c : CharacterModule A), c a ≠ 0
+
+• AddChar.map_zero_eq_one [theorem]
+  (ψ : AddChar A M) : ψ 0 = 1
+
+• AddChar.zero_apply [theorem]
+  (a : A) : (0 : AddChar A M) a = 1

@@ -1,0 +1,62 @@
+=== Units.coeHom ℂ (20 matches) ===
+
+• Circle.coeHom [definition]
+  : Circle →* ℂ
+
+• Circle.toUnits [definition]
+  : Circle →* Units ℂ
+
+• NumberField.Units.complexEmbedding [definition]
+  (φ : K →+* ℂ) : (𝓞 K)ˣ →* ℂˣ
+
+• Circle.coeHom_apply [theorem]
+  ∀ (self : ↥(Submonoid.unitSphere ℂ)), Circle.coeHom self = ↑self
+
+• Circle.instCoeOut [instance]
+  : CoeOut Circle ℂ
+
+• NumberField.IsCMField.unitsMulComplexConjInv [definition]
+  : (𝓞 K)ˣ →* torsion K
+
+• Complex.ofRealHom_eq_coe [theorem]
+  (r : ℝ) : ofRealHom r = r
+
+• NumberField.IsCMField.unitsMulComplexConjInv.congr_simp [theorem]
+  ∀ (K : Type u_1) [inst : Field K] [inst_1 : CharZero K] [inst_2 : NumberField.IsCMField K] [inst_3 : NumberField K],
+  NumberField.IsCMField.unitsMulComplexConjInv K = NumberField.IsCMField.unitsMulComplexConjInv K
+
+• NumberField.Units.complexEmbedding_apply [theorem]
+  (φ : K →+* ℂ) (u : (𝓞 K)ˣ) : Units.complexEmbedding φ u = φ u
+
+• Complex.UnitDisc.instCoe [instance]
+  : Coe UnitDisc ℂ
+
+• Quaternion.ofComplex [definition]
+  : ℂ →ₐ[ℝ] ℍ
+
+• Units.coeHom [definition]
+  : Mˣ →* M
+
+• CliffordAlgebraComplex.ofComplex [definition]
+  : ℂ →ₐ[ℝ] CliffordAlgebra Q
+
+• Complex.ofRealHom [definition]
+  : ℝ →+* ℂ
+
+• Complex.UnitDisc.coe [definition]
+  : 𝔻 → ℂ
+
+• Units.coeHom_apply [theorem]
+  (x : Mˣ) : coeHom M x = ↑x
+
+• Complex.ofRealAm_coe [theorem]
+  : ⇑ofRealAm = ((↑) : ℝ → ℂ)
+
+• Quaternion.coe_ofComplex [theorem]
+  : ⇑ofComplex = coeComplex
+
+• Complex.coe_imAddGroupHom [theorem]
+  : (imAddGroupHom : ℂ → ℝ) = im
+
+• MulChar.coe_toUnitHom [theorem]
+  (χ : MulChar R R') (a : Rˣ) : ↑(χ.toUnitHom a) = χ a

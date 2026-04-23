@@ -1,0 +1,18 @@
+{
+  "iteration_index": 12,
+  "timestamp_tag": "04061213",
+  "location": "ATP.temTH.CandidateTheorems.T2.RouteA:candidate_T2_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T2/tmp_RouteA_2lyccu36.lean:20:5: error(lean.unknownIdentifier): Unknown identifier `AddChar.sum_apply_eq_ite`"
+    }
+  ],
+  "message_count": 2
+}

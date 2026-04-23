@@ -1,0 +1,42 @@
+{
+  "scenario_key": "T8.disable",
+  "theorem_id": "T8",
+  "mode_family": "disable",
+  "attempt_index": 1,
+  "target_file": "ATP/temTH/CandidateTheorems/T8/Disable.lean",
+  "theorem_name": "candidate_T8_disable",
+  "success": false,
+  "valid": false,
+  "observed_route": "routeA",
+  "route_compliance": false,
+  "policy_violations": [
+    "Matched forbidden pattern: \\bFourierTranslationData\\b"
+  ],
+  "summary": "Theorem: `candidate_T8_disable` at `ATP.temTH.CandidateTheorems.T8.Disable:candidate_T8_disable`\n\nStatus: Not proven after 20 iterations.\n\nWhy it failed:\n- Every attempt ran into compilation errors rather than logical dead ends.\n- The main issue was reliance on guessed lemma names and guessed API/field structure for `FourierTranslationData`.\n- The final attempt used\n  - `translate_eq_delta_convolution`\n  - `fourierCoeff_delta_convolution`\n  both of which are confirmed absent.\n- Prior experience also confirms many similarly guessed translation/Fourier lemmas do not exist, and field-style access on `FourierTranslationData` for such facts fails.\n\nMain approaches tried:\n- Repeated “one-line `simpa using ...`” proofs based on presumed existing lemmas about:\n  - Fourier coefficients of translations\n  - translation as delta-convolution\n  - convolution/Fourier interaction\n- Looking for theorem or field names of the form `fourierCoeff_translate...`, `...convolution...`, or `data....`, but these identifiers were not present in the environment.\n\nSuggested next steps:\n1. Unfold the definitions directly:\n   - inspect `fourierCoeff`\n   - inspect `translate`\n   - inspect the actual fields of `FourierTranslationData`\n   and prove the identity by `simp`/`rw` from those definitions rather than using guessed helper lemmas.\n2. In Lean, use environment discovery tools before writing the proof:\n   - `#check fourierCoeff`\n   - `#check translate`\n   - `#print FourierTranslationData`\n   - `#print fourierCoeff`\n   - `#print translate`\n   to find the real definitions and available lemmas.\n3. After unfolding, try a calculational proof:\n   - rewrite the translated function inside `fourierCoeff`\n   - factor out the phase term\n   - use the actual character/phase algebra lemmas available in `data` to finish with `simp`, `ring`, or `rw`.\n\nOverall: the run did not reach a substantive proof attempt because it was blocked by nonexistent lemma names and an incorrect assumption about the surrounding API.",
+  "error": null,
+  "prompt_excerpt": "Target scenario: T8.disable\nTarget file: ATP/temTH/CandidateTheorems/T8/Disable.lean\n\nTheorem: T8 - Fourier coefficient of a translated function\n\nATP benchmark protocol:\n1. Keep the theorem statement unchanged.\n2. Do not import solved route files such as `CandidateTheorems.Tk.RouteA` or `CandidateTheorems.Tk.RouteB`.\n3. Do not solve the goal by citing an already-solved `CandidateTheorems.Tk.candidate_Tk_routeA/routeB` theorem.\n4. You may add Mathlib imports or support-file imports when they are genuinely necessary.\n5. Prefer explicit intermediate names over anonymous one-letter names when the proof becomes nontrivial.\n6. Finish with a complete Lean proof and do not leave any `sorry`.\n\nrouteA: 直接展开 Fourier 变换定义. 直接展开 Fourier 变换的定义。\n由\n`\\hat{τ_t f}(a) = ∑_{x ∈ Z / N Z} f(x - t) Exp(-2π i a x / N)`\n出发，令 `y = x - t`，再把指数项拆开得到结论。\nrouteB: 卷积路线. 把平移看作与点质量函数做卷积，即\n`τ_t f = δ_t * f`，\n再利用“卷积在 Fourier 变换下变成乘法”的性质，结合 `\\hat{δ_t}` 的显式公式推出结论。\n\nMode: disable.\nThe following proof family is intentionally disabled for this run.\nDisabled route family: routeA: 直接展开 Fourier 变换定义.\n请不要直接从\n`\\hat{τ_t f}(a) = ∑_{x ∈ Z / N Z} f(x - t) Exp(-2π i a x / N)`\n出发再令 `y = x - t` 做换元，\n也不要通过直接拆开指数项来得到结论。\n请把平移看作与点质量函数做卷积，",
+  "iterations": 20,
+  "compilation_errors": 20,
+  "build_timeouts": 0,
+  "reviewer_rejections": 0,
+  "max_iterations_reached": true,
+  "elapsed_seconds": 335.492789,
+  "llm_request_count": 79,
+  "llm_failed_request_count": 0,
+  "llm_input_tokens": 412211,
+  "llm_output_tokens": 7462,
+  "llm_total_tokens": 419673,
+  "started_at": "2026-04-06T14:57:33.481824",
+  "finished_at": "2026-04-06T15:03:08.974613",
+  "artifact_paths": {
+    "result_json": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/T8_disable_attempt01.json",
+    "proof_snapshot": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/T8_disable_attempt01.lean",
+    "attempt_dir": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01",
+    "iteration_snapshot_dir": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations",
+    "iteration_snapshot_files": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061457_iter01.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061457_iter02.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061458_iter03.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061458_iter04.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061458_iter05.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061458_iter06.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061459_iter07.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061459_iter08.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061459_iter09.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061500_iter10.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061500_iter11.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061500_iter12.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061500_iter13.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061501_iter14.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061501_iter15.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061501_iter16.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061502_iter17.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061502_iter18.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061502_iter19.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/iterations/04061502_iter20.lean",
+    "original_source_snapshot": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/source/04061457_original.lean",
+    "final_source_snapshot": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/source/04061503_final.lean",
+    "restored_source_snapshot": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/source/04061503_restored.lean",
+    "message_trace_json": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T8_disable/attempt_01/messages.json"
+  }
+}

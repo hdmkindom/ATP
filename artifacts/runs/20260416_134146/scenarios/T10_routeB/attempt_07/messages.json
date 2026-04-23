@@ -1,0 +1,20 @@
+[
+  {
+    "index": 1,
+    "message_class": "ProposalMessage",
+    "type": "proposal",
+    "content": "Reasoning: \n\nLocation: ATP.temTH.CandidateTheorems.T10.RouteB:candidate_T10_routeB\n\nCode:\n```lean\ntheorem candidate_T10_routeB (φ : G →* H) (g : G) :\n    φ g⁻¹ = (φ g)⁻¹ := by\n  simpa using map_inv φ g\n```"
+  },
+  {
+    "index": 2,
+    "message_class": "BuildSuccessFeedback",
+    "type": "feedback",
+    "content": ""
+  },
+  {
+    "index": 3,
+    "message_class": "ReviewApprovedFeedback",
+    "type": "feedback",
+    "content": ""
+  }
+]

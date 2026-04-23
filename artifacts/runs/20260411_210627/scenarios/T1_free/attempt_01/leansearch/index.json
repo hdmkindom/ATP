@@ -1,0 +1,17 @@
+{
+  "search_count": 2,
+  "records": [
+    {
+      "search_index": 1,
+      "timestamp_tag": "04112106",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_210627/scenarios/T1_free/attempt_01/leansearch/04112106_search01.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_210627/scenarios/T1_free/attempt_01/leansearch/04112106_search01.txt"
+    },
+    {
+      "search_index": 2,
+      "timestamp_tag": "04112107",
+      "json_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_210627/scenarios/T1_free/attempt_01/leansearch/04112107_search02.json",
+      "text_path": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_210627/scenarios/T1_free/attempt_01/leansearch/04112107_search02.txt"
+    }
+  ]
+}

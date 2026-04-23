@@ -1,0 +1,14 @@
+{
+  "search_index": 5,
+  "timestamp": "2026-04-12T00:48:08.615890",
+  "timestamp_tag": "04120048",
+  "query": "def Character G := G →* ℂˣ import",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.290114,
+  "error": null,
+  "result_text": "=== def Character G := G →* ℂˣ import (20 matches) ===\n\n• FDRep.character [definition]\n  (V : FDRep k G) (g : G)\n\n• CharacterModule [definition]\n  : Type uA\n\n• FDRep.char_mul_comm [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)\n\n• FDRep.char_one [theorem]\n  (V : FDRep k G) : V.character 1 = Module.finrank k V\n\n• CharacterModule.ext [theorem]\n  {c c' : CharacterModule A} (h : ∀ x, c x = c' x) : c = c'\n\n• CharacterModule.ext_iff [theorem]\n  ∀ {A : Type uA} [inst : AddCommGroup A] {c c' : CharacterModule A}, c = c' ↔ ∀ (x : A), c x = c' x\n\n• CharacterModule.int [abbrev]\n  : Type\n\n• WeakDual.CharacterSpace.instAlgHomClass [instance]\n  : AlgHomClass (characterSpace 𝕜 A) 𝕜 A 𝕜\n\n• WeakDual.CharacterSpace.toAlgHom [definition]\n  (φ : characterSpace 𝕜 A) : A →ₐ[𝕜] 𝕜\n\n• FDRep.char_tensor [theorem]\n  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character\n\n• FDRep.char_iso [theorem]\n  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• FDRep.char_linHom [theorem]\n  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g\n\n• WeakDual.CharacterSpace.toCLM [definition]\n  (φ : characterSpace 𝕜 A) : A →L[𝕜] 𝕜\n\n• FDRep.char_dual [theorem]\n  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹\n\n• AddChar.map_neg_eq_conj [theorem]\n  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)\n\n• FDRep.simple_iff_char_is_norm_one [theorem]\n  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G\n\n• AddChar.circleEquivComplex [definition]\n  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ\n\n• CharacterModule.instAddCommGroup [instance]\n  : AddCommGroup (CharacterModule A)\n\n• FDRep.char_orthonormal [theorem]\n  (V W : FDRep k G) [Simple V] [Simple W] :\n  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0"
+}

@@ -1,0 +1,63 @@
+=== theorem about Character G sum over g (20 matches) ===
+
+• AddChar.sum_eq_ite [theorem]
+  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0
+
+• AddChar.sum_eq_zero_iff_ne_zero [theorem]
+  : ∑ x, ψ x = 0 ↔ ψ ≠ 0
+
+• MulChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {χ : MulChar R R'} (hχ : χ ≠ 1) : ∑ a, χ a = 0
+
+• AddChar.sum_apply_eq_ite [theorem]
+  [Fintype α] [DecidableEq α] (a : α) : ∑ ψ : AddChar α ℂ, ψ a = if a = 0 then (Fintype.card α : ℂ) else 0
+
+• AddChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {ψ : AddChar R R'} (hψ : ψ ≠ 1) : ∑ a, ψ a = 0
+
+• FDRep.average_char_eq_finrank_invariants [theorem]
+  (V : FDRep k G) : ⅟(Fintype.card G : k) • ∑ g : G, V.character g = finrank k (invariants V.ρ)
+
+• AddChar.expect_eq_ite [theorem]
+  (ψ : AddChar G R) : 𝔼 a, ψ a = if ψ = 0 then 1 else 0
+
+• AddChar.expect_eq_zero_iff_ne_zero [theorem]
+  : 𝔼 x, ψ x = 0 ↔ ψ ≠ 0
+
+• FDRep.char_orthonormal [theorem]
+  (V W : FDRep k G) [Simple V] [Simple W] :
+  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0
+
+• AddChar.sum_ne_zero_iff_eq_zero [theorem]
+  : ∑ x, ψ x ≠ 0 ↔ ψ = 0
+
+• gaussSum_aux_of_mulShift [theorem]
+  (χ : DirichletCharacter R N) {d : ℕ} (hd : d ∣ N) (he : e.mulShift d = 1) {u : (ZMod N)ˣ}
+  (hu : ZMod.unitsMap hd u = 1) : χ u * gaussSum χ e = gaussSum χ e
+
+• AddChar.wInner_cWeight_eq_boole [theorem]
+  [Fintype G] (ψ₁ ψ₂ : AddChar G R) : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = if ψ₁ = ψ₂ then 1 else 0
+
+• AddChar.sum_eq_card_of_eq_one [theorem]
+  {ψ : AddChar R R'} (hψ : ψ = 1) : ∑ a, ψ a = Fintype.card R
+
+• MulChar.sum_one_eq_card_units [theorem]
+  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ
+
+• AddChar.sum_apply_ne_zero_iff_eq_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a ≠ 0 ↔ a = 0
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• DirichletCharacter.sum_characters_eq [theorem]
+  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0
+
+• FDRep.char_conj [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g
+
+• FDRep.simple_iff_char_is_norm_one [theorem]
+  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G
+
+• gaussSum_mulShift [theorem]
+  (χ : MulChar R R') (ψ : AddChar R R') (a : Rˣ) : χ a * gaussSum χ (mulShift ψ a) = gaussSum χ ψ

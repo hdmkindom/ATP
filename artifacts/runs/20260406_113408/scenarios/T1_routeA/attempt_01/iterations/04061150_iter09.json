@@ -1,0 +1,18 @@
+{
+  "iteration_index": 9,
+  "timestamp_tag": "04061150",
+  "location": "ATP.temTH.CandidateTheorems.T1.RouteA:candidate_T1_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 40:18\n│                simp⟩)\n│                   ^^^\n╰─ error: unexpected token '⟩'; expected ')', ',' or ':'\n\n╭─ Error at line 26:29\n│        exact h_not_exists ⟨g, hg⟩\n│                              ^^^\n╰─ error: Application type mismatch: The argument\n  hg\nhas type\n  ¬↑(χ g) = ↑(1 g)\nbut is expected to have type\n  χ g ≠ 1\nin the application\n  Exists.intro g hg\n\n╭─ Error at line 31:6\n│        simpa using\n│       ^^^\n╰─ error: Type mismatch: After simplification, term\n  Function.Bijective.sum_comp\n    ⟨fun ⦃a b⦄ hab =>\n      Eq.mp (congr (congrArg Eq (inv_mul_cancel_left h a)) (inv_mul_cancel_left h b)) (congrArg (fun x => h⁻¹ * x) hab),\n      fun g =>\n      Exists.intro (h⁻¹ * g) (of_eq_true (Eq.trans (congrArg (fun x => x = g) (mul_inv_cancel_left h g)) (eq_self g)))⟩\n has type\n  ∀ (g : G → ?m.107), ∑ i, g (h * i) = ∑ i, g i\nbut is expected to have type\n  ∑ x, ↑(χ h) * ↑(χ x) = ∑ g, ↑(χ g)\n\n╭─ Error at line 21:2\n│    · have h_exists : ∃ h : G, χ h ≠ 1 := by\n│   ^^^\n╰─ error: unsolved goals\ncase neg\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\nh : G\nhh_ne : χ h ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh_reindex : ∑ g, ↑(χ (h * g)) = S\n⊢ ∑ g, ↑(χ g) = 0"
+    }
+  ],
+  "message_count": 2
+}

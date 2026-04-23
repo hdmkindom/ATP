@@ -1,0 +1,22 @@
+import: # 需要先导入的共享配置文件
+  - ax_prover_profiles.yaml # 共享模型档案
+
+prover: # doctor 专用的 ax-prover 配置
+  prover_llm: ${llm_runtime.doctor_profile} # doctor 默认采用共享模型档案
+  memory_config: # doctor 同样显式补齐 memory llm，避免 ATP 代码侧补默认值
+    class_name: ExperienceProcessor # 使用 ax-prover 默认经验处理器
+    init_args:
+      llm_config: ${prover.prover_llm} # doctor 内 memory 与 prover 共用一套模型配置
+  max_iterations: 2 # doctor 内 smoke proof 的最大主循环轮次
+  summarize_output: # 运行结束后的摘要生成设置
+    enabled: false # doctor 阶段不额外生成 LLM 摘要
+  user_comments: null # 运行时由 ATP 动态注入 doctor 提示
+
+runtime: # ax-prover 运行时基础设施配置
+  log_level: INFO # 运行日志级别
+  max_tool_calling_iterations: 1 # doctor 阶段单轮 proposer 最多允许的工具调用往返次数
+  lean: # Lean 构建与检查相关超时配置
+    cache_get_timeout: 300 # `lake exe cache get` 超时秒数
+    build_timeout: 900 # `lake build` 超时秒数
+    check_file_timeout: 120 # 单文件检查超时秒数
+    max_concurrent_builds: 1 # 同时运行的 Lean 构建任务上限

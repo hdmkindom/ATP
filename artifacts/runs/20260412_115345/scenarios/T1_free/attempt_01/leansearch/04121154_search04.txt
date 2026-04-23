@@ -1,0 +1,69 @@
+=== reindex finite group sum left multiplication (20 matches) ===
+
+• Fintype.sum_bijective [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : Fintype ι] [inst_1 : Fintype κ] [inst_2 : AddCommMonoid M]
+  (e : ι → κ), Function.Bijective e → ∀ (f : ι → M) (g : κ → M), (∀ (x : ι), f x = g (e x)) → ∑ x, f x = ∑ x, g x
+
+• Equiv.mulLeft₀ [definition]
+  (a : G₀) (ha : a ≠ 0) : Perm G₀
+
+• Group.mulLeft_bijective [theorem]
+  (a : G) : Function.Bijective (a * ·)
+
+• Finsupp.comapSMul_apply [theorem]
+  (g : G) (f : α →₀ M) (a : α) : (g • f) a = f (g⁻¹ • a)
+
+• Finset.smul_prod_perm [theorem]
+  [Fintype G] (b : N) (g : G) : (g • ∏ h : G, h • b) = ∏ h : G, h • b
+
+• Equiv.mulLeft_symm [theorem]
+  (a : G) : (Equiv.mulLeft a).symm = Equiv.mulLeft a⁻¹
+
+• Representation.norm_ofDistribMulAction_eq [theorem]
+  {G : Type*} [Group G] [Fintype G] [DistribMulAction G A] [SMulCommClass G k A] (x : A) :
+  (ofDistribMulAction k G A).norm x = ∑ g : G, g • x
+
+• translate_prod_right [theorem]
+  (a : G) (f : ι → G → M) (s : Finset ι) : τ a (∏ i ∈ s, f i) = ∏ i ∈ s, τ a (f i)
+
+• TannakaDuality.FiniteGroup.leftRegularFDRepHom [definition]
+  (s : G) : End (rightFDRep : FDRep k G)
+
+• Finset.convolution_op_smul_eq_convolution_mul_inv [theorem]
+  (A B : Finset G) (s x : G) : A.convolution (B <• s) x = A.convolution B (x * s⁻¹)
+
+• Fintype.sum_fiberwise' [theorem]
+  ∀ {M : Type u_4} {κ : Type u_6} {ι : Type u_7} [inst : Fintype ι] [inst_1 : Fintype κ] [inst_2 : AddCommMonoid M]
+  [inst_3 : DecidableEq κ] (g : ι → κ) (f : κ → M), ∑ j, ∑ _i, f j = ∑ i, f (g i)
+
+• finsum_sum_filter [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] [inst_1 : DecidableEq α] (f : β → α)
+  (s : Finset β) (g : β → M), ∑ᶠ (x : α), ∑ y ∈ s with f y = x, g y = ∑ k ∈ s, g k
+
+• Finset.sum_image' [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_4} [inst : AddCommMonoid M] {f : ι → M} [inst_1 : DecidableEq ι]
+  {s : Finset κ} {g : κ → ι} (h : κ → M),
+  (∀ i ∈ s, f (g i) = ∑ j ∈ s with g j = g i, h j) → ∑ a ∈ Finset.image g s, f a = ∑ i ∈ s, h i
+
+• DirectSum.lequivCongrLeft_apply [theorem]
+  (h : ι ≃ κ) (f : ⨁ i, M i) (k : κ) : lequivCongrLeft R h f k = f (h.symm k)
+
+• Finset.sum_fiberwise_of_maps_to' [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_4} [inst : AddCommMonoid M] {s : Finset ι} {t : Finset κ}
+  [inst_1 : DecidableEq κ] {g : ι → κ},
+  (∀ i ∈ s, g i ∈ t) → ∀ (f : κ → M), ∑ j ∈ t, ∑ i ∈ s with g i = j, f j = ∑ i ∈ s, f (g i)
+
+• Equiv.coe_addLeft [theorem]
+  ∀ {G : Type u_5} [inst : AddGroup G] (a : G), ⇑(Equiv.addLeft a) = fun x => a + x
+
+• LinearMap.sumOfConjugates_apply [theorem]
+  (v : W) : π.sumOfConjugates G v = ∑ g : G, π.conjugate g v
+
+• Equiv.addLeft_add [theorem]
+  : Equiv.addLeft (a + b) = Equiv.addLeft a * Equiv.addLeft b
+
+• BigOperators.delabFinsetSum [definition]
+  : Delab
+
+• MeasureTheory.Measure.pi.isMulLeftInvariant [instance]
+  [∀ i, Group (α i)] [∀ i, MeasurableMul (α i)] [∀ i, IsMulLeftInvariant (μ i)] : IsMulLeftInvariant (Measure.pi μ)

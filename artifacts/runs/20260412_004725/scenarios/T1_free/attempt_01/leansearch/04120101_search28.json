@@ -1,0 +1,14 @@
+{
+  "search_index": 28,
+  "timestamp": "2026-04-12T01:01:40.363934",
+  "timestamp_tag": "04120101",
+  "query": "def Character",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.842166,
+  "error": null,
+  "result_text": "=== def Character (20 matches) ===\n\n• WeakDual.characterSpace [definition]\n  (𝕜 : Type*) (A : Type*) [CommSemiring 𝕜] [TopologicalSpace 𝕜] [ContinuousAdd 𝕜] [ContinuousConstSMul 𝕜 𝕜]\n  [NonUnitalNonAssocSemiring A] [TopologicalSpace A] [Module 𝕜 A]\n\n• CharacterModule.int [abbrev]\n  : Type\n\n• WeakDual.CharacterSpace.toCLM [definition]\n  (φ : characterSpace 𝕜 A) : A →L[𝕜] 𝕜\n\n• RegularExpression.char [constructor]\n  {α : Type u} → α → RegularExpression α\n\n• FDRep.char_one [theorem]\n  (V : FDRep k G) : V.character 1 = Module.finrank k V\n\n• CharacterModule.smul_apply [theorem]\n  (c : CharacterModule A) (r : R) (a : A) : (r • c) a = c (r • a)\n\n• DirichletCharacter.primitiveCharacter [definition]\n  : DirichletCharacter R χ.conductor\n\n• FDRep.char_tensor [theorem]\n  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character\n\n• AddChar.toFun [definition]\n  {A : Type u_1} → [inst : AddMonoid A] → {M : Type u_2} → [inst_1 : Monoid M] → AddChar A M → A → M\n\n• MulChar.inv_apply [theorem]\n  {R : Type*} [CommMonoidWithZero R] (χ : MulChar R R') (a : R) : χ⁻¹ a = χ (Ring.inverse a)\n\n• WeakDual.CharacterSpace.ext_iff [theorem]\n  ∀ {𝕜 : Type u_1} {A : Type u_2} [inst : CommSemiring 𝕜] [inst_1 : TopologicalSpace 𝕜] [inst_2 : ContinuousAdd 𝕜]\n  [inst_3 : ContinuousConstSMul 𝕜 𝕜] [inst_4 : NonUnitalNonAssocSemiring A] [inst_5 : TopologicalSpace A]\n  [inst_6 : Module 𝕜 A] {φ ψ : ↑(WeakDual.characterSpace 𝕜 A)}, φ = ψ ↔ ∀ (x : A), φ x = ψ x\n\n• quadraticChar [definition]\n  : MulChar F ℤ\n\n• MulChar.ext_iff [theorem]\n  ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommMonoidWithZero R'] {χ χ' : MulChar R R'},\n  χ = χ' ↔ ∀ (a : Rˣ), χ ↑a = χ' ↑a\n\n• WeakDual.CharacterSpace.instAlgHomClass [instance]\n  : AlgHomClass (characterSpace 𝕜 A) 𝕜 A 𝕜\n\n• CharacterModule.instModule [instance]\n  : Module R (CharacterModule A)\n\n• AddChar.instFunLike [instance]\n  : FunLike (AddChar A M) A M\n\n• CharacterModule.ext_iff [theorem]\n  ∀ {A : Type uA} [inst : AddCommGroup A] {c c' : CharacterModule A}, c = c' ↔ ∀ (x : A), c x = c' x\n\n• CharacterModule.ext [theorem]\n  {c c' : CharacterModule A} (h : ∀ x, c x = c' x) : c = c'\n\n• MulChar.inhabited [instance]\n  : Inhabited (MulChar R R')\n\n• AddChar.complexBasis [definition]\n  : Basis (AddChar α ℂ) ℂ (α → ℂ)"
+}

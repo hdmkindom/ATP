@@ -1,0 +1,65 @@
+=== CandidateTheorems.T1.Support Character G (20 matches) ===
+
+• Summable.countable_support [theorem]
+  ∀ {α : Type u_1} {G : Type u_4} [inst : TopologicalSpace G] [inst_1 : AddCommGroup G] [IsTopologicalAddGroup G]
+  {f : α → G} [FirstCountableTopology G] [T1Space G], Summable f → (Function.support f).Countable
+
+• Multipliable.countable_mulSupport [theorem]
+  [FirstCountableTopology G] [T1Space G] (hf : Multipliable f) : f.mulSupport.Countable
+
+• support_translate [theorem]
+  (a : G) (f : G → H) : support (τ a f) = a +ᵥ support f
+
+• Function.support_inv [theorem]
+  (f : ι → G₀) : support (fun a ↦ (f a)⁻¹) = support f
+
+• MulAction.supports_of_mem [theorem]
+  (ha : a ∈ s) : Supports G s a
+
+• MulAction.Supports [definition]
+  (s : Set α) (b : β)
+
+• SkewMonoidAlgebra.support_ofFinsupp [theorem]
+  (p) : support (⟨p⟩ : SkewMonoidAlgebra k G) = p.support
+
+• Function.support_comp_eq_preimage [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_3} [inst : Zero M] (g : κ → M) (f : ι → κ),
+  Function.support (g ∘ f) = f ⁻¹' Function.support g
+
+• support_conjneg [theorem]
+  (f : G → R) : support (conjneg f) = -support f
+
+• FreeAbelianGroup.support_of [theorem]
+  (x : X) : support (of x) = { x }
+
+• DFinsupp.support_add [theorem]
+  [∀ i, AddZeroClass (β i)] [∀ (i) (x : β i), Decidable (x ≠ 0)] {g₁ g₂ : Π₀ i, β i} :
+  (g₁ + g₂).support ⊆ g₁.support ∪ g₂.support
+
+• mulSupport_comp_inv_smul [theorem]
+  [One γ] (c : α) (f : β → γ) : (mulSupport fun x ↦ f (c⁻¹ • x)) = c • mulSupport f
+
+• MonoidAlgebra.support_one [theorem]
+  [One G] [NeZero (1 : k)] : (1 : k[G]).support = 1
+
+• Finsupp.support_add [theorem]
+  [DecidableEq ι] : (g₁ + g₂).support ⊆ g₁.support ∪ g₂.support
+
+• Function.support_subset_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] {f : ι → M} {s : Set ι},
+  Function.support f ⊆ s ↔ ∀ (x : ι), f x ≠ 0 → x ∈ s
+
+• MulAction.Supports.mono [theorem]
+  (h : s ⊆ t) (hs : Supports G s b) : Supports G t b
+
+• Finsupp.support_sub [theorem]
+  [DecidableEq ι] {f g : ι →₀ G} : support (f - g) ⊆ support f ∪ support g
+
+• Function.locallyFinsuppWithin.closedSupport [theorem]
+  [T1Space X] [Zero Y] (D : locallyFinsuppWithin U Y) (hU : IsClosed U) : IsClosed D.support
+
+• Function.support_div [theorem]
+  (f g : ι → G₀) : support (fun a ↦ f a / g a) = support f ∩ support g
+
+• Finsupp.support_neg [theorem]
+  (f : ι →₀ G) : support (-f) = support f

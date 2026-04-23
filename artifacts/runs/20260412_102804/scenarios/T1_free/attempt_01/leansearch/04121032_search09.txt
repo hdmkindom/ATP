@@ -1,0 +1,75 @@
+=== Mathlib finite group sum monoid hom ℂˣ (20 matches) ===
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• AddMonoidHom.map_finsum_mem [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {s : Set α}
+  (f : α → M) (g : M →+ N), s.Finite → g (∑ᶠ (j : α) (_ : j ∈ s), f j) = ∑ᶠ (i : α) (_ : i ∈ s), g (f i)
+
+• map_sum [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} {N : Type u_4} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {G : Type u_7}
+  [inst_2 : FunLike G M N] [AddMonoidHomClass G M N] (g : G) (f : ι → M) (s : Finset ι),
+  g (∑ x ∈ s, f x) = ∑ x ∈ s, g (f x)
+
+• FreeAddGroup.sum [definition]
+  {α : Type u} → [inst : AddGroup α] → FreeAddGroup α →+ α
+
+• map_finsum [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {f : α → M}
+  {G : Type u_7} [inst_2 : FunLike G M N] [AddMonoidHomClass G M N] (g : G),
+  (Function.support f).Finite → g (∑ᶠ (i : α), f i) = ∑ᶠ (i : α), g (f i)
+
+• AddMonoidHom.map_finsum [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {f : α → M}
+  (g : M →+ N), (Function.support f).Finite → g (∑ᶠ (i : α), f i) = ∑ᶠ (i : α), g (f i)
+
+• AddMonoidHom.map_finsum_mem' [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {s : Set α}
+  {f : α → M} (g : M →+ N),
+  (s ∩ Function.support f).Finite → g (∑ᶠ (j : α) (_ : j ∈ s), f j) = ∑ᶠ (i : α) (_ : i ∈ s), g (f i)
+
+• AddMonoidHom.map_finsum_Prop [theorem]
+  ∀ {M : Type u_2} {N : Type u_3} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {p : Prop} (f : M →+ N) (g : p → M),
+  f (∑ᶠ (x : p), g x) = ∑ᶠ (x : p), f (g x)
+
+• AddMonoidHom.map_finsum_plift [theorem]
+  ∀ {M : Type u_2} {N : Type u_3} {α : Sort u_4} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] (f : M →+ N)
+  (g : α → M), (Function.support (g ∘ PLift.down)).Finite → f (∑ᶠ (x : α), g x) = ∑ᶠ (x : α), f (g x)
+
+• Complex.expMonoidHom [definition]
+  : MonoidHom (Multiplicative ℂ) ℂ
+
+• Module.Free.addMonoidHom [instance]
+  [Module.Free ℤ N] : Module.Free ℤ (M →+ N)
+
+• map_finsuppSum [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} {P : Type u_11} [inst : Zero M] [inst_1 : AddCommMonoid N]
+  [inst_2 : AddCommMonoid P] {H : Type u_16} [inst_3 : FunLike H N P] [AddMonoidHomClass H N P] (h : H) (f : α →₀ M)
+  (g : α → M → N), h (f.sum g) = f.sum fun a b => h (g a b)
+
+• MonoidHom.instCommGroup [instance]
+  [MulOneClass M] [CommGroup N] : CommGroup (M →* N)
+
+• Finsupp.toFreeAbelianGroup [definition]
+  : (X →₀ ℤ) →+ FreeAbelianGroup X
+
+• FreeGroup.sum.map_mul [theorem]
+  : sum (x * y) = sum x + sum y
+
+• DFinsupp.sumAddHom [definition]
+  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] (φ : ∀ i, β i →+ γ) : (Π₀ i, β i) →+ γ
+
+• AddChar.instCommGroup [instance]
+  : CommGroup (AddChar A M)
+
+• AddMonoidHom.coe_finset_sum [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} {N : Type u_4} [inst : AddZeroClass M] [inst_1 : AddCommMonoid N] (f : ι → M →+ N)
+  (s : Finset ι), ⇑(∑ x ∈ s, f x) = ∑ x ∈ s, ⇑(f x)
+
+• AddMonoidHom.finset_sum_apply [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} {N : Type u_4} [inst : AddZeroClass M] [inst_1 : AddCommMonoid N] (f : ι → M →+ N)
+  (s : Finset ι) (b : M), (∑ x ∈ s, f x) b = ∑ x ∈ s, (f x) b

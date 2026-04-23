@@ -1,0 +1,14 @@
+{
+  "search_index": 43,
+  "timestamp": "2026-04-11T23:18:06.542953",
+  "timestamp_tag": "04112318",
+  "query": "def Character (G) := G →* ℂˣ",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 3.253243,
+  "error": null,
+  "result_text": "=== def Character (G) := G →* ℂˣ (20 matches) ===\n\n• CharacterModule [definition]\n  : Type uA\n\n• FDRep.character [definition]\n  (V : FDRep k G) (g : G)\n\n• FDRep.char_mul_comm [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)\n\n• CharacterModule.int [abbrev]\n  : Type\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• FDRep.simple_iff_char_is_norm_one [theorem]\n  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G\n\n• FDRep.char_tensor [theorem]\n  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character\n\n• FDRep.char_iso [theorem]\n  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character\n\n• FDRep.char_dual [theorem]\n  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹\n\n• FDRep.char_linHom [theorem]\n  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g\n\n• CharacterModule.instAddCommGroup [instance]\n  : AddCommGroup (CharacterModule A)\n\n• CharacterModule.dual_apply [theorem]\n  ∀ {R : Type uR} [inst : CommRing R] {A : Type uA} [inst_1 : AddCommGroup A] {B : Type uB} [inst_2 : AddCommGroup B]\n  [inst_3 : Module R A] [inst_4 : Module R B] (f : A →ₗ[R] B) (L : CharacterModule B),\n  (CharacterModule.dual f) L = AddMonoidHom.comp L f.toAddMonoidHom\n\n• AddChar.circleEquivComplex [definition]\n  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ\n\n• AddChar.complexBasis.congr_simp [theorem]\n  ∀ (α : Type u_1) [inst : AddCommGroup α] [inst_1 : Finite α], AddChar.complexBasis α = AddChar.complexBasis α\n\n• AddChar.complexBasis_apply [theorem]\n  (ψ : AddChar α ℂ) : complexBasis α ψ = ψ\n\n• Real.fourierChar [definition]\n  : AddChar ℝ Circle\n\n• CharacterModule.instFunLikeAddCircleRatOfNat [instance]\n  : FunLike (CharacterModule A) A (AddCircle (1 : ℚ))\n\n• WeakDual.CharacterSpace.instStarHomClass [instance]\n  : StarHomClass (characterSpace ℂ A) A ℂ\n\n• WeakDual.CharacterSpace.instAlgHomClass [instance]\n  : AlgHomClass (characterSpace 𝕜 A) 𝕜 A 𝕜\n\n• CharacterModule.ofSpanSingleton [definition]\n  (a : A) : CharacterModule (ℤ ∙ a)"
+}

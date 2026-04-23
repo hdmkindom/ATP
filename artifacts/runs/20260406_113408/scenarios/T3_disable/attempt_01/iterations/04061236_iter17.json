@@ -1,0 +1,21 @@
+{
+  "iteration_index": 17,
+  "timestamp_tag": "04061236",
+  "location": "ATP.temTH.CandidateTheorems.T3.Disable:candidate_T3_disable",
+  "imports": [
+    "Mathlib.NumberTheory.LegendreSymbol.AddCharacter",
+    "Mathlib.Data.ZMod.Basic"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 22:74\n│      simpa [ψ] using AddChar.zmodChar_primitive_of_primitive_root (n := N) root.property\n│                                                                           ^^^\n╰─ error: Invalid field `property`: The environment does not contain `CandidateTheorems.T3.PrimitiveNthRoot.property`\n  root\nhas type\n  PrimitiveNthRoot\n\n╭─ Error at line 26:18\n│      exact Fin.ext h\n│                   ^^^\n╰─ error: Application type mismatch: The argument\n  h\nhas type\n  ↑↑a = 0\nbut is expected to have type\n  ↑a = ↑0\nin the application\n  Fin.ext h\n\n╭─ Error at line 30:4\n│      exact h\n│     ^^^\n╰─ error: Type mismatch\n  h\nhas type\n  ∑ x, ψ (x * ↑↑a) = ↑0\nbut is expected to have type\n  ∑ y, ψ (y * ↑↑a) = 0\n\n╭─ Error at line 34:45\n│      refine Fintype.sum_bijective e.bijective (fun x : Fin N => ?_)\n│                                              ^^^\n╰─ error: Application type mismatch: The argument\n  fun x => ?m.126\nhas type\n  (x : Fin N) → ?m.127 x\nbut is expected to have type\n  Function.Bijective ?m.124\nin the application\n  Fintype.sum_bijective ?m.124 fun x => ?m.126\n\n╭─ Error at line 34:33\n│      refine Fintype.sum_bijective e.bijective (fun x : Fin N => ?_)\n│                                  ^^^\n╰─ error: Application type mismatch: The argument\n  Equiv.bijective e\nhas type\n  Function.Bijective ⇑e\nof sort `Prop` but is expected to have type\n  ?m.115 → ?m.116\nof sort `Type (max ?u.3637 ?u.3638)` in the application\n  Fintype.sum_bijective (Equiv.bijective e)"
+    }
+  ],
+  "message_count": 2
+}

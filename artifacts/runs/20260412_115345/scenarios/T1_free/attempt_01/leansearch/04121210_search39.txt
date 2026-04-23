@@ -1,0 +1,74 @@
+=== Mathlib Algebra BigOperators Ring Finset mul_sum (20 matches) ===
+
+• Finset.mul_sum [theorem]
+  (s : Finset ι) (f : ι → R) (a : R) : a * ∑ i ∈ s, f i = ∑ i ∈ s, a * f i
+
+• Finset.sum_mul [theorem]
+  (s : Finset ι) (f : ι → R) (a : R) : (∑ i ∈ s, f i) * a = ∑ i ∈ s, f i * a
+
+• mul_finsum [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] [NoZeroDivisors R] (f : α → R) (r : R) :
+  (r * ∑ᶠ a : α, f a) = ∑ᶠ a : α, r * f a
+
+• mul_finsum_mem' [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] {s : Set α} (f : α → R) (r : R) (hs : s.Finite) :
+  (r * ∑ᶠ a ∈ s, f a) = ∑ᶠ a ∈ s, r * f a
+
+• Fintype.sum_mul_sum [theorem]
+  [Fintype ι] [Fintype κ] (f : ι → R) (g : κ → R) : (∑ i, f i) * ∑ j, g j = ∑ i, ∑ j, f i * g j
+
+• finsum_mul [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] [NoZeroDivisors R] (f : α → R) (r : R) :
+  (∑ᶠ a : α, f a) * r = ∑ᶠ a : α, f a * r
+
+• mul_finsum' [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] (f : α → R) (r : R) (h : (support f).Finite) :
+  (r * ∑ᶠ a : α, f a) = ∑ᶠ a : α, r * f a
+
+• finsum_mul' [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] (f : α → R) (r : R) (h : (support f).Finite) :
+  (∑ᶠ a : α, f a) * r = ∑ᶠ a : α, f a * r
+
+• finsum_mem_mul [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] [NoZeroDivisors R] {s : Set α} (f : α → R) (r : R) :
+  (∑ᶠ a ∈ s, f a) * r = ∑ᶠ a ∈ s, f a * r
+
+• finsum_mem_mul' [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] {s : Set α} (f : α → R) (r : R) (hs : s.Finite) :
+  (∑ᶠ a ∈ s, f a) * r = ∑ᶠ a ∈ s, f a * r
+
+• Finset.sum_mul_sum [theorem]
+  (s : Finset ι) (t : Finset κ) (f : ι → R) (g : κ → R) : (∑ i ∈ s, f i) * ∑ j ∈ t, g j = ∑ i ∈ s, ∑ j ∈ t, f i * g j
+
+• mul_finsum_mem [theorem]
+  {R : Type*} [NonUnitalNonAssocSemiring R] [NoZeroDivisors R] {s : Set α} (f : α → R) (r : R) :
+  (r * ∑ᶠ a ∈ s, f a) = ∑ᶠ a ∈ s, r * f a
+
+• Finset.sum_range_succ_mul_sum_range_succ [theorem]
+  (m n : ℕ) (f g : ℕ → R) :
+  (∑ i ∈ range (m + 1), f i) * ∑ i ∈ range (n + 1), g i =
+    (∑ i ∈ range m, f i) * ∑ i ∈ range n, g i + f m * ∑ i ∈ range n, g i + (∑ i ∈ range m, f i) * g n + f m * g n
+
+• toMul_sum [theorem]
+  (s : Finset ι) (f : ι → Additive M) : (∑ i ∈ s, f i).toMul = ∏ i ∈ s, (f i).toMul
+
+• ofMul_prod [theorem]
+  (s : Finset ι) (f : ι → M) : ofMul (∏ i ∈ s, f i) = ∑ i ∈ s, ofMul (f i)
+
+• RingEquiv.map_sum [theorem]
+  [NonUnitalNonAssocSemiring R] [NonUnitalNonAssocSemiring S] (g : R ≃+* S) (f : α → R) (s : Finset α) :
+  g (∑ x ∈ s, f x) = ∑ x ∈ s, g (f x)
+
+• toAdd_prod [theorem]
+  (s : Finset ι) (f : ι → Multiplicative M) : (∏ i ∈ s, f i).toAdd = ∑ i ∈ s, (f i).toAdd
+
+• RingCon.finsetSum [theorem]
+  {ι S : Type*} [AddCommMonoid S] [Mul S] (t : RingCon S) (s : Finset ι) {f g : ι → S} (h : ∀ i ∈ s, t (f i) (g i)) :
+  t (s.sum f) (s.sum g)
+
+• Subring.multiset_sum_mem [theorem]
+  {R} [Ring R] (s : Subring R) (m : Multiset R) : (∀ a ∈ m, a ∈ s) → m.sum ∈ s
+
+• tsum_mul_tsum_of_nonarchimedean [theorem]
+  [T0Space R] {f : α → R} {g : β → R} (hf : Summable f) (hg : Summable g) :
+  (∑' i, f i) * (∑' i, g i) = ∑' i : α × β, f i.1 * g i.2

@@ -1,0 +1,33 @@
+{
+  "scenario_key": "T7.free",
+  "theorem_id": "T7",
+  "mode_family": "free",
+  "attempt_index": 1,
+  "target_file": "ATP/temTH/CandidateTheorems/T7/Free.lean",
+  "theorem_name": "candidate_T7_free",
+  "success": false,
+  "valid": false,
+  "observed_route": "unknown",
+  "route_compliance": null,
+  "policy_violations": [],
+  "summary": "",
+  "error": "AttributeError: 'NoneType' object has no attribute 'ainvoke'",
+  "prompt_excerpt": "Target scenario: T7.free\nTarget file: ATP/temTH/CandidateTheorems/T7/Free.lean\n\nTheorem: T7 - Shifted delta as a translated character expansion\n\nATP benchmark protocol:\n1. Keep the theorem statement unchanged.\n2. Do not import solved route files such as `CandidateTheorems.Tk.RouteA` or `CandidateTheorems.Tk.RouteB`.\n3. Do not solve the goal by citing an already-solved `CandidateTheorems.Tk.candidate_Tk_routeA/routeB` theorem.\n4. You may add Mathlib imports or support-file imports when they are genuinely necessary.\n5. Prefer explicit intermediate names over anonymous one-letter names when the proof becomes nontrivial.\n6. Finish with a complete Lean proof and do not leave any `sorry`.\n\nrouteA: 由定理 T5 直接推出. 由定理 `T5` 直接推出。只需把 `T5` 中的变量 `t` 替换为 `x - t`，\n得到 `δ_0(x - t)` 的展开，再注意到 `δ_0(x - t) = δ_t(x)` 即可。\nrouteB: 平移与 Fourier 反演路线. 把 `δ_t` 看成 `δ_0` 的平移，利用 Fourier 反演或角色基重建公式。\n也就是说，先把 `δ_0` 的展开写出，再通过平移得到 `δ_t` 的展开。\n\nMode: free.\nDo not force a route up front; choose the proof direction that looks most natural.\n请先不要预设固定证明路线，自行选择你认为最自然的证明方法完成证明。\n可以由定理 `T5` 直接推出，也可以把 `δ_t` 看成 `δ_0` 的平移并从 Fourier 反演来理解，但不必预先限定。",
+  "iterations": 0,
+  "compilation_errors": 0,
+  "build_timeouts": 0,
+  "reviewer_rejections": 0,
+  "max_iterations_reached": false,
+  "started_at": "2026-04-05T23:16:17.217156",
+  "finished_at": "2026-04-05T23:16:26.118370",
+  "artifact_paths": {
+    "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T7_free/attempt_01/T7_free_attempt01.json",
+    "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T7_free/attempt_01/T7_free_attempt01.lean",
+    "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T7_free/attempt_01",
+    "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T7_free/attempt_01/iterations",
+    "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T7_free/attempt_01/iterations/04052316_iter01.lean",
+    "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T7_free/attempt_01/source/04052316_original.lean",
+    "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T7_free/attempt_01/source/04052316_final.lean",
+    "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T7_free/attempt_01/source/04052316_restored.lean"
+  }
+}

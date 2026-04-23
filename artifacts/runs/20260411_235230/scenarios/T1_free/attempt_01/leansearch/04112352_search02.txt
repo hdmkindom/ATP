@@ -1,0 +1,70 @@
+=== Character G sum over group equals zero hχ ≠ 1 (20 matches) ===
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• FDRep.char_orthonormal [theorem]
+  (V W : FDRep k G) [Simple V] [Simple W] :
+  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0
+
+• DirichletCharacter.sum_characters_eq [theorem]
+  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0
+
+• FiniteField.sum_subgroup_units [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] [Decidable (G = ⊥)] :
+  ∑ x : G, (x.val : K) = if G = ⊥ then 1 else 0
+
+• MulChar.sum_one_eq_card_units [theorem]
+  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ
+
+• MulChar.pow_card_eq_one [theorem]
+  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1
+
+• AddChar.wInner_cWeight_self [theorem]
+  (ψ : AddChar G R) : ⟪(ψ : G → R), ψ⟫ₙ_[R] = 1
+
+• DirichletCharacter.sum_char_inv_mul_char_eq [theorem]
+  {a : ZMod n} (ha : IsUnit a) (b : ZMod n) :
+  ∑ χ : DirichletCharacter R n, χ a⁻¹ * χ b = if a = b then (n.totient : R) else 0
+
+• gaussSum_aux_of_mulShift [theorem]
+  (χ : DirichletCharacter R N) {d : ℕ} (hd : d ∣ N) (he : e.mulShift d = 1) {u : (ZMod N)ˣ}
+  (hu : ZMod.unitsMap hd u = 1) : χ u * gaussSum χ e = gaussSum χ e
+
+• AddChar.wInner_cWeight_eq_boole [theorem]
+  [Fintype G] (ψ₁ ψ₂ : AddChar G R) : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = if ψ₁ = ψ₂ then 1 else 0
+
+• FiniteField.sum_subgroup_units_eq_zero [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] (hg : G ≠ ⊥) : ∑ x : G, (x.val : K) = 0
+
+• FDRep.simple_iff_char_is_norm_one [theorem]
+  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G
+
+• FiniteField.sum_subgroup_pow_eq_zero [theorem]
+  [CommRing K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] {k : ℕ} (k_pos : k ≠ 0)
+  (k_lt_card_G : k < Fintype.card G) : ∑ x : G, ((x : Kˣ) : K) ^ k = 0
+
+• AddChar.wInner_cWeight_eq_one_iff_eq [theorem]
+  [Fintype G] : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = 1 ↔ ψ₁ = ψ₂
+
+• factorsThrough_of_gaussSum_ne_zero [theorem]
+  [IsDomain R] {χ : DirichletCharacter R N} {d : ℕ} (hd : d ∣ N) (he : e.mulShift d = 1) (h_ne : gaussSum χ e ≠ 0) :
+  χ.FactorsThrough d
+
+• gaussSum_mul_gaussSum_eq_card [theorem]
+  {χ : MulChar R R'} (hχ : χ ≠ 1) {ψ : AddChar R R'} (hψ : IsPrimitive ψ) :
+  gaussSum χ ψ * gaussSum χ⁻¹ ψ⁻¹ = Fintype.card R
+
+• gaussSum_mulShift_of_isPrimitive [theorem]
+  [IsDomain R] {χ : DirichletCharacter R N} (hχ : IsPrimitive χ) (a : ZMod N) :
+  gaussSum χ (e.mulShift a) = χ⁻¹ a * gaussSum χ e
+
+• gaussSum_mulShift [theorem]
+  (χ : MulChar R R') (ψ : AddChar R R') (a : Rˣ) : χ a * gaussSum χ (mulShift ψ a) = gaussSum χ ψ
+
+• groupHomology.mem_cycles₁_iff [theorem]
+  (x : G →₀ A) : x ∈ cycles₁ A ↔ x.sum (fun g a => A.ρ g⁻¹ a) = x.sum (fun _ a => a)
+
+• MeasureTheory.Measure.addModularCharacterFun_map_zero [theorem]
+  ∀ {G : Type u_1} [inst : TopologicalSpace G] [inst_1 : AddGroup G] [inst_2 : IsTopologicalAddGroup G]
+  [inst_3 : LocallyCompactSpace G], MeasureTheory.Measure.addModularCharacterFun 0 = 1

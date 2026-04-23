@@ -1,0 +1,11 @@
+{
+  "iteration_index": 7,
+  "timestamp_tag": "04161307",
+  "location": "ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free",
+  "imports": [
+    "Mathlib.RepresentationTheory.Character.Basic"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null
+}

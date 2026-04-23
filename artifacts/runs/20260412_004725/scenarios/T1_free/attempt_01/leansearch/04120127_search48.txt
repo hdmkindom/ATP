@@ -1,0 +1,63 @@
+=== def Character (G) (20 matches) ===
+
+• FDRep.character [definition]
+  (V : FDRep k G) (g : G)
+
+• CharacterModule.int [abbrev]
+  : Type
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• FDRep.char_one [theorem]
+  (V : FDRep k G) : V.character 1 = Module.finrank k V
+
+• CharacterModule [definition]
+  : Type uA
+
+• FDRep.char_dual [theorem]
+  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹
+
+• FDRep.char_conj [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g
+
+• FDRep.char_iso [theorem]
+  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character
+
+• FDRep.simple_iff_char_is_norm_one [theorem]
+  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G
+
+• FDRep.char_tensor [theorem]
+  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character
+
+• FDRep.char_linHom [theorem]
+  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g
+
+• AddChar.linearIndependent [theorem]
+  [Finite G] : LinearIndependent R ((⇑) : AddChar G R → G → R)
+
+• AddChar.sum_apply_eq_ite [theorem]
+  [Fintype α] [DecidableEq α] (a : α) : ∑ ψ : AddChar α ℂ, ψ a = if a = 0 then (Fintype.card α : ℂ) else 0
+
+• FDRep.char_orthonormal [theorem]
+  (V W : FDRep k G) [Simple V] [Simple W] :
+  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0
+
+• AddChar.instFintype.congr_simp [theorem]
+  ∀ (G : Type u_1) (R : Type u_3) [inst : AddCommGroup G] [inst_1 : RCLike R] [inst_2 : Finite G],
+  AddChar.instFintype G R = AddChar.instFintype G R
+
+• AddChar.complexBasis_apply [theorem]
+  (ψ : AddChar α ℂ) : complexBasis α ψ = ψ
+
+• MeasureTheory.Measure.modularCharacterFun [definition]
+  (g : G) : ℝ≥0
+
+• AddChar.wInner_cWeight_eq_boole [theorem]
+  [Fintype G] (ψ₁ ψ₂ : AddChar G R) : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = if ψ₁ = ψ₂ then 1 else 0
+
+• CharacterModule.ext_iff [theorem]
+  ∀ {A : Type uA} [inst : AddCommGroup A] {c c' : CharacterModule A}, c = c' ↔ ∀ (x : A), c x = c' x
+
+• MulChar.pow_card_eq_one [theorem]
+  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1

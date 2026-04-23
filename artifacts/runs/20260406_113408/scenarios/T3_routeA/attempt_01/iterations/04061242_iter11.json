@@ -1,0 +1,20 @@
+{
+  "iteration_index": 11,
+  "timestamp_tag": "04061242",
+  "location": "ATP.temTH.CandidateTheorems.T3.RouteA:candidate_T3_routeA",
+  "imports": [
+    "Mathlib.Algebra.GeomSum"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n'Mathlib.Algebra.GeomSum' has been deprecated: please replace this import by\n\nimport Mathlib.Algebra.Group.NatPowAssoc\nimport Mathlib.Algebra.Order.Field.GeomSum\nimport Mathlib.Algebra.Order.Ring.GeomSum\nimport Mathlib.Algebra.Ring.Regular\nimport Mathlib.Tactic.Abel\nimport Mathlib.Tactic.Positivity.Basic\n\n\n\n╭─ Error at line 38:8\n│      rw [pow_mul]\n│         ^^^\n╰─ error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?a ^ (?m * ?n)\nin the target expression\n  (ζ ^ ↑a) ^ N = 1\n\nN : ℕ\ninst✝ : NeZero N\na : Fin N\nha : a ≠ 0\nζ : ℂ\nhζN : ζ ^ N = 1\nhprimitive : ∀ (m : ℕ), 0 < m → m < N → ζ ^ m ≠ 1\nhNpos : 0 < N\nhNgt1 : 1 < N\nha_pos : 0 < ↑a\nha_lt : ↑a < N\nω : ℂ := ζ ^ ↑a\nhω_ne_one : ω ≠ 1\n⊢ (ζ ^ ↑a) ^ N = 1\n\n╭─ Error at line 63:10\n│            simpa using (Fin.sum_univ_eq_sum_range (f := fun i => ω ^ i) N).symm\n│           ^^^\n╰─ error: Type mismatch: After simplification, term\n  Eq.symm (Fin.sum_univ_eq_sum_range (fun i => ω ^ i) N)\n has type\n  ∑ i ∈ Finset.range N, ω ^ i = ∑ i, ω ^ ↑i\nbut is expected to have type\n  ∑ x, ω ^ ↑x = ∑ i ∈ Finset.range N, ω ^ i"
+    }
+  ],
+  "message_count": 2
+}

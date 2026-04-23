@@ -1,0 +1,55 @@
+{
+  "started_at": "2026-04-05T19:24:32.429020",
+  "finished_at": "2026-04-05T19:24:38.809310",
+  "checks": [
+    {
+      "name": "ax_prover_import",
+      "status": "ok",
+      "message": "ax_prover import ok (/Users/hdm/ax-prover-env/lib/python3.11/site-packages/ax_prover/__init__.py)",
+      "duration_seconds": 3.3401011023670435e-07,
+      "details": {}
+    },
+    {
+      "name": "llm_credentials",
+      "status": "ok",
+      "message": "OPENAI_API_KEY is set for provider openai.",
+      "duration_seconds": 2.7080095605924726e-06,
+      "details": {}
+    },
+    {
+      "name": "llm_base_url",
+      "status": "ok",
+      "message": "base_url looks valid: https://api.whatai.cc",
+      "duration_seconds": 1.2332995538599789e-05,
+      "details": {}
+    },
+    {
+      "name": "lean_repo_build",
+      "status": "ok",
+      "message": "Lean repository build succeeded.",
+      "duration_seconds": 3.3270577910006978,
+      "details": {}
+    },
+    {
+      "name": "template_smoke_file",
+      "status": "ok",
+      "message": "Lean can parse ATP/temTH/ testTH/test.lean.",
+      "duration_seconds": 0.5331737920059822,
+      "details": {}
+    },
+    {
+      "name": "llm_ping",
+      "status": "error",
+      "message": "AttributeError: 'str' object has no attribute 'model_dump'",
+      "duration_seconds": 2.2424495830055093,
+      "details": {}
+    },
+    {
+      "name": "smoke_proof",
+      "status": "skipped",
+      "message": "Skipped by CLI flag.",
+      "duration_seconds": 0.0,
+      "details": {}
+    }
+  ]
+}

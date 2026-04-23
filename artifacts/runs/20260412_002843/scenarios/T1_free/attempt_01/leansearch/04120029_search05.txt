@@ -1,0 +1,64 @@
+=== def Character G := G →* ℂˣ (20 matches) ===
+
+• FDRep.character [definition]
+  (V : FDRep k G) (g : G)
+
+• CharacterModule [definition]
+  : Type uA
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• FDRep.char_one [theorem]
+  (V : FDRep k G) : V.character 1 = Module.finrank k V
+
+• CharacterModule.int [abbrev]
+  : Type
+
+• CharacterModule.ext_iff [theorem]
+  ∀ {A : Type uA} [inst : AddCommGroup A] {c c' : CharacterModule A}, c = c' ↔ ∀ (x : A), c x = c' x
+
+• CharacterModule.ext [theorem]
+  {c c' : CharacterModule A} (h : ∀ x, c x = c' x) : c = c'
+
+• FDRep.char_conj [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g
+
+• FDRep.char_tensor [theorem]
+  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character
+
+• WeakDual.CharacterSpace.toCLM [definition]
+  (φ : characterSpace 𝕜 A) : A →L[𝕜] 𝕜
+
+• CharacterModule.instAddCommGroup [instance]
+  : AddCommGroup (CharacterModule A)
+
+• WeakDual.CharacterSpace.toAlgHom [definition]
+  (φ : characterSpace 𝕜 A) : A →ₐ[𝕜] 𝕜
+
+• FDRep.char_linHom [theorem]
+  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g
+
+• FDRep.simple_iff_char_is_norm_one [theorem]
+  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G
+
+• AddChar.map_neg_eq_conj [theorem]
+  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)
+
+• FDRep.char_dual [theorem]
+  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹
+
+• FDRep.char_iso [theorem]
+  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character
+
+• CharacterModule.dual_apply [theorem]
+  ∀ {R : Type uR} [inst : CommRing R] {A : Type uA} [inst_1 : AddCommGroup A] {B : Type uB} [inst_2 : AddCommGroup B]
+  [inst_3 : Module R A] [inst_4 : Module R B] (f : A →ₗ[R] B) (L : CharacterModule B),
+  (CharacterModule.dual f) L = AddMonoidHom.comp L f.toAddMonoidHom
+
+• FDRep.char_orthonormal [theorem]
+  (V W : FDRep k G) [Simple V] [Simple W] :
+  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0
+
+• WeakDual.CharacterSpace.instAlgHomClass [instance]
+  : AlgHomClass (characterSpace 𝕜 A) 𝕜 A 𝕜

@@ -1,0 +1,18 @@
+{
+  "iteration_index": 2,
+  "timestamp_tag": "04061354",
+  "location": "ATP.temTH.CandidateTheorems.T6.Free:candidate_T6_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T6/tmp_Free_sivvi0r1.lean:15:14: error(lean.unknownIdentifier): Unknown constant `CandidateTheorems.T6.ChangeOfVariablesData.gaussSum_scaling`"
+    }
+  ],
+  "message_count": 2
+}

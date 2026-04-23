@@ -1,0 +1,69 @@
+=== Mathlib sum_hom_units_eq_zero MonoidHom (20 matches) ===
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• Finset.sum_eq_zero_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M} [Subsingleton (AddUnits M)],
+  ∑ i ∈ s, f i = 0 ↔ ∀ i ∈ s, f i = 0
+
+• MonoidWithZeroHom.map_zero [theorem]
+  (f : α →*₀ β) : f 0 = 0
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• map_add_eq_zero [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} {F : Type u_9} [inst : AddZero M] [inst_1 : AddZero N] [inst_2 : FunLike F M N]
+  [AddMonoidHomClass F M N] (f : F) {a b : M}, a + b = 0 → f a + f b = 0
+
+• MonoidWithZeroHom.map_eq_zero_iff [theorem]
+  {G₀ M₀ : Type*} [GroupWithZero G₀] [MulZeroOneClass M₀] [Nontrivial M₀] {f : G₀ →*₀ M₀} {x : G₀} : f x = 0 ↔ x = 0
+
+• DFinsupp.sumAddHom_zero [theorem]
+  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] : (sumAddHom fun i => (0 : β i →+ γ)) = 0
+
+• MonoidWithZeroHomClass.toZeroHomClass [theorem]
+  ∀ {F : Type u_7} {α : outParam (Type u_8)} {β : outParam (Type u_9)} {inst : MulZeroOneClass α}
+  {inst_1 : MulZeroOneClass β} {inst_2 : FunLike F α β} [self : MonoidWithZeroHomClass F α β], ZeroHomClass F α β
+
+• MonoidWithZeroHom.val_mrange_zero [theorem]
+  [MulZeroOneClass G] [MulZeroOneClass H] (f : G →*₀ H) : ((0 : MonoidHom.mrange f) : H) = 0
+
+• instZeroAddMonoidHom [definition]
+  {M : Type u_4} → {N : Type u_5} → [inst : AddZero M] → [inst_1 : AddZeroClass N] → Zero (M →+ N)
+
+• AddMonoidHom.map_zero [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} [inst : AddZero M] [inst_1 : AddZero N] (f : M →+ N), f 0 = 0
+
+• AddMonoidHom.zero_apply [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} [inst : AddZero M] [inst_1 : AddZeroClass N] (x : M), 0 x = 0
+
+• MonoidWithZeroHom.instMul [instance]
+  {β} [CommMonoidWithZero β] : Mul (α →*₀ β)
+
+• AddMonoidHom.mk.injEq [theorem]
+  ∀ {M : Type u_10} {N : Type u_11} [inst : AddZero M] [inst_1 : AddZero N] (toZeroHom : ZeroHom M N)
+  (map_add' : ∀ (x y : M), toZeroHom.toFun (x + y) = toZeroHom.toFun x + toZeroHom.toFun y) (toZeroHom_1 : ZeroHom M N)
+  (map_add'_1 : ∀ (x y : M), toZeroHom_1.toFun (x + y) = toZeroHom_1.toFun x + toZeroHom_1.toFun y),
+  ({ toZeroHom := toZeroHom, map_add' := map_add' } = { toZeroHom := toZeroHom_1, map_add' := map_add'_1 }) =
+    (toZeroHom = toZeroHom_1)
+
+• DFinsupp.sumZeroHom [definition]
+  [∀ i, Zero (β i)] [AddCommMonoid γ] (φ : ∀ i, ZeroHom (β i) γ) : ZeroHom (Π₀ i, β i) γ
+
+• AddUnits.coeHom [definition]
+  (M : Type u) → [inst : AddMonoid M] → AddUnits M →+ M
+
+• Multiset.sumAddMonoidHom [definition]
+  : Multiset M →+ M
+
+• MonoidWithZeroHom [inductive]
+  (α : Type u_7) → (β : Type u_8) → [MulZeroOneClass α] → [MulZeroOneClass β] → Type (max u_7 u_8)
+
+• WithZero.toMonoidWithZeroHom_withZeroUnitsEquiv [theorem]
+  [GroupWithZero M₀] [DecidablePred fun x : M₀ ↦ x = 0] :
+  MonoidWithZeroHomClass.toMonoidWithZeroHom WithZero.withZeroUnitsEquiv = WithZero.lift' (Units.coeHom M₀)
+
+• MonoidWithZeroHom.valueMonoid [definition]
+  : Submonoid Bˣ

@@ -1,0 +1,66 @@
+=== theorem candidate character sum over group zero nontrivial character (20 matches) ===
+
+• DirichletCharacter.sum_characters_eq [theorem]
+  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0
+
+• MulChar.map_nonunit [theorem]
+  (χ : MulChar R R') {a : R} (ha : ¬IsUnit a) : χ a = 0
+
+• AddChar.coe_eq_one [theorem]
+  : ⇑ψ = 1 ↔ ψ = 0
+
+• MulCharClass.map_nonunit [theorem]
+  ∀ {F : Type u_3} {R : outParam (Type u_4)} {R' : outParam (Type u_5)} {inst : CommMonoid R}
+  {inst_1 : CommMonoidWithZero R'} {inst_2 : FunLike F R R'} [self : MulCharClass F R R'] (χ : F) {a : R},
+  ¬IsUnit a → χ a = 0
+
+• AddChar.instZero [instance]
+  : Zero (AddChar A M)
+
+• MulChar.ne_one_iff [theorem]
+  {χ : MulChar R R'} : χ ≠ 1 ↔ ∃ a : Rˣ, χ a ≠ 1
+
+• AddChar.wInner_cWeight_eq_zero_iff_ne [theorem]
+  [Fintype G] : ⟪(ψ₁ : G → R), ψ₂⟫ₙ_[R] = 0 ↔ ψ₁ ≠ ψ₂
+
+• jacobiSum_one_nontrivial [theorem]
+  {χ : MulChar F R} (hχ : χ ≠ 1) : jacobiSum 1 χ = -1
+
+• AddChar.sum_mulShift [theorem]
+  {R : Type*} [CommRing R] [Fintype R] [DecidableEq R] {R' : Type*} [CommRing R'] [IsDomain R'] {ψ : AddChar R R'}
+  (b : R) (hψ : IsPrimitive ψ) : ∑ x : R, ψ (x * b) = if b = 0 then Fintype.card R else 0
+
+• DirichletCharacter.map_zero' [theorem]
+  (hn : n ≠ 1) : χ 0 = 0
+
+• MulChar.sum_one_eq_card_units [theorem]
+  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ
+
+• AddChar.zmod_zero [theorem]
+  : zmod n 0 = 1
+
+• AddChar.ne_zero_iff [theorem]
+  : ψ ≠ 0 ↔ ∃ x, ψ x ≠ 1
+
+• quadraticChar_sum_zero [theorem]
+  (hF : ringChar F ≠ 2) : ∑ a : F, quadraticChar F a = 0
+
+• AddChar.zmod_char_ne_one_iff [theorem]
+  (n : ℕ) [NeZero n] (ψ : AddChar (ZMod n) C) : ψ ≠ 1 ↔ ψ 1 ≠ 1
+
+• AddChar.toAddMonoidHomEquiv_symm_zero [theorem]
+  : toAddMonoidHomEquiv.symm (0 : A →+ Additive M) = 0
+
+• factorsThrough_of_gaussSum_ne_zero [theorem]
+  [IsDomain R] {χ : DirichletCharacter R N} {d : ℕ} (hd : d ∣ N) (he : e.mulShift d = 1) (h_ne : gaussSum χ e ≠ 0) :
+  χ.FactorsThrough d
+
+• FiniteField.sum_subgroup_units_eq_zero [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] (hg : G ≠ ⊥) : ∑ x : G, (x.val : K) = 0
+
+• AddChar.map_zero_eq_one [theorem]
+  (ψ : AddChar A M) : ψ 0 = 1
+
+• MeasureTheory.Measure.addModularCharacterFun_map_zero [theorem]
+  ∀ {G : Type u_1} [inst : TopologicalSpace G] [inst_1 : AddGroup G] [inst_2 : IsTopologicalAddGroup G]
+  [inst_3 : LocallyCompactSpace G], MeasureTheory.Measure.addModularCharacterFun 0 = 1

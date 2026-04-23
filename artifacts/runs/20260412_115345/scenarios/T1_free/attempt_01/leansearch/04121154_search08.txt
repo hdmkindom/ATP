@@ -1,0 +1,65 @@
+=== sum_hom_units_eq_zero complex (20 matches) ===
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• FiniteField.sum_subgroup_units_eq_zero [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] (hg : G ≠ ⊥) : ∑ x : G, (x.val : K) = 0
+
+• Finset.sum_eq_zero_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M} [Subsingleton (AddUnits M)],
+  ∑ i ∈ s, f i = 0 ↔ ∀ i ∈ s, f i = 0
+
+• DFinsupp.sumAddHom_zero [theorem]
+  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] : (sumAddHom fun i => (0 : β i →+ γ)) = 0
+
+• add_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddCommMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• IsAddUnit.sum_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M},
+  IsAddUnit (∑ a ∈ s, f a) ↔ ∀ a ∈ s, IsAddUnit (f a)
+
+• add_eq_zero' [theorem]
+  ∀ {α : Type u} [inst : AddCancelMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• AddChar.sum_apply_ne_zero_iff_eq_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a ≠ 0 ↔ a = 0
+
+• AddUnits.val_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddMonoid α] {a : AddUnits α}, ↑a = 0 ↔ a = 0
+
+• DFinsupp.sumZeroHom_apply [theorem]
+  [∀ i, AddZeroClass (β i)] [∀ (i) (x : β i), Decidable (x ≠ 0)] [AddCommMonoid γ] (φ : ∀ i, ZeroHom (β i) γ)
+  (f : Π₀ i, β i) : sumZeroHom φ f = f.sum fun x => φ x
+
+• AddChar.sum_apply_eq_zero_iff_ne_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a = 0 ↔ a ≠ 0
+
+• Complex.UnitDisc.mk_eq_zero [theorem]
+  {z : ℂ} (hz : ‖z‖ < 1) : mk z hz = 0 ↔ z = 0
+
+• Complex.UnitDisc.coe_eq_zero [theorem]
+  {z : 𝔻} : (z : ℂ) = 0 ↔ z = 0
+
+• AddUnits.instZero [definition]
+  {α : Type u} → [inst : AddMonoid α] → Zero (AddUnits α)
+
+• ZeroHom.coe_add [theorem]
+  ∀ {M : Type u_8} {N : Type u_9} [inst : Zero M] [inst_1 : AddZeroClass N] (f g : ZeroHom M N), ⇑(f + g) = ⇑f + ⇑g
+
+• Complex.UnitDisc.coe_zero [theorem]
+  : ((0 : 𝔻) : ℂ) = 0
+
+• rootsOfUnity_zero [theorem]
+  (M : Type*) [CommMonoid M] : rootsOfUnity 0 M = ⊤
+
+• DFinsupp.sumAddHom_toZeroHom [theorem]
+  ∀ {ι : Type u} {γ : Type w} {β : ι → Type v} [inst : DecidableEq ι] [inst_1 : (i : ι) → AddZeroClass (β i)]
+  [inst_2 : AddCommMonoid γ] (φ : (i : ι) → β i →+ γ), ↑(DFinsupp.sumAddHom φ) = DFinsupp.sumZeroHom fun i => ↑(φ i)
+
+• DFinsupp.sumZeroHom [definition]
+  [∀ i, Zero (β i)] [AddCommMonoid γ] (φ : ∀ i, ZeroHom (β i) γ) : ZeroHom (Π₀ i, β i) γ

@@ -1,0 +1,7 @@
+prover: # T1.free 低成本 probe 配置；用于快速验证 prompt 与搜索策略改动
+  max_iterations: 3 # 最多只跑 3 轮，控制 token 消耗
+  summarize_output: # 关闭额外摘要，避免额外 LLM 调用
+    enabled: false
+
+runtime: # 减少单轮工具往返，优先观察搜索与首轮修正行为
+  max_tool_calling_iterations: 3

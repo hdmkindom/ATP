@@ -1,0 +1,18 @@
+{
+  "iteration_index": 6,
+  "timestamp_tag": "04061505",
+  "location": "ATP.temTH.CandidateTheorems.T8.RouteA:candidate_T8_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 24:46\n│              refine Finset.sum_bij (fun x _ => data.sub x t) ?_ ?_ ?_ ?_\n│                                               ^^^\n╰─ error: Invalid field `sub`: The environment does not contain `CandidateTheorems.T8.FourierTranslationData.sub`\n  data\nhas type\n  FourierTranslationData\n\n╭─ Error at line 28:25\n│                simp only [data.shift]\n│                          ^^^\n╰─ error: Invalid simp theorem: Expected a proposition, but found\n  ι → Equiv.Perm ι\n\n╭─ Error at line 29:18\n│                rw [data.kernel_sub_right]\n│                   ^^^\n╰─ error: Invalid field `kernel_sub_right`: The environment does not contain `CandidateTheorems.T8.FourierTranslationData.kernel_sub_right`\n  data\nhas type\n  FourierTranslationData\n\n╭─ Error at line 31:25\n│              · intro x₁ _ x₂ _ h\n│                          ^^^\n╰─ error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce\n\ncase refine_3\nι : Type u_1\ninst✝ : Fintype ι\ndata : FourierTranslationData\nf : ι → ℂ\nt a x₁ : ι\na✝ : x₁ ∈ Finset.univ\n⊢ ∃ a, ∃ (ha : a ∈ Finset.univ), (fun x x => sorry) a ha = x₁\n\n╭─ Error at line 34:21\n│                refine ⟨data.add y t, by simp, ?_⟩\n│                      ^^^\n╰─ error: Insufficient number of fields for `⟨...⟩` constructor: Constructor `Eq.refl` does not have explicit fields, but 3 were provided\n\n╭─ Error at line 35:14\n│                simp [data.sub_add_cancel]\n│               ^^^\n╰─ error: No goals to be solved\nATP/temTH/CandidateTheorems/T8/tmp_RouteA_qx2_ogow.lean:42:16: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`"
+    }
+  ],
+  "message_count": 2
+}

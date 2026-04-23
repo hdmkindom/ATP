@@ -1,0 +1,65 @@
+=== def Character (20 matches) ===
+
+• WeakDual.characterSpace [definition]
+  (𝕜 : Type*) (A : Type*) [CommSemiring 𝕜] [TopologicalSpace 𝕜] [ContinuousAdd 𝕜] [ContinuousConstSMul 𝕜 𝕜]
+  [NonUnitalNonAssocSemiring A] [TopologicalSpace A] [Module 𝕜 A]
+
+• CharacterModule.int [abbrev]
+  : Type
+
+• WeakDual.CharacterSpace.toCLM [definition]
+  (φ : characterSpace 𝕜 A) : A →L[𝕜] 𝕜
+
+• RegularExpression.char [constructor]
+  {α : Type u} → α → RegularExpression α
+
+• FDRep.char_one [theorem]
+  (V : FDRep k G) : V.character 1 = Module.finrank k V
+
+• CharacterModule.smul_apply [theorem]
+  (c : CharacterModule A) (r : R) (a : A) : (r • c) a = c (r • a)
+
+• DirichletCharacter.primitiveCharacter [definition]
+  : DirichletCharacter R χ.conductor
+
+• FDRep.char_tensor [theorem]
+  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character
+
+• AddChar.toFun [definition]
+  {A : Type u_1} → [inst : AddMonoid A] → {M : Type u_2} → [inst_1 : Monoid M] → AddChar A M → A → M
+
+• MulChar.inv_apply [theorem]
+  {R : Type*} [CommMonoidWithZero R] (χ : MulChar R R') (a : R) : χ⁻¹ a = χ (Ring.inverse a)
+
+• WeakDual.CharacterSpace.ext_iff [theorem]
+  ∀ {𝕜 : Type u_1} {A : Type u_2} [inst : CommSemiring 𝕜] [inst_1 : TopologicalSpace 𝕜] [inst_2 : ContinuousAdd 𝕜]
+  [inst_3 : ContinuousConstSMul 𝕜 𝕜] [inst_4 : NonUnitalNonAssocSemiring A] [inst_5 : TopologicalSpace A]
+  [inst_6 : Module 𝕜 A] {φ ψ : ↑(WeakDual.characterSpace 𝕜 A)}, φ = ψ ↔ ∀ (x : A), φ x = ψ x
+
+• quadraticChar [definition]
+  : MulChar F ℤ
+
+• MulChar.ext_iff [theorem]
+  ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommMonoidWithZero R'] {χ χ' : MulChar R R'},
+  χ = χ' ↔ ∀ (a : Rˣ), χ ↑a = χ' ↑a
+
+• WeakDual.CharacterSpace.instAlgHomClass [instance]
+  : AlgHomClass (characterSpace 𝕜 A) 𝕜 A 𝕜
+
+• CharacterModule.instModule [instance]
+  : Module R (CharacterModule A)
+
+• AddChar.instFunLike [instance]
+  : FunLike (AddChar A M) A M
+
+• CharacterModule.ext_iff [theorem]
+  ∀ {A : Type uA} [inst : AddCommGroup A] {c c' : CharacterModule A}, c = c' ↔ ∀ (x : A), c x = c' x
+
+• CharacterModule.ext [theorem]
+  {c c' : CharacterModule A} (h : ∀ x, c x = c' x) : c = c'
+
+• MulChar.inhabited [instance]
+  : Inhabited (MulChar R R')
+
+• AddChar.complexBasis [definition]
+  : Basis (AddChar α ℂ) ℂ (α → ℂ)

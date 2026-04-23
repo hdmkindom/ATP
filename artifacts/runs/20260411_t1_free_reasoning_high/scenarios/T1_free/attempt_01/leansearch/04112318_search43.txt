@@ -1,0 +1,63 @@
+=== def Character (G) := G →* ℂˣ (20 matches) ===
+
+• CharacterModule [definition]
+  : Type uA
+
+• FDRep.character [definition]
+  (V : FDRep k G) (g : G)
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• CharacterModule.int [abbrev]
+  : Type
+
+• FDRep.char_conj [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g
+
+• FDRep.simple_iff_char_is_norm_one [theorem]
+  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G
+
+• FDRep.char_tensor [theorem]
+  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character
+
+• FDRep.char_iso [theorem]
+  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character
+
+• FDRep.char_dual [theorem]
+  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹
+
+• FDRep.char_linHom [theorem]
+  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g
+
+• CharacterModule.instAddCommGroup [instance]
+  : AddCommGroup (CharacterModule A)
+
+• CharacterModule.dual_apply [theorem]
+  ∀ {R : Type uR} [inst : CommRing R] {A : Type uA} [inst_1 : AddCommGroup A] {B : Type uB} [inst_2 : AddCommGroup B]
+  [inst_3 : Module R A] [inst_4 : Module R B] (f : A →ₗ[R] B) (L : CharacterModule B),
+  (CharacterModule.dual f) L = AddMonoidHom.comp L f.toAddMonoidHom
+
+• AddChar.circleEquivComplex [definition]
+  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ
+
+• AddChar.complexBasis.congr_simp [theorem]
+  ∀ (α : Type u_1) [inst : AddCommGroup α] [inst_1 : Finite α], AddChar.complexBasis α = AddChar.complexBasis α
+
+• AddChar.complexBasis_apply [theorem]
+  (ψ : AddChar α ℂ) : complexBasis α ψ = ψ
+
+• Real.fourierChar [definition]
+  : AddChar ℝ Circle
+
+• CharacterModule.instFunLikeAddCircleRatOfNat [instance]
+  : FunLike (CharacterModule A) A (AddCircle (1 : ℚ))
+
+• WeakDual.CharacterSpace.instStarHomClass [instance]
+  : StarHomClass (characterSpace ℂ A) A ℂ
+
+• WeakDual.CharacterSpace.instAlgHomClass [instance]
+  : AlgHomClass (characterSpace 𝕜 A) 𝕜 A 𝕜
+
+• CharacterModule.ofSpanSingleton [definition]
+  (a : A) : CharacterModule (ℤ ∙ a)

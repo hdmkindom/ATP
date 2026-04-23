@@ -1,0 +1,14 @@
+{
+  "search_index": 8,
+  "timestamp": "2026-04-12T00:50:11.136991",
+  "timestamp_tag": "04120050",
+  "query": "Character G := G →* ℂˣ",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.787077,
+  "error": null,
+  "result_text": "=== Character G := G →* ℂˣ (20 matches) ===\n\n• FDRep.character [definition]\n  (V : FDRep k G) (g : G)\n\n• WeakDual.characterSpace [definition]\n  (𝕜 : Type*) (A : Type*) [CommSemiring 𝕜] [TopologicalSpace 𝕜] [ContinuousAdd 𝕜] [ContinuousConstSMul 𝕜 𝕜]\n  [NonUnitalNonAssocSemiring A] [TopologicalSpace A] [Module 𝕜 A]\n\n• CharacterModule [definition]\n  : Type uA\n\n• WeakDual.CharacterSpace.instStarHomClass [instance]\n  : StarHomClass (characterSpace ℂ A) A ℂ\n\n• AddChar.circleEquivComplex [definition]\n  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ\n\n• MulChar.commGroup [instance]\n  : CommGroup (MulChar R R')\n\n• WeakDual.CharacterSpace.toCLM [definition]\n  (φ : characterSpace 𝕜 A) : A →L[𝕜] 𝕜\n\n• MulChar.ofRootOfUnity_spec [theorem]\n  {ζ : Rˣ} (hζ : ζ ∈ rootsOfUnity (Fintype.card Mˣ) R) {g : Mˣ} (hg : ∀ x, x ∈ Subgroup.zpowers g) :\n  ofRootOfUnity hζ hg g = ζ\n\n• FDRep.char_tensor [theorem]\n  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character\n\n• FDRep.char_mul_comm [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)\n\n• MulChar.toUnitHom [definition]\n  (χ : MulChar R R') : Rˣ →* R'ˣ\n\n• CharacterModule.instAddCommGroup [instance]\n  : AddCommGroup (CharacterModule A)\n\n• Real.fourierChar [definition]\n  : AddChar ℝ Circle\n\n• MulChar.instMulCharClass [instance]\n  : MulCharClass (MulChar R R') R R'\n\n• ZMod.stdAddChar [definition]\n  : AddChar (ZMod N) ℂ\n\n• AddChar.map_neg_eq_conj [theorem]\n  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• WeakDual.gelfandTransform_apply_apply [theorem]\n  ∀ (𝕜 : Type u_1) (A : Type u_2) [inst : CommRing 𝕜] [inst_1 : NoZeroDivisors 𝕜] [inst_2 : TopologicalSpace 𝕜]\n  [inst_3 : IsTopologicalRing 𝕜] [inst_4 : TopologicalSpace A] [inst_5 : Semiring A] [inst_6 : Algebra 𝕜 A] (a : A)\n  (φ : ↑(WeakDual.characterSpace 𝕜 A)), ((WeakDual.gelfandTransform 𝕜 A) a) φ = φ a\n\n• ZMod.rootsOfUnityAddChar [definition]\n  (n : ℕ) [NeZero n] : AddChar (ZMod n) (rootsOfUnity n Circle)\n\n• BoundedContinuousFunction.charMonoidHom [definition]\n  (he : Continuous e) (hL : Continuous fun p : V × W ↦ L p.1 p.2) : Multiplicative W →* (V →ᵇ ℂ)"
+}

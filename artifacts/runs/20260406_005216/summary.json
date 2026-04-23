@@ -1,0 +1,55 @@
+{
+  "metadata": {
+    "repo_root": "/Users/hdm/math/elementary-number-theory",
+    "repeats": 1,
+    "scenario_count": 1,
+    "elapsed_seconds": 95.52,
+    "llm_request_count": 11,
+    "llm_failed_request_count": 0,
+    "llm_total_tokens": 22325,
+    "estimated_total_seconds": 124.137,
+    "estimate_source": "历史 EWMA"
+  },
+  "results": [
+    {
+      "scenario_key": "T1.free",
+      "theorem_id": "T1",
+      "mode_family": "free",
+      "attempt_index": 1,
+      "target_file": "ATP/temTH/CandidateTheorems/T1/Free.lean",
+      "theorem_name": "candidate_T1_free",
+      "success": false,
+      "valid": false,
+      "observed_route": "unknown",
+      "route_compliance": null,
+      "policy_violations": [],
+      "summary": "**Theorem:** `candidate_T1_free`  \n**Location:** `ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free`  \n**Status:** ❌ Not proven (`Proven: False`) after **5 iterations**.\n\n### Why it failed\nThe core proof idea (assume the sum is nonzero, show `χ = 1`, contradict `hχ`) was reasonable, but the implementation ran into Lean/API issues:\n\n- Used unavailable tactic: `nlinarith`.\n- Used non-existent or wrong lemma names in this environment (e.g. `Finset.mul_sum`).\n- Misused `Fintype.sum_bijective` for reindexing; this triggered typeclass/summation-shape problems.\n- Could not complete algebra step from `hmul : (χ h) * S = S` to `((χ h)-1)*S=0` in a way accepted by Lean.\n- Final coercion/equality extraction (`χ h = 1` from complex equality) was not successfully closed.\n\n### Main approaches tried\n1. Contradiction setup with `S := ∑ g, χ g` and `S ≠ 0`.\n2. For fixed `h`, attempted to show left-translation invariance of the sum:\n   \\[\n   (χ h) S = \\sum_g χ(hg) = \\sum_g χ(g) = S.\n   \\]\n3. From invariance and `S ≠ 0`, attempted to deduce `χ h = 1` for all `h`, then `χ = 1`, contradiction.\n\n### Concrete next steps\n1. **Use supported reindexing lemma** for finite sums under equivalences/permutations of `G` (e.g. via `Equiv`-based `Finset.univ` rewrite), instead of `Fintype.sum_bijective`.\n2. **Avoid `nlinarith`**; do ring manipulation explicitly with `ring_nf`/`linarith` alternatives or direct `calc`:\n   `a*S = S` → `(a-1)*S = a*S - S = 0`.\n3. **Handle character equality via ext + coercions cleanly**:\n   prove `(χ h : ℂ) = 1`, then convert to `χ h = 1` using the appropriate `Subtype.ext`/`Character.ext` pattern already available in your imports.",
+      "error": null,
+      "prompt_excerpt": "Target scenario: T1.free\nTarget file: ATP/temTH/CandidateTheorems/T1/Free.lean\n\nTheorem: T1 - Nontrivial finite-group character sum vanishes\n\nATP benchmark protocol:\n1. Keep the theorem statement unchanged.\n2. Do not import solved route files such as `CandidateTheorems.Tk.RouteA` or `CandidateTheorems.Tk.RouteB`.\n3. Do not solve the goal by citing an already-solved `CandidateTheorems.Tk.candidate_Tk_routeA/routeB` theorem.\n4. You may add Mathlib imports or support-file imports when they are genuinely necessary.\n5. Prefer explicit intermediate names over anonymous one-letter names when the proof becomes nontrivial.\n6. Finish with a complete Lean proof and do not leave any `sorry`.\n\nrouteA: 换元路线. 直接考虑置换 `g ↦ h g`，其中 `χ(h) ≠ 1`。\n可以先设 `S := ∑ g, χ(g)`，再比较 `S` 与 `χ(h) * S`。\nrouteB: 正交路线. 把该结论当作角色正交关系的标准实例来处理。\n\nMode: free.\nDo not force a route up front; choose the proof direction that looks most natural.\n请先不要预设固定证明路线，自行选择你认为最自然的证明方法完成证明。\n可以从有限阿贝尔群角色的常见性质出发，但不要导入已经完成的证明文件，也不要直接调用现成答案。",
+      "iterations": 5,
+      "compilation_errors": 5,
+      "build_timeouts": 0,
+      "reviewer_rejections": 0,
+      "max_iterations_reached": true,
+      "elapsed_seconds": 95.518,
+      "llm_request_count": 11,
+      "llm_failed_request_count": 0,
+      "llm_input_tokens": 19381,
+      "llm_output_tokens": 2944,
+      "llm_total_tokens": 22325,
+      "started_at": "2026-04-06T00:52:16.709529",
+      "finished_at": "2026-04-06T00:53:52.227529",
+      "artifact_paths": {
+        "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/T1_free_attempt01.json",
+        "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/T1_free_attempt01.lean",
+        "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01",
+        "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/iterations",
+        "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/iterations/04060052_iter01.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/iterations/04060052_iter02.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/iterations/04060053_iter03.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/iterations/04060053_iter04.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/iterations/04060053_iter05.lean",
+        "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/source/04060052_original.lean",
+        "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/source/04060053_final.lean",
+        "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/source/04060053_restored.lean",
+        "message_trace_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_005216/scenarios/T1_free/attempt_01/messages.json"
+      }
+    }
+  ]
+}

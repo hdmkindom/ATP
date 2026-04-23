@@ -1,0 +1,18 @@
+{
+  "iteration_index": 17,
+  "timestamp_tag": "04061228",
+  "location": "ATP.temTH.CandidateTheorems.T3.Free:candidate_T3_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 58:9\n│          linarith\n│          ^^^\n╰─ error: unknown tactic\n\n╭─ Error at line 30:32\n│      have hdiv : N ∣ (a : ℕ) := (hroot.2 _ hpow)\n│                                 ^^^\n╰─ error: Invalid projection: Projections are not supported on this type because it has no fields\n  hroot\nhas type\n  root.zeta ^ N = 1\n\n╭─ Error at line 33:6\n│        omega\n│       ^^^\n╰─ error: omega could not prove the goal:\na possible counterexample may satisfy the constraints\n  d ≥ 0\n  c ≥ 1\n  c - d ≤ -1\n  b ≥ 2\n  b - c ≥ 1\n  b - d ≥ 1\nwhere\n b := ↑N\n c := ↑↑a\n d := ↑↑0\nATP/temTH/CandidateTheorems/T3/tmp_Free_nyafviyl.lean:50:21: error(lean.unknownIdentifier): Unknown constant `Fin.sum_univ_succAbove_eq`\n\n╭─ Error at line 51:20\n│                intro y\n│                     ^^^\n╰─ error: No goals to be solved\n\n╭─ Error at line 57:6\n│        have hsub : (ζ - 1) * ∑ x : Fin N, ζ ^ (x : ℕ) = 0 := by\n│       ^^^\n╰─ error: No goals to be solved\n\n╭─ Error at line 44:2\n│    · have hmul : ζ * ∑ x : Fin N, ζ ^ (x : ℕ) = ∑ x : Fin N, ζ ^ (x : ℕ) := by\n│   ^^^\n╰─ error: unsolved goals\ncase neg\nN : ℕ\ninst✝ : NeZero N\nroot : PrimitiveNthRoot\na : Fin N\nha : a ≠ 0\nhNlt : 1 < N\nζ : ℂ := root.zeta ^ ↑a\nhζ_neq_one : ζ ≠ 1\nhgeom : ∑ x, cyclicChar root a x = ∑ x, ζ ^ ↑x\nhz : ¬ζ = 1\nhmul : ζ * ∑ x, ζ ^ ↑x = ∑ x, ζ ^ ↑x\n⊢ ∑ x, ζ ^ ↑x = 0"
+    }
+  ],
+  "message_count": 2
+}

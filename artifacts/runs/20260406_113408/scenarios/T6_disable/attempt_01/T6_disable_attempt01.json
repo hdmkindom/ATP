@@ -1,0 +1,42 @@
+{
+  "scenario_key": "T6.disable",
+  "theorem_id": "T6",
+  "mode_family": "disable",
+  "attempt_index": 1,
+  "target_file": "ATP/temTH/CandidateTheorems/T6/Disable.lean",
+  "theorem_name": "candidate_T6_disable",
+  "success": false,
+  "valid": false,
+  "observed_route": "routeA",
+  "route_compliance": false,
+  "policy_violations": [
+    "Matched forbidden pattern: \\bChangeOfVariablesData\\b"
+  ],
+  "summary": "Theorem: `candidate_T6_disable` at `ATP.temTH.CandidateTheorems.T6.Disable:candidate_T6_disable`\n\nStatus: not proven after 20 iterations.\n\nWhy it failed:\n- Every attempt hit compilation errors rather than tactic dead-ends.\n- The main blocker was reliance on guessed or invented Gauss-sum lemmas, especially `gaussSum_mulShift_of_isPrimitive`, which is not in scope (`unknown identifier`).\n- Simplifying the definitions of `ChangeOfVariablesData.scale`, `ψₐ`, and `ψ₁` was understood and already incorporated, but that alone did not close the goal without a real supporting lemma.\n\nMain approaches tried:\n- Repeatedly attempted a one-line `simpa [...] using ...` proof from a presumed change-of-variables / multiplicative-shift lemma for `gaussSum`.\n- Focused on unfolding:\n  - `ChangeOfVariablesData.scale`\n  - `ChangeOfVariablesData.ψₐ`\n  - `ChangeOfVariablesData.ψ₁`\n- Used available data such as `data.hχ_primitive` and `data.a` in hopes of applying a primitive-character Gauss sum lemma.\n\nConcrete next steps:\n1. Search the actual library for the correct theorem name about scaling/shifting Gauss sums under a primitive character, instead of guessing. Use `#check`, grep, or editor symbol search for lemmas involving `gaussSum`, `primitive`, `mul`, `shift`, or `changeOfVariables`.\n2. If no such lemma exists, prove the result directly by unfolding `gaussSum`, `ψₐ`, `ψ₁`, and `scale`, then performing the change of variables in the underlying finite sum.\n3. Inspect nearby theorem files around `T6` or related Gauss-sum developments to find an already-proved intermediate lemma that matches this exact statement or can be specialized to it.",
+  "error": null,
+  "prompt_excerpt": "Target scenario: T6.disable\nTarget file: ATP/temTH/CandidateTheorems/T6/Disable.lean\n\nTheorem: T6 - Gauss sum scaling formula\n\nATP benchmark protocol:\n1. Keep the theorem statement unchanged.\n2. Do not import solved route files such as `CandidateTheorems.Tk.RouteA` or `CandidateTheorems.Tk.RouteB`.\n3. Do not solve the goal by citing an already-solved `CandidateTheorems.Tk.candidate_Tk_routeA/routeB` theorem.\n4. You may add Mathlib imports or support-file imports when they are genuinely necessary.\n5. Prefer explicit intermediate names over anonymous one-letter names when the proof becomes nontrivial.\n6. Finish with a complete Lean proof and do not leave any `sorry`.\n\nrouteA: 换元路线. 利用 `a` 在 `(Z / N Z)^\\times` 中可逆，做换元 `y = a x`。\nrouteB: 调用现成 Gauss sum 结果. 直接调用现成的 Gauss sum 标准缩放公式或与之等价的结果。\n\nMode: disable.\nThe following proof family is intentionally disabled for this run.\nDisabled route family: routeA: 换元路线.\n请不要利用 `a` 在 `(Z / N Z)^\\times` 中可逆这一点去做换元 `y = a x`，\n也不要通过显式重写求和变量、把 `ψ_a` 与 `χ` 一步步搬运到标准形来完成证明。\n请改从现成的标准缩放公式或等价结果出发。\nForbidden proof markers for this scenario: \\bChangeOfVariablesData\\b, \\bψ_comp\\b, \\bχ_comp\\b.",
+  "iterations": 20,
+  "compilation_errors": 20,
+  "build_timeouts": 0,
+  "reviewer_rejections": 0,
+  "max_iterations_reached": true,
+  "elapsed_seconds": 339.048434,
+  "llm_request_count": 76,
+  "llm_failed_request_count": 0,
+  "llm_input_tokens": 343245,
+  "llm_output_tokens": 8617,
+  "llm_total_tokens": 351862,
+  "started_at": "2026-04-06T14:00:16.561024",
+  "finished_at": "2026-04-06T14:05:55.609458",
+  "artifact_paths": {
+    "result_json": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/T6_disable_attempt01.json",
+    "proof_snapshot": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/T6_disable_attempt01.lean",
+    "attempt_dir": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01",
+    "iteration_snapshot_dir": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations",
+    "iteration_snapshot_files": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061400_iter01.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061400_iter02.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061400_iter03.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061401_iter04.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061401_iter05.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061401_iter06.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061401_iter07.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061402_iter08.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061402_iter09.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061402_iter10.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061402_iter11.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061403_iter12.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061403_iter13.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061403_iter14.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061404_iter15.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061404_iter16.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061404_iter17.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061405_iter18.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061405_iter19.lean, /home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/iterations/04061405_iter20.lean",
+    "original_source_snapshot": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/source/04061400_original.lean",
+    "final_source_snapshot": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/source/04061405_final.lean",
+    "restored_source_snapshot": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/source/04061405_restored.lean",
+    "message_trace_json": "/home/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_113408/scenarios/T6_disable/attempt_01/messages.json"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "iteration_index": 14,
+  "timestamp_tag": "04061454",
+  "location": "ATP.temTH.CandidateTheorems.T8.Free:candidate_T8_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T8/tmp_Free_8vlbxgi2.lean:21:6: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`\n\n╭─ Error at line 18:48\n│        data.phase a t * fourierCoeff data f a := by\n│                                                 ^^^\n╰─ error: unsolved goals\nι : Type u_1\ninst✝ : Fintype ι\ndata : FourierTranslationData\nf : ι → ℂ\nt a : ι\n⊢ ∑ x, f ((data.shift t) x) * data.kernel a x = data.phase a t * ∑ x, f x * data.kernel a x"
+    }
+  ],
+  "message_count": 2
+}

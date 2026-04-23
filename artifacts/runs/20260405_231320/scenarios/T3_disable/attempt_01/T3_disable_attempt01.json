@@ -1,0 +1,33 @@
+{
+  "scenario_key": "T3.disable",
+  "theorem_id": "T3",
+  "mode_family": "disable",
+  "attempt_index": 1,
+  "target_file": "ATP/temTH/CandidateTheorems/T3/Disable.lean",
+  "theorem_name": "candidate_T3_disable",
+  "success": false,
+  "valid": false,
+  "observed_route": "unknown",
+  "route_compliance": null,
+  "policy_violations": [],
+  "summary": "",
+  "error": "AttributeError: 'NoneType' object has no attribute 'ainvoke'",
+  "prompt_excerpt": "Target scenario: T3.disable\nTarget file: ATP/temTH/CandidateTheorems/T3/Disable.lean\n\nTheorem: T3 - Complete cyclic character sum vanishes for nonzero frequency\n\nATP benchmark protocol:\n1. Keep the theorem statement unchanged.\n2. Do not import solved route files such as `CandidateTheorems.Tk.RouteA` or `CandidateTheorems.Tk.RouteB`.\n3. Do not solve the goal by citing an already-solved `CandidateTheorems.Tk.candidate_Tk_routeA/routeB` theorem.\n4. You may add Mathlib imports or support-file imports when they are genuinely necessary.\n5. Prefer explicit intermediate names over anonymous one-letter names when the proof becomes nontrivial.\n6. Finish with a complete Lean proof and do not leave any `sorry`.\n\nrouteA: 几何级数路线. 令\n`ω = Exp(2π i a / N)`。\n把原和式写成\n`∑_{x=0}^{N-1} ω^x`，\n再把它看成非平凡单位根的完整幂和，并通过有限几何级数公式证明其为零。\nrouteB: 加性角色路线. 把\n`x ↦ Exp(2π i a x / N)`\n看成群 `Z / N Z` 上的非平凡加性角色，再利用“非平凡角色在全群上的总和等于零”这一标准结论。\n\nMode: disable.\nThe following proof family is intentionally disabled for this run.\nDisabled route family: routeA: 几何级数路线.\n请不要把\n`ω = Exp(2π i a / N)`\n引入成一个非平凡 `N` 次单位根，也不要把原和式直接改写成有限几何级数\n`∑_{x=0}^{N-1} ω^x`\n后再用显式代数恒等式证明其为零。\n请把它看成有限群上的非平凡加性角色求和来处理。\nForbidden proof markers for this scenario: \\b",
+  "iterations": 0,
+  "compilation_errors": 0,
+  "build_timeouts": 0,
+  "reviewer_rejections": 0,
+  "max_iterations_reached": false,
+  "started_at": "2026-04-05T23:14:39.717956",
+  "finished_at": "2026-04-05T23:14:45.391531",
+  "artifact_paths": {
+    "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T3_disable/attempt_01/T3_disable_attempt01.json",
+    "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T3_disable/attempt_01/T3_disable_attempt01.lean",
+    "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T3_disable/attempt_01",
+    "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T3_disable/attempt_01/iterations",
+    "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T3_disable/attempt_01/iterations/04052314_iter01.lean",
+    "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T3_disable/attempt_01/source/04052314_original.lean",
+    "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T3_disable/attempt_01/source/04052314_final.lean",
+    "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_231320/scenarios/T3_disable/attempt_01/source/04052314_restored.lean"
+  }
+}

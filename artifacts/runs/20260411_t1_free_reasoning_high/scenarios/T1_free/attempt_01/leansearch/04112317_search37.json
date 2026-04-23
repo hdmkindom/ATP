@@ -1,0 +1,14 @@
+{
+  "search_index": 37,
+  "timestamp": "2026-04-11T23:17:24.399025",
+  "timestamp_tag": "04112317",
+  "query": "sum_hom_units_eq_zero import",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 3.077929,
+  "error": null,
+  "result_text": "=== sum_hom_units_eq_zero import (20 matches) ===\n\n• FreeGroup.sum.map_one [theorem]\n  : sum (1 : FreeGroup α) = 0\n\n• AddSubmonoid.mk_add_mk_neg_eq_zero [theorem]\n  ∀ {M : Type u_1} [inst : AddMonoid M] (S : AddSubmonoid M) {x : AddUnits M} (h : x ∈ S.addUnits),\n  ⟨(AddUnits.coeHom M) x, ⋯⟩ + ⟨(AddUnits.coeHom M) (-x), ⋯⟩ = 0\n\n• AddUnits.neg_val [theorem]\n  ∀ {α : Type u} [inst : AddMonoid α] (self : AddUnits α), self.neg + ↑self = 0\n\n• Subsingleton.addUnits_of_isAddUnit [theorem]\n  ∀ {M : Type u_1} [inst : AddMonoid M], (∀ (a : M), IsAddUnit a → a = 0) → Subsingleton (AddUnits M)\n\n• AddRightCancelMonoid.add_eq_zero [theorem]\n  ∀ {α : Type u} [inst : AddRightCancelMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0\n\n• Multiset.sumAddMonoidHom [definition]\n  : Multiset M →+ M\n\n• instZeroAddHom [definition]\n  {M : Type u_4} → {N : Type u_5} → [inst : Add M] → [inst_1 : AddZeroClass N] → Zero (M →ₙ+ N)\n\n• AddUnits.val_eq_zero [theorem]\n  ∀ {α : Type u} [inst : AddMonoid α] {a : AddUnits α}, ↑a = 0 ↔ a = 0\n\n• finsum_eq_zero_of_forall_eq_zero [theorem]\n  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M}, (∀ (x : α), f x = 0) → ∑ᶠ (i : α), f i = 0\n\n• Multiset.sum_hom_ne_zero [theorem]\n  ∀ {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {s : Multiset M},\n  s ≠ 0 → ∀ {F : Type u_8} [inst_2 : FunLike F M N] [AddHomClass F M N] (f : F), (Multiset.map (⇑f) s).sum = f s.sum\n\n• DFinsupp.sumZeroHom_piSingle [theorem]\n  [∀ i, Zero (β i)] [AddCommMonoid γ] (i) (φ : ZeroHom (β i) γ) :\n  sumZeroHom (Pi.single i φ) = φ.comp { toFun := (· i), map_zero' := rfl }\n\n• rootsOfUnity_zero [theorem]\n  (M : Type*) [CommMonoid M] : rootsOfUnity 0 M = ⊤\n\n• NonUnitalAlgHom.instZero [instance]\n  : Zero (A →ₛₙₐ[φ] B)\n\n• MonoidWithZeroHom.valueMonoid_eq_valueGroup [theorem]\n  : (valueMonoid f) = (valueGroup f).toSubmonoid\n\n• NonUnitalRingHom.instZero [instance]\n  : Zero (α →ₙ+* β)\n\n• NonUnitalRingHom.zero_apply [theorem]\n  (x : α) : (0 : α →ₙ+* β) x = 0\n\n• WithZero.unitsWithZeroEquiv_apply [theorem]\n  ∀ {α : Type u_1} [inst : Group α] (a : (WithZero α)ˣ), WithZero.unitsWithZeroEquiv a = WithZero.unzero ⋯\n\n• AddUnits.instAddZeroClass [definition]\n  {α : Type u} → [inst : AddMonoid α] → AddZeroClass (AddUnits α)\n\n• instIsCancelAddZeroHom [theorem]\n  ∀ {M : Type uM} {N : Type uN} [inst : Zero M] [inst_1 : AddZeroClass N] [IsCancelAdd N], IsCancelAdd (ZeroHom M N)\n\n• WithZero.logEquiv [definition]\n  : (Gᵐ⁰)ˣ ≃ G"
+}

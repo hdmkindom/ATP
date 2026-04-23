@@ -1,0 +1,12 @@
+{
+  "iteration_index": 1,
+  "timestamp_tag": "04112309",
+  "location": "ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free",
+  "imports": [
+    "Mathlib/RepresentationTheory/Character/Basic",
+    "Mathlib/Algebra/BigOperators/Group/Finset"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null
+}

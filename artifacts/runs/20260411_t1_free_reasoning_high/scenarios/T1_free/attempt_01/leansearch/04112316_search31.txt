@@ -1,0 +1,67 @@
+=== finite group monoid hom sum_hom_units_eq_zero (20 matches) ===
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• FiniteField.sum_subgroup_units_eq_zero [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] (hg : G ≠ ⊥) : ∑ x : G, (x.val : K) = 0
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• FiniteField.sum_subgroup_units [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] [Decidable (G = ⊥)] :
+  ∑ x : G, (x.val : K) = if G = ⊥ then 1 else 0
+
+• Finset.sum_eq_zero_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M} [Subsingleton (AddUnits M)],
+  ∑ i ∈ s, f i = 0 ↔ ∀ i ∈ s, f i = 0
+
+• DFinsupp.sumAddHom_zero [theorem]
+  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] : (sumAddHom fun i => (0 : β i →+ γ)) = 0
+
+• FreeGroup.sum.map_one [theorem]
+  : sum (1 : FreeGroup α) = 0
+
+• WithZero.toMonoidWithZeroHom_withZeroUnitsEquiv [theorem]
+  [GroupWithZero M₀] [DecidablePred fun x : M₀ ↦ x = 0] :
+  MonoidWithZeroHomClass.toMonoidWithZeroHom WithZero.withZeroUnitsEquiv = WithZero.lift' (Units.coeHom M₀)
+
+• Finset.sum_eq_zero [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M},
+  (∀ x ∈ s, f x = 0) → ∑ x ∈ s, f x = 0
+
+• MonoidWithZeroHom.valueMonoid_eq_valueGroup' [theorem]
+  : (valueMonoid f : Set Bˣ) = valueGroup f
+
+• MonoidWithZeroHom.map_eq_zero_iff [theorem]
+  {G₀ M₀ : Type*} [GroupWithZero G₀] [MulZeroOneClass M₀] [Nontrivial M₀] {f : G₀ →*₀ M₀} {x : G₀} : f x = 0 ↔ x = 0
+
+• finsum_eq_zero_of_forall_eq_zero [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M}, (∀ (x : α), f x = 0) → ∑ᶠ (i : α), f i = 0
+
+• MulChar.sum_one_eq_card_units [theorem]
+  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ
+
+• finsum_mem_eq_zero_of_forall_eq_zero [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M} {s : Set α},
+  (∀ x ∈ s, f x = 0) → ∑ᶠ (i : α) (_ : i ∈ s), f i = 0
+
+• WithZero.unitsWithZeroEquiv_apply [theorem]
+  ∀ {α : Type u_1} [inst : Group α] (a : (WithZero α)ˣ), WithZero.unitsWithZeroEquiv a = WithZero.unzero ⋯
+
+• MonoidWithZeroHom.valueMonoid [definition]
+  : Submonoid Bˣ
+
+• MonoidHom.toHomUnitsMulEquiv [definition]
+  : (G →* M) ≃* (G →* Mˣ)
+
+• DFinsupp.sumZeroHom_apply [theorem]
+  [∀ i, AddZeroClass (β i)] [∀ (i) (x : β i), Decidable (x ≠ 0)] [AddCommMonoid γ] (φ : ∀ i, ZeroHom (β i) γ)
+  (f : Π₀ i, β i) : sumZeroHom φ f = f.sum fun x => φ x
+
+• finsum_zero [theorem]
+  ∀ {M : Type u_2} {α : Sort u_4} [inst : AddCommMonoid M], ∑ᶠ (x : α), 0 = 0
+
+• DFinsupp.sumZeroHom [definition]
+  [∀ i, Zero (β i)] [AddCommMonoid γ] (φ : ∀ i, ZeroHom (β i) γ) : ZeroHom (Π₀ i, β i) γ

@@ -1,0 +1,18 @@
+{
+  "iteration_index": 4,
+  "timestamp_tag": "04052354",
+  "location": "ATP.temTH.CandidateTheorems.T2.Disable:candidate_T2_disable",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 4:0\n│  import CandidateTheorems.T2.Support\n│  ^^^\n╰─ error: object file '/Users/hdm/math/elementary-number-theory/.lake/build/lib/lean/CandidateTheorems/T2/Support.olean' of module CandidateTheorems.T2.Support does not exist"
+    }
+  ],
+  "message_count": 2
+}

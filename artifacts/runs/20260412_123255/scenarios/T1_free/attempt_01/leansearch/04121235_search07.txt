@@ -1,0 +1,67 @@
+=== Character G sum g : G, (χ g : ℂ) = 0 (20 matches) ===
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• DirichletCharacter.sum_characters_eq [theorem]
+  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0
+
+• MulChar.map_zero [theorem]
+  {R : Type*} [CommMonoidWithZero R] [Nontrivial R] (χ : MulChar R R') : χ (0 : R) = 0
+
+• FDRep.char_orthonormal [theorem]
+  (V W : FDRep k G) [Simple V] [Simple W] :
+  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0
+
+• AddChar.coe_eq_one [theorem]
+  : ⇑ψ = 1 ↔ ψ = 0
+
+• gaussSum_mul_gaussSum_pow_orderOf_sub_one [theorem]
+  {χ : MulChar R R'} {ψ : AddChar R R'} (hχ : χ ≠ 1) (hψ : ψ.IsPrimitive) :
+  gaussSum χ ψ * gaussSum (χ ^ (orderOf χ - 1)) ψ = χ (-1) * Fintype.card R
+
+• MulChar.sum_one_eq_card_units [theorem]
+  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ
+
+• jacobiSum [definition]
+  (χ ψ : MulChar R R') : R'
+
+• dirichletSummandHom [definition]
+  {n : ℕ} (χ : DirichletCharacter ℂ n) (hs : s ≠ 0) : ℕ →*₀ ℂ
+
+• factorsThrough_of_gaussSum_ne_zero [theorem]
+  [IsDomain R] {χ : DirichletCharacter R N} {d : ℕ} (hd : d ∣ N) (he : e.mulShift d = 1) (h_ne : gaussSum χ e ≠ 0) :
+  χ.FactorsThrough d
+
+• AddChar.sum_mulShift [theorem]
+  {R : Type*} [CommRing R] [Fintype R] [DecidableEq R] {R' : Type*} [CommRing R'] [IsDomain R'] {ψ : AddChar R R'}
+  (b : R) (hψ : IsPrimitive ψ) : ∑ x : R, ψ (x * b) = if b = 0 then Fintype.card R else 0
+
+• gaussSum_mul_gaussSum_eq_card [theorem]
+  {χ : MulChar R R'} (hχ : χ ≠ 1) {ψ : AddChar R R'} (hψ : IsPrimitive ψ) :
+  gaussSum χ ψ * gaussSum χ⁻¹ ψ⁻¹ = Fintype.card R
+
+• AddChar.coe_ne_zero [theorem]
+  (ψ : AddChar A M₀) : (ψ : A → M₀) ≠ 0
+
+• CharacterModule.instAddCommGroup [instance]
+  : AddCommGroup (CharacterModule A)
+
+• Representation.leftRegular_norm_eq_zero_iff [theorem]
+  (x : G →₀ k) : (leftRegular k G).norm x = 0 ↔ x.linearCombination k (fun _ => (1 : k)) = 0
+
+• mul_gaussSum_inv_eq_gaussSum [theorem]
+  (χ : MulChar R R') (ψ : AddChar R R') : χ (-1) * gaussSum χ ψ⁻¹ = gaussSum χ ψ
+
+• AddChar.instZero [instance]
+  : Zero (AddChar A M)
+
+• AddChar.coe_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∑ i ∈ s, ψ i = ∏ i ∈ s, ⇑(ψ i)
+
+• MeasureTheory.Measure.addModularCharacterFun_map_zero [theorem]
+  ∀ {G : Type u_1} [inst : TopologicalSpace G] [inst_1 : AddGroup G] [inst_2 : IsTopologicalAddGroup G]
+  [inst_3 : LocallyCompactSpace G], MeasureTheory.Measure.addModularCharacterFun 0 = 1
+
+• ZMod.χ₄ [definition]
+  : MulChar (ZMod 4) ℤ

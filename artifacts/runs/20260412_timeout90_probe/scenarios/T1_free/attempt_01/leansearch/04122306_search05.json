@@ -1,0 +1,14 @@
+{
+  "search_index": 5,
+  "timestamp": "2026-04-12T23:06:36.590671",
+  "timestamp_tag": "04122306",
+  "query": "sum_hom_units_eq_zero theorem Mathlib",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.401848,
+  "error": null,
+  "result_text": "=== sum_hom_units_eq_zero theorem Mathlib (20 matches) ===\n\n• AddUnits.neg_val [theorem]\n  ∀ {α : Type u} [inst : AddMonoid α] (self : AddUnits α), self.neg + ↑self = 0\n\n• Nat.addUnits_eq_zero [theorem]\n  (u : AddUnits ℕ) : u = 0\n\n• Subsingleton.addUnits_of_isAddUnit [theorem]\n  ∀ {M : Type u_1} [inst : AddMonoid M], (∀ (a : M), IsAddUnit a → a = 0) → Subsingleton (AddUnits M)\n\n• AddLeftCancelMonoid.add_eq_zero [theorem]\n  ∀ {α : Type u} [inst : AddLeftCancelMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0\n\n• AddMonoidHom.ker_toHomAddUnits [theorem]\n  ∀ {G : Type u_1} [inst : AddGroup G] {M : Type u_8} [inst_1 : AddMonoid M] (f : G →+ M), f.toHomAddUnits.ker = f.ker\n\n• isAddUnit_iff_eq_zero [theorem]\n  ∀ {M : Type u_1} [inst : AddMonoid M] {a : M} [Subsingleton (AddUnits M)], IsAddUnit a ↔ a = 0\n\n• AddUnits.val_eq_zero [theorem]\n  ∀ {α : Type u} [inst : AddMonoid α] {a : AddUnits α}, ↑a = 0 ↔ a = 0\n\n• finsum_eq_zero_of_forall_eq_zero [theorem]\n  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M}, (∀ (x : α), f x = 0) → ∑ᶠ (i : α), f i = 0\n\n• Units.mul_right_eq_zero [theorem]\n  (u : M₀ˣ) {a : M₀} : ↑u * a = 0 ↔ a = 0\n\n• MonoidWithZeroHom.valueMonoid_eq_valueGroup [theorem]\n  : (valueMonoid f) = (valueGroup f).toSubmonoid\n\n• rootsOfUnity_zero [theorem]\n  (M : Type*) [CommMonoid M] : rootsOfUnity 0 M = ⊤\n\n• AddUnits.instZero [definition]\n  {α : Type u} → [inst : AddMonoid α] → Zero (AddUnits α)\n\n• IsAddUnit.addUnit_zero [theorem]\n  ∀ {M : Type u_1} [inst : AddMonoid M] (h : IsAddUnit 0), h.addUnit = 0\n\n• NonUnitalRingHom.zero_apply [theorem]\n  (x : α) : (0 : α →ₙ+* β) x = 0\n\n• WithZero.unitsWithZeroEquiv_apply [theorem]\n  ∀ {α : Type u_1} [inst : Group α] (a : (WithZero α)ˣ), WithZero.unitsWithZeroEquiv a = WithZero.unzero ⋯\n\n• instIsCancelAddZeroHom [theorem]\n  ∀ {M : Type uM} {N : Type uN} [inst : Zero M] [inst_1 : AddZeroClass N] [IsCancelAdd N], IsCancelAdd (ZeroHom M N)\n\n• WithZero.withZeroUnitsEquiv_apply [theorem]\n  ∀ {G : Type u_4} [inst : GroupWithZero G] [inst_1 : DecidablePred fun a => a = 0] (n : WithZero Gˣ),\n  WithZero.withZeroUnitsEquiv n = WithZero.recZeroCoe 0 Units.val n\n\n• NonUnitalRingHom.instZero [instance]\n  : Zero (α →ₙ+* β)\n\n• ZeroHom.instAddCommMonoid [definition]\n  {M : Type uM} → {N : Type uN} → [inst : Zero M] → [inst_1 : AddCommMonoid N] → AddCommMonoid (ZeroHom M N)\n\n• instIsLeftCancelAddZeroHom [theorem]\n  ∀ {M : Type uM} {N : Type uN} [inst : Zero M] [inst_1 : AddZeroClass N] [IsLeftCancelAdd N],\n  IsLeftCancelAdd (ZeroHom M N)"
+}

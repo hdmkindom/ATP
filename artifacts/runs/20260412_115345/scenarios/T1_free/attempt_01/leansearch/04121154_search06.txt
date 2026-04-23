@@ -1,0 +1,67 @@
+=== Character G sum (20 matches) ===
+
+• AddChar.sum_eq_ite [theorem]
+  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0
+
+• AddChar.directSum [definition]
+  (ψ : ∀ i, AddChar (G i) R) : AddChar (⨁ i, G i) R
+
+• AddChar.sum_apply_eq_ite [theorem]
+  [Fintype α] [DecidableEq α] (a : α) : ∑ ψ : AddChar α ℂ, ψ a = if a = 0 then (Fintype.card α : ℂ) else 0
+
+• AddChar.sum_ne_zero_iff_eq_zero [theorem]
+  : ∑ x, ψ x ≠ 0 ↔ ψ = 0
+
+• AddChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {ψ : AddChar R R'} (hψ : ψ ≠ 1) : ∑ a, ψ a = 0
+
+• AddChar.prod_eq_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∏ i ∈ s, ψ i = ∑ i ∈ s, ψ i
+
+• AddChar.directSum_apply [theorem]
+  ∀ {ι : Type u_1} {R : Type u_2} {G : ι → Type u_3} [inst : DecidableEq ι] [inst_1 : (i : ι) → AddCommGroup (G i)]
+  [inst_2 : CommMonoid R] (ψ : (i : ι) → AddChar (G i) R) (a : DirectSum ι fun i => G i),
+  (AddChar.directSum ψ) a = (DirectSum.toAddMonoid fun i => AddChar.toAddMonoidHomEquiv (ψ i)) a
+
+• AddChar.sum_eq_zero_iff_ne_zero [theorem]
+  : ∑ x, ψ x = 0 ↔ ψ ≠ 0
+
+• gaussSum_aux_of_mulShift [theorem]
+  (χ : DirichletCharacter R N) {d : ℕ} (hd : d ∣ N) (he : e.mulShift d = 1) {u : (ZMod N)ˣ}
+  (hu : ZMod.unitsMap hd u = 1) : χ u * gaussSum χ e = gaussSum χ e
+
+• MulChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {χ : MulChar R R'} (hχ : χ ≠ 1) : ∑ a, χ a = 0
+
+• gaussSum_ne_zero_of_nontrivial [theorem]
+  (h : (Fintype.card R : R') ≠ 0) {χ : MulChar R R'} (hχ : χ ≠ 1) {ψ : AddChar R R'} (hψ : ψ.IsPrimitive) :
+  gaussSum χ ψ ≠ 0
+
+• AddChar.sum_eq_card_of_eq_one [theorem]
+  {ψ : AddChar R R'} (hψ : ψ = 1) : ∑ a, ψ a = Fintype.card R
+
+• gaussSum_mul_gaussSum_pow_orderOf_sub_one [theorem]
+  {χ : MulChar R R'} {ψ : AddChar R R'} (hχ : χ ≠ 1) (hψ : ψ.IsPrimitive) :
+  gaussSum χ ψ * gaussSum (χ ^ (orderOf χ - 1)) ψ = χ (-1) * Fintype.card R
+
+• gaussSum_mulShift [theorem]
+  (χ : MulChar R R') (ψ : AddChar R R') (a : Rˣ) : χ a * gaussSum χ (mulShift ψ a) = gaussSum χ ψ
+
+• sum_translate [theorem]
+  [Fintype G] (a : G) (f : G → M) : ∑ b, τ a f b = ∑ b, f b
+
+• gaussSum [definition]
+  (χ : MulChar R R') (ψ : AddChar R R') : R'
+
+• AddChar.sum_apply_ne_zero_iff_eq_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a ≠ 0 ↔ a = 0
+
+• SkewMonoidAlgebra.sum_def [theorem]
+  {N : Type*} [AddCommMonoid N] (f : SkewMonoidAlgebra k G) (g : G → k → N) : sum f g = f.toFinsupp.sum g
+
+• AddChar.coe_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∑ i ∈ s, ψ i = ∏ i ∈ s, ⇑(ψ i)
+
+• gaussSum_sq [theorem]
+  {χ : MulChar R R'} (hχ₁ : χ ≠ 1) (hχ₂ : IsQuadratic χ) {ψ : AddChar R R'} (hψ : IsPrimitive ψ) :
+  gaussSum χ ψ ^ 2 = χ (-1) * Fintype.card R

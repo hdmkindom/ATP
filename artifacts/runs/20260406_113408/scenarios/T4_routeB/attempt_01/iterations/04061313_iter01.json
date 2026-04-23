@@ -1,0 +1,20 @@
+{
+  "iteration_index": 1,
+  "timestamp_tag": "04061313",
+  "location": "ATP.temTH.CandidateTheorems.T4.RouteB:candidate_T4_routeB",
+  "imports": [
+    "Mathlib.NumberTheory.LegendreSymbol.AddCharacter"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 21:6\n│        map_zero' := by\n│       ^^^\n╰─ error: `map_zero'` is not a field of structure `AddChar`\n\n╭─ Error at line 23:6\n│        map_add' := by\n│       ^^^\n╰─ error: `map_add'` is not a field of structure `AddChar`\n\n╭─ Error at line 20:4\n│      { toFun := fun a => data.ψ a x\n│     ^^^\n╰─ error: Fields missing: `map_zero_eq_one'`, `map_add_eq_mul'`\n\nHint: Add missing fields:\n  \n  ̲ ̲ ̲ ̲ ̲ ̲ ̲m̲a̲p̲_̲z̲e̲r̲o̲_̲e̲q̲_̲o̲n̲e̲'̲ ̲:̲=̲ ̲_̲\n  ̲ ̲ ̲ ̲ ̲ ̲ ̲m̲a̲p̲_̲a̲d̲d̲_̲e̲q̲_̲m̲u̲l̲'̲ ̲:̲=̲ ̲_̲\n\n╭─ Error at line 36:19\n│          exact hx ((data.psi_eq_one_iff_right_zero.mp (h0 1)).symm)\n│                    ^^^\n╰─ error: Invalid field `psi_eq_one_iff_right_zero`: The environment does not contain `CandidateTheorems.T4.AdditiveOrthogonalityData.psi_eq_one_iff_right_zero`\n  data\nhas type\n  AdditiveOrthogonalityData\n\n╭─ Error at line 41:18\n│        simpa using data.psi_right_zero a\n│                   ^^^\n╰─ error: Invalid field `psi_right_zero`: The environment does not contain `CandidateTheorems.T4.AdditiveOrthogonalityData.psi_right_zero`\n  data\nhas type\n  AdditiveOrthogonalityData\n\n╭─ Error at line 42:6\n│    rw [hsum, hcard]\n│       ^^^\n╰─ error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ∑ a, ψx a\nin the target expression\n  ∑ a, data.ψ a x = if x = 0 then ↑N else 0\n\nN : ℕ\ninst✝ : NeZero N\ndata : AdditiveOrthogonalityData\nx : Fin N\nψx : AddChar (Fin N) ℂ := { toFun := fun a => data.ψ a x, map_zero_eq_one' := ⋯, map_add_eq_mul' := ⋯ }\nhsum : ∑ a, ψx a = if ψx = 0 then ↑(Fintype.card (Fin N)) else 0\nhcard : ↑(Fintype.card (Fin N)) = ↑N\nhzero : ψx = 0 ↔ x = 0\n⊢ ∑ a, data.ψ a x = if x = 0 then ↑N else 0"
+    }
+  ],
+  "message_count": 2
+}

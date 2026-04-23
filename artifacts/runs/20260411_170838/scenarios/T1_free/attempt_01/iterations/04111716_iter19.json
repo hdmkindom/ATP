@@ -1,0 +1,18 @@
+{
+  "iteration_index": 19,
+  "timestamp_tag": "04111716",
+  "location": "ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 25:16\n│      exact h ⟨g, hg⟩\n│                 ^^^\n╰─ error: Application type mismatch: The argument\n  hg\nhas type\n  ¬↑(χ g) = ↑(1 g)\nbut is expected to have type\n  χ g ≠ 1\nin the application\n  Exists.intro g hg\n\n╭─ Error at line 35:27\n│            refine ⟨fun g => g0⁻¹ * g, ?_, ?_⟩\n│                            ^^^\n╰─ error: Type mismatch\n  g0⁻¹ * g\nhas type\n  G\nof sort `outParam (Type u_1)` but is expected to have type\n  ∀ ⦃a₂ : G⦄, (fun g => g0 * g) g = (fun g => g0 * g) a₂ → g = a₂\nof sort `Prop`\n\n╭─ Error at line 35:17\n│            refine ⟨fun g => g0⁻¹ * g, ?_, ?_⟩\n│                  ^^^\n╰─ error: Invalid `⟨...⟩` notation: The expected type\n  ∀ (b : G), ∃ a, (fun g => g0 * g) a = b\nis not an inductive type\n\n\n╭─ Error at line 36:10\n│            · intro g\n│           ^^^\n╰─ error: No goals to be solved\nATP/temTH/CandidateTheorems/T1/tmp_Free_6d_7wemy.lean:48:21: error(lean.unknownIdentifier): Unknown identifier `mul_sum`\n\n╭─ Error at line 47:28\n│        _ = (χ g0 : ℂ) * S := by\n│                             ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\ng0 : G\nhg0 : χ g0 ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nhperm : ∑ g, ↑(χ (g0 * g)) = S\n⊢ ∑ g, ↑(χ g0) * ↑(χ g) = ↑(χ g0) * ∑ g, ↑(χ g)"
+    }
+  ],
+  "message_count": 2
+}

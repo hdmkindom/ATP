@@ -1,0 +1,18 @@
+{
+  "iteration_index": 19,
+  "timestamp_tag": "04061304",
+  "location": "ATP.temTH.CandidateTheorems.T4.Disable:candidate_T4_disable",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 18:37\n│    simpa [cyclicChar, mul_comm] using root.sum_mulShift_cyclicChar (x := x)\n│                                      ^^^\n╰─ error: Invalid field `sum_mulShift_cyclicChar`: The environment does not contain `CandidateTheorems.T3.PrimitiveNthRoot.sum_mulShift_cyclicChar`\n  root\nhas type\n  PrimitiveNthRoot"
+    }
+  ],
+  "message_count": 2
+}

@@ -1,0 +1,11 @@
+{
+  "search_count": 2,
+  "artifact_paths": {
+    "leansearch_trace_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_1730_probe_force_search/scenarios/T1_free_probe_force_search/attempt_01/leansearch",
+    "leansearch_trace_index": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_1730_probe_force_search/scenarios/T1_free_probe_force_search/attempt_01/leansearch/index.json"
+  },
+  "message_trace_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260411_1730_probe_force_search/scenarios/T1_free_probe_force_search/attempt_01/messages.json",
+  "iterations": 2,
+  "compilation_errors": 2,
+  "proven": false
+}

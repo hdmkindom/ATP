@@ -1,0 +1,70 @@
+=== finite group monoid hom sum_hom_units (20 matches) ===
+
+• IsCyclic.monoidHom_equiv_self [theorem]
+  (G M : Type*) [CommGroup G] [Finite G] [IsCyclic G] [CommMonoid M] [HasEnoughRootsOfUnity M (Nat.card G)] :
+  Nonempty ((G →* Mˣ) ≃* G)
+
+• IsUnit.liftRight [definition]
+  (f : M →* N) (hf : ∀ x, IsUnit (f x)) : M →* Nˣ
+
+• Units.liftRight [definition]
+  (f : M →* N) (g : M → Nˣ) (h : ∀ x, ↑(g x) = f x) : M →* Nˣ
+
+• AddUnits.map [definition]
+  {M : Type u} → {N : Type v} → [inst : AddMonoid M] → [inst_1 : AddMonoid N] → (M →+ N) → AddUnits M →+ AddUnits N
+
+• CommGroup.monoidHom_mulEquiv_of_hasEnoughRootsOfUnity [theorem]
+  : Nonempty ((G →* Mˣ) ≃* G)
+
+• MonoidHom.toHomUnitsMulEquiv_symm_apply [theorem]
+  ∀ {G : Type u_1} {M : Type u_2} [inst : Group G] [inst_1 : CommMonoid M] (f : G →* Mˣ),
+  MonoidHom.toHomUnitsMulEquiv.symm f = (Units.coeHom M).comp f
+
+• map_prod [theorem]
+  [CommMonoid M] [CommMonoid N] {G : Type*} [FunLike G M N] [MonoidHomClass G M N] (g : G) (f : ι → M) (s : Finset ι) :
+  g (∏ x ∈ s, f x) = ∏ x ∈ s, g (f x)
+
+• FreeGroup.sum.map_mul [theorem]
+  : sum (x * y) = sum x + sum y
+
+• instFiniteUnits [instance]
+  [Monoid α] [Finite α] : Finite αˣ
+
+• MonoidHom.ker_toHomUnits [theorem]
+  {M} [Monoid M] (f : G →* M) : f.toHomUnits.ker = f.ker
+
+• AddMonoidHom.coe_toHomAddUnits [theorem]
+  ∀ {G : Type u_1} {M : Type u_2} [inst : AddGroup G] [inst_1 : AddMonoid M] (f : G →+ M) (g : G),
+  ↑(f.toHomAddUnits g) = f g
+
+• AddUnits.coeHom [definition]
+  (M : Type u) → [inst : AddMonoid M] → AddUnits M →+ M
+
+• Subgroup.ofUnits [definition]
+  (S : Subgroup Mˣ) : Submonoid M
+
+• Multiset.sumAddMonoidHom [definition]
+  : Multiset M →+ M
+
+• AddMonoidHom.coe_finsuppSum [theorem]
+  ∀ {α : Type u_1} {β : Type u_7} {N : Type u_10} {P : Type u_11} [inst : Zero β] [inst_1 : AddZeroClass N]
+  [inst_2 : AddCommMonoid P] (f : α →₀ β) (g : α → β → N →+ P), ⇑(f.sum g) = f.sum fun i fi => ⇑(g i fi)
+
+• map_finsuppSum [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} {P : Type u_11} [inst : Zero M] [inst_1 : AddCommMonoid N]
+  [inst_2 : AddCommMonoid P] {H : Type u_16} [inst_3 : FunLike H N P] [AddMonoidHomClass H N P] (h : H) (f : α →₀ M)
+  (g : α → M → N), h (f.sum g) = f.sum fun a b => h (g a b)
+
+• AddMonoidHom.finset_sum_apply [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} {N : Type u_4} [inst : AddZeroClass M] [inst_1 : AddCommMonoid N] (f : ι → M →+ N)
+  (s : Finset ι) (b : M), (∑ x ∈ s, f x) b = ∑ x ∈ s, (f x) b
+
+• Multiset.sum_hom [theorem]
+  ∀ {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] (s : Multiset M) {F : Type u_8}
+  [inst_2 : FunLike F M N] [AddMonoidHomClass F M N] (f : F), (Multiset.map (⇑f) s).sum = f s.sum
+
+• DFinsupp.sumAddHom [definition]
+  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] (φ : ∀ i, β i →+ γ) : (Π₀ i, β i) →+ γ
+
+• MonoidHom.map_finprod_of_preimage_one [theorem]
+  (f : M →* N) (hf : ∀ x, f x = 1 → x = 1) (g : α → M) : f (∏ᶠ i, g i) = ∏ᶠ i, f (g i)

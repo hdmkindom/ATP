@@ -1,0 +1,66 @@
+=== Character G notation monoid hom to ℂˣ (20 matches) ===
+
+• MulCharClass.toMonoidHomClass [theorem]
+  ∀ {F : Type u_3} {R : outParam (Type u_4)} {R' : outParam (Type u_5)} {inst : CommMonoid R}
+  {inst_1 : CommMonoidWithZero R'} {inst_2 : FunLike F R R'} [self : MulCharClass F R R'], MonoidHomClass F R R'
+
+• Complex.expMonoidHom [definition]
+  : MonoidHom (Multiplicative ℂ) ℂ
+
+• IsCyclic.monoidHom_equiv_self [theorem]
+  (G M : Type*) [CommGroup G] [Finite G] [IsCyclic G] [CommMonoid M] [HasEnoughRootsOfUnity M (Nat.card G)] :
+  Nonempty ((G →* Mˣ) ≃* G)
+
+• Circle.coeHom [definition]
+  : Circle →* ℂ
+
+• BoundedContinuousFunction.charMonoidHom [definition]
+  (he : Continuous e) (hL : Continuous fun p : V × W ↦ L p.1 p.2) : Multiplicative W →* (V →ᵇ ℂ)
+
+• MulChar.toMonoidWithZeroHom_apply [theorem]
+  ∀ {R' : Type u_2} [inst : CommMonoidWithZero R'] {R : Type u_3} [inst_1 : CommMonoidWithZero R] [inst_2 : Nontrivial R]
+  (χ : MulChar R R') (a : R), ↑χ a = (↑χ.toMonoidHom).toFun a
+
+• MulChar.toMonoidHom [definition]
+  {R : Type u_1} → [inst : CommMonoid R] → {R' : Type u_2} → [inst_1 : CommMonoidWithZero R'] → MulChar R R' → R →* R'
+
+• MulChar.toUnitHom_eq [theorem]
+  (χ : MulChar R R') : toUnitHom χ = equivToUnitHom χ
+
+• MulChar.toUnitHom [definition]
+  (χ : MulChar R R') : Rˣ →* R'ˣ
+
+• MulChar.coe_toMonoidHom [theorem]
+  (χ : MulChar R R') (x : R) : χ.toMonoidHom x = χ x
+
+• MulChar.ofUnitHom_eq [theorem]
+  (χ : Rˣ →* R'ˣ) : ofUnitHom χ = equivToUnitHom.symm χ
+
+• MonoidHom.instCommGroup [instance]
+  [MulOneClass M] [CommGroup N] : CommGroup (M →* N)
+
+• AddChar.toMonoidHomEquiv [definition]
+  : AddChar A M ≃ (Multiplicative A →* M)
+
+• MulChar.mulEquivToUnitHom [definition]
+  : MulChar R R' ≃* (Rˣ →* R'ˣ)
+
+• MonoidHom.toHomUnitsMulEquiv [definition]
+  : (G →* M) ≃* (G →* Mˣ)
+
+• AddChar.toMonoidHom [definition]
+  (φ : AddChar A M) : Multiplicative A →* M
+
+• IsCyclic.monoidHom_mulEquiv_rootsOfUnity [theorem]
+  (G : Type*) [CommGroup G] [IsCyclic G] (G' : Type*) [CommGroup G'] :
+  Nonempty <| (G →* G') ≃* rootsOfUnity (Nat.card G) G'
+
+• IsCyclic.monoidHomMulEquivRootsOfUnityOfGenerator [definition]
+  {G : Type*} [CommGroup G] {g : G} (hg : ∀ (x : G), x ∈ Subgroup.zpowers g) (G' : Type*) [CommGroup G'] :
+  (G →* G') ≃* rootsOfUnity (Nat.card G) G'
+
+• AddChar.toMonoidHomMulEquiv [definition]
+  : AddChar A M ≃* (Multiplicative A →* M)
+
+• Circle.toUnits [definition]
+  : Circle →* Units ℂ

@@ -1,0 +1,14 @@
+{
+  "search_index": 29,
+  "timestamp": "2026-04-11T23:15:49.012186",
+  "timestamp_tag": "04112315",
+  "query": "theorem Character sum_eq_zero_of_ne_one",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 3.273684,
+  "error": null,
+  "result_text": "=== theorem Character sum_eq_zero_of_ne_one (20 matches) ===\n\n• DirichletCharacter.sum_characters_eq [theorem]\n  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0\n\n• quadraticChar_sum_zero [theorem]\n  (hF : ringChar F ≠ 2) : ∑ a : F, quadraticChar F a = 0\n\n• DirichletCharacter.map_zero' [theorem]\n  (hn : n ≠ 1) : χ 0 = 0\n\n• AddChar.sum_mulShift [theorem]\n  {R : Type*} [CommRing R] [Fintype R] [DecidableEq R] {R' : Type*} [CommRing R'] [IsDomain R'] {ψ : AddChar R R'}\n  (b : R) (hψ : IsPrimitive ψ) : ∑ x : R, ψ (x * b) = if b = 0 then Fintype.card R else 0\n\n• gaussSum_ne_zero_of_nontrivial [theorem]\n  (h : (Fintype.card R : R') ≠ 0) {χ : MulChar R R'} (hχ : χ ≠ 1) {ψ : AddChar R R'} (hψ : ψ.IsPrimitive) :\n  gaussSum χ ψ ≠ 0\n\n• MulChar.ne_one_iff [theorem]\n  {χ : MulChar R R'} : χ ≠ 1 ↔ ∃ a : Rˣ, χ a ≠ 1\n\n• gaussSum_eq_zero_of_isPrimitive_of_not_isPrimitive [theorem]\n  [IsDomain R] {χ : DirichletCharacter R N} (hχ : IsPrimitive χ) (he : ¬IsPrimitive e) : gaussSum χ e = 0\n\n• AddChar.ne_one_iff [theorem]\n  : ψ ≠ 1 ↔ ∃ x, ψ x ≠ 1\n\n• DirichletCharacter.sum_char_inv_mul_char_eq [theorem]\n  {a : ZMod n} (ha : IsUnit a) (b : ZMod n) :\n  ∑ χ : DirichletCharacter R n, χ a⁻¹ * χ b = if a = b then (n.totient : R) else 0\n\n• jacobiSum_eq_sum_sdiff [theorem]\n  (χ ψ : MulChar F R) : jacobiSum χ ψ = ∑ x ∈ univ \\ {0, 1}, χ x * ψ (1 - x)\n\n• AddChar.expect_eq_ite [theorem]\n  (ψ : AddChar G R) : 𝔼 a, ψ a = if ψ = 0 then 1 else 0\n\n• jacobiSum_one_nontrivial [theorem]\n  {χ : MulChar F R} (hχ : χ ≠ 1) : jacobiSum 1 χ = -1\n\n• AddChar.one_eq_zero [theorem]\n  : (1 : AddChar A M) = (0 : AddChar A M)\n\n• Real.fourierChar_ne_one [theorem]\n  : fourierChar ≠ 1\n\n• AddChar.map_zero_eq_one' [theorem]\n  ∀ {A : Type u_1} [inst : AddMonoid A] {M : Type u_2} [inst_1 : Monoid M] (self : AddChar A M), self.toFun 0 = 1\n\n• MulChar.sum_one_eq_card_units [theorem]\n  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ\n\n• Finset.sum_eq_ite [theorem]\n  ∀ {ι : Type u_1} {M : Type u_4} [inst : AddCommMonoid M] [inst_1 : DecidableEq ι] {s : Finset ι} {f : ι → M} (a : ι),\n  (∀ b ∈ s, b ≠ a → f b = 0) → ∑ x ∈ s, f x = if a ∈ s then f a else 0\n\n• CharacterModule.exists_character_apply_ne_zero_of_ne_zero [theorem]\n  {a : A} (ne_zero : a ≠ 0) : ∃ (c : CharacterModule A), c a ≠ 0\n\n• AddChar.map_zero_eq_one [theorem]\n  (ψ : AddChar A M) : ψ 0 = 1\n\n• AddChar.zero_apply [theorem]\n  (a : A) : (0 : AddChar A M) a = 1"
+}

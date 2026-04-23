@@ -1,0 +1,55 @@
+{
+  "started_at": "2026-04-05T20:09:41.410785",
+  "finished_at": "2026-04-05T20:09:50.992306",
+  "checks": [
+    {
+      "name": "ax_prover_import",
+      "status": "ok",
+      "message": "ax_prover import ok (/Users/hdm/ax-prover-env/lib/python3.11/site-packages/ax_prover/__init__.py)",
+      "duration_seconds": 9.170034900307655e-07,
+      "details": {}
+    },
+    {
+      "name": "llm_credentials",
+      "status": "ok",
+      "message": "OPENAI_API_KEY is set for provider openai.",
+      "duration_seconds": 3.7919962778687477e-06,
+      "details": {}
+    },
+    {
+      "name": "llm_base_url",
+      "status": "ok",
+      "message": "base_url looks valid: https://codeflow.asia/v1",
+      "duration_seconds": 1.391599653288722e-05,
+      "details": {}
+    },
+    {
+      "name": "lean_repo_build",
+      "status": "ok",
+      "message": "Lean repository build succeeded.",
+      "duration_seconds": 3.747928500000853,
+      "details": {}
+    },
+    {
+      "name": "template_smoke_file",
+      "status": "error",
+      "message": "RuntimeError: File not found: ATP/temTH/ testTH/test.lean",
+      "duration_seconds": 0.000607333000516519,
+      "details": {}
+    },
+    {
+      "name": "llm_ping",
+      "status": "error",
+      "message": "RuntimeError: AuthenticationError: Error code: 401 - {'error': {'code': '', 'message': '无效的令牌 (request id: 202604051209508960690358268d9d6emO6hqoA)', 'type': 'new_api_error'}}",
+      "duration_seconds": 5.4966498329886235,
+      "details": {}
+    },
+    {
+      "name": "smoke_proof",
+      "status": "skipped",
+      "message": "Skipped by CLI flag.",
+      "duration_seconds": 0.0,
+      "details": {}
+    }
+  ]
+}

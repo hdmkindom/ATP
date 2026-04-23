@@ -1,0 +1,77 @@
+=== MulChar character orthogonality sum (20 matches) ===
+
+• DirichletCharacter.sum_characters_eq [theorem]
+  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0
+
+• MulChar.ext [theorem]
+  {χ χ' : MulChar R R'} (h : ∀ a : Rˣ, χ a = χ' a) : χ = χ'
+
+• MulChar.sum_one_eq_card_units [theorem]
+  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ
+
+• MulChar.noConfusion [definition]
+  {P : Sort u} →
+  {R : Type u_1} →
+    {inst : CommMonoid R} →
+      {R' : Type u_2} →
+        {inst_1 : CommMonoidWithZero R'} →
+          {t : MulChar R R'} →
+            {R'_1 : Type u_1} →
+              {inst' : CommMonoid R'_1} →
+                {R'' : Type u_2} →
+                  {inst'_1 : CommMonoidWithZero R''} →
+                    {t' : MulChar R'_1 R''} →
+                      R = R'_1 → inst ≍ inst' → R' = R'' → inst_1 ≍ inst'_1 → t ≍ t' → MulChar.noConfusionType P t t'
+
+• MulChar.pow_card_eq_one [theorem]
+  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1
+
+• MulChar.ext_iff [theorem]
+  ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommMonoidWithZero R'] {χ χ' : MulChar R R'},
+  χ = χ' ↔ ∀ (a : Rˣ), χ ↑a = χ' ↑a
+
+• gaussSum_mul_gaussSum_pow_orderOf_sub_one [theorem]
+  {χ : MulChar R R'} {ψ : AddChar R R'} (hχ : χ ≠ 1) (hψ : ψ.IsPrimitive) :
+  gaussSum χ ψ * gaussSum (χ ^ (orderOf χ - 1)) ψ = χ (-1) * Fintype.card R
+
+• AddChar.sum_mulShift [theorem]
+  {R : Type*} [CommRing R] [Fintype R] [DecidableEq R] {R' : Type*} [CommRing R'] [IsDomain R'] {ψ : AddChar R R'}
+  (b : R) (hψ : IsPrimitive ψ) : ∑ x : R, ψ (x * b) = if b = 0 then Fintype.card R else 0
+
+• MulChar.one_mul [theorem]
+  (χ : MulChar R R') : (1 : MulChar R R') * χ = χ
+
+• MulChar.inv_mul [theorem]
+  (χ : MulChar R R') : χ⁻¹ * χ = 1
+
+• MulChar.instMulCharClass [instance]
+  : MulCharClass (MulChar R R') R R'
+
+• gaussSum_mul [theorem]
+  {R : Type u} [CommRing R] [Fintype R] {R' : Type v} [CommRing R'] (χ φ : MulChar R R') (ψ : AddChar R R') :
+  gaussSum χ ψ * gaussSum φ ψ = ∑ t : R, ∑ x : R, χ x * φ (t - x) * ψ t
+
+• AddChar.expect_eq_ite [theorem]
+  (ψ : AddChar G R) : 𝔼 a, ψ a = if ψ = 0 then 1 else 0
+
+• MulChar.mul_one [theorem]
+  (χ : MulChar R R') : χ * 1 = χ
+
+• mul_gaussSum_inv_eq_gaussSum [theorem]
+  (χ : MulChar R R') (ψ : AddChar R R') : χ (-1) * gaussSum χ ψ⁻¹ = gaussSum χ ψ
+
+• MulChar.star_apply' [theorem]
+  (χ : MulChar R ℂ) (a : R) : star (χ a) = χ⁻¹ a
+
+• AddChar.prod_apply [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) (a : A) : (∏ i ∈ s, ψ i) a = ∏ i ∈ s, ψ i a
+
+• AddChar.sum_apply_eq_zero_iff_ne_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a = 0 ↔ a ≠ 0
+
+• AddChar.sum_apply_ne_zero_iff_eq_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a ≠ 0 ↔ a = 0
+
+• jacobiSum_mul_nontrivial [theorem]
+  {χ φ : MulChar F R} (h : χ * φ ≠ 1) (ψ : AddChar F R) :
+  gaussSum (χ * φ) ψ * jacobiSum χ φ = gaussSum χ ψ * gaussSum φ ψ

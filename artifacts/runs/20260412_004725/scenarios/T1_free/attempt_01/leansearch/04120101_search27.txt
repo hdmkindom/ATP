@@ -1,0 +1,73 @@
+=== "theorem sum_hom_units_eq_zero" "∑ g : G, (f g : R)" (20 matches) ===
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• FiniteField.sum_subgroup_units_eq_zero [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] (hg : G ≠ ⊥) : ∑ x : G, (x.val : K) = 0
+
+• Multiset.sum_hom_ne_zero [theorem]
+  ∀ {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {s : Multiset M},
+  s ≠ 0 → ∀ {F : Type u_8} [inst_2 : FunLike F M N] [AddHomClass F M N] (f : F), (Multiset.map (⇑f) s).sum = f s.sum
+
+• FiniteField.sum_subgroup_units [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] [Decidable (G = ⊥)] :
+  ∑ x : G, (x.val : K) = if G = ⊥ then 1 else 0
+
+• DFinsupp.sumAddHom_zero [theorem]
+  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] : (sumAddHom fun i => (0 : β i →+ γ)) = 0
+
+• FreeGroup.sum.map_one [theorem]
+  : sum (1 : FreeGroup α) = 0
+
+• Finset.sum_eq_zero_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M} [Subsingleton (AddUnits M)],
+  ∑ i ∈ s, f i = 0 ↔ ∀ i ∈ s, f i = 0
+
+• Fintype.sum_eq_zero [theorem]
+  ∀ {α : Type u_1} {M : Type u_4} [inst : Fintype α] [inst_1 : AddCommMonoid M] (f : α → M),
+  (∀ (a : α), f a = 0) → ∑ a, f a = 0
+
+• finsum_eq_zero_of_forall_eq_zero [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M}, (∀ (x : α), f x = 0) → ∑ᶠ (i : α), f i = 0
+
+• IsAddUnit.sum_univ_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} [inst : Fintype ι] [inst_1 : AddCommMonoid M] {f : ι → M},
+  IsAddUnit (∑ a, f a) ↔ ∀ (a : ι), IsAddUnit (f a)
+
+• Finset.sum_eq_zero [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M},
+  (∀ x ∈ s, f x = 0) → ∑ x ∈ s, f x = 0
+
+• AddMonoidHom.ker_eq_top_iff [theorem]
+  ∀ {G : Type u_1} [inst : AddGroup G] {M : Type u_7} [inst_1 : AddZeroClass M] {f : G →+ M}, f.ker = ⊤ ↔ f = 0
+
+• WithZero.toMonoidWithZeroHom_withZeroUnitsEquiv [theorem]
+  [GroupWithZero M₀] [DecidablePred fun x : M₀ ↦ x = 0] :
+  MonoidWithZeroHomClass.toMonoidWithZeroHom WithZero.withZeroUnitsEquiv = WithZero.lift' (Units.coeHom M₀)
+
+• AddMonoidHom.coe_finsuppSum [theorem]
+  ∀ {α : Type u_1} {β : Type u_7} {N : Type u_10} {P : Type u_11} [inst : Zero β] [inst_1 : AddZeroClass N]
+  [inst_2 : AddCommMonoid P] (f : α →₀ β) (g : α → β → N →+ P), ⇑(f.sum g) = f.sum fun i fi => ⇑(g i fi)
+
+• AddChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {ψ : AddChar R R'} (hψ : ψ ≠ 1) : ∑ a, ψ a = 0
+
+• FreeGroup.sum.of [theorem]
+  {x : α} : sum (of x) = x
+
+• AddMonoidHom.dfinsuppSum_apply [theorem]
+  ∀ {ι : Type u} {β : ι → Type v} [inst : DecidableEq ι] {R : Type u_1} {S : Type u_2} [inst_1 : (i : ι) → Zero (β i)]
+  [inst_2 : (i : ι) → (x : β i) → Decidable (x ≠ 0)] [inst_3 : AddZeroClass R] [inst_4 : AddCommMonoid S]
+  (f : Π₀ (i : ι), β i) (g : (i : ι) → β i → R →+ S) (r : R), (f.sum g) r = f.sum fun a b => (g a b) r
+
+• finsum_mem_eq_zero_of_forall_eq_zero [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M} {s : Set α},
+  (∀ x ∈ s, f x = 0) → ∑ᶠ (i : α) (_ : i ∈ s), f i = 0
+
+• AddMonoidHom.map_finsum_of_preimage_zero [theorem]
+  ∀ {M : Type u_2} {N : Type u_3} {α : Sort u_4} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] (f : M →+ N),
+  (∀ (x : M), f x = 0 → x = 0) → ∀ (g : α → M), f (∑ᶠ (i : α), g i) = ∑ᶠ (i : α), f (g i)

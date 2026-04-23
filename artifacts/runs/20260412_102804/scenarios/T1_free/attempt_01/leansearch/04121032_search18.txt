@@ -1,0 +1,79 @@
+=== theorem sum_hom_units_eq_zero (f : G →* R) (20 matches) ===
+
+• FiniteField.sum_subgroup_units [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] [Decidable (G = ⊥)] :
+  ∑ x : G, (x.val : K) = if G = ⊥ then 1 else 0
+
+• MonoidHom.coe_toHomUnits [theorem]
+  (f : G →* M) (g : G) : (f.toHomUnits g : M) = f g
+
+• MonoidWithZeroHom.val_mrange_zero [theorem]
+  [MulZeroOneClass G] [MulZeroOneClass H] (f : G →*₀ H) : ((0 : MonoidHom.mrange f) : H) = 0
+
+• MonoidWithZeroHom.map_zero [theorem]
+  (f : α →*₀ β) : f 0 = 0
+
+• MulChar.map_nonunit' [theorem]
+  ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommMonoidWithZero R'] (self : MulChar R R') (a : R),
+  ¬IsUnit a → (↑self.toMonoidHom).toFun a = 0
+
+• MonoidWithZeroHom.valueGroup_def [theorem]
+  : valueGroup f = Subgroup.closure (valueMonoid f)
+
+• AddMonoidHom.coe_ker [theorem]
+  ∀ {G : Type u_1} [inst : AddGroup G] {M : Type u_7} [inst_1 : AddZeroClass M] (f : G →+ M), ↑f.ker = ⇑f ⁻¹' {0}
+
+• AddMonoidHom.coe_toHomAddUnits [theorem]
+  ∀ {G : Type u_1} {M : Type u_2} [inst : AddGroup G] [inst_1 : AddMonoid M] (f : G →+ M) (g : G),
+  ↑(f.toHomAddUnits g) = f g
+
+• AddMonoidHom.map_zero [theorem]
+  ∀ {M : Type u_4} {N : Type u_5} [inst : AddZero M] [inst_1 : AddZero N] (f : M →+ N), f 0 = 0
+
+• WithZero.withZeroUnitsEquiv_apply [theorem]
+  ∀ {G : Type u_4} [inst : GroupWithZero G] [inst_1 : DecidablePred fun a => a = 0] (n : WithZero Gˣ),
+  WithZero.withZeroUnitsEquiv n = WithZero.recZeroCoe 0 Units.val n
+
+• MonoidWithZeroHom.valueGroup.congr_simp [theorem]
+  ∀ {A : Type u_1} {B : Type u_2} {F : Type u_3} [inst : FunLike F A B] (f f_1 : F),
+  f = f_1 →
+    ∀ [inst_1 : MonoidWithZero A] [inst_2 : MonoidWithZero B] [inst_3 : MonoidWithZeroHomClass F A B],
+      MonoidWithZeroHom.valueGroup f = MonoidWithZeroHom.valueGroup f_1
+
+• MonoidWithZeroHom.valueMonoid [definition]
+  : Submonoid Bˣ
+
+• MulChar.ofUnitHom_eq [theorem]
+  (χ : Rˣ →* R'ˣ) : ofUnitHom χ = equivToUnitHom.symm χ
+
+• MulChar.ofUnitHom_coe [theorem]
+  (f : Rˣ →* R'ˣ) (a : Rˣ) : ofUnitHom f ↑a = f a
+
+• MulChar.mk.noConfusion [definition]
+  {R : Type u_1} →
+  {inst : CommMonoid R} →
+    {R' : Type u_2} →
+      {inst_1 : CommMonoidWithZero R'} →
+        {P : Sort u} →
+          {toMonoidHom : R →* R'} →
+            {map_nonunit' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom).toFun a = 0} →
+              {toMonoidHom' : R →* R'} →
+                {map_nonunit'' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom').toFun a = 0} →
+                  { toMonoidHom := toMonoidHom, map_nonunit' := map_nonunit' } =
+                      { toMonoidHom := toM...
+
+• MulChar.toUnitHom_eq [theorem]
+  (χ : MulChar R R') : toUnitHom χ = equivToUnitHom χ
+
+• MonoidWithZeroHom.valueGroup [definition]
+  : Subgroup Bˣ
+
+• DFinsupp.sumAddHom_toZeroHom [theorem]
+  ∀ {ι : Type u} {γ : Type w} {β : ι → Type v} [inst : DecidableEq ι] [inst_1 : (i : ι) → AddZeroClass (β i)]
+  [inst_2 : AddCommMonoid γ] (φ : (i : ι) → β i →+ γ), ↑(DFinsupp.sumAddHom φ) = DFinsupp.sumZeroHom fun i => ↑(φ i)
+
+• MonoidWithZeroHom.instCommGroupWithZeroValueGroup₀ [instance]
+  : CommGroupWithZero (ValueGroup₀ f)
+
+• WithZero.expEquiv [definition]
+  : G ≃ (Gᵐ⁰)ˣ

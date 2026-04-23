@@ -1,0 +1,14 @@
+{
+  "search_index": 21,
+  "timestamp": "2026-04-12T11:57:07.868442",
+  "timestamp_tag": "04121157",
+  "query": "(χ : G →* ℂˣ) ∑ g, (χ g : ℂ) = 0",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.239879,
+  "error": null,
+  "result_text": "=== (χ : G →* ℂˣ) ∑ g, (χ g : ℂ) = 0 (20 matches) ===\n\n• MulChar.sum_eq_zero_of_ne_one [theorem]\n  [IsDomain R'] {χ : MulChar R R'} (hχ : χ ≠ 1) : ∑ a, χ a = 0\n\n• sum_hom_units_eq_zero [theorem]\n  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0\n\n• AddChar.sum_eq_zero_of_ne_one [theorem]\n  [IsDomain R'] {ψ : AddChar R R'} (hψ : ψ ≠ 1) : ∑ a, ψ a = 0\n\n• DirichletCharacter.sum_characters_eq_zero [theorem]\n  ⦃a : ZMod n⦄ (ha : a ≠ 1) : ∑ χ : DirichletCharacter R n, χ a = 0\n\n• AddChar.sum_eq_ite [theorem]\n  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0\n\n• AddChar.sum_eq_zero_iff_ne_zero [theorem]\n  : ∑ x, ψ x = 0 ↔ ψ ≠ 0\n\n• AddChar.sum_ne_zero_iff_eq_zero [theorem]\n  : ∑ x, ψ x ≠ 0 ↔ ψ = 0\n\n• DirichletCharacter.sum_characters_eq [theorem]\n  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0\n\n• DirichletCharacter.map_zero' [theorem]\n  (hn : n ≠ 1) : χ 0 = 0\n\n• AddChar.expect_eq_zero_iff_ne_zero [theorem]\n  : 𝔼 x, ψ x = 0 ↔ ψ ≠ 0\n\n• AddChar.sum_apply_eq_ite [theorem]\n  [Fintype α] [DecidableEq α] (a : α) : ∑ ψ : AddChar α ℂ, ψ a = if a = 0 then (Fintype.card α : ℂ) else 0\n\n• MulChar.map_zero [theorem]\n  {R : Type*} [CommMonoidWithZero R] [Nontrivial R] (χ : MulChar R R') : χ (0 : R) = 0\n\n• Representation.leftRegular_norm_eq_zero_iff [theorem]\n  (x : G →₀ k) : (leftRegular k G).norm x = 0 ↔ x.linearCombination k (fun _ => (1 : k)) = 0\n\n• AddChar.sum_apply_eq_zero_iff_ne_zero [theorem]\n  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a = 0 ↔ a ≠ 0\n\n• AddChar.sum_apply_ne_zero_iff_eq_zero [theorem]\n  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a ≠ 0 ↔ a = 0\n\n• MulChar.map_nonunit [theorem]\n  (χ : MulChar R R') {a : R} (ha : ¬IsUnit a) : χ a = 0\n\n• AddChar.expect_eq_ite [theorem]\n  (ψ : AddChar G R) : 𝔼 a, ψ a = if ψ = 0 then 1 else 0\n\n• MulChar.pow_card_eq_one [theorem]\n  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1\n\n• MulCharClass.map_nonunit [theorem]\n  ∀ {F : Type u_3} {R : outParam (Type u_4)} {R' : outParam (Type u_5)} {inst : CommMonoid R}\n  {inst_1 : CommMonoidWithZero R'} {inst_2 : FunLike F R R'} [self : MulCharClass F R R'] (χ : F) {a : R},\n  ¬IsUnit a → χ a = 0\n\n• DirichletCharacter.sum_char_inv_mul_char_eq [theorem]\n  {a : ZMod n} (ha : IsUnit a) (b : ZMod n) :\n  ∑ χ : DirichletCharacter R n, χ a⁻¹ * χ b = if a = b then (n.totient : R) else 0"
+}

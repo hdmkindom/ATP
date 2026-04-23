@@ -1,0 +1,22 @@
+{
+  "iteration_index": 19,
+  "timestamp_tag": "04061237",
+  "location": "ATP.temTH.CandidateTheorems.T3.Disable:candidate_T3_disable",
+  "imports": [
+    "Mathlib.NumberTheory.LegendreSymbol.AddCharacter"
+  ],
+  "opens": [
+    "AddChar"
+  ],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 12:0\n│  namespace TemTH\n│  ^^^\n╰─ error: expected checkColGt\n\n╭─ Error at line 25:18\n│        simpa using root.isPrimitiveRoot.pow_eq_one)\n│                   ^^^\n╰─ error: Invalid field `isPrimitiveRoot`: The environment does not contain `CandidateTheorems.T3.PrimitiveNthRoot.isPrimitiveRoot`\n  root\nhas type\n  PrimitiveNthRoot\n\n╭─ Error at line 20:44\n│      ∑ x : Fin N, cyclicChar root a x = 0 := by\n│                                             ^^^\n╰─ error: unsolved goals\nN : ℕ\ninst✝ : NeZero N\nroot : PrimitiveNthRoot\na : Fin N\nha : a ≠ 0\ne : Fin N ≃+ ZMod N := ↑(ZMod.finEquiv N)\n⊢ ∑ x, cyclicChar root a x = 0"
+    }
+  ],
+  "message_count": 2
+}

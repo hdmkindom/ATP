@@ -1,0 +1,353 @@
+\subsection{候选定理}
+
+\begin{theorem}[候选定理 $T_1$]
+设 $G$ 是有限阿贝尔群，$\chi : G \to \C^\times$ 为非平凡角色，则
+$
+\sum_{g \in G} \chi(g) = 0。
+$
+\end{theorem}
+
+\begin{itemize}
+\item 路线 A：换元路线，直接考虑置换 $g \mapsto hg$，其中 $\chi(h)\neq 1$。
+\item 路线 B：正交路线，把该结论当作角色正交关系的标准实例。
+\end{itemize}
+
+\vspace{1em}
+
+\begin{theorem}[候选定理 $T_2$]
+设 $G$ 是有限阿贝尔群，$\widehat{G}$ 是其角色群，则对任意 $g \in G$，
+$$
+\sum_{\chi \in \widehat{G}} \chi(g)
+=
+\begin{cases}
+|G|, & g=e, \\
+0, & g\neq e。
+\end{cases}
+$$
+\end{theorem}
+
+\begin{itemize}
+\item 角色群正交关系: 直接从角色群的标准正交关系出发。
+\item Fourier 路线: 把角色视为函数空间上的正交基，使用 Fourier 观点来理解。
+\end{itemize}
+
+\vspace{1em}
+
+\begin{theorem}[候选定理 $T_3$]
+设 $N \ge 1$，$a \in \Z / N\Z$ 且 $a \neq 0$。则
+$
+\sum_{x \in \Z / N\Z} \Exp\!\left( \frac{2\pi i a x}{N} \right) = 0。
+$
+\end{theorem}
+
+% \yankun{需要思考： 这三条路线真的都是“本质不同” 的证明路线吗？}
+% \begin{itemize}
+% \item 几何级数路线: 令
+% $
+% \omega = \Exp\!\left( \frac{2\pi i a}{N} \right)。
+% $
+% 当 $a \neq 0$ 时，$\omega \neq 1$，于是
+% $
+% \sum_{x=0}^{N-1}\omega^x = \frac{1-\omega^N}{1-\omega} = 0。
+% $
+% \item 加性角色路线: 把
+% $
+% x \mapsto \Exp\!\left( \frac{2\pi i a x}{N} \right)
+% $
+% 看成非平凡加性角色，再调用“非平凡角色总和为零”。
+% \item Fourier 路线: 把它看成常数函数 $1$ 的非零 Fourier 系数。
+% \end{itemize}
+
+\begin{itemize}
+\item \textbf{几何级数路线：}
+令
+$
+\omega=\Exp\!\left(\frac{2\pi i a}{N}\right).
+$
+则原和式可写为
+$
+\sum_{x\in \Z/N\Z}\Exp\!\left(\frac{2\pi i a x}{N}\right)
+=
+\sum_{x=0}^{N-1}\omega^x.
+$
+当 $a\neq 0$ 时，$\omega$ 是一个非平凡的 $N$ 次单位根，因而 $\omega\neq 1$ 且 $\omega^N=1$。于是由有限几何级数公式，
+$
+\sum_{x=0}^{N-1}\omega^x
+=
+\frac{1-\omega^N}{1-\omega}
+=
+0.
+$
+这一路线的本质是：\emph{把和式看成非平凡单位根的完整幂和，并通过显式代数恒等式证明其消失。}
+
+\item \textbf{加性角色路线：}
+把函数
+$
+x\mapsto \Exp\!\left(\frac{2\pi i a x}{N}\right)
+$
+看成群 $\Z/N\Z$ 上的一个加性角色。  
+当 $a\neq 0$ 时，它是非平凡角色，因此可直接应用有限阿贝尔群上的标准结论：\emph{非平凡角色在全群上的总和等于零}。于是
+$
+\sum_{x\in \Z/N\Z}\Exp\!\left(\frac{2\pi i a x}{N}\right)=0.
+$
+这一路线的本质是：\emph{利用有限群角色的正交性（或平移不变性）得到求和消失。}
+\end{itemize}
+
+\vspace{1em}
+
+\begin{theorem}[候选定理 $T_4$]
+设 $N \ge 1$。对任意 $x \in \Z / N\Z$，
+$$
+\sum_{a \in \Z / N\Z} \Exp\!\left( \frac{2\pi i a x}{N} \right)
+=
+\begin{cases}
+N, & x=0, \\
+0, & x\neq 0。
+\end{cases}
+$$
+\end{theorem}
+
+\begin{itemize}
+\item \textbf{几何级数路线：}
+固定 $x\in \Z/N\Z$，令
+$
+\omega=\Exp\!\left(\frac{2\pi i x}{N}\right).
+$
+则
+$
+\sum_{a\in \Z/N\Z}\Exp\!\left(\frac{2\pi i a x}{N}\right)
+=
+\sum_{a=0}^{N-1}\omega^a.
+$
+当 $x=0$ 时，$\omega=1$，故和为 $N$；当 $x\neq 0$ 时，$\omega\neq 1$ 且 $\omega^N=1$，于是由几何级数公式，
+$
+\sum_{a=0}^{N-1}\omega^a
+=
+\frac{1-\omega^N}{1-\omega}
+=
+0.
+$
+这一路线的本质是：\emph{把和式看成单位根的完整幂和，并通过显式代数恒等式计算。}
+
+\item \textbf{加性角色路线：}
+把函数
+$
+a\mapsto \Exp\!\left(\frac{2\pi i a x}{N}\right)
+$
+看成群 $\Z/N\Z$ 上的加性角色。  
+当 $x=0$ 时这是平凡角色，因此总和等于群的大小 $N$；当 $x\neq 0$ 时这是非平凡角色，因此由有限阿贝尔群上的标准结论，
+$
+\sum_{a\in \Z/N\Z}\Exp\!\left(\frac{2\pi i a x}{N}\right)=0.
+$
+这一路线的本质是：\emph{利用有限群角色的正交性（或非平凡角色总和为零）得到结论。}
+\end{itemize}
+
+\vspace{1em}
+
+\begin{theorem}[候选定理 $T_5$]
+定义
+$
+\delta_0(t)=
+\begin{cases}
+1, & t \equiv 0 \pmod N, \\
+0, & t \not\equiv 0 \pmod N。
+\end{cases}
+$
+则
+$
+\delta_0(t)
+=
+\frac{1}{N}
+\sum_{a \in \Z / N\Z}
+\Exp\!\left( \frac{2\pi i a t}{N} \right)。
+$
+\end{theorem}
+
+\begin{itemize}
+\item 从定理 $T_4$ 直接推出,
+\item Fourier 反演路线: 把 $\delta_0$ 看作有限群上的单位脉冲，使用 Fourier inversion 思想。
+\end{itemize}
+
+\vspace{1em}
+
+\begin{definition}[Gauss sum]
+设 $\chi$ 是模 $N$ 的乘性角色。定义
+$
+G(\chi,a)
+=
+\sum_{x \bmod N}
+\chi(x)\Exp\!\left( \frac{2\pi i a x}{N} \right)。
+$
+\end{definition}
+
+\begin{theorem}[候选定理 $T_6$]
+在适当条件下，例如 $(a,N)=1$，有
+$
+G(\chi,a) = \overline{\chi}(a)\,G(\chi,1)
+$
+或与之等价的标准缩放公式。
+\end{theorem}
+
+\yankun{这个我觉得偏难， 需要花费很多时间，最好不要上来就做。
+新的对象层容易导致 接口混乱。}
+\begin{itemize}
+\item 换元路线: 利用 $a$ 在 $(\Z / N\Z)^\times$ 中可逆，做换元 $y=ax$。
+\item 调用现成 Gauss sum 结果。
+\end{itemize}
+
+\vspace{1em}
+
+\begin{theorem}[候选定理 $T_7$]
+设 $N \ge 1$，固定 $t \in \Z / N\Z$。定义函数
+$
+\delta_t : \Z / N\Z \to \C
+$
+为
+\[
+\delta_t(x)=
+\begin{cases}
+1, & x=t, \\
+0, & x\neq t。
+\end{cases}
+\]
+则对任意 $x \in \Z / N\Z$，有
+\[
+\delta_t(x)
+=
+\frac{1}{N}
+\sum_{a \in \Z / N\Z}
+\Exp\!\left( \frac{2\pi i a(x-t)}{N} \right)。
+\]
+\end{theorem}
+
+\begin{itemize}
+    \item 路线 A：由定理 $T_5$ 直接推出。只需把 $T_5$ 中的变量 $t$ 替换为 $x-t$，即可得到
+    \[
+    \delta_0(x-t)
+    =
+    \frac{1}{N}
+    \sum_{a \in \Z / N\Z}
+    \Exp\!\left( \frac{2\pi i a(x-t)}{N} \right)。
+    \]
+    再注意到
+    $
+    \delta_0(x-t)=\delta_t(x)
+    $
+    即可。
+
+    \item 路线 B：把 $\delta_t$ 看成 $\delta_0$ 的平移，利用 Fourier 反演或角色基重建公式。也就是说，先把 $\delta_0$ 的展开写出，再通过平移得到 $\delta_t$ 的展开。
+\end{itemize}
+
+\yankun{可以理解这个问题是$T_5$ 的一个推进。}
+\vspace{1em}
+
+\begin{theorem}[候选定理 $T_8$]
+设 $N \ge 1$，$f : \Z / N\Z \to \C$ 是任意函数。对任意 $t \in \Z / N\Z$，定义平移后的函数
+\[
+(\tau_t f)(x)=f(x-t)。
+\]
+设 $f$ 的 Fourier 系数定义为
+\[
+\widehat{f}(a)
+=
+\sum_{x \in \Z / N\Z}
+f(x)\Exp\!\left( -\frac{2\pi i a x}{N} \right)。
+\]
+则对任意 $a \in \Z / N\Z$，有
+\[
+\widehat{\tau_t f}(a)
+=
+\Exp\!\left( -\frac{2\pi i a t}{N} \right)\widehat{f}(a)。
+\]
+\end{theorem}
+
+\begin{itemize}
+    \item 路线 A：直接展开 Fourier 变换的定义。由
+    \[
+    \widehat{\tau_t f}(a)
+    =
+    \sum_{x \in \Z / N\Z}
+    f(x-t)\Exp\!\left( -\frac{2\pi i a x}{N} \right)
+    \]
+    出发，令 $y=x-t$，则
+    \[
+    \widehat{\tau_t f}(a)
+    =
+    \sum_{y \in \Z / N\Z}
+    f(y)\Exp\!\left( -\frac{2\pi i a (y+t)}{N} \right)。
+    \]
+    把指数项拆开，即得
+    \[
+    \widehat{\tau_t f}(a)
+    =
+    \Exp\!\left( -\frac{2\pi i a t}{N} \right)
+    \sum_{y \in \Z / N\Z}
+    f(y)\Exp\!\left( -\frac{2\pi i a y}{N} \right)
+    =
+    \Exp\!\left( -\frac{2\pi i a t}{N} \right)\widehat{f}(a)。
+    \]
+
+    \item 路线 B：把平移看作与点质量函数做卷积，即
+    $
+    \tau_t f = \delta_t * f
+    $，
+    再利用“卷积在 Fourier 变换下变成乘法”的性质，结合 $\widehat{\delta_t}$ 的显式公式推出结论。
+\end{itemize}
+
+\yankun{有限群 Fourier 理论中的标准性质。
+如果你们觉得不好 formalization的话，可以不优先 选择 这个问题。}
+
+\vspace{1em}
+
+\begin{theorem}[候选定理 $T_{9}$]
+设 $G$ 是一个群，$\chi : G \to \C^\times$ 是一个角色。则
+\[
+\chi(e)=1。
+\]
+\end{theorem}
+
+\begin{itemize}
+    \item 路线 A：直接由同态性质推出。因为
+    \[
+    \chi(e)\chi(e)=\chi(ee)=\chi(e)。
+    \]
+    又由于 $\chi(e)\in \C^\times$，可消去一个 $\chi(e)$，得到
+    $
+    \chi(e)=1。
+    $
+
+    \item 路线 B：把它视为一般群同态保持单位元的标准性质，即任意群同态 $\varphi:G\to H$ 都满足 $\varphi(e_G)=e_H$。这里把 $H$ 取为 $\C^\times$ 即可。
+\end{itemize}
+
+\yankun{这一题非常简单，不适合作为项目主力题，但非常适合作为学生进入 Lean formalization 热身。}
+
+\vspace{1em}
+
+\begin{theorem}[候选定理 $T_{10}$]
+设 $G$ 是一个群，$\chi : G \to \C^\times$ 是一个角色。则对任意 $g \in G$，有
+\[
+\chi(g^{-1})=\chi(g)^{-1}。
+\]
+\end{theorem}
+
+\begin{itemize}
+    \item 路线 A：直接由同态性质推出。因为
+    \[
+    \chi(g)\chi(g^{-1})
+    =
+    \chi(gg^{-1})
+    =
+    \chi(e)
+    =
+    1。
+    \]
+    因此 $\chi(g^{-1})$ 正是 $\chi(g)$ 的乘法逆元。
+
+    \item 路线 B：把它视为一般群同态保持逆元的标准性质，即对任意群同态 $\varphi:G\to H$ 和任意 $g\in G$，有
+    $
+    \varphi(g^{-1})=\varphi(g)^{-1}。
+    $
+\end{itemize}
+
+\yankun{这个命题很适合作为 $T_1$ 或更复杂角色恒等式的前置引理。
+很适合学生来练手，作为前置的训练。}

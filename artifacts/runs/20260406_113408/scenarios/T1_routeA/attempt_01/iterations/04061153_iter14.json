@@ -1,0 +1,18 @@
+{
+  "iteration_index": 14,
+  "timestamp_tag": "04061153",
+  "location": "ATP.temTH.CandidateTheorems.T1.RouteA:candidate_T1_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 25:18\n│      exact hno ⟨g, hg⟩\n│                   ^^^\n╰─ error: Application type mismatch: The argument\n  hg\nhas type\n  ¬↑(χ g) = ↑(1 g)\nbut is expected to have type\n  χ g ≠ 1\nin the application\n  Exists.intro g hg\nATP/temTH/CandidateTheorems/T1/tmp_RouteA_1sl9a2vr.lean:39:16: error(lean.unknownIdentifier): Unknown identifier `mul_sum`\n\n╭─ Error at line 38:44\n│        _ = (χ h : ℂ) * ∑ g : G, (χ g : ℂ) := by\n│                                             ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\n⊢ ∑ g, ↑(χ h) * ↑(χ g) = ↑(χ h) * ∑ g, ↑(χ g)\n\n╭─ Error at line 49:4\n│      exact_mod_cast hcoh\n│     ^^^\n╰─ error: mod_cast has type\n  ↑(χ h) = 1\nbut is expected to have type\n  χ h = 1\n\n╭─ Error at line 60:28\n│        _ = 0 := by rw [h_eq, sub_self]\n│                             ^^^\n╰─ error: Tactic `rewrite` failed: Did not find an occurrence of the pattern\n  ?a - ?a\nin the target expression\n  ↑(χ h) * S - ↑(χ h) * (↑(χ h) * S) = 0\n\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\nh_mul_left : ∑ g, ↑(χ (h * g)) = ↑(χ h) * S\nh_eq : S = ↑(χ h) * S\nhχh_coe_ne_one : ↑(χ h) ≠ 1\nh_one_sub_ne_zero : 1 - ↑(χ h) ≠ 0\n⊢ ↑(χ h) * S - ↑(χ h) * (↑(χ h) * S) = 0\n\n╭─ Error at line 64:56\n│        apply mul_eq_zero.mp h_factor |> Or.resolve_right hS_ne\n│                                                         ^^^\n╰─ error: Application type mismatch: The argument\n  hS_ne\nhas type\n  ¬S = 0\nbut is expected to have type\n  ?m.353 ∨ ?m.354\nin the application\n  Or.resolve_right hS_ne\n\n╭─ Error at line 63:32\n│      have : 1 - (χ h : ℂ) = 0 := by\n│                                 ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ⋯\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\nh_mul_left : ∑ g, ↑(χ (h * g)) = ↑(χ h) * S\nh_eq : S = ↑(χ h) * S\nhχh_coe_ne_one : ↑(χ h) ≠ 1\nh_one_sub_ne_zero : 1 - ↑(χ h) ≠ 0\nh_factor : (1 - ↑(χ h)) * S = 0\nhS_ne : ¬S = 0\n⊢ Prop"
+    }
+  ],
+  "message_count": 2
+}

@@ -1,0 +1,42 @@
+{
+  "scenario_key": "T8.disable",
+  "theorem_id": "T8",
+  "mode_family": "disable",
+  "attempt_index": 1,
+  "target_file": "ATP/temTH/CandidateTheorems/T8/Disable.lean",
+  "theorem_name": "candidate_T8_disable",
+  "success": false,
+  "valid": false,
+  "observed_route": "routeA",
+  "route_compliance": false,
+  "policy_violations": [
+    "Matched forbidden pattern: \\bFourierTranslationData\\b"
+  ],
+  "summary": "The theorem **`candidate_T8_disable`** at  \n`ATP.temTH.CandidateTheorems.T8.Disable:candidate_T8_disable` was **not proven** in this run.\n\n### Why it failed\n- The run hit the **maximum iteration limit (5)** with **5 compilation errors**.\n- From the attempt history, the proof term itself stayed stable and plausible:\n  ```lean\n  simpa [smul_eq_mul] using\n    fourierCoeff_translate_via_convolution ...\n  ```\n- The recurring blocker appears to be **environmental/import-level**, specifically a missing compiled dependency (`CandidateTheorems.T8.Support.olean`), rather than a tactic or type mismatch in this theorem.\n\n### Main approaches tried\n- Reused a direct lemma application:\n  - `fourierCoeff_translate_via_convolution`\n- Used `simpa [smul_eq_mul]` to normalize scalar/multiplication form and close the goal.\n\n### Suggested next steps\n1. **Fix build artifacts/imports first**  \n   Ensure `CandidateTheorems.T8.Support` compiles and its `.olean` is available (clean/rebuild or correct project paths).\n2. **Verify theorem in an isolated file/session**  \n   Check the exact proof snippet in a minimal context where dependencies are known-good.\n3. **If needed, make coercions explicit**  \n   If environment is fixed and it still fails, try a slightly more explicit version (e.g. `simpa [Algebra.smul_mul_assoc, smul_eq_mul]` or intermediate `have` with exact lemma output type).",
+  "error": null,
+  "prompt_excerpt": "Target scenario: T8.disable\nTarget file: ATP/temTH/CandidateTheorems/T8/Disable.lean\n\nTheorem: T8 - Fourier coefficient of a translated function\n\nATP benchmark protocol:\n1. Keep the theorem statement unchanged.\n2. Do not import solved route files such as `CandidateTheorems.Tk.RouteA` or `CandidateTheorems.Tk.RouteB`.\n3. Do not solve the goal by citing an already-solved `CandidateTheorems.Tk.candidate_Tk_routeA/routeB` theorem.\n4. You may add Mathlib imports or support-file imports when they are genuinely necessary.\n5. Prefer explicit intermediate names over anonymous one-letter names when the proof becomes nontrivial.\n6. Finish with a complete Lean proof and do not leave any `sorry`.\n\nrouteA: 直接展开 Fourier 变换定义. 直接展开 Fourier 变换的定义。\n由\n`\\hat{τ_t f}(a) = ∑_{x ∈ Z / N Z} f(x - t) Exp(-2π i a x / N)`\n出发，令 `y = x - t`，再把指数项拆开得到结论。\nrouteB: 卷积路线. 把平移看作与点质量函数做卷积，即\n`τ_t f = δ_t * f`，\n再利用“卷积在 Fourier 变换下变成乘法”的性质，结合 `\\hat{δ_t}` 的显式公式推出结论。\n\nMode: disable.\nThe following proof family is intentionally disabled for this run.\nDisabled route family: routeA: 直接展开 Fourier 变换定义.\n请不要直接从\n`\\hat{τ_t f}(a) = ∑_{x ∈ Z / N Z} f(x - t) Exp(-2π i a x / N)`\n出发再令 `y = x - t` 做换元，\n也不要通过直接拆开指数项来得到结论。\n请把平移看作与点质量函数做卷积，",
+  "iterations": 5,
+  "compilation_errors": 5,
+  "build_timeouts": 0,
+  "reviewer_rejections": 0,
+  "max_iterations_reached": true,
+  "elapsed_seconds": 60.272147,
+  "llm_request_count": 11,
+  "llm_failed_request_count": 0,
+  "llm_input_tokens": 18336,
+  "llm_output_tokens": 1718,
+  "llm_total_tokens": 20054,
+  "started_at": "2026-04-06T10:25:34.649717",
+  "finished_at": "2026-04-06T10:26:34.921864",
+  "artifact_paths": {
+    "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/T8_disable_attempt01.json",
+    "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/T8_disable_attempt01.lean",
+    "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01",
+    "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/iterations",
+    "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/iterations/04061025_iter01.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/iterations/04061025_iter02.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/iterations/04061025_iter03.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/iterations/04061026_iter04.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/iterations/04061026_iter05.lean",
+    "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/source/04061025_original.lean",
+    "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/source/04061026_final.lean",
+    "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/source/04061026_restored.lean",
+    "message_trace_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260406_095756/scenarios/T8_disable/attempt_01/messages.json"
+  }
+}

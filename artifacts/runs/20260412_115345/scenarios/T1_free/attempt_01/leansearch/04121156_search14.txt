@@ -1,0 +1,73 @@
+=== reindex finite group sum left multiplication (20 matches) ===
+
+• Equiv.mulLeft [definition]
+  (a : G) : Perm G
+
+• sum_translate [theorem]
+  [Fintype G] (a : G) (f : G → M) : ∑ b, τ a f b = ∑ b, f b
+
+• smul_finprod_perm [theorem]
+  [Finite G] (b : N) (g : G) : (g • ∏ᶠ h : G, h • b) = ∏ᶠ h : G, h • b
+
+• Equiv.coe_mulLeft [theorem]
+  (a : G) : ⇑(Equiv.mulLeft a) = (a * ·)
+
+• finsum_mem_range [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M} {g : β → α},
+  Function.Injective g → ∑ᶠ (i : α) (_ : i ∈ Set.range g), f i = ∑ᶠ (j : β), f (g j)
+
+• finsum_emb_domain [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] (f : α ↪ β)
+  [inst_1 : DecidablePred fun x => x ∈ Set.range ⇑f] (g : α → M),
+  (∑ᶠ (b : β), if h : b ∈ Set.range ⇑f then g (Classical.choose h) else 0) = ∑ᶠ (a : α), g a
+
+• translate_sum_right [theorem]
+  (a : G) (f : ι → G → M) (s : Finset ι) : τ a (∑ i ∈ s, f i) = ∑ i ∈ s, τ a (f i)
+
+• TannakaDuality.FiniteGroup.leftRegular [definition]
+  : Representation k G (G → k)
+
+• AffineBasis.reindex_smul [theorem]
+  (a : G) (b : AffineBasis ι k V) (e : ι ≃ ι') : (a • b).reindex e = a • b.reindex e
+
+• Finsupp.comapSMul [definition]
+  : SMul G (α →₀ M)
+
+• Equiv.mulLeft_mul [theorem]
+  : Equiv.mulLeft (a * b) = Equiv.mulLeft a * Equiv.mulLeft b
+
+• TannakaDuality.FiniteGroup.sumSMulInv [definition]
+  [Fintype G] {X : FDRep k G} (v : X) : (G → k) →ₗ[k] X
+
+• Finset.sum_fiberwise_of_maps_to [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_4} [inst : AddCommMonoid M] {s : Finset ι} {t : Finset κ}
+  [inst_1 : DecidableEq κ] {g : ι → κ},
+  (∀ i ∈ s, g i ∈ t) → ∀ (f : ι → M), ∑ j ∈ t, ∑ i ∈ s with g i = j, f i = ∑ i ∈ s, f i
+
+• TannakaDuality.FiniteGroup.sumSMulInv_apply [theorem]
+  ∀ {k G : Type u} [inst : CommRing k] [inst_1 : Group G] [inst_2 : Fintype G] {X : FDRep k G} (v : ↑X.V) (f : G → k),
+  (TannakaDuality.FiniteGroup.sumSMulInv v) f = ∑ s, f s • (X.ρ s⁻¹) v
+
+• MeasureTheory.Measure.instIsMulLeftInvariantForallVolumeOfMeasurableMulOfSigmaFinite [instance]
+  {G : ι → Type*} [∀ i, Group (G i)] [∀ i, MeasureSpace (G i)] [∀ i, MeasurableMul (G i)]
+  [∀ i, SigmaFinite (volume : Measure (G i))] [∀ i, IsMulLeftInvariant (volume : Measure (G i))] :
+  IsMulLeftInvariant (volume : Measure (∀ i, G i))
+
+• finsum_emb_domain' [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] {f : α → β},
+  Function.Injective f →
+    ∀ [inst_1 : DecidablePred fun x => x ∈ Set.range f] (g : α → M),
+      (∑ᶠ (b : β), if h : b ∈ Set.range f then g (Classical.choose h) else 0) = ∑ᶠ (a : α), g a
+
+• Equiv.addLeft [definition]
+  {G : Type u_5} → [AddGroup G] → G → Equiv.Perm G
+
+• FreeGroupBasis.reindex [definition]
+  (b : FreeGroupBasis ι G) (e : ι ≃ ι') : FreeGroupBasis ι' G
+
+• finsum_comp_equiv [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] (e : α ≃ β) {f : β → M},
+  ∑ᶠ (i : α), f (e i) = ∑ᶠ (i' : β), f i'
+
+• Finsupp.comapSMul_def [theorem]
+  (g : G) (f : α →₀ M) : g • f = mapDomain (g • ·) f

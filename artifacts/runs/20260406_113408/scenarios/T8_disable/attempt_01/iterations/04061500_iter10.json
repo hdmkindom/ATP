@@ -1,0 +1,18 @@
+{
+  "iteration_index": 10,
+  "timestamp_tag": "04061500",
+  "location": "ATP.temTH.CandidateTheorems.T8.Disable:candidate_T8_disable",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T8/tmp_Disable_93expp6c.lean:20:4: error(lean.unknownIdentifier): Unknown identifier `fourierCoeff_convolution_delta`"
+    }
+  ],
+  "message_count": 2
+}

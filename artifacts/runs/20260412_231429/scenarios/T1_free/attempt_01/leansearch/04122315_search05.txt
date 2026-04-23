@@ -1,0 +1,68 @@
+=== CandidateTheorems.T1.Support Character (20 matches) ===
+
+• Function.support [definition]
+  {ι : Type u_1} → {M : Type u_3} → [Zero M] → (ι → M) → Set ι
+
+• Continuous.isOpen_support [theorem]
+  ∀ {X : Type u_1} {Y : Type u_2} [inst : TopologicalSpace X] [T1Space X] [inst_2 : Zero X] [inst_3 : TopologicalSpace Y]
+  {f : Y → X}, Continuous f → IsOpen (Function.support f)
+
+• Function.locallyFinsuppWithin.discreteSupport [theorem]
+  [Zero Y] [T1Space X] (D : locallyFinsuppWithin U Y) : IsDiscrete D.support
+
+• subset_tsupport [theorem]
+  ∀ {X : Type u_1} {α : Type u_2} [inst : Zero α] [inst_1 : TopologicalSpace X] (f : X → α),
+  Function.support f ⊆ tsupport f
+
+• Function.locallyFinsuppWithin.closedSupport [theorem]
+  [T1Space X] [Zero Y] (D : locallyFinsuppWithin U Y) (hU : IsClosed U) : IsClosed D.support
+
+• Finsupp.support [definition]
+  {α : Type u_9} → {M : Type u_10} → [inst : Zero M] → (α →₀ M) → Finset α
+
+• supportDiscreteWithin_iff_locallyFiniteWithin [theorem]
+  [T1Space X] [Zero Y] {f : X → Y} (h : f.support ⊆ U) :
+  f =ᶠ[codiscreteWithin U] 0 ↔ ∀ z ∈ U, ∃ t ∈ 𝓝 z, Set.Finite (t ∩ f.support)
+
+• DFinsupp.support_inf [theorem]
+  : (f ⊓ g).support = f.support ∩ g.support
+
+• Function.support_subset_iff' [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] {f : ι → M} {s : Set ι},
+  Function.support f ⊆ s ↔ ∀ (x : ι), ¬x ∈ s → f x = 0
+
+• Function.support_one [theorem]
+  : support (1 : ι → R) = univ
+
+• Finsupp.support_subset_iff [theorem]
+  {s : Set α} {f : α →₀ M} : ↑f.support ⊆ s ↔ ∀ a ∉ s, f a = 0
+
+• Function.support_eq_preimage [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] (f : ι → M), Function.support f = f ⁻¹' {0}ᶜ
+
+• Function.support_subset_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] {f : ι → M} {s : Set ι},
+  Function.support f ⊆ s ↔ ∀ (x : ι), f x ≠ 0 → x ∈ s
+
+• Function.support_eq_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} [inst : Zero M] {f : ι → M} {s : Set ι},
+  Function.support f = s ↔ (∀ (x : ι), x ∈ s → f x ≠ 0) ∧ ∀ (x : ι), ¬x ∈ s → f x = 0
+
+• Finsupp.rangeSingleton_support [theorem]
+  ∀ {ι : Type u_1} {α : Type u_2} [inst : Zero α] (f : ι →₀ α), f.rangeSingleton.support = f.support
+
+• Finsupp.finite_support [theorem]
+  (f : α →₀ M) : Set.Finite (Function.support f)
+
+• Finset.support_sum_subset [theorem]
+  [AddCommMonoid M] (s : Finset (ι →₀ M)) : (s.sum id).support ⊆ Finset.sup s Finsupp.support
+
+• Finsupp.support_single_subset [theorem]
+  : (single a b).support ⊆ { a }
+
+• Function.support_sup [theorem]
+  ∀ {α : Type u_2} {M : Type u_3} [inst : Zero M] [inst_1 : SemilatticeSup M] (f g : α → M),
+  (Function.support fun x => f x ⊔ g x) ⊆ Function.support f ∪ Function.support g
+
+• DFinsupp.support_subset_iff [theorem]
+  {s : Set ι} {f : Π₀ i, β i} : ↑f.support ⊆ s ↔ ∀ i ∉ s, f i = 0

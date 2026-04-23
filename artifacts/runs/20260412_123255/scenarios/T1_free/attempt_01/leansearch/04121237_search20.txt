@@ -1,0 +1,79 @@
+=== theorem in CandidateTheorems.T1 about sum character (20 matches) ===
+
+• ValueDistribution.characteristic_sum_top_le [theorem]
+  {α : Type*} (s : Finset α) (f : α → ℂ → E) {r : ℝ} (hf : ∀ a, Meromorphic (f a)) (hr : 1 ≤ r) :
+  characteristic (∑ a ∈ s, f a) ⊤ r ≤ (∑ a ∈ s, (characteristic (f a) ⊤)) r + log s.card
+
+• Finsupp.sum_sum_index' [theorem]
+  (h0 : ∀ i, t i 0 = 0) (h1 : ∀ i x y, t i (x + y) = t i x + t i y) : (∑ x ∈ s, f x).sum t = ∑ x ∈ s, (f x).sum t
+
+• AddChar.sum_eq_card_of_eq_one [theorem]
+  {ψ : AddChar R R'} (hψ : ψ = 1) : ∑ a, ψ a = Fintype.card R
+
+• AddChar.coe_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∑ i ∈ s, ψ i = ∏ i ∈ s, ⇑(ψ i)
+
+• AddChar.prod_eq_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∏ i ∈ s, ψ i = ∑ i ∈ s, ψ i
+
+• AddChar.sum_apply [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) (a : A) : (∑ i ∈ s, ψ i) a = ∏ i ∈ s, ψ i a
+
+• Summable.tsum_sum [theorem]
+  ∀ {α : Type u_4} {β : Type u_5} {M : Type u_6} [inst : AddCommMonoid M] [inst_1 : TopologicalSpace M] [ContinuousAdd M]
+  [T2Space M] {f : α ⊕ β → M},
+  Summable (f ∘ Sum.inl) →
+    Summable (f ∘ Sum.inr) → ∑' (i : α ⊕ β), f i = ∑' (i : α), f (Sum.inl i) + ∑' (i : β), f (Sum.inr i)
+
+• ValueDistribution.characteristic_sum_top_eventuallyLE [theorem]
+  {α : Type*} (s : Finset α) (f : α → ℂ → E) (hf : ∀ a, Meromorphic (f a)) :
+  characteristic (∑ a ∈ s, f a) ⊤ ≤ᶠ[Filter.atTop] ∑ a ∈ s, (characteristic (f a) ⊤) + fun _ ↦ log s.card
+
+• Finset.indicator_sum [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {β : Type u_4} [inst : AddCommMonoid β] (s : Finset ι) (t : Set κ) (f : ι → κ → β),
+  t.indicator (∑ i ∈ s, f i) = ∑ i ∈ s, t.indicator (f i)
+
+• tsum_eq_tsum_of_hasSum_iff_hasSum [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {γ : Type u_3} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] [T2Space α]
+  {f : β → α} {g : γ → α}, (∀ {a : α}, HasSum f a ↔ HasSum g a) → ∑' (b : β), f b = ∑' (c : γ), g c
+
+• Summable.tsum_finset_bUnion_disjoint [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] {f : β → α} [T2Space α]
+  [ContinuousAdd α] {ι : Type u_4} {s : Finset ι} {t : ι → Set β},
+  (↑s).Pairwise (Function.onFun Disjoint t) →
+    (∀ i ∈ s, Summable (f ∘ Subtype.val)) → ∑' (x : ↑(⋃ i ∈ s, t i)), f ↑x = ∑ i ∈ s, ∑' (x : ↑(t i)), f ↑x
+
+• AddChar.directSum_apply [theorem]
+  ∀ {ι : Type u_1} {R : Type u_2} {G : ι → Type u_3} [inst : DecidableEq ι] [inst_1 : (i : ι) → AddCommGroup (G i)]
+  [inst_2 : CommMonoid R] (ψ : (i : ι) → AddChar (G i) R) (a : DirectSum ι fun i => G i),
+  (AddChar.directSum ψ) a = (DirectSum.toAddMonoid fun i => AddChar.toAddMonoidHomEquiv (ψ i)) a
+
+• Summable.sum_add_tsum_nat_add [theorem]
+  ∀ {G : Type u_2} [inst : AddCommGroup G] [inst_1 : TopologicalSpace G] [IsTopologicalAddGroup G] [T2Space G] {f : ℕ → G}
+  (k : ℕ), Summable f → ∑ i ∈ Finset.range k, f i + ∑' (i : ℕ), f (i + k) = ∑' (i : ℕ), f i
+
+• tsum_subtype [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] (s : Set β) (f : β → α),
+  ∑' (x : ↑s), f ↑x = ∑' (x : β), s.indicator f x
+
+• AddChar.sum_eq_ite [theorem]
+  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0
+
+• tsum_congr_set_coe [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] (f : β → α) {s t : Set β},
+  s = t → ∑' (x : ↑s), f ↑x = ∑' (x : ↑t), f ↑x
+
+• Summable.tsum_eq_zero_add [theorem]
+  ∀ {G : Type u_2} [inst : AddCommGroup G] [inst_1 : TopologicalSpace G] [IsTopologicalAddGroup G] [T2Space G]
+  {f : ℕ → G}, Summable f → ∑' (b : ℕ), f b = f 0 + ∑' (b : ℕ), f (b + 1)
+
+• AddChar.sum_apply_eq_zero_iff_ne_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a = 0 ↔ a ≠ 0
+
+• HasSum.tsum_eq [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} [inst : AddCommMonoid α] [inst_1 : TopologicalSpace α] {L : SummationFilter β}
+  {f : β → α} {a : α} [T2Space α] [L.NeBot], HasSum f a L → ∑'[L] (b : β), f b = a
+
+• sign_sum [theorem]
+  {ι : Type*} {s : Finset ι} {f : ι → α} (hs : s.Nonempty) (t : SignType) (h : ∀ i ∈ s, sign (f i) = t) :
+  sign (∑ i ∈ s, f i) = t

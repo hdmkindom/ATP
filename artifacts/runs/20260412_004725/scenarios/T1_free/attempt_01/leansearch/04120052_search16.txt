@@ -1,0 +1,62 @@
+=== Character G definition G →* ℂˣ (20 matches) ===
+
+• FDRep.character [definition]
+  (V : FDRep k G) (g : G)
+
+• CharacterModule [definition]
+  : Type uA
+
+• MulChar.pow_card_eq_one [theorem]
+  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1
+
+• MeasureTheory.Measure.modularCharacter [definition]
+  : G →* ℝ≥0
+
+• cyclotomicCharacter [definition]
+  (p : ℕ) [Fact p.Prime] : (L ≃+* L) →* ℤ_[p]ˣ
+
+• ZMod.rootsOfUnityAddChar [definition]
+  (n : ℕ) [NeZero n] : AddChar (ZMod n) (rootsOfUnity n Circle)
+
+• MulChar.mulEquivToUnitHom [definition]
+  : MulChar R R' ≃* (Rˣ →* R'ˣ)
+
+• MulChar.ofRootOfUnity_spec [theorem]
+  {ζ : Rˣ} (hζ : ζ ∈ rootsOfUnity (Fintype.card Mˣ) R) {g : Mˣ} (hg : ∀ x, x ∈ Subgroup.zpowers g) :
+  ofRootOfUnity hζ hg g = ζ
+
+• ZMod.toCircle_apply [theorem]
+  (j : ZMod N) : toCircle j = exp (2 * π * I * j.val / N)
+
+• AddChar.circleEquivComplex [definition]
+  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ
+
+• MeasureTheory.distribHaarChar [definition]
+  : G →* ℝ≥0
+
+• MulChar.commGroup [instance]
+  : CommGroup (MulChar R R')
+
+• ZMod.rootsOfUnityAddChar.congr_simp [theorem]
+  ∀ (n : ℕ) [inst : NeZero n], ZMod.rootsOfUnityAddChar n = ZMod.rootsOfUnityAddChar n
+
+• MulChar.toUnitHom [definition]
+  (χ : MulChar R R') : Rˣ →* R'ˣ
+
+• ZMod.stdAddChar [definition]
+  : AddChar (ZMod N) ℂ
+
+• AddChar.map_neg_eq_conj [theorem]
+  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)
+
+• Real.fourierChar [definition]
+  : AddChar ℝ Circle
+
+• AddChar.zmodChar [definition]
+  (n : ℕ) [NeZero n] {ζ : C} (hζ : ζ ^ n = 1) : AddChar (ZMod n) C
+
+• modularCyclotomicCharacter.toFun [definition]
+  (n : ℕ) [NeZero n] (g : L ≃+* L) : ZMod (Fintype.card (rootsOfUnity n L))
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)

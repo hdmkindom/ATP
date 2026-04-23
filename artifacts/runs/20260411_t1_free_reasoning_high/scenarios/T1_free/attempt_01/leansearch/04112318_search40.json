@@ -1,0 +1,14 @@
+{
+  "search_index": 40,
+  "timestamp": "2026-04-11T23:18:04.348487",
+  "timestamp_tag": "04112318",
+  "query": "Mathlib Character G notation Character",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.058965,
+  "error": null,
+  "result_text": "=== Mathlib Character G notation Character (20 matches) ===\n\n• FDRep.character [definition]\n  (V : FDRep k G) (g : G)\n\n• FDRep.char_mul_comm [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• FDRep.char_tensor [theorem]\n  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character\n\n• FDRep.char_linHom [theorem]\n  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g\n\n• AddChar.map_neg_eq_conj [theorem]\n  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)\n\n• FDRep.char_iso [theorem]\n  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character\n\n• AddChar.instFintype.congr_simp [theorem]\n  ∀ (G : Type u_1) (R : Type u_3) [inst : AddCommGroup G] [inst_1 : RCLike R] [inst_2 : Finite G],\n  AddChar.instFintype G R = AddChar.instFintype G R\n\n• AddChar.instAddCommGroup [instance]\n  : AddCommGroup (AddChar A M)\n\n• MeasureTheory.Measure.addModularCharacterFun [definition]\n  {G : Type u_1} →\n  [inst : TopologicalSpace G] → [inst_1 : AddGroup G] → [IsTopologicalAddGroup G] → [LocallyCompactSpace G] → G → NNReal\n\n• MeasureTheory.Measure.modularCharacterFun [definition]\n  (g : G) : ℝ≥0\n\n• MeasureTheory.Measure.modularCharacter [definition]\n  : G →* ℝ≥0\n\n• MulChar.commGroup [instance]\n  : CommGroup (MulChar R R')\n\n• MeasureTheory.Measure.addModularCharacterFun_map_add [theorem]\n  ∀ {G : Type u_1} [inst : TopologicalSpace G] [inst_1 : AddGroup G] [inst_2 : IsTopologicalAddGroup G]\n  [inst_3 : LocallyCompactSpace G] (g h : G),\n  MeasureTheory.Measure.addModularCharacterFun (g + h) =\n    MeasureTheory.Measure.addModularCharacterFun g * MeasureTheory.Measure.addModularCharacterFun h\n\n• AddChar.noConfusionType [definition]\n  Sort u →\n  {A : Type u_1} →\n    [inst : AddMonoid A] →\n      {M : Type u_2} →\n        [inst_1 : Monoid M] →\n          AddChar A M →\n            {A' : Type u_1} → [inst' : AddMonoid A'] → {M' : Type u_2} → [inst'_1 : Monoid M'] → AddChar A' M' → Sort u\n\n• MeasureTheory.Measure.modularCharacterFun_map_mul [theorem]\n  (g h : G) : modularCharacterFun (g * h) = modularCharacterFun g * modularCharacterFun h\n\n• AddChar.card_addChar_le [theorem]\n  [Fintype G] : card (AddChar G R) ≤ card G\n\n• CharacterModule.instAddCommGroup [instance]\n  : AddCommGroup (CharacterModule A)\n\n• term_ᵈᵐᵃ [definition]\n  : Lean.TrailingParserDescr✝\n\n• ConjAct [definition]\n  : Type _"
+}

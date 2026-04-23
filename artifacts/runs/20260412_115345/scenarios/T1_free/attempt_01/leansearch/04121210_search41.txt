@@ -1,0 +1,72 @@
+=== reindex finite group sum left multiplication (20 matches) ===
+
+• TannakaDuality.FiniteGroup.leftRegular_apply [theorem]
+  (s t : G) (f : G → k) : leftRegular s f t = f (s⁻¹ * t)
+
+• finsum_emb_domain [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] (f : α ↪ β)
+  [inst_1 : DecidablePred fun x => x ∈ Set.range ⇑f] (g : α → M),
+  (∑ᶠ (b : β), if h : b ∈ Set.range ⇑f then g (Classical.choose h) else 0) = ∑ᶠ (a : α), g a
+
+• Equiv.mulLeft [definition]
+  (a : G) : Perm G
+
+• TannakaDuality.FiniteGroup.leftRegular [definition]
+  : Representation k G (G → k)
+
+• smul_finprod_perm [theorem]
+  [Finite G] (b : N) (g : G) : (g • ∏ᶠ h : G, h • b) = ∏ᶠ h : G, h • b
+
+• finsum_emb_domain' [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] {f : α → β},
+  Function.Injective f →
+    ∀ [inst_1 : DecidablePred fun x => x ∈ Set.range f] (g : α → M),
+      (∑ᶠ (b : β), if h : b ∈ Set.range f then g (Classical.choose h) else 0) = ∑ᶠ (a : α), g a
+
+• finsum_comp_equiv [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] (e : α ≃ β) {f : β → M},
+  ∑ᶠ (i : α), f (e i) = ∑ᶠ (i' : β), f i'
+
+• Equiv.coe_mulLeft [theorem]
+  (a : G) : ⇑(Equiv.mulLeft a) = (a * ·)
+
+• Finset.sum_fiberwise_of_maps_to [theorem]
+  ∀ {ι : Type u_1} {κ : Type u_2} {M : Type u_4} [inst : AddCommMonoid M] {s : Finset ι} {t : Finset κ}
+  [inst_1 : DecidableEq κ] {g : ι → κ},
+  (∀ i ∈ s, g i ∈ t) → ∀ (f : ι → M), ∑ j ∈ t, ∑ i ∈ s with g i = j, f i = ∑ i ∈ s, f i
+
+• Equiv.mulLeft_mul [theorem]
+  : Equiv.mulLeft (a * b) = Equiv.mulLeft a * Equiv.mulLeft b
+
+• sum_translate [theorem]
+  [Fintype G] (a : G) (f : G → M) : ∑ b, τ a f b = ∑ b, f b
+
+• finsum_mem_range [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] {f : α → M} {g : β → α},
+  Function.Injective g → ∑ᶠ (i : α) (_ : i ∈ Set.range g), f i = ∑ᶠ (j : β), f (g j)
+
+• finsum_comp [theorem]
+  ∀ {α : Type u_1} {β : Type u_2} {M : Type u_5} [inst : AddCommMonoid M] {g : β → M} (e : α → β),
+  Function.Bijective e → ∑ᶠ (i : α), g (e i) = ∑ᶠ (j : β), g j
+
+• AffineBasis.reindex_smul [theorem]
+  (a : G) (b : AffineBasis ι k V) (e : ι ≃ ι') : (a • b).reindex e = a • b.reindex e
+
+• translate_sum_right [theorem]
+  (a : G) (f : ι → G → M) (s : Finset ι) : τ a (∑ i ∈ s, f i) = ∑ i ∈ s, τ a (f i)
+
+• Finsupp.comapSMul_def [theorem]
+  (g : G) (f : α →₀ M) : g • f = mapDomain (g • ·) f
+
+• FreeGroupBasis.reindex [definition]
+  (b : FreeGroupBasis ι G) (e : ι ≃ ι') : FreeGroupBasis ι' G
+
+• TannakaDuality.FiniteGroup.sumSMulInv_apply [theorem]
+  ∀ {k G : Type u} [inst : CommRing k] [inst_1 : Group G] [inst_2 : Fintype G] {X : FDRep k G} (v : ↑X.V) (f : G → k),
+  (TannakaDuality.FiniteGroup.sumSMulInv v) f = ∑ s, f s • (X.ρ s⁻¹) v
+
+• MeasurableEquiv.mulLeft [definition]
+  (g : G) : G ≃ᵐ G
+
+• Finsupp.comapSMul [definition]
+  : SMul G (α →₀ M)

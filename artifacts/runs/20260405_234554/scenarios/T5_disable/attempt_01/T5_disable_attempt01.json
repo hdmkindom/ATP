@@ -1,0 +1,36 @@
+{
+  "scenario_key": "T5.disable",
+  "theorem_id": "T5",
+  "mode_family": "disable",
+  "attempt_index": 1,
+  "target_file": "ATP/temTH/CandidateTheorems/T5/Disable.lean",
+  "theorem_name": "candidate_T5_disable",
+  "success": false,
+  "valid": false,
+  "observed_route": "routeA",
+  "route_compliance": false,
+  "policy_violations": [
+    "Matched forbidden pattern: \\bPrimitiveNthRoot\\b"
+  ],
+  "summary": "The run did **not** successfully prove:\n\n- **Theorem:** `candidate_T5_disable`\n- **Location:** `ATP.temTH.CandidateTheorems.T5.Disable:candidate_T5_disable`\n\n### Why it failed\nThe failure was **environmental**, not logical: compilation stopped at imports due to a missing artifact/module:\n\n- `CandidateTheorems.T3.PrimitiveRoot.olean` not found\n\nSo Lean never reached elaboration/typechecking of the theorem body. The proposed proof\n\n```lean\nsimpa [inv_eq_one_div] using (fourier_inversion_delta0 (N := N) root t)\n```\n\nwas never actually validated or rejected.\n\n### Main approach tried\n- Directly discharge the goal by rewriting `1 / (N : ℂ)` as inverse form and applying:\n  - `fourier_inversion_delta0 (N := N) root t`\n  - with `simpa [inv_eq_one_div]`\n\nThis same strategy appears to have been retried, but every iteration failed pre-theorem due to the same missing dependency.\n\n### Concrete next steps\n1. **Fix dependency/build graph first**\n   - Ensure `CandidateTheorems.T3.PrimitiveRoot` is present and built (`.olean` generated).\n   - Check `lakefile.lean` / package paths / module names for mismatch.\n\n2. **Isolate theorem in a minimal file**\n   - Import only the modules needed for `fourier_inversion_delta0`, `delta0`, and `cyclicChar`.\n   - Confirm the proof term compiles independently once imports are fixed.\n\n3. **If theorem then fails post-import**\n   - Try:\n     ```lean\n     exact (fourier_inversion_delta0 (N := N) root t)\n     ```\n     or\n     ```lean\n     simpa [one_div] using (fourier_inversion_delta0 (N := N) root t)\n     ```\n   - This will distinguish notation/rewriting issues from lemma-shape mismatch quickly.",
+  "error": null,
+  "prompt_excerpt": "Target scenario: T5.disable\nTarget file: ATP/temTH/CandidateTheorems/T5/Disable.lean\n\nTheorem: T5 - Delta at zero as the average of cyclic characters\n\nATP benchmark protocol:\n1. Keep the theorem statement unchanged.\n2. Do not import solved route files such as `CandidateTheorems.Tk.RouteA` or `CandidateTheorems.Tk.RouteB`.\n3. Do not solve the goal by citing an already-solved `CandidateTheorems.Tk.candidate_Tk_routeA/routeB` theorem.\n4. You may add Mathlib imports or support-file imports when they are genuinely necessary.\n5. Prefer explicit intermediate names over anonymous one-letter names when the proof becomes nontrivial.\n6. Finish with a complete Lean proof and do not leave any `sorry`.\n\nrouteA: 从定理 T4 直接推出. 把本题直接看成定理 `T4` 的推论。\n也可以对 `t = 0` 与 `t ≠ 0` 分情况，显式计算完整角色和，再除以 `N` 得到结论。\nrouteB: Fourier 反演路线. 把 `δ_0` 看作有限群上的单位脉冲，使用 Fourier inversion 思想来理解和证明这个公式。\n\nMode: disable.\nThe following proof family is intentionally disabled for this run.\nDisabled route family: routeA: 从定理 T4 直接推出.\n请不要仅仅把本题当作上一条求和结论的直接代入，也不要通过对 `t = 0` 与 `t ≠ 0`\n分情况、显式计算完整角色和再除以 `N` 的方式完成证明。\n请把 `δ_0` 看作有限群上的单位脉冲，尝试从 Fourier 反演的思想来证明。\nForbidden proof markers for this scenario: \\bPrimitiveNthRoot\\b, \\bgeom_sum_eq_zero_",
+  "iterations": 6,
+  "compilation_errors": 6,
+  "build_timeouts": 0,
+  "reviewer_rejections": 0,
+  "max_iterations_reached": true,
+  "started_at": "2026-04-06T00:07:18.470627",
+  "finished_at": "2026-04-06T00:08:22.876586",
+  "artifact_paths": {
+    "result_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/T5_disable_attempt01.json",
+    "proof_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/T5_disable_attempt01.lean",
+    "attempt_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01",
+    "iteration_snapshot_dir": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/iterations",
+    "iteration_snapshot_files": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/iterations/04060007_iter01.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/iterations/04060007_iter02.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/iterations/04060007_iter03.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/iterations/04060007_iter04.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/iterations/04060007_iter05.lean, /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/iterations/04060008_iter06.lean",
+    "original_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/source/04060007_original.lean",
+    "final_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/source/04060008_final.lean",
+    "restored_source_snapshot": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/source/04060008_restored.lean",
+    "message_trace_json": "/Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260405_234554/scenarios/T5_disable/attempt_01/messages.json"
+  }
+}

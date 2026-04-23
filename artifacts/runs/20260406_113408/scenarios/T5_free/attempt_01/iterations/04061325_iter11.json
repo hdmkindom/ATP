@@ -1,0 +1,20 @@
+{
+  "iteration_index": 11,
+  "timestamp_tag": "04061325",
+  "location": "ATP.temTH.CandidateTheorems.T5.Free:candidate_T5_free",
+  "imports": [
+    "Mathlib.NumberTheory.LegendreSymbol.AddCharacter"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T5/tmp_Free_3u5mbis5.lean:32:32: error(lean.unknownIdentifier): Unknown constant `AddChar.sum_apply_eq_zero_iff_ne_zero`"
+    }
+  ],
+  "message_count": 2
+}

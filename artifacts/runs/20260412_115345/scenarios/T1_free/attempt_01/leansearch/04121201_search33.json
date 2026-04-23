@@ -1,0 +1,14 @@
+{
+  "search_index": 33,
+  "timestamp": "2026-04-12T12:01:35.329498",
+  "timestamp_tag": "04121201",
+  "query": "CandidateTheorems.T1 Character",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.063102,
+  "error": null,
+  "result_text": "=== CandidateTheorems.T1 Character (20 matches) ===\n\n• t1Space_TFAE [theorem]\n  (X : Type u) [TopologicalSpace X] :\n  List.TFAE\n    [T1Space X, ∀ x, IsClosed ({ x } : Set X), ∀ x, IsOpen ({ x }ᶜ : Set X), Continuous (@CofiniteTopology.of X),\n      ∀ ⦃x y : X⦄, x ≠ y → { y }ᶜ ∈ 𝓝 x, ∀ ⦃x y : X⦄, x ≠ y → ∃ s ∈ 𝓝 x, y ∉ s,\n      ∀ ⦃x y : X⦄, x ≠ y → ∃ U : Set X, IsOpen U ∧ x ∈ U ∧ y ∉ U, ∀ ⦃x y : X⦄, x ≠ y → Disjoint (𝓝 x) (pure y),\n      ∀ ⦃x y : X⦄, x ≠ y → Disjoint (pure x) (𝓝 y), ∀ ⦃x y : X⦄, x ⤳ y → x = y, T0Space X ∧ R0Space X]\n\n• T1Space.t1 [theorem]\n  ∀ {X : Type u} {inst : TopologicalSpace X} [self : T1Space X] (x : X), IsClosed {x}\n\n• t1Space_iff_continuous_cofinite_of [theorem]\n  : T1Space X ↔ Continuous (@CofiniteTopology.of X)\n\n• Specializes.eq [theorem]\n  [T1Space X] {x y : X} (h : x ⤳ y) : x = y\n\n• ChartedSpace.t1Space [theorem]\n  [T1Space H] : T1Space M\n\n• t1Space_iff_t0Space_and_r0Space [theorem]\n  : T1Space X ↔ T0Space X ∧ R0Space X\n\n• specializes_iff_eq [theorem]\n  [T1Space X] {x y : X} : x ⤳ y ↔ x = y\n\n• T1Space.casesOn [definition]\n  {X : Type u} →\n  [inst : TopologicalSpace X] →\n    {motive : T1Space X → Sort u_1} → (t : T1Space X) → ((t1 : ∀ (x : X), IsClosed {x}) → motive ⋯) → motive t\n\n• t1Space_iff_exists_open [theorem]\n  : T1Space X ↔ Pairwise fun x y => ∃ U : Set X, IsOpen U ∧ x ∈ U ∧ y ∉ U\n\n• t1Space_antitone [theorem]\n  {X} : Antitone (@T1Space X)\n\n• T1Space.recOn [definition]\n  {X : Type u} →\n  [inst : TopologicalSpace X] →\n    {motive : T1Space X → Sort u_1} → (t : T1Space X) → ((t1 : ∀ (x : X), IsClosed {x}) → motive ⋯) → motive t\n\n• t1Space_iff_specializes_imp_eq [theorem]\n  : T1Space X ↔ ∀ ⦃x y : X⦄, x ⤳ y → x = y\n\n• T1Space.t0Space [instance]\n  [T1Space X] : T0Space X\n\n• OnePoint.instT1Space [instance]\n  [T1Space X] : T1Space (OnePoint X)\n\n• instT1SpaceOfT0SpaceOfR0Space [instance]\n  [T0Space X] [R0Space X] : T1Space X\n\n• Set.Finite.isClosed [theorem]\n  [T1Space X] {s : Set X} (hs : s.Finite) : IsClosed s\n\n• T4Space.toT1Space [theorem]\n  ∀ {X : Type u} {inst : TopologicalSpace X} [self : T4Space X], T1Space X\n\n• Homeomorph.t1Space [theorem]\n  [TopologicalSpace Y] [T1Space X] (h : X ≃ₜ Y) : T1Space Y\n\n• IsTopologicalGroup.t1Space [theorem]\n  (h : @IsClosed G _ { 1 }) : T1Space G\n\n• nhds_le_nhds_iff [theorem]\n  [T1Space X] {a b : X} : 𝓝 a ≤ 𝓝 b ↔ a = b"
+}

@@ -1,0 +1,68 @@
+=== "sum_hom_units_eq_zero" "Mathlib/" (20 matches) ===
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• Finset.sum_eq_zero_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M} [Subsingleton (AddUnits M)],
+  ∑ i ∈ s, f i = 0 ↔ ∀ i ∈ s, f i = 0
+
+• FiniteField.sum_subgroup_units_eq_zero [theorem]
+  [Ring K] [NoZeroDivisors K] {G : Subgroup Kˣ} [Fintype G] (hg : G ≠ ⊥) : ∑ x : G, (x.val : K) = 0
+
+• AddSubmonoid.mk_add_mk_neg_eq_zero [theorem]
+  ∀ {M : Type u_1} [inst : AddMonoid M] (S : AddSubmonoid M) {x : AddUnits M} (h : x ∈ S.addUnits),
+  ⟨(AddUnits.coeHom M) x, ⋯⟩ + ⟨(AddUnits.coeHom M) (-x), ⋯⟩ = 0
+
+• DFinsupp.sumAddHom_zero [theorem]
+  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] : (sumAddHom fun i => (0 : β i →+ γ)) = 0
+
+• AddUnits.neg_val [theorem]
+  ∀ {α : Type u} [inst : AddMonoid α] (self : AddUnits α), self.neg + ↑self = 0
+
+• DFinsupp.sumZeroHom_apply [theorem]
+  [∀ i, AddZeroClass (β i)] [∀ (i) (x : β i), Decidable (x ≠ 0)] [AddCommMonoid γ] (φ : ∀ i, ZeroHom (β i) γ)
+  (f : Π₀ i, β i) : sumZeroHom φ f = f.sum fun x => φ x
+
+• add_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddCommMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• AddRightCancelMonoid.add_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddRightCancelMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• Multiset.sum_hom_ne_zero [theorem]
+  ∀ {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {s : Multiset M},
+  s ≠ 0 → ∀ {F : Type u_8} [inst_2 : FunLike F M N] [AddHomClass F M N] (f : F), (Multiset.map (⇑f) s).sum = f s.sum
+
+• ZeroHom.coe_add [theorem]
+  ∀ {M : Type u_8} {N : Type u_9} [inst : Zero M] [inst_1 : AddZeroClass N] (f g : ZeroHom M N), ⇑(f + g) = ⇑f + ⇑g
+
+• IsAddUnit.sum_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M},
+  IsAddUnit (∑ a ∈ s, f a) ↔ ∀ a ∈ s, IsAddUnit (f a)
+
+• WithZero.toMonoidWithZeroHom_withZeroUnitsEquiv [theorem]
+  [GroupWithZero M₀] [DecidablePred fun x : M₀ ↦ x = 0] :
+  MonoidWithZeroHomClass.toMonoidWithZeroHom WithZero.withZeroUnitsEquiv = WithZero.lift' (Units.coeHom M₀)
+
+• DFinsupp.sumZeroHom [definition]
+  [∀ i, Zero (β i)] [AddCommMonoid γ] (φ : ∀ i, ZeroHom (β i) γ) : ZeroHom (Π₀ i, β i) γ
+
+• add_eq_zero' [theorem]
+  ∀ {α : Type u} [inst : AddCancelMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• AddUnits.val_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddMonoid α] {a : AddUnits α}, ↑a = 0 ↔ a = 0
+
+• instZeroAddMonoidHom [definition]
+  {M : Type u_4} → {N : Type u_5} → [inst : AddZero M] → [inst_1 : AddZeroClass N] → Zero (M →+ N)
+
+• DFinsupp.sumAddHom_toZeroHom [theorem]
+  ∀ {ι : Type u} {γ : Type w} {β : ι → Type v} [inst : DecidableEq ι] [inst_1 : (i : ι) → AddZeroClass (β i)]
+  [inst_2 : AddCommMonoid γ] (φ : (i : ι) → β i →+ γ), ↑(DFinsupp.sumAddHom φ) = DFinsupp.sumZeroHom fun i => ↑(φ i)
+
+• Units.mul_right_eq_zero [theorem]
+  (u : M₀ˣ) {a : M₀} : ↑u * a = 0 ↔ a = 0

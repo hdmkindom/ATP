@@ -1,0 +1,14 @@
+{
+  "search_index": 15,
+  "timestamp": "2026-04-11T23:53:54.800253",
+  "timestamp_tag": "04112353",
+  "query": "\"∑ g : G, (χ g : ℂ)\"",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 1.956798,
+  "error": null,
+  "result_text": "=== \"∑ g : G, (χ g : ℂ)\" (20 matches) ===\n\n• FDRep.character [definition]\n  (V : FDRep k G) (g : G)\n\n• DirichletCharacter.sum_characters_eq [theorem]\n  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0\n\n• AddChar.sum_apply_eq_ite [theorem]\n  [Fintype α] [DecidableEq α] (a : α) : ∑ ψ : AddChar α ℂ, ψ a = if a = 0 then (Fintype.card α : ℂ) else 0\n\n• MulChar.sum_eq_zero_of_ne_one [theorem]\n  [IsDomain R'] {χ : MulChar R R'} (hχ : χ ≠ 1) : ∑ a, χ a = 0\n\n• AddChar.sum_eq_ite [theorem]\n  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0\n\n• Representation.norm [definition]\n  : Module.End k V\n\n• FDRep.char_orthonormal [theorem]\n  (V W : FDRep k G) [Simple V] [Simple W] :\n  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0\n\n• FDRep.char_tensor [theorem]\n  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character\n\n• AddChar.sum_ne_zero_iff_eq_zero [theorem]\n  : ∑ x, ψ x ≠ 0 ↔ ψ = 0\n\n• FDRep.average_char_eq_finrank_invariants [theorem]\n  (V : FDRep k G) : ⅟(Fintype.card G : k) • ∑ g : G, V.character g = finrank k (invariants V.ρ)\n\n• AddChar.complexBasis.congr_simp [theorem]\n  ∀ (α : Type u_1) [inst : AddCommGroup α] [inst_1 : Finite α], AddChar.complexBasis α = AddChar.complexBasis α\n\n• AddChar.sum_apply_ne_zero_iff_eq_zero [theorem]\n  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a ≠ 0 ↔ a = 0\n\n• AddChar.complexBasis [definition]\n  : Basis (AddChar α ℂ) ℂ (α → ℂ)\n\n• LinearMap.sumOfConjugates [definition]\n  : W →ₗ[k] V\n\n• MulChar.sum_one_eq_card_units [theorem]\n  [DecidableEq R] : (∑ a, (1 : MulChar R R') a) = Fintype.card Rˣ\n\n• AddChar.sum_eq_zero_iff_ne_zero [theorem]\n  : ∑ x, ψ x = 0 ↔ ψ ≠ 0\n\n• AddChar.complexBasis_apply [theorem]\n  (ψ : AddChar α ℂ) : complexBasis α ψ = ψ\n\n• FDRep.char_conj [theorem]\n  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g\n\n• gaussSum [definition]\n  (χ : MulChar R R') (ψ : AddChar R R') : R'\n\n• FDRep.char_dual [theorem]\n  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹"
+}

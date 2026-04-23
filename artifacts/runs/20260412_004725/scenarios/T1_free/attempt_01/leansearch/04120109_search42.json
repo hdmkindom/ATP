@@ -1,0 +1,14 @@
+{
+  "search_index": 42,
+  "timestamp": "2026-04-12T01:09:44.625436",
+  "timestamp_tag": "04120109",
+  "query": "DirichletCharacter Character notation definition",
+  "server_url": "https://leansearch.net",
+  "max_results": 20,
+  "timeout": 60,
+  "max_retries": 3,
+  "retry_delay": 2,
+  "duration_seconds": 6.959414,
+  "error": null,
+  "result_text": "=== DirichletCharacter Character notation definition (20 matches) ===\n\n• ZMod.χ₈ [definition]\n  : MulChar (ZMod 8) ℤ\n\n• DirichletCharacter.apply_eq_toArithmeticFunction_apply [theorem]\n  {N : ℕ} {R : Type*} [CommMonoidWithZero R] (χ : DirichletCharacter R N) {n : ℕ} (hn : n ≠ 0) :\n  χ n = toArithmeticFunction (χ ·) n\n\n• DirichletCharacter.level_one' [theorem]\n  (hn : n = 1) : χ = 1\n\n• DirichletCharacter.sum_characters_eq [theorem]\n  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0\n\n• DirichletCharacter.mulEquiv_units [theorem]\n  : Nonempty (DirichletCharacter R n ≃* (ZMod n)ˣ)\n\n• DirichletCharacter.fintype [instance]\n  {R : Type*} [CommRing R] [IsDomain R] {n : ℕ} : Fintype (DirichletCharacter R n)\n\n• DirichletCharacter.even_or_odd [theorem]\n  [NoZeroDivisors S] : ψ.Even ∨ ψ.Odd\n\n• DirichletCharacter.factorsThrough_one_iff [theorem]\n  : FactorsThrough χ 1 ↔ χ = 1\n\n• DirichletCharacter.level_mem_conductorSet [theorem]\n  : n ∈ conductorSet χ\n\n• ZMod.χ₄_int_eq_if_mod_four [theorem]\n  (n : ℤ) : χ₄ n = if n % 2 = 0 then 0 else if n % 4 = 1 then 1 else -1\n\n• DirichletCharacter.FactorsThrough [definition]\n  (d : ℕ) : Prop\n\n• DirichletCharacter.unit_norm_eq_one [theorem]\n  (a : (ZMod n)ˣ) : ‖χ a‖ = 1\n\n• DirichletCharacter.Even.eval_neg [theorem]\n  (x : ZMod m) (hψ : ψ.Even) : ψ (-x) = ψ x\n\n• DirichletCharacter.conductor_dvd_level [theorem]\n  : conductor χ ∣ n\n\n• DirichletCharacter.mul_def [theorem]\n  {n m : ℕ} {χ : DirichletCharacter R n} {ψ : DirichletCharacter R m} : χ.primitive_mul ψ = primitiveCharacter (mul χ ψ)\n\n• ZMod.χ₄_nat_eq_if_mod_four [theorem]\n  (n : ℕ) : χ₄ n = if n % 2 = 0 then 0 else if n % 4 = 1 then 1 else -1\n\n• DirichletCharacter.primitiveCharacter_isPrimitive [theorem]\n  : IsPrimitive (χ.primitiveCharacter)\n\n• dirichletSummandHom [definition]\n  {n : ℕ} (χ : DirichletCharacter ℂ n) (hs : s ≠ 0) : ℕ →*₀ ℂ\n\n• DirichletCharacter.mem_conductorSet_iff [theorem]\n  {x : ℕ} : x ∈ conductorSet χ ↔ FactorsThrough χ x\n\n• DirichletCharacter.changeLevel_self [theorem]\n  : changeLevel (dvd_refl n) χ = χ"
+}

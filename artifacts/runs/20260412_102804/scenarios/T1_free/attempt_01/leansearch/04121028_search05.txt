@@ -1,0 +1,62 @@
+=== CandidateTheorems.T1 Character G := G →* ℂˣ (20 matches) ===
+
+• MulChar.pow_card_eq_one [theorem]
+  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1
+
+• MulChar.map_one [theorem]
+  (χ : MulChar R R') : χ (1 : R) = 1
+
+• MulChar.toUnitHom_eq [theorem]
+  (χ : MulChar R R') : toUnitHom χ = equivToUnitHom χ
+
+• MulChar.apply_mem_rootsOfUnity [theorem]
+  [Fintype Rˣ] (a : Rˣ) {χ : MulChar R R'} : equivToUnitHom χ a ∈ rootsOfUnity (Fintype.card Rˣ) R'
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• Circle.toUnits [definition]
+  : Circle →* Units ℂ
+
+• AddChar.circleEquivComplex [definition]
+  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ
+
+• MulChar.coe_equivToUnitHom [theorem]
+  (χ : MulChar R R') (a : Rˣ) : ↑(equivToUnitHom χ a) = χ a
+
+• MulChar.ofUnitHom_eq [theorem]
+  (χ : Rˣ →* R'ˣ) : ofUnitHom χ = equivToUnitHom.symm χ
+
+• ZMod.rootsOfUnityAddChar.congr_simp [theorem]
+  ∀ (n : ℕ) [inst : NeZero n], ZMod.rootsOfUnityAddChar n = ZMod.rootsOfUnityAddChar n
+
+• modularCyclotomicCharacter.toFun_spec [theorem]
+  (g : L ≃+* L) {n : ℕ} [NeZero n] (t : rootsOfUnity n L) : g (t : Lˣ) = (t ^ (χ₀ n g).val : Lˣ)
+
+• AddChar.map_neg_eq_conj [theorem]
+  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)
+
+• MulChar.mulEquivToUnitHom [definition]
+  : MulChar R R' ≃* (Rˣ →* R'ˣ)
+
+• CharacterModule [definition]
+  : Type uA
+
+• MulChar.ofRootOfUnity_spec [theorem]
+  {ζ : Rˣ} (hζ : ζ ∈ rootsOfUnity (Fintype.card Mˣ) R) {g : Mˣ} (hg : ∀ x, x ∈ Subgroup.zpowers g) :
+  ofRootOfUnity hζ hg g = ζ
+
+• MulChar.commGroup [instance]
+  : CommGroup (MulChar R R')
+
+• FDRep.char_conj [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g
+
+• modularCyclotomicCharacter' [definition]
+  (n : ℕ) [NeZero n] : (L ≃+* L) →* (ZMod (Fintype.card { x // x ∈ rootsOfUnity n L }))ˣ
+
+• MeasureTheory.Measure.modularCharacter [definition]
+  : G →* ℝ≥0
+
+• FDRep.simple_iff_char_is_norm_one [theorem]
+  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G

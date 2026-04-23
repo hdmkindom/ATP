@@ -1,0 +1,83 @@
+=== MulChar.sum_eq_zero_of_ne_one Character G (20 matches) ===
+
+• MulChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {χ : MulChar R R'} (hχ : χ ≠ 1) : ∑ a, χ a = 0
+
+• AddChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {ψ : AddChar R R'} (hψ : ψ ≠ 1) : ∑ a, ψ a = 0
+
+• DirichletCharacter.sum_characters_eq_zero [theorem]
+  ⦃a : ZMod n⦄ (ha : a ≠ 1) : ∑ χ : DirichletCharacter R n, χ a = 0
+
+• AddChar.expect_eq_zero_iff_ne_zero [theorem]
+  : 𝔼 x, ψ x = 0 ↔ ψ ≠ 0
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• AddChar.sum_eq_zero_iff_ne_zero [theorem]
+  : ∑ x, ψ x = 0 ↔ ψ ≠ 0
+
+• AddChar.sum_eq_ite [theorem]
+  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0
+
+• AddChar.sum_ne_zero_iff_eq_zero [theorem]
+  : ∑ x, ψ x ≠ 0 ↔ ψ = 0
+
+• AddChar.sum_apply_eq_zero_iff_ne_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a = 0 ↔ a ≠ 0
+
+• MulChar.ne_one_iff [theorem]
+  {χ : MulChar R R'} : χ ≠ 1 ↔ ∃ a : Rˣ, χ a ≠ 1
+
+• AddChar.sum_apply_eq_ite [theorem]
+  [Fintype α] [DecidableEq α] (a : α) : ∑ ψ : AddChar α ℂ, ψ a = if a = 0 then (Fintype.card α : ℂ) else 0
+
+• MulChar.ext [theorem]
+  {χ χ' : MulChar R R'} (h : ∀ a : Rˣ, χ a = χ' a) : χ = χ'
+
+• MulChar.map_nonunit' [theorem]
+  ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommMonoidWithZero R'] (self : MulChar R R') (a : R),
+  ¬IsUnit a → (↑self.toMonoidHom).toFun a = 0
+
+• MulChar.map_nonunit [theorem]
+  (χ : MulChar R R') {a : R} (ha : ¬IsUnit a) : χ a = 0
+
+• MulChar.pow_card_eq_one [theorem]
+  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1
+
+• MulChar.commGroup [instance]
+  : CommGroup (MulChar R R')
+
+• MulChar.casesOn [definition]
+  {R : Type u_1} →
+  [inst : CommMonoid R] →
+    {R' : Type u_2} →
+      [inst_1 : CommMonoidWithZero R'] →
+        {motive : MulChar R R' → Sort u} →
+          (t : MulChar R R') →
+            ((toMonoidHom : R →* R') →
+                (map_nonunit' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom).toFun a = 0) →
+                  motive { toMonoidHom := toMonoidHom, map_nonunit' := map_nonunit' }) →
+              motive t
+
+• MulChar.map_ringChar [theorem]
+  {R : Type*} [CommSemiring R] [Nontrivial R] (χ : MulChar R R') : χ (ringChar R) = 0
+
+• MulCharClass.map_nonunit [theorem]
+  ∀ {F : Type u_3} {R : outParam (Type u_4)} {R' : outParam (Type u_5)} {inst : CommMonoid R}
+  {inst_1 : CommMonoidWithZero R'} {inst_2 : FunLike F R R'} [self : MulCharClass F R R'] (χ : F) {a : R},
+  ¬IsUnit a → χ a = 0
+
+• MulChar.mk.noConfusion [definition]
+  {R : Type u_1} →
+  {inst : CommMonoid R} →
+    {R' : Type u_2} →
+      {inst_1 : CommMonoidWithZero R'} →
+        {P : Sort u} →
+          {toMonoidHom : R →* R'} →
+            {map_nonunit' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom).toFun a = 0} →
+              {toMonoidHom' : R →* R'} →
+                {map_nonunit'' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom').toFun a = 0} →
+                  { toMonoidHom := toMonoidHom, map_nonunit' := map_nonunit' } =
+                      { toMonoidHom := toM...

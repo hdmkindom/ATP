@@ -1,0 +1,20 @@
+{
+  "iteration_index": 1,
+  "timestamp_tag": "04120049",
+  "location": "ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free",
+  "imports": [
+    "Mathlib.NumberTheory.LSeries.Characters"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 1:0\n│  import Mathlib.NumberTheory.LSeries.Characters\n│  ^^^\n╰─ error: object file '/Users/hdm/math/elementary-number-theory/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/LSeries/Characters.olean' of module Mathlib.NumberTheory.LSeries.Characters does not exist"
+    }
+  ],
+  "message_count": 2
+}

@@ -1,0 +1,18 @@
+{
+  "iteration_index": 19,
+  "timestamp_tag": "04061456",
+  "location": "ATP.temTH.CandidateTheorems.T8.Free:candidate_T8_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 26:20\n│          simpa using data.shift_involutive t x\n│                     ^^^\n╰─ error: Invalid field `shift_involutive`: The environment does not contain `CandidateTheorems.T8.FourierTranslationData.shift_involutive`\n  data\nhas type\n  FourierTranslationData\n\n╭─ Error at line 29:20\n│          simpa using data.shift_involutive t x }\n│                     ^^^\n╰─ error: Invalid field `shift_involutive`: The environment does not contain `CandidateTheorems.T8.FourierTranslationData.shift_involutive`\n  data\nhas type\n  FourierTranslationData\n\n╭─ Error at line 37:21\n│              simp [e, data.shift_involutive]\n│                      ^^^\n╰─ error: Invalid field `shift_involutive`: The environment does not contain `CandidateTheorems.T8.FourierTranslationData.shift_involutive`\n  data\nhas type\n  FourierTranslationData\n\n╭─ Error at line 32:55\n│          = ∑ x, f x * data.kernel a (data.shift t x) := by\n│                                                        ^^^\n╰─ error: unsolved goals\nι : Type u_1\ninst✝ : Fintype ι\ndata : FourierTranslationData\nf : ι → ℂ\nt a : ι\ne : ι ≃ ι := { toFun := ⇑(data.shift t), invFun := ⇑(data.shift t), left_inv := ⋯, right_inv := ⋯ }\nx : ι\n⊢ data.kernel a x = data.kernel a ((data.shift t) ((data.shift t) x)) ∨ f ((data.shift t) x) = 0\n\n╭─ Error at line 41:14\n│            rw [data.phase_mul (a := a) (x := t) (y := x)]\n│               ^^^\n╰─ error: Invalid field `phase_mul`: The environment does not contain `CandidateTheorems.T8.FourierTranslationData.phase_mul`\n  data\nhas type\n  FourierTranslationData\n\n╭─ Error at line 38:57\n│      _ = ∑ x, f x * (data.phase a t * data.kernel a x) := by\n│                                                          ^^^\n╰─ error: unsolved goals\ncase h\nι : Type u_1\ninst✝ : Fintype ι\ndata : FourierTranslationData\nf : ι → ℂ\nt a : ι\ne : ι ≃ ι := { toFun := ⇑(data.shift t), invFun := ⇑(data.shift t), left_inv := ⋯, right_inv := ⋯ }\nx : ι\n⊢ f x * data.kernel a ((data.shift t) x) = f x * (data.phase a t * data.kernel a x)\nATP/temTH/CandidateTheorems/T8/tmp_Free_xnay2ry5.lean:47:30: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`\n\n╭─ Error at line 46:50\n│      _ = data.phase a t * fourierCoeff data f a := by\n│                                                   ^^^\n╰─ error: unsolved goals\nι : Type u_1\ninst✝ : Fintype ι\ndata : FourierTranslationData\nf : ι → ℂ\nt a : ι\ne : ι ≃ ι := { toFun := ⇑(data.shift t), invFun := ⇑(data.shift t), left_inv := ⋯, right_inv := ⋯ }\n⊢ ∑ x, data.phase a t * (f x * data.kernel a x) = data.phase a t * ∑ x, f x * data.kernel a x\n  mul_assoc\n\nHint: Omit it from the simp argument list.\n  simp [fourierCoeff, Finset.mul_sum,̵ ̵m̵u̵l̵_̵a̵s̵s̵o̵c̵]"
+    }
+  ],
+  "message_count": 2
+}

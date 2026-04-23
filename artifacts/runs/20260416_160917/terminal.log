@@ -1,0 +1,26 @@
+
+===== ATP terminal session started at 2026-04-16T16:09:17.045832 =====
+[96m----------------------
+欢迎使用 ax-prover—ATP
+本次使用的模型：openai:gpt-5.2
+最大证明轮次：10
+单次尝试模型请求上限：不限制
+运行轮数：10
+场景尝试数量：总计 10，正式 10
+本次运行预估所需时间：02:23:38（历史平均）
+作者：刘泽博
+----------------------[0m
+[96m--T1-free-a1--------[0m
+[34m2026-04-16 16:09:19 - INFO - [proving.py:25 - get_item_from_location()] - Proving theorem at: ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free[0m
+[34m2026-04-16 16:09:20 - INFO - [lean_search.py:272 - warmup_lean_search()] - Warming up LeanSearch server at https://leansearch.net...[0m
+[34m2026-04-16 16:09:22 - INFO - [lean_search.py:275 - warmup_lean_search()] - LeanSearch warm-up successful[0m
+[34m2026-04-16 16:09:22 - INFO - [agent.py:567 - chat()] - Starting prover run: prove:candidate_T1_free[0m
+[34m2026-04-16 16:09:22 - INFO - [agent.py:251 - _proposer_node()] - Proposing proof (iteration 1) for: ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free[0m
+[34m2026-04-16 16:09:22 - INFO - [llm_request] - Sending LLM request #1 via ainvoke model=gpt-5.2[0m
+[34m2026-04-16 16:09:33 - INFO - [lean_search.py:170 - _process_lean_search_response()] - LeanSearch: Found 8 matches for 'theorem sum over g of (χ g : ℂ) = 0 for χ : Character G hχ : χ ≠ 1'[0m
+[34m2026-04-16 16:09:33 - INFO - [llm_request] - Sending LLM request #2 via ainvoke model=gpt-5.2[0m
+[33m2026-04-16 16:12:28 - WARNING - [llm_request] - LLM request #2 via ainvoke model=gpt-5.2 timed out after 174.7s (APIConnectionError: Connection error.)[0m
+[34m2026-04-16 16:12:29 - INFO - [llm_request] - Sending LLM request #3 via ainvoke model=gpt-5.2[0m
+[33mInterrupted by user. Partial artifacts and terminal log have been preserved.[0m
+[96mArtifacts written to /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260416_160917[0m
+===== ATP terminal session ended at 2026-04-16T16:13:28.692632 =====

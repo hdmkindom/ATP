@@ -1,0 +1,68 @@
+=== sum_hom_units (20 matches) ===
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• MonoidHom.coe_toHomUnits [theorem]
+  (f : G →* M) (g : G) : (f.toHomUnits g : M) = f g
+
+• IsAddUnit.sum_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} {s : Finset ι} [inst : AddCommMonoid M] {f : ι → M},
+  IsAddUnit (∑ a ∈ s, f a) ↔ ∀ a ∈ s, IsAddUnit (f a)
+
+• Units.map [definition]
+  (f : M →* N) : Mˣ →* Nˣ
+
+• AddUnits.map [definition]
+  {M : Type u} → {N : Type v} → [inst : AddMonoid M] → [inst_1 : AddMonoid N] → (M →+ N) → AddUnits M →+ AddUnits N
+
+• AddMonoidHom.coe_toHomAddUnits [theorem]
+  ∀ {G : Type u_1} {M : Type u_2} [inst : AddGroup G] [inst_1 : AddMonoid M] (f : G →+ M) (g : G),
+  ↑(f.toHomAddUnits g) = f g
+
+• IsAddUnit.sum_univ_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} [inst : Fintype ι] [inst_1 : AddCommMonoid M] {f : ι → M},
+  IsAddUnit (∑ a, f a) ↔ ∀ (a : ι), IsAddUnit (f a)
+
+• AddMonoidHom.toHomAddUnits [definition]
+  {G : Type u_1} → {M : Type u_2} → [inst : AddGroup G] → [inst_1 : AddMonoid M] → (G →+ M) → G →+ AddUnits M
+
+• MonoidHom.toHomUnits_mul [theorem]
+  (f g : G →* M) : (f * g).toHomUnits = f.toHomUnits * g.toHomUnits
+
+• AddMonoidHom.map_dfinsuppSumAddHom [theorem]
+  [AddCommMonoid R] [AddCommMonoid S] [∀ i, AddZeroClass (β i)] (h : R →+ S) (f : Π₀ i, β i) (g : ∀ i, β i →+ R) :
+  h (sumAddHom g f) = sumAddHom (fun i => h.comp (g i)) f
+
+• IsUnit.liftRight [definition]
+  (f : M →* N) (hf : ∀ x, IsUnit (f x)) : M →* Nˣ
+
+• MonoidHom.toHomUnitsMulEquiv [definition]
+  : (G →* M) ≃* (G →* Mˣ)
+
+• AddMonoidHom.coe_finsuppSum [theorem]
+  ∀ {α : Type u_1} {β : Type u_7} {N : Type u_10} {P : Type u_11} [inst : Zero β] [inst_1 : AddZeroClass N]
+  [inst_2 : AddCommMonoid P] (f : α →₀ β) (g : α → β → N →+ P), ⇑(f.sum g) = f.sum fun i fi => ⇑(g i fi)
+
+• Multiset.sumAddMonoidHom [definition]
+  : Multiset M →+ M
+
+• Units.coeHom [definition]
+  : Mˣ →* M
+
+• Units.map_id [theorem]
+  : map (MonoidHom.id M) = MonoidHom.id Mˣ
+
+• DFinsupp.sumAddHom_single [theorem]
+  [∀ i, AddZeroClass (β i)] [AddCommMonoid γ] (φ : ∀ i, β i →+ γ) (i) (x : β i) : sumAddHom φ (single i x) = φ i x
+
+• AddUnits.coeHom [definition]
+  (M : Type u) → [inst : AddMonoid M] → AddUnits M →+ M
+
+• map_finsuppSum [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} {P : Type u_11} [inst : Zero M] [inst_1 : AddCommMonoid N]
+  [inst_2 : AddCommMonoid P] {H : Type u_16} [inst_3 : FunLike H N P] [AddMonoidHomClass H N P] (h : H) (f : α →₀ M)
+  (g : α → M → N), h (f.sum g) = f.sum fun a b => h (g a b)

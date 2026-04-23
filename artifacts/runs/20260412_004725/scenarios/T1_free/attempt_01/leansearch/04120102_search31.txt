@@ -1,0 +1,68 @@
+=== Mathlib NumberTheory characters sum_hom_units (20 matches) ===
+
+• sum_hom_units [theorem]
+  (f : G →* R) [Decidable (f = 1)] : ∑ g : G, f g = if f = 1 then Fintype.card G else 0
+
+• sum_hom_units_eq_zero [theorem]
+  (f : G →* R) (hf : f ≠ 1) : ∑ g : G, f g = 0
+
+• MulChar.exists_apply_ne_one_iff_exists_monoidHom [theorem]
+  (a : Mˣ) : (∃ χ : MulChar M R, χ a ≠ 1) ↔ ∃ φ : Mˣ →* Rˣ, φ a ≠ 1
+
+• AddChar.sum_eq_ite [theorem]
+  (ψ : AddChar A R) [Decidable (ψ = 0)] : ∑ a, ψ a = if ψ = 0 then ↑(card A) else 0
+
+• MulChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {χ : MulChar R R'} (hχ : χ ≠ 1) : ∑ a, χ a = 0
+
+• DirichletCharacter.sum_characters_eq [theorem]
+  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0
+
+• DirichletCharacter.changeLevel_toUnitHom [theorem]
+  {m : ℕ} (hm : n ∣ m) : (changeLevel hm χ).toUnitHom = χ.toUnitHom.comp (ZMod.unitsMap hm)
+
+• MulChar.pow_card_eq_one [theorem]
+  [Fintype Mˣ] (χ : MulChar M R) : χ ^ (Fintype.card Mˣ) = 1
+
+• AddChar.sum_eq_zero_of_ne_one [theorem]
+  [IsDomain R'] {ψ : AddChar R R'} (hψ : ψ ≠ 1) : ∑ a, ψ a = 0
+
+• MulChar.mk.injEq [theorem]
+  ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommMonoidWithZero R'] (toMonoidHom : R →* R')
+  (map_nonunit' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom).toFun a = 0) (toMonoidHom_1 : R →* R')
+  (map_nonunit'_1 : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom_1).toFun a = 0),
+  ({ toMonoidHom := toMonoidHom, map_nonunit' := map_nonunit' } =
+      { toMonoidHom := toMonoidHom_1, map_nonunit' := map_nonunit'_1 }) =
+    (toMonoidHom = toMonoidHom_1)
+
+• AddChar.sum_apply_ne_zero_iff_eq_zero [theorem]
+  [Finite α] : ∑ ψ : AddChar α ℂ, ψ a ≠ 0 ↔ a = 0
+
+• AddChar.sum_eq_zero_iff_ne_zero [theorem]
+  : ∑ x, ψ x = 0 ↔ ψ ≠ 0
+
+• MulChar.ofRootOfUnity [definition]
+  {ζ : Rˣ} (hζ : ζ ∈ rootsOfUnity (Fintype.card Mˣ) R) {g : Mˣ} (hg : ∀ x, x ∈ Subgroup.zpowers g) : MulChar M R
+
+• MulChar.mulEquiv_units [theorem]
+  : Nonempty (MulChar M R ≃* Mˣ)
+
+• DirichletCharacter.changeLevel_self_toUnitHom [theorem]
+  : (changeLevel (dvd_refl n) χ).toUnitHom = χ.toUnitHom
+
+• MulChar.card_eq_card_units_of_hasEnoughRootsOfUnity [theorem]
+  : Nat.card (MulChar M R) = Nat.card Mˣ
+
+• MulChar.mk.sizeOf_spec [theorem]
+  ∀ {R : Type u_1} [inst : CommMonoid R] {R' : Type u_2} [inst_1 : CommMonoidWithZero R'] [inst_2 : SizeOf R]
+  [inst_3 : SizeOf R'] (toMonoidHom : R →* R') (map_nonunit' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom).toFun a = 0),
+  sizeOf { toMonoidHom := toMonoidHom, map_nonunit' := map_nonunit' } = 1 + sizeOf toMonoidHom
+
+• modularCyclotomicCharacter [definition]
+  {n : ℕ} [NeZero n] (hn : Fintype.card { x // x ∈ rootsOfUnity n L } = n) : (L ≃+* L) →* (ZMod n)ˣ
+
+• AddChar.prod_eq_sum [theorem]
+  (s : Finset ι) (ψ : ι → AddChar A M) : ∏ i ∈ s, ψ i = ∑ i ∈ s, ψ i
+
+• MulChar.finite [instance]
+  [Finite Mˣ] [IsDomain R] : Finite (MulChar M R)

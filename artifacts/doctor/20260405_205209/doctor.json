@@ -1,0 +1,55 @@
+{
+  "started_at": "2026-04-05T20:52:09.347544",
+  "finished_at": "2026-04-05T20:52:17.170350",
+  "checks": [
+    {
+      "name": "ax_prover_import",
+      "status": "ok",
+      "message": "ax_prover import ok (/Users/hdm/ax-prover-env/lib/python3.11/site-packages/ax_prover/__init__.py)",
+      "duration_seconds": 9.590003173798323e-07,
+      "details": {}
+    },
+    {
+      "name": "llm_credentials",
+      "status": "ok",
+      "message": "OPENAI_API_KEY is set for provider openai.",
+      "duration_seconds": 2.458997187204659e-06,
+      "details": {}
+    },
+    {
+      "name": "llm_base_url",
+      "status": "error",
+      "message": "RuntimeError: For OpenAI-compatible providers, `base_url` must be the API root rather than the final `/responses` endpoint. Use something like `https://codeflow.asia/v1` instead of `https://codeflow.asia/v1/responses`.",
+      "duration_seconds": 1.6249992768280208e-05,
+      "details": {}
+    },
+    {
+      "name": "lean_repo_build",
+      "status": "ok",
+      "message": "Lean repository build succeeded.",
+      "duration_seconds": 4.0672715839900775,
+      "details": {}
+    },
+    {
+      "name": "template_smoke_file",
+      "status": "ok",
+      "message": "Lean can parse ATP/temTH/testTH/test.lean.",
+      "duration_seconds": 0.7683352919993922,
+      "details": {}
+    },
+    {
+      "name": "llm_ping",
+      "status": "error",
+      "message": "RuntimeError: NotFoundError: Error code: 404 - {'error': {'message': 'Invalid URL (POST /v1/responses/responses)', 'type': 'invalid_request_error', 'param': '', 'code': ''}}",
+      "duration_seconds": 2.6215337089961395,
+      "details": {}
+    },
+    {
+      "name": "smoke_proof",
+      "status": "skipped",
+      "message": "Skipped by CLI flag.",
+      "duration_seconds": 0.0,
+      "details": {}
+    }
+  ]
+}

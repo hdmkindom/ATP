@@ -1,0 +1,18 @@
+{
+  "iteration_index": 13,
+  "timestamp_tag": "04061153",
+  "location": "ATP.temTH.CandidateTheorems.T1.RouteA:candidate_T1_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 58:7\n│        linarith\n│        ^^^\n╰─ error: unknown tactic\n\n╭─ Error at line 27:21\n│      exact not_not.mp hg\n│                      ^^^\n╰─ error: Application type mismatch: The argument\n  hg\nhas type\n  ¬χ g ≠ 1\nbut is expected to have type\n  ¬¬↑(χ g) = ↑(1 g)\nin the application\n  not_not.mp hg\n\n╭─ Error at line 33:8\n│          (fun g : G => (χ g : ℂ)) (Group.mulLeft_bijective h))\n│         ^^^\n╰─ error: Application type mismatch: The argument\n  fun g => ↑(χ g)\nhas type\n  G → ℂ\nof sort `Type u_1` but is expected to have type\n  Function.Bijective ?m.99\nof sort `Prop` in the application\n  Function.Bijective.sum_comp fun g => ↑(χ g)\n\n╭─ Error at line 32:35\n│        (Function.Bijective.sum_comp (f := fun g : G => h * g)\n│                                    ^^^\n╰─ error: Invalid argument name `f` for function `Function.Bijective.sum_comp`\n\nHint: Perhaps you meant one of the following parameter names:\n  • `ι`: f̵ι̲\n  • `κ`: f̵κ̲\n  • `M`: f̵M̲\n  • `e`: f̵e̲\n  • `he`: f̵h̲e̲\n  • `g`: f̵g̲\nATP/temTH/CandidateTheorems/T1/tmp_RouteA_3xpwgpx3.lean:42:18: error(lean.unknownIdentifier): Unknown constant `Finset.smul_sum`\n\n╭─ Error at line 41:44\n│        _ = (χ h : ℂ) • ∑ g : G, (χ g : ℂ) := by\n│                                             ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\n⊢ ∑ g, ↑(χ h) * ↑(χ g) = ↑(χ h) * ∑ g, ↑(χ g)\n\n╭─ Error at line 57:28\n│      have : (χ h : ℂ) = 1 := by\n│                             ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\nh_mul_left : ∑ g, ↑(χ (h * g)) = ↑(χ h) * S\nh_eq : S = ↑(χ h) * S\nhχh_coe_ne_one : ↑(χ h) ≠ 1\nhz : 1 - ↑(χ h) = 0\n⊢ ↑(χ h) = 1\n\n╭─ Error at line 54:48\n│    have h_one_sub_ne_zero : 1 - (χ h : ℂ) ≠ 0 := by\n│                                                 ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\nh_mul_left : ∑ g, ↑(χ (h * g)) = ↑(χ h) * S\nh_eq : S = ↑(χ h) * S\nhχh_coe_ne_one : ↑(χ h) ≠ 1\nhz : 1 - ↑(χ h) = 0\nthis : ↑(χ h) = 1\n⊢ ↑(χ h) = 1\n\n╭─ Error at line 17:30\n│      ∑ g : G, (χ g : ℂ) = 0 := by\n│                               ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nh : G\nhh_ne_one : χ h ≠ 1\nh_reindex : ∑ g, ↑(χ (h * g)) = S\nh_mul_left : ∑ g, ↑(χ (h * g)) = ↑(χ h) * S\nh_eq : S = ↑(χ h) * S\nhχh_coe_ne_one : ↑(χ h) ≠ 1\nh_one_sub_ne_zero : 1 - ↑(χ h) ≠ 0\n⊢ ∑ g, ↑(χ g) = 0"
+    }
+  ],
+  "message_count": 2
+}

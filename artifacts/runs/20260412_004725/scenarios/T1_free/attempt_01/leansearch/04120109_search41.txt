@@ -1,0 +1,62 @@
+=== Mathlib Character G := G →* ℂˣ (20 matches) ===
+
+• FDRep.character [definition]
+  (V : FDRep k G) (g : G)
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• AddChar.circleEquivComplex [definition]
+  [Finite α] : AddChar α Circle ≃+ AddChar α ℂ
+
+• AddChar.map_neg_eq_conj [theorem]
+  [AddCommGroup G] (ψ : AddChar G K) (x : G) : ψ (-x) = conj (ψ x)
+
+• toUnits [definition]
+  [Group G] : G ≃* Gˣ
+
+• MulChar.commGroup [instance]
+  : CommGroup (MulChar R R')
+
+• CharacterModule.instAddCommGroup [instance]
+  : AddCommGroup (CharacterModule A)
+
+• FDRep.char_linHom [theorem]
+  (V W : FDRep k G) (g : G) : (of (linHom V.ρ W.ρ)).character g = V.character g⁻¹ * W.character g
+
+• AddChar.complexBasis [definition]
+  : Basis (AddChar α ℂ) ℂ (α → ℂ)
+
+• MeasureTheory.Measure.modularCharacter [definition]
+  : G →* ℝ≥0
+
+• FDRep.char_conj [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g
+
+• MeasureTheory.distribHaarChar [definition]
+  : G →* ℝ≥0
+
+• ZMod.stdAddChar [definition]
+  : AddChar (ZMod N) ℂ
+
+• AddChar.coe_complexBasis [theorem]
+  : ⇑(complexBasis α) = ((⇑) : AddChar α ℂ → α → ℂ)
+
+• MulChar.mulEquivToUnitHom [definition]
+  : MulChar R R' ≃* (Rˣ →* R'ˣ)
+
+• Representation.asGroupHom [definition]
+  : G →* Units (V →ₗ[k] V)
+
+• Real.fourierChar [definition]
+  : AddChar ℝ Circle
+
+• AddChar.instCommGroup [instance]
+  : CommGroup (AddChar A M)
+
+• MeasureTheory.Measure.addModularCharacterFun [definition]
+  {G : Type u_1} →
+  [inst : TopologicalSpace G] → [inst_1 : AddGroup G] → [IsTopologicalAddGroup G] → [LocallyCompactSpace G] → G → NNReal
+
+• MeasureTheory.Measure.modularCharacterFun [definition]
+  (g : G) : ℝ≥0

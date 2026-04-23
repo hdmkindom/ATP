@@ -1,0 +1,20 @@
+{
+  "iteration_index": 2,
+  "timestamp_tag": "04061158",
+  "location": "ATP.temTH.CandidateTheorems.T1.RouteB:candidate_T1_routeB",
+  "imports": [
+    "Mathlib.NumberTheory.LegendreSymbol.QuadraticReciprocity"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 19:14\n│    simpa using MulChar.sum_eq_zero_of_ne_one (R' := ℂ) hχ\n│               ^^^\n╰─ error: typeclass instance problem is stuck, it is often due to metavariables\n  Fintype ?m.16"
+    }
+  ],
+  "message_count": 2
+}

@@ -1,0 +1,61 @@
+=== CandidateTheorems.T1.exists_value_ne_one (20 matches) ===
+
+• Valuation.RankOne.unit_ne_one [theorem]
+  : unit v ≠ 1
+
+• Finset.exists_ne_one_of_prod_ne_one [theorem]
+  (h : ∏ x ∈ s, f x ≠ 1) : ∃ a ∈ s, f a ≠ 1
+
+• AbsoluteValue.IsNontrivial.exists_abv_gt_one [theorem]
+  (h : v.IsNontrivial) : ∃ x, 1 < v x
+
+• ENat.top_ne_one [theorem]
+  : (⊤ : ℕ∞) ≠ 1
+
+• Valuation.RankOne.nontrivial [theorem]
+  : ∃ r : R, v r ≠ 0 ∧ v r ≠ 1
+
+• Function.const_ne_one [theorem]
+  : const ι a ≠ 1 ↔ a ≠ 1
+
+• Valuation.isNontrivial_iff_exists_unit [theorem]
+  : w.IsNontrivial ↔ ∃ x : Kˣ, w x ≠ 1
+
+• Valuation.IsRankOneDiscrete.generator_ne_one [theorem]
+  : generator v ≠ 1
+
+• ZMod.val_one'' [theorem]
+  : ∀ {n}, n ≠ 1 → (1 : ZMod n).val = 1
+
+• WithOne.ne_one_iff_exists [theorem]
+  {x : WithOne α} : x ≠ 1 ↔ ∃ a : α, ↑a = x
+
+• ne_one_of_norm_ne_zero [theorem]
+  : ‖a‖ ≠ 0 → a ≠ 1
+
+• ne_one_of_nnnorm_ne_zero [theorem]
+  {a : E} : ‖a‖₊ ≠ 0 → a ≠ 1
+
+• map_ne_zero_iff_ne_one [theorem]
+  : f x ≠ 0 ↔ x ≠ 1
+
+• Valuation.IsNontrivial.exists_lt_one [theorem]
+  {Γ₀ : Type*} [LinearOrderedCommGroupWithZero Γ₀] {v : Valuation K Γ₀} [hv : v.IsNontrivial] : ∃ x ≠ 0, v x < 1
+
+• Valuation.IsNontrivial.exists_one_lt [theorem]
+  {Γ₀ : Type*} [LinearOrderedCommGroupWithZero Γ₀] {v : Valuation K Γ₀} [hv : v.IsNontrivial] : ∃ x, 1 < v x
+
+• WithOne.coe_ne_one [theorem]
+  {a : α} : (a : WithOne α) ≠ (1 : WithOne α)
+
+• WithOne.one_ne_coe [theorem]
+  {a : α} : (1 : WithOne α) ≠ a
+
+• NNReal.coe_ne_one [theorem]
+  : (r : ℝ) ≠ 1 ↔ r ≠ 1
+
+• WithBot.bot_ne_one [theorem]
+  : (⊥ : WithBot α) ≠ 1
+
+• Nat.ne_one_iff_exists_prime_dvd [theorem]
+  : ∀ {n}, n ≠ 1 ↔ ∃ p : ℕ, p.Prime ∧ p ∣ n

@@ -1,0 +1,2 @@
+llm_runtime: # 仅用于本次 probe 的 profile 覆盖；合并后通过插值写入 prover.prover_llm
+  experiment_profile: ${llm_profiles.openai_reasoning_high} # 临时切到高思考 profile

@@ -1,0 +1,18 @@
+{
+  "iteration_index": 3,
+  "timestamp_tag": "04061238",
+  "location": "ATP.temTH.CandidateTheorems.T3.RouteA:candidate_T3_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 18:22\n│    obtain ⟨ζ, hζ_prim, rfl⟩ := root\n│                       ^^^\n╰─ error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)\n  ∀ (m : ℕ), 0 < m → m < N → ζ ^ m ≠ 1\n\nN : ℕ\ninst✝ : NeZero N\na : Fin N\nha : a ≠ 0\nζ : ℂ\nhζ_prim : ζ ^ N = 1\npow_ne_one✝ : ∀ (m : ℕ), 0 < m → m < N → ζ ^ m ≠ 1\n⊢ ∑ x, cyclicChar { zeta := ζ, pow_eq_one := hζ_prim, pow_ne_one := pow_ne_one✝ } a x = 0"
+    }
+  ],
+  "message_count": 2
+}

@@ -1,0 +1,18 @@
+{
+  "iteration_index": 2,
+  "timestamp_tag": "04060021",
+  "location": "ATP.temTH.CandidateTheorems.T8.RouteA:candidate_T8_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 4:0\n│  import CandidateTheorems.T8.Support\n│  ^^^\n╰─ error: object file '/Users/hdm/math/elementary-number-theory/.lake/build/lib/lean/CandidateTheorems/T8/Support.olean' of module CandidateTheorems.T8.Support does not exist"
+    }
+  ],
+  "message_count": 2
+}

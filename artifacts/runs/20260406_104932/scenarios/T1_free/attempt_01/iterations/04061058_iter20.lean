@@ -1,0 +1,48 @@
+/-
+`temTH` 模板：`T1` 自由模式。
+-/
+import CandidateTheorems.T1.Support
+import Mathlib.Data.Fintype.BigOperators
+
+open scoped BigOperators
+
+namespace TemTH
+namespace T1
+
+open CandidateTheorems.T1
+
+variable {G : Type*} [Fintype G] [Group G]
+
+theorem candidate_T1_free (χ : Character G) (hχ : χ ≠ 1) :
+    ∑ g : G, (χ g : ℂ) = 0 := by
+  classical
+  let S : ℂ := ∑ g : G, (χ g : ℂ)
+  by_cases hS : S = 0
+  · simpa [S] using hS
+  · exfalso
+    apply hχ
+    apply MulChar.ext'
+    intro g
+    have hmul : (χ g : ℂ) * S = S := by
+      calc
+        (χ g : ℂ) * S = (χ g : ℂ) * ∑ x : G, (χ x : ℂ) := by rfl
+        _ = ∑ x : G, ((χ g : ℂ) * (χ x : ℂ)) := by
+              simp [S, left_distrib]
+        _ = ∑ x : G, (χ (g * x) : ℂ) := by
+              refine Fintype.sum_congr fun x => ?_
+              simp
+        _ = ∑ y : G, (χ y : ℂ) := by
+              exact Fintype.sum_bijective (fun x : G => g * x)
+                ⟨fun a b hab => by simpa using mul_left_cancel hab,
+                 fun y => ⟨g⁻¹ * y, by simp⟩⟩
+                (fun x : G => (χ (g * x) : ℂ))
+                (fun y : G => (χ y : ℂ))
+                (fun x => rfl)
+        _ = S := by rfl
+    have hgC : (χ g : ℂ) = 1 := by
+      apply mul_right_cancel₀ hS
+      simpa [one_mul] using hmul
+    exact_mod_cast hgC
+
+end T1
+end TemTH

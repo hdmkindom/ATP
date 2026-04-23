@@ -1,0 +1,18 @@
+{
+  "iteration_index": 5,
+  "timestamp_tag": "04061331",
+  "location": "ATP.temTH.CandidateTheorems.T5.Disable:candidate_T5_disable",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 27:5\n│      field_simp [delta0, hN]\n│      ^^^\n╰─ error: unknown tactic\n\n╭─ Error at line 22:16\n│      simpa using root.sum_cyclicChar (t := t)\n│                 ^^^\n╰─ error: Invalid field `sum_cyclicChar`: The environment does not contain `CandidateTheorems.T3.PrimitiveNthRoot.sum_cyclicChar`\n  root\nhas type\n  PrimitiveNthRoot\n\n╭─ Error at line 24:2\n│    · subst ht\n│   ^^^\n╰─ error: unsolved goals\ncase pos\nN : ℕ\ninst✝ : NeZero N\nroot : PrimitiveNthRoot\nhsum : ∑ a, cyclicChar root a 0 = if 0 = 0 then ↑N else 0\nhN : ↑N ≠ 0\n⊢ delta0 0 = 1 / ↑N * if 0 = 0 then ↑N else 0\n\n╭─ Error at line 18:76\n│      delta0 (N := N) t = (1 / (N : ℂ)) * ∑ a : Fin N, cyclicChar root a t := by\n│                                                                             ^^^\n╰─ error: unsolved goals\ncase neg\nN : ℕ\ninst✝ : NeZero N\nroot : PrimitiveNthRoot\nt : Fin N\nhsum : ∑ a, cyclicChar root a t = if t = 0 then ↑N else 0\nht : ¬t = 0\n⊢ delta0 t = 1 / ↑N * ∑ a, cyclicChar root a t"
+    }
+  ],
+  "message_count": 2
+}

@@ -1,0 +1,94 @@
+=== def Character (20 matches) ===
+
+• Mathlib.Tactic.Superscript.instHashableChar_mathlib [instance]
+  : Hashable Char
+
+• MulChar.noConfusionType [definition]
+  Sort u →
+  {R : Type u_1} →
+    [inst : CommMonoid R] →
+      {R' : Type u_2} →
+        [inst_1 : CommMonoidWithZero R'] →
+          MulChar R R' →
+            {R' : Type u_1} →
+              [inst' : CommMonoid R'] → {R'' : Type u_2} → [inst'_1 : CommMonoidWithZero R''] → MulChar R' R'' → Sort u
+
+• AddChar.noConfusionType [definition]
+  Sort u →
+  {A : Type u_1} →
+    [inst : AddMonoid A] →
+      {M : Type u_2} →
+        [inst_1 : Monoid M] →
+          AddChar A M →
+            {A' : Type u_1} → [inst' : AddMonoid A'] → {M' : Type u_2} → [inst'_1 : Monoid M'] → AddChar A' M' → Sort u
+
+• FDRep.char_iso [theorem]
+  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character
+
+• FDRep.character [definition]
+  (V : FDRep k G) (g : G)
+
+• MulChar.instMulCharClass [instance]
+  : MulCharClass (MulChar R R') R R'
+
+• CharacterModule [definition]
+  : Type uA
+
+• FDRep.char_conj [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g
+
+• MulChar.noConfusion [definition]
+  {P : Sort u} →
+  {R : Type u_1} →
+    {inst : CommMonoid R} →
+      {R' : Type u_2} →
+        {inst_1 : CommMonoidWithZero R'} →
+          {t : MulChar R R'} →
+            {R'_1 : Type u_1} →
+              {inst' : CommMonoid R'_1} →
+                {R'' : Type u_2} →
+                  {inst'_1 : CommMonoidWithZero R''} →
+                    {t' : MulChar R'_1 R''} →
+                      R = R'_1 → inst ≍ inst' → R' = R'' → inst_1 ≍ inst'_1 → t ≍ t' → MulChar.noConfusionType P t t'
+
+• ZMod.χ₄ [definition]
+  : MulChar (ZMod 4) ℤ
+
+• RegularExpression.char.noConfusion [definition]
+  {α : Type u} → {P : Sort u_1} → {a a' : α} → RegularExpression.char a = RegularExpression.char a' → (a ≍ a' → P) → P
+
+• MulChar.IsQuadratic [definition]
+  (χ : MulChar R R') : Prop
+
+• MulChar.instFunLike [instance]
+  : FunLike (MulChar R R') R R'
+
+• AddChar.ctorIdx [definition]
+  {A : Type u_1} → {inst : AddMonoid A} → {M : Type u_2} → {inst_1 : Monoid M} → AddChar A M → ℕ
+
+• CharacterModule.instAddCommGroup [instance]
+  : AddCommGroup (CharacterModule A)
+
+• CharacterModule.ofSpanSingleton [definition]
+  (a : A) : CharacterModule (ℤ ∙ a)
+
+• MulChar.ctorIdx [definition]
+  {R : Type u_1} → {inst : CommMonoid R} → {R' : Type u_2} → {inst_1 : CommMonoidWithZero R'} → MulChar R R' → ℕ
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• DirichletCharacter.Even [definition]
+  : Prop
+
+• MulChar.casesOn [definition]
+  {R : Type u_1} →
+  [inst : CommMonoid R] →
+    {R' : Type u_2} →
+      [inst_1 : CommMonoidWithZero R'] →
+        {motive : MulChar R R' → Sort u} →
+          (t : MulChar R R') →
+            ((toMonoidHom : R →* R') →
+                (map_nonunit' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom).toFun a = 0) →
+                  motive { toMonoidHom := toMonoidHom, map_nonunit' := map_nonunit' }) →
+              motive t

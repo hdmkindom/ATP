@@ -1,0 +1,18 @@
+{
+  "iteration_index": 19,
+  "timestamp_tag": "04061312",
+  "location": "ATP.temTH.CandidateTheorems.T4.RouteA:candidate_T4_routeA",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T4/tmp_RouteA_z9o802wi.lean:20:33: error(lean.unknownIdentifier): Unknown identifier `AddChar.sum_mulShift`"
+    }
+  ],
+  "message_count": 2
+}

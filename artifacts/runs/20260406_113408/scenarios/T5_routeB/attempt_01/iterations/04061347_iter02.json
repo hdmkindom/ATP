@@ -1,0 +1,18 @@
+{
+  "iteration_index": 2,
+  "timestamp_tag": "04061347",
+  "location": "ATP.temTH.CandidateTheorems.T5.RouteB:candidate_T5_routeB",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 20:18\n│      simp [delta0, data.sum_psi_at_zero]\n│                   ^^^\n╰─ error: Invalid field `sum_psi_at_zero`: The environment does not contain `CandidateTheorems.T5.FourierInversionData.sum_psi_at_zero`\n  data\nhas type\n  FourierInversionData\n\n╭─ Error at line 19:2\n│    · subst ht\n│   ^^^\n╰─ error: unsolved goals\ncase pos\nN : ℕ\ninst✝ : NeZero N\ndata : FourierInversionData\n⊢ 1 = (↑N)⁻¹ * ∑ a, data.ψ a 0\n\n╭─ Error at line 21:47\n│    · have hsum : ∑ a : Fin N, data.ψ a t = 0 := data.sum_psi_eq_zero_of_ne_zero ht\n│                                                ^^^\n╰─ error: Invalid field `sum_psi_eq_zero_of_ne_zero`: The environment does not contain `CandidateTheorems.T5.FourierInversionData.sum_psi_eq_zero_of_ne_zero`\n  data\nhas type\n  FourierInversionData"
+    }
+  ],
+  "message_count": 2
+}

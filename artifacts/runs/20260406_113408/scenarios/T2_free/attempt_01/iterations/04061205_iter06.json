@@ -1,0 +1,18 @@
+{
+  "iteration_index": 6,
+  "timestamp_tag": "04061205",
+  "location": "ATP.temTH.CandidateTheorems.T2.Free:candidate_T2_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 20:14\n│    · simp [hg, data.sum_eval_one]\n│               ^^^\n╰─ error: Invalid field `sum_eval_one`: The environment does not contain `CandidateTheorems.T2.CharacterOrthogonalityData.sum_eval_one`\n  data\nhas type\n  CharacterOrthogonalityData\n\n╭─ Error at line 20:2\n│    · simp [hg, data.sum_eval_one]\n│   ^^^\n╰─ error: unsolved goals\ncase pos\nG : Type u_1\nΓ : Type u_2\ninst✝³ : Fintype G\ninst✝² : Group G\ninst✝¹ : DecidableEq G\ninst✝ : Fintype Γ\ndata : CharacterOrthogonalityData\ng : G\nhg : g = 1\n⊢ ∑ x, data.eval x 1 = ↑(Fintype.card G)\n\n╭─ Error at line 21:14\n│    · simp [hg, data.sum_eval_zero_of_ne_one hg]\n│               ^^^\n╰─ error: Invalid field `sum_eval_zero_of_ne_one`: The environment does not contain `CandidateTheorems.T2.CharacterOrthogonalityData.sum_eval_zero_of_ne_one`\n  data\nhas type\n  CharacterOrthogonalityData\n\n╭─ Error at line 21:2\n│    · simp [hg, data.sum_eval_zero_of_ne_one hg]\n│   ^^^\n╰─ error: unsolved goals\ncase neg\nG : Type u_1\nΓ : Type u_2\ninst✝³ : Fintype G\ninst✝² : Group G\ninst✝¹ : DecidableEq G\ninst✝ : Fintype Γ\ndata : CharacterOrthogonalityData\ng : G\nhg : ¬g = 1\n⊢ ∑ χ, data.eval χ g = 0"
+    }
+  ],
+  "message_count": 2
+}

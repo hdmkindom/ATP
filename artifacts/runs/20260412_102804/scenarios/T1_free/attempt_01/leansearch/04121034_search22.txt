@@ -1,0 +1,77 @@
+=== CandidateTheorems.T1.Support sum_hom_units_eq_zero (20 matches) ===
+
+• add_eq_zero' [theorem]
+  ∀ {α : Type u} [inst : AddCancelMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• add_eq_zero [theorem]
+  ∀ {α : Type u} [inst : AddCommMonoid α] [Subsingleton (AddUnits α)] {a b : α}, a + b = 0 ↔ a = 0 ∧ b = 0
+
+• Finsupp.sum_hom_add_index [theorem]
+  [AddZeroClass M] [AddCommMonoid N] {f g : α →₀ M} (h : α → M →+ N) :
+  ((f + g).sum fun x => h x) = (f.sum fun x => h x) + g.sum fun x => h x
+
+• finsum_mem_support [theorem]
+  ∀ {α : Type u_1} {M : Type u_5} [inst : AddCommMonoid M] (f : α → M),
+  ∑ᶠ (a : α) (_ : a ∈ Function.support f), f a = ∑ᶠ (a : α), f a
+
+• map_finsuppSum [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} {P : Type u_11} [inst : Zero M] [inst_1 : AddCommMonoid N]
+  [inst_2 : AddCommMonoid P] {H : Type u_16} [inst_3 : FunLike H N P] [AddMonoidHomClass H N P] (h : H) (f : α →₀ M)
+  (g : α → M → N), h (f.sum g) = f.sum fun a b => h (g a b)
+
+• Finsupp.sum_fintype [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} [inst : Zero M] [inst_1 : AddCommMonoid N] [inst_2 : Fintype α]
+  (f : α →₀ M) (g : α → M → N), (∀ (i : α), g i 0 = 0) → f.sum g = ∑ i, g i (f i)
+
+• Multiset.sum_hom_ne_zero [theorem]
+  ∀ {M : Type u_5} {N : Type u_6} [inst : AddCommMonoid M] [inst_1 : AddCommMonoid N] {s : Multiset M},
+  s ≠ 0 → ∀ {F : Type u_8} [inst_2 : FunLike F M N] [AddHomClass F M N] (f : F), (Multiset.map (⇑f) s).sum = f s.sum
+
+• Finsupp.sum_of_support_subset [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} [inst : Zero M] [inst_1 : AddCommMonoid N] (f : α →₀ M) {s : Finset α},
+  f.support ⊆ s → ∀ (g : α → M → N), (∀ i ∈ s, g i 0 = 0) → f.sum g = ∑ x ∈ s, g x (f x)
+
+• ZeroHom.coe_add [theorem]
+  ∀ {M : Type u_8} {N : Type u_9} [inst : Zero M] [inst_1 : AddZeroClass N] (f g : ZeroHom M N), ⇑(f + g) = ⇑f + ⇑g
+
+• Finset.support_sum_subset [theorem]
+  [AddCommMonoid M] (s : Finset (ι →₀ M)) : (s.sum id).support ⊆ Finset.sup s Finsupp.support
+
+• Finsupp.sum_single_index [theorem]
+  ∀ {α : Type u_1} {M : Type u_8} {N : Type u_10} [inst : Zero M] [inst_1 : AddCommMonoid N] {a : α} {b : M}
+  {h : α → M → N}, h a 0 = 0 → (Finsupp.single a b).sum h = h a b
+
+• IsAddUnit.sum_univ_iff [theorem]
+  ∀ {ι : Type u_1} {M : Type u_4} [inst : Fintype ι] [inst_1 : AddCommMonoid M] {f : ι → M},
+  IsAddUnit (∑ a, f a) ↔ ∀ (a : ι), IsAddUnit (f a)
+
+• DFinsupp.sumAddHom_apply [theorem]
+  [∀ i, AddZeroClass (β i)] [∀ (i) (x : β i), Decidable (x ≠ 0)] [AddCommMonoid γ] (φ : ∀ i, β i →+ γ) (f : Π₀ i, β i) :
+  sumAddHom φ f = f.sum fun x => φ x
+
+• Function.support_add [theorem]
+  ∀ {α : Type u_1} {M : Type u_2} [inst : AddZeroClass M] (f g : α → M),
+  (Function.support fun x => f x + g x) ⊆ Function.support f ∪ Function.support g
+
+• Submodule.dfinsuppSumAddHom_mem [theorem]
+  {β : ι → Type*} [∀ i, AddZeroClass (β i)] (S : Submodule R N) (f : Π₀ i, β i) (g : ∀ i, β i →+ N)
+  (h : ∀ c, f c ≠ 0 → g c (f c) ∈ S) : DFinsupp.sumAddHom g f ∈ S
+
+• Finsupp.single_add_single_eq_single_add_single [theorem]
+  {k l m n : ι} {u v : M} (hu : u ≠ 0) (hv : v ≠ 0) :
+  single k u + single l v = single m u + single n v ↔
+    (k = m ∧ l = n) ∨ (u = v ∧ k = n ∧ l = m) ∨ (u + v = 0 ∧ k = l ∧ m = n)
+
+• Function.mulSupport_zero [theorem]
+  : mulSupport (0 : ι → R) = univ
+
+• Finsupp.mapRange.zeroHom_apply [theorem]
+  ∀ {ι : Type u_1} {M : Type u_3} {N : Type u_4} [inst : Zero M] [inst_1 : Zero N] (f : ZeroHom M N) (g : ι →₀ M),
+  (Finsupp.mapRange.zeroHom f) g = Finsupp.mapRange ⇑f ⋯ g
+
+• ZeroHom.instAdd [definition]
+  {M : Type u_2} → {N : Type u_3} → [inst : Zero M] → [inst_1 : AddZeroClass N] → Add (ZeroHom M N)
+
+• ZeroHom.add_apply [theorem]
+  ∀ {M : Type u_8} {N : Type u_9} [inst : Zero M] [inst_1 : AddZeroClass N] (f g : ZeroHom M N) (x : M),
+  (f + g) x = f x + g x

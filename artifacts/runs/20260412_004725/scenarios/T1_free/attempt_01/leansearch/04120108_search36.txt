@@ -1,0 +1,73 @@
+=== Character G definition monoid hom to units complex (20 matches) ===
+
+• NumberField.Units.complexEmbedding [definition]
+  (φ : K →+* ℂ) : (𝓞 K)ˣ →* ℂˣ
+
+• MulChar.mk.noConfusion [definition]
+  {R : Type u_1} →
+  {inst : CommMonoid R} →
+    {R' : Type u_2} →
+      {inst_1 : CommMonoidWithZero R'} →
+        {P : Sort u} →
+          {toMonoidHom : R →* R'} →
+            {map_nonunit' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom).toFun a = 0} →
+              {toMonoidHom' : R →* R'} →
+                {map_nonunit'' : ∀ (a : R), ¬IsUnit a → (↑toMonoidHom').toFun a = 0} →
+                  { toMonoidHom := toMonoidHom, map_nonunit' := map_nonunit' } =
+                      { toMonoidHom := toM...
+
+• AddChar.val_isUnit [theorem]
+  {A M} [AddGroup A] [Monoid M] (φ : AddChar A M) (a : A) : IsUnit (φ a)
+
+• MulChar.mulEquiv_units [theorem]
+  : Nonempty (MulChar M R ≃* Mˣ)
+
+• MulChar.toMonoidHom [definition]
+  {R : Type u_1} → [inst : CommMonoid R] → {R' : Type u_2} → [inst_1 : CommMonoidWithZero R'] → MulChar R R' → R →* R'
+
+• MonoidHom.toHomUnits_mul [theorem]
+  (f g : G →* M) : (f * g).toHomUnits = f.toHomUnits * g.toHomUnits
+
+• MulChar.exists_apply_ne_one_iff_exists_monoidHom [theorem]
+  (a : Mˣ) : (∃ χ : MulChar M R, χ a ≠ 1) ↔ ∃ φ : Mˣ →* Rˣ, φ a ≠ 1
+
+• MulChar.apply_mem_rootsOfUnity [theorem]
+  [Fintype Rˣ] (a : Rˣ) {χ : MulChar R R'} : equivToUnitHom χ a ∈ rootsOfUnity (Fintype.card Rˣ) R'
+
+• DirichletCharacter.toUnitHom_eq_char' [theorem]
+  {a : ZMod n} (ha : IsUnit a) : χ a = χ.toUnitHom ha.unit
+
+• unitary.toUnits [definition]
+  {R : Type u_1} → [inst : Monoid R] → [inst_1 : StarMul R] → ↥(unitary R) →* Rˣ
+
+• MulChar.coe_equivToUnitHom [theorem]
+  (χ : MulChar R R') (a : Rˣ) : ↑(equivToUnitHom χ a) = χ a
+
+• AddChar.toMonoidHom [definition]
+  (φ : AddChar A M) : Multiplicative A →* M
+
+• MonoidHom.toHomUnitsMulEquiv_symm_apply [theorem]
+  ∀ {G : Type u_1} {M : Type u_2} [inst : Group G] [inst_1 : CommMonoid M] (f : G →* Mˣ),
+  MonoidHom.toHomUnitsMulEquiv.symm f = (Units.coeHom M).comp f
+
+• AddChar.toMonoidHomEquiv [definition]
+  : AddChar A M ≃ (Multiplicative A →* M)
+
+• Units.instGroup [instance]
+  : Group αˣ
+
+• MonoidHom.ker_toHomUnits [theorem]
+  {M} [Monoid M] (f : G →* M) : f.toHomUnits.ker = f.ker
+
+• unitSphereToUnits [definition]
+  (𝕜 : Type*) [NormedDivisionRing 𝕜] : sphere (0 : 𝕜) 1 →* Units 𝕜
+
+• Units.mapEquiv [definition]
+  (h : M ≃* N) : Mˣ ≃* Nˣ
+
+• IsCyclic.monoidHom_mulEquiv_rootsOfUnity [theorem]
+  (G : Type*) [CommGroup G] [IsCyclic G] (G' : Type*) [CommGroup G'] :
+  Nonempty <| (G →* G') ≃* rootsOfUnity (Nat.card G) G'
+
+• modularCyclotomicCharacter' [definition]
+  (n : ℕ) [NeZero n] : (L ≃+* L) →* (ZMod (Fintype.card { x // x ∈ rootsOfUnity n L }))ˣ

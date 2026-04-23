@@ -1,0 +1,62 @@
+=== DirichletCharacter Character notation definition (20 matches) ===
+
+• ZMod.χ₈ [definition]
+  : MulChar (ZMod 8) ℤ
+
+• DirichletCharacter.apply_eq_toArithmeticFunction_apply [theorem]
+  {N : ℕ} {R : Type*} [CommMonoidWithZero R] (χ : DirichletCharacter R N) {n : ℕ} (hn : n ≠ 0) :
+  χ n = toArithmeticFunction (χ ·) n
+
+• DirichletCharacter.level_one' [theorem]
+  (hn : n = 1) : χ = 1
+
+• DirichletCharacter.sum_characters_eq [theorem]
+  (a : ZMod n) : ∑ χ : DirichletCharacter R n, χ a = if a = 1 then (n.totient : R) else 0
+
+• DirichletCharacter.mulEquiv_units [theorem]
+  : Nonempty (DirichletCharacter R n ≃* (ZMod n)ˣ)
+
+• DirichletCharacter.fintype [instance]
+  {R : Type*} [CommRing R] [IsDomain R] {n : ℕ} : Fintype (DirichletCharacter R n)
+
+• DirichletCharacter.even_or_odd [theorem]
+  [NoZeroDivisors S] : ψ.Even ∨ ψ.Odd
+
+• DirichletCharacter.factorsThrough_one_iff [theorem]
+  : FactorsThrough χ 1 ↔ χ = 1
+
+• DirichletCharacter.level_mem_conductorSet [theorem]
+  : n ∈ conductorSet χ
+
+• ZMod.χ₄_int_eq_if_mod_four [theorem]
+  (n : ℤ) : χ₄ n = if n % 2 = 0 then 0 else if n % 4 = 1 then 1 else -1
+
+• DirichletCharacter.FactorsThrough [definition]
+  (d : ℕ) : Prop
+
+• DirichletCharacter.unit_norm_eq_one [theorem]
+  (a : (ZMod n)ˣ) : ‖χ a‖ = 1
+
+• DirichletCharacter.Even.eval_neg [theorem]
+  (x : ZMod m) (hψ : ψ.Even) : ψ (-x) = ψ x
+
+• DirichletCharacter.conductor_dvd_level [theorem]
+  : conductor χ ∣ n
+
+• DirichletCharacter.mul_def [theorem]
+  {n m : ℕ} {χ : DirichletCharacter R n} {ψ : DirichletCharacter R m} : χ.primitive_mul ψ = primitiveCharacter (mul χ ψ)
+
+• ZMod.χ₄_nat_eq_if_mod_four [theorem]
+  (n : ℕ) : χ₄ n = if n % 2 = 0 then 0 else if n % 4 = 1 then 1 else -1
+
+• DirichletCharacter.primitiveCharacter_isPrimitive [theorem]
+  : IsPrimitive (χ.primitiveCharacter)
+
+• dirichletSummandHom [definition]
+  {n : ℕ} (χ : DirichletCharacter ℂ n) (hs : s ≠ 0) : ℕ →*₀ ℂ
+
+• DirichletCharacter.mem_conductorSet_iff [theorem]
+  {x : ℕ} : x ∈ conductorSet χ ↔ FactorsThrough χ x
+
+• DirichletCharacter.changeLevel_self [theorem]
+  : changeLevel (dvd_refl n) χ = χ

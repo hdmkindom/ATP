@@ -1,0 +1,20 @@
+{
+  "iteration_index": 11,
+  "timestamp_tag": "04061233",
+  "location": "ATP.temTH.CandidateTheorems.T3.Disable:candidate_T3_disable",
+  "imports": [
+    "Mathlib.NumberTheory.LegendreSymbol.AddCharacter"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 19:11\n│    let ψ := root.toAddChar\n│            ^^^\n╰─ error: Invalid field `toAddChar`: The environment does not contain `CandidateTheorems.T3.PrimitiveNthRoot.toAddChar`\n  root\nhas type\n  PrimitiveNthRoot\n\n╭─ Error at line 17:44\n│      ∑ x : Fin N, cyclicChar root a x = 0 := by\n│                                             ^^^\n╰─ error: unsolved goals\nN : ℕ\ninst✝ : NeZero N\nroot : PrimitiveNthRoot\na : Fin N\nha : a ≠ 0\n⊢ ∑ x, cyclicChar root a x = 0"
+    }
+  ],
+  "message_count": 2
+}

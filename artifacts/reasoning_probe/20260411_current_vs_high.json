@@ -1,0 +1,113 @@
+{
+  "current": {
+    "diagnostics": {
+      "model": "openai:gpt-5.3-codex",
+      "config_provider_config": {
+        "temperature": 0,
+        "api_key": "sk-d***f9LP",
+        "base_url": "https://codeflow.asia/v1",
+        "use_responses_api": true
+      },
+      "llm_class": "langchain_openai.chat_models.base.ChatOpenAI",
+      "llm_attrs": {
+        "model_name": "gpt-5.3-codex",
+        "temperature": null,
+        "reasoning": null,
+        "reasoning_effort": null,
+        "use_responses_api": true,
+        "model_kwargs": {},
+        "_default_params": {
+          "model": "gpt-5.3-codex",
+          "stream": false
+        }
+      }
+    },
+    "prompt": "Without tools, solve this short reasoning task carefully: find the smallest positive integer n such that n^2 ≡ -1 (mod 221). Reply in 2-4 short sentences and include the final integer clearly.",
+    "elapsed_seconds": 4.732434,
+    "response_preview": "[{'type': 'text', 'text': 'Factor \\\\(221=13\\\\cdot 17\\\\).  \\nWe need \\\\(n^2\\\\equiv -1\\\\pmod{13}\\\\) and \\\\(\\\\pmod{17}\\\\): this gives \\\\(n\\\\equiv \\\\pm 5\\\\pmod{13}\\\\) (since \\\\(5^2=25\\\\equiv -1\\\\)) and \\\\(n\\\\equiv \\\\pm 4\\\\pmod{17}\\\\) (since \\\\(4^2=16\\\\equiv -1\\\\)).  \\nSolving the four CRT combinations gives residues \\\\(n\\\\equiv 30, 47, 174, 191\\\\pmod{221}\\\\), so the smallest positive solution is **\\\\(n=30\\\\)**.', 'annotations': [], 'id': None}]",
+    "usage_metadata": {
+      "input_tokens": 62,
+      "output_tokens": 155,
+      "total_tokens": 217,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 0
+      }
+    },
+    "response_metadata": {
+      "id": "resp_0ec508f07609eaea0169da61353c848190b5a086e3e0a755fd",
+      "created_at": 1775919413.0,
+      "metadata": {},
+      "model": "gpt-5.3-codex",
+      "object": "response",
+      "service_tier": "default",
+      "status": "completed",
+      "model_provider": "openai",
+      "model_name": "gpt-5.3-codex"
+    },
+    "additional_kwargs": {}
+  },
+  "compare": {
+    "reasoning_effort": "high",
+    "result": {
+      "diagnostics": {
+        "model": "openai:gpt-5.3-codex",
+        "config_provider_config": {
+          "temperature": 0,
+          "api_key": "sk-d***f9LP",
+          "base_url": "https://codeflow.asia/v1",
+          "use_responses_api": true,
+          "reasoning": {
+            "effort": "high"
+          }
+        },
+        "llm_class": "langchain_openai.chat_models.base.ChatOpenAI",
+        "llm_attrs": {
+          "model_name": "gpt-5.3-codex",
+          "temperature": null,
+          "reasoning": {
+            "effort": "high"
+          },
+          "reasoning_effort": null,
+          "use_responses_api": true,
+          "model_kwargs": {},
+          "_default_params": {
+            "model": "gpt-5.3-codex",
+            "stream": false,
+            "reasoning": {
+              "effort": "high"
+            }
+          }
+        }
+      },
+      "prompt": "Without tools, solve this short reasoning task carefully: find the smallest positive integer n such that n^2 ≡ -1 (mod 221). Reply in 2-4 short sentences and include the final integer clearly.",
+      "elapsed_seconds": 11.420385,
+      "response_preview": "[{'type': 'text', 'text': 'Since \\\\(221=13\\\\cdot17\\\\), we need \\\\(n^2\\\\equiv -1\\\\) modulo both 13 and 17.  \\nModulo 13, this means \\\\(n\\\\equiv \\\\pm5\\\\); modulo 17, it means \\\\(n\\\\equiv \\\\pm4\\\\).  \\nUsing CRT, the four combined solutions mod 221 are \\\\(n\\\\equiv 21,47,174,200\\\\), so the smallest positive one is **\\\\(n=21\\\\)**.', 'annotations': [], 'id': None}]",
+      "usage_metadata": {
+        "input_tokens": 62,
+        "output_tokens": 573,
+        "total_tokens": 635,
+        "input_token_details": {
+          "cache_read": 0
+        },
+        "output_token_details": {
+          "reasoning": 461
+        }
+      },
+      "response_metadata": {
+        "id": "resp_0be41ef2bf2a5aa60169da613963108196ad73aba0802f3e6e",
+        "created_at": 1775919417.0,
+        "metadata": {},
+        "model": "gpt-5.3-codex",
+        "object": "response",
+        "service_tier": "default",
+        "status": "completed",
+        "model_provider": "openai",
+        "model_name": "gpt-5.3-codex"
+      },
+      "additional_kwargs": {}
+    }
+  }
+}

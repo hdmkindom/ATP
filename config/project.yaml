@@ -1,0 +1,25 @@
+catalog_path: ATP/config/theorem_catalog.yaml # 题目与场景目录配置文件路径
+experiment_ax_config: # 正式实验默认加载的 ax-prover 配置列表
+  - ATP/config/ax_prover_experiment.yaml # 正式实验的基础 ax-prover 配置
+doctor_ax_config: # doctor 命令默认加载的 ax-prover 配置列表
+  - ATP/config/ax_prover_doctor.yaml # doctor 专用的 ax-prover 配置
+artifacts_dir: ATP/artifacts # 所有运行归档文件的根目录
+execution: # ATP 框架执行层的总开关
+  prebuild_repo: true # 运行批量实验前是否先执行 Lean 预构建
+  restore_source_after_run: true # 每次运行后是否恢复模板源文件
+  default_repeats: 10 # 未显式指定时每个场景的默认重复次数
+  persist_successful_proofs: false # 成功运行后是否默认保留对模板文件的修改
+  persist_last_attempt_on_failure: true # 达到最大轮次或失败退出后，是否保留最后一次失败产物在模板文件中
+  disable_langsmith_tracing: true # 是否在 ATP 进程内强制禁用 LangSmith tracing
+  archive_source_snapshots: true # 是否保存运行前、运行后和恢复后的源文件快照
+  archive_iteration_snapshots: true # 是否保存每一轮 proposal 重建出的完整 Lean 文件
+  max_llm_requests_per_attempt: 0 # 单次场景尝试允许的最大模型请求次数；0 表示不限制
+console: # 终端展示相关设置
+  enable_color: true # 是否为 ATP 自己的输出与 ax-prover 日志启用 ANSI 颜色
+  show_banner: true # 运行 `run` 命令时是否打印欢迎横幅与运行计划摘要
+  suppress_known_build_fallback_warning: true # 是否隐藏 `lake build 临时模块 unknown target` 后自动回退到 `lake env lean` 的已知噪声警告
+runtime_status: # 运行状态与简单时间预测设置
+  enabled: true # 是否启用运行中状态面板与时间估计
+  show_time: true # 是否在每个场景结束后打印用时、已运行时间与剩余时间
+  history_file: ATP/artifacts/runtime_history.json # 保存简单历史平均时间估计的文件路径
+  default_seconds_per_formal_scenario: 180 # 第一次运行或历史不足时，每个正式场景采用的默认预估秒数

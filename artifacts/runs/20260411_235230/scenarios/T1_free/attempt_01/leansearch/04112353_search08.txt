@@ -1,0 +1,64 @@
+=== def Character G (20 matches) ===
+
+• FDRep.character [definition]
+  (V : FDRep k G) (g : G)
+
+• MeasureTheory.distribHaarChar [definition]
+  : G →* ℝ≥0
+
+• CharacterModule.int [abbrev]
+  : Type
+
+• MeasureTheory.Measure.addModularCharacterFun [definition]
+  {G : Type u_1} →
+  [inst : TopologicalSpace G] → [inst_1 : AddGroup G] → [IsTopologicalAddGroup G] → [LocallyCompactSpace G] → G → NNReal
+
+• FDRep.char_one [theorem]
+  (V : FDRep k G) : V.character 1 = Module.finrank k V
+
+• FDRep.char_mul_comm [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g) = V.character (g * h)
+
+• CharacterModule [definition]
+  : Type uA
+
+• MeasureTheory.Measure.modularCharacterFun [definition]
+  (g : G) : ℝ≥0
+
+• AddChar.instFintype.congr_simp [theorem]
+  ∀ (G : Type u_1) (R : Type u_3) [inst : AddCommGroup G] [inst_1 : RCLike R] [inst_2 : Finite G],
+  AddChar.instFintype G R = AddChar.instFintype G R
+
+• FDRep.char_dual [theorem]
+  (V : FDRep k G) (g : G) : (of (dual V.ρ)).character g = V.character g⁻¹
+
+• FDRep.char_conj [theorem]
+  (V : FDRep k G) (g : G) (h : G) : V.character (h * g * h⁻¹) = V.character g
+
+• FDRep.char_orthonormal [theorem]
+  (V W : FDRep k G) [Simple V] [Simple W] :
+  ⅟(Fintype.card G : k) • ∑ g : G, V.character g * W.character g⁻¹ = if Nonempty (V ≅ W) then ↑1 else ↑0
+
+• FDRep.simple_iff_char_is_norm_one [theorem]
+  [CharZero k] (V : FDRep k G) : Simple V ↔ ∑ g : G, V.character g * V.character g⁻¹ = Fintype.card G
+
+• AddChar.instFintype [instance]
+  [Finite G] : Fintype (AddChar G R)
+
+• FDRep.char_tensor [theorem]
+  (V W : FDRep k G) : (V ⊗ W).character = V.character * W.character
+
+• CharacterModule.ofSpanSingleton [definition]
+  (a : A) : CharacterModule (ℤ ∙ a)
+
+• MeasureTheory.Measure.modularCharacter [definition]
+  : G →* ℝ≥0
+
+• AddChar.instAddCommGroup [instance]
+  : AddCommGroup (AddChar A M)
+
+• Subgroup.Characteristic [inductive]
+  {G : Type u_1} → [inst : Group G] → Subgroup G → Prop
+
+• FDRep.char_iso [theorem]
+  {V W : FDRep k G} (i : V ≅ W) : V.character = W.character

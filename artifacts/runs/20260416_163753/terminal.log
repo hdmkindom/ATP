@@ -1,0 +1,30 @@
+
+===== ATP terminal session started at 2026-04-16T16:37:53.772065 =====
+[96m----------------------
+欢迎使用 ax-prover—ATP
+本次使用的模型：anthropic:claude-opus-4-6
+最大证明轮次：10
+单次尝试模型请求上限：不限制
+运行轮数：10
+场景尝试数量：总计 10，正式 10
+本次运行预估所需时间：02:23:38（历史平均）
+作者：刘泽博
+----------------------[0m
+[96m--T1-free-a1--------[0m
+[34m2026-04-16 16:37:57 - INFO - [proving.py:25 - get_item_from_location()] - Proving theorem at: ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free[0m
+[34m2026-04-16 16:37:57 - INFO - [lean_search.py:272 - warmup_lean_search()] - Warming up LeanSearch server at https://leansearch.net...[0m
+[34m2026-04-16 16:37:59 - INFO - [lean_search.py:275 - warmup_lean_search()] - LeanSearch warm-up successful[0m
+[34m2026-04-16 16:37:59 - INFO - [agent.py:567 - chat()] - Starting prover run: prove:candidate_T1_free[0m
+[34m2026-04-16 16:37:59 - INFO - [agent.py:251 - _proposer_node()] - Proposing proof (iteration 1) for: ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free[0m
+[34m2026-04-16 16:37:59 - INFO - [llm_request] - Sending LLM request #1 via ainvoke model=claude-opus-4-6[0m
+/Users/hdm/ax-prover-env/lib/python3.11/site-packages/langchain_anthropic/chat_models.py:1532: UserWarning: Using Claude with claude-opus-4-6 and 'thinking.type=enabled' is deprecated. Use 'thinking.type=adaptive' instead which results in better model performance in our testing: https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking
+  data = await self._acreate(payload)
+[34m2026-04-16 16:38:01 - INFO - [llm_request] - Sending LLM request #2 via ainvoke model=claude-opus-4-6[0m
+/Users/hdm/ax-prover-env/lib/python3.11/site-packages/langchain_anthropic/chat_models.py:1532: UserWarning: Using Claude with claude-opus-4-6 and 'thinking.type=enabled' is deprecated. Use 'thinking.type=adaptive' instead which results in better model performance in our testing: https://platform.claude.com/docs/en/build-with-claude/adaptive-thinking
+  data = await self._acreate(payload)
+[34m2026-04-16 16:38:03 - INFO - [llm_request] - Sending LLM request #3 via ainvoke model=claude-opus-4-6[0m
+[34m2026-04-16 16:38:06 - INFO - [llm_request] - Sending LLM request #4 via ainvoke model=claude-opus-4-6[0m
+[34m2026-04-16 16:38:09 - INFO - [llm_request] - Sending LLM request #5 via ainvoke model=claude-opus-4-6[0m
+[33mInterrupted by user. Partial artifacts and terminal log have been preserved.[0m
+[96mArtifacts written to /Users/hdm/math/elementary-number-theory/ATP/artifacts/runs/20260416_163753[0m
+===== ATP terminal session ended at 2026-04-16T16:38:11.329888 =====

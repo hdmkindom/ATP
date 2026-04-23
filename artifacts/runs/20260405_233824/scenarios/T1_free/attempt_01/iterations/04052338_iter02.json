@@ -1,0 +1,18 @@
+{
+  "iteration_index": 2,
+  "timestamp_tag": "04052338",
+  "location": "ATP.temTH.CandidateTheorems.T1.Free:candidate_T1_free",
+  "imports": [],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\nATP/temTH/CandidateTheorems/T1/tmp_Free_75_85b1l.lean:37:21: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`\n\n╭─ Error at line 36:38\n│        S = ∑ g : G, (χ (h * g) : ℂ) := by\n│                                       ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\nhsum' : ∑ g, ↑(χ g) ≠ 0\nh : G\nhh : χ h ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nhS0 : S ≠ 0\n⊢ ∑ g, ↑(χ g) = ∑ x, ↑(χ h) * ↑(χ x)\nATP/temTH/CandidateTheorems/T1/tmp_Free_75_85b1l.lean:39:18: error(lean.unknownIdentifier): Unknown constant `CandidateTheorems.T1.Character.map_mul`\nATP/temTH/CandidateTheorems/T1/tmp_Free_75_85b1l.lean:41:21: error(lean.unknownIdentifier): Unknown constant `Finset.mul_sum`\n\n╭─ Error at line 40:27\n│        _ = (χ h : ℂ) * S := by\n│                            ^^^\n╰─ error: unsolved goals\nG : Type u_1\ninst✝¹ : Fintype G\ninst✝ : Group G\nχ : Character G\nhχ : χ ≠ 1\nhsum : ¬∑ g, ↑(χ g) = 0\nhsum' : ∑ g, ↑(χ g) ≠ 0\nh : G\nhh : χ h ≠ 1\nS : ℂ := ∑ g, ↑(χ g)\nhS0 : S ≠ 0\n⊢ ∑ g, ↑(χ h) * ↑(χ g) = ↑(χ h) * ∑ g, ↑(χ g)\n\n╭─ Error at line 44:4\n│      simpa [hperm] using (Eq.symm hperm)\n│     ^^^\n╰─ error: Tactic `simp` failed with a nested error:\nmaximum recursion depth has been reached\nuse `set_option maxRecDepth <num>` to increase limit\nuse `set_option diagnostics true` to get diagnostic information"
+    }
+  ],
+  "message_count": 2
+}

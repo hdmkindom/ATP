@@ -1,0 +1,20 @@
+{
+  "iteration_index": 15,
+  "timestamp_tag": "04061227",
+  "location": "ATP.temTH.CandidateTheorems.T3.Free:candidate_T3_free",
+  "imports": [
+    "Mathlib.NumberTheory.RootsOfUnity.Basic"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 4:0\n│  import CandidateTheorems.T3.PrimitiveRoot\n│  ^^^\n╰─ error: object file '/home/hdm/math/elementary-number-theory/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/RootsOfUnity/Basic.olean' of module Mathlib.NumberTheory.RootsOfUnity.Basic does not exist"
+    }
+  ],
+  "message_count": 2
+}

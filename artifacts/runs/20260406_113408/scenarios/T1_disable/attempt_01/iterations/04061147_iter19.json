@@ -1,0 +1,20 @@
+{
+  "iteration_index": 19,
+  "timestamp_tag": "04061147",
+  "location": "ATP.temTH.CandidateTheorems.T1.Disable:candidate_T1_disable",
+  "imports": [
+    "Mathlib.NumberTheory.LegendreSymbol.GaussSum"
+  ],
+  "opens": [],
+  "reasoning": "",
+  "rebuild_error": null,
+  "feedback_messages": [
+    {
+      "feedback_type": "build_failed",
+      "is_success": false,
+      "is_terminal": false,
+      "content": "BUILD FAILED:\n\n╭─ Error at line 4:0\n│  import CandidateTheorems.T1.Support\n│  ^^^\n╰─ error: object file '/home/hdm/math/elementary-number-theory/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/LegendreSymbol/GaussSum.olean' of module Mathlib.NumberTheory.LegendreSymbol.GaussSum does not exist"
+    }
+  ],
+  "message_count": 2
+}
