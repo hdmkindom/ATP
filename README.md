@@ -24,12 +24,6 @@ ATP/
 │   ├── ax_prover_profiles.yaml -- 共享的 provider/model/base_url/retry 档案
 │   ├── project.yaml -- ATP 项目级总配置
 │   └── theorem_catalog.yaml -- test 场景与候选定理目录
-├── doc/ -- 技术文档目录
-│   ├── architecture.md -- 分层设计、目录树与关键设计决策
-│   ├── command-wiki.md -- CLI 命令与参数详解
-│   ├── configuration-wiki.md -- 配置链路、LLM 档案与扩展方式说明
-│   └── engineering-notes.md -- 调试过程中的问题、难点、边界与经验记录
-├── promot.md -- 任务说明原文
 ├── scripts/ -- 命令行入口脚本目录
 │   ├── atp_axbench.py -- ATP CLI 脚本入口
 │   ├── min_ax_prover.py -- 单题直连 ax-prover 的最小测试脚本
@@ -54,18 +48,6 @@ ATP/
 │       ├── runtime_monitor.py -- 简单 ETA 与运行时间预测
 │       └── settings.py -- YAML 配置加载
 ├── temTH/ -- 冒烟测试与正式题目模板
-└── tests/ -- ATP 自带的零依赖测试目录
-    ├── conftest.py -- 测试导入路径初始化
-    ├── run_tests.py -- 零依赖测试执行器
-    ├── test_catalog.py -- 场景目录测试
-    ├── test_direct_prove.py -- 单题直连脚本测试
-    ├── test_leansearch_trace.py -- LeanSearch 归档测试
-    ├── test_prompts.py -- 提示渲染测试
-    ├── test_reasoning_probe.py -- reasoning 诊断测试
-    ├── test_reporting.py -- 汇总输出测试
-    ├── test_runner.py -- 运行主逻辑测试
-    ├── test_runtime_monitor.py -- 简单 ETA 测试
-    └── test_settings.py -- 项目配置解析测试
 ```
 
 ## 3. Deployment
