@@ -1,8 +1,10 @@
 .DS_Store
 __pycache__/
-/doc/
-/test/
+doc/
+test/
 promot.md
 .gitignore
 try.py
-/artifacts/
+artifacts/
+try/
+SKILL.md

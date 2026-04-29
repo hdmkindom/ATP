@@ -18,6 +18,7 @@ from .console import (
     print_status,
     print_warning,
 )
+from .deepseek_compat import install_deepseek_compat_patches
 from .paths import REPO_ROOT
 from .runner import (
     _PROVIDER_API_KEY_ENV,
@@ -31,6 +32,7 @@ from .runner import (
     prebuild_repo,
 )
 from .settings import ConsoleSettings, load_project_settings
+from .structured_output import register_structured_output_strategies
 
 
 def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
@@ -271,6 +273,8 @@ def build_minimal_ax_config(
     ax_config = merge_configs([base_config, overlay], folder=str(REPO_ROOT))
     _ensure_memory_llm_config(ax_config)
     _apply_llm_credentials_from_config(ax_config)
+    install_deepseek_compat_patches(ax_config)
+    register_structured_output_strategies(ax_config)
     ax_config = _sanitize_ax_config(ax_config)
     return ax_config
 

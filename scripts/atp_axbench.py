@@ -6,8 +6,10 @@ import sys
 
 ATP_ROOT = Path(__file__).resolve().parents[1]
 SRC_ROOT = ATP_ROOT / "src"
-if str(SRC_ROOT) not in sys.path:
-    sys.path.insert(0, str(SRC_ROOT))
+src_root_text = str(SRC_ROOT)
+if src_root_text in sys.path:
+    sys.path.remove(src_root_text)
+sys.path.insert(0, src_root_text)
 
 from atp_axbench.cli import main
 

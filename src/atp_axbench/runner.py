@@ -16,6 +16,7 @@ from .console import (
     install_llm_request_logging,
     llm_request_session,
 )
+from .deepseek_compat import install_deepseek_compat_patches
 from .iteration_archive import ProposalArchiveSession
 from .models import ScenarioResult, ScenarioSpec
 from .paths import REPO_ROOT
@@ -29,15 +30,18 @@ from .reporting import (
 )
 from .runtime_monitor import BatchProgressTracker
 from .settings import ProjectSettings
+from .structured_output import register_structured_output_strategies
 
 _PROVIDER_API_KEY_ENV = {
     "openai": "OPENAI_API_KEY",
     "anthropic": "ANTHROPIC_API_KEY",
     "google_genai": "GOOGLE_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY",
 }
 
 _ATP_PROVIDER_CONFIG_KEYS = {
     "api_key_env",
+    "structured_output_strategy",
 }
 
 
@@ -82,6 +86,8 @@ def build_ax_config(
         folder=str(REPO_ROOT),
     )
     _apply_llm_credentials_from_config(ax_config)
+    install_deepseek_compat_patches(ax_config)
+    register_structured_output_strategies(ax_config)
     ax_config = _sanitize_ax_config(ax_config)
     return ax_config
 
@@ -495,12 +501,17 @@ def _apply_llm_credentials_from_config(ax_config) -> None:
     """
     for llm_config in _iter_llm_configs(ax_config):
         model = _model_name(llm_config)
-        provider = model.split(":", 1)[0] if isinstance(model, str) and ":" in model else None
+        provider_config = _provider_config_dict(llm_config)
+        model_provider = provider_config.get("model_provider")
+        if isinstance(model_provider, str) and model_provider.strip():
+            provider = model_provider.strip().replace("-", "_").lower()
+        else:
+            provider = model.split(":", 1)[0] if isinstance(model, str) and ":" in model else None
         env_name = _PROVIDER_API_KEY_ENV.get(provider)
         if env_name is None:
             continue
-        provider_config = _provider_config_dict(llm_config)
         api_key = _resolve_provider_api_key(provider_config)
+        _validate_provider_api_key_source(model, provider_config, api_key)
         if api_key:
             os.environ[env_name] = str(api_key)
 
@@ -598,6 +609,28 @@ def _resolve_provider_api_key(provider_config: dict) -> str | None:
             return env_value
 
     return None
+
+
+def _validate_provider_api_key_source(
+    model: str | None, provider_config: dict, api_key: str | None
+) -> None:
+    """
+    函数 `_validate_provider_api_key_source` 校验显式声明的自定义密钥来源是否真实存在。
+    如果 profile 写了 `api_key_env`，ATP 会要求该环境变量或内联 `api_key` 存在，避免误用
+    当前进程里已有的 `OPENAI_API_KEY` 去请求 DashScope、Moonshot、Z.ai 等 OpenAI 兼容接口。
+    输入：
+      - model: str | None -- 当前 LLM 模型名。
+      - provider_config: dict -- provider 配置字典。
+      - api_key: str | None -- 已解析出的密钥。
+    输出：
+      - None -- 若缺少必需密钥则抛出 RuntimeError。
+    """
+    api_key_env = provider_config.get("api_key_env")
+    if isinstance(api_key_env, str) and api_key_env.strip() and not api_key:
+        raise RuntimeError(
+            f"{api_key_env.strip()} is not set for {model}; set provider_config.api_key "
+            f"or export {api_key_env.strip()} before running ATP."
+        )
 
 
 def _write_message_trace(attempt_dir: Path, state) -> str:

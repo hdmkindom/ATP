@@ -34,6 +34,81 @@ llm_profiles: # 可复用的模型档案；每个 provider 仅保留一份配置
         max: 3 # 单次最大等待时间（秒）
         exp_base: 2.0 # 指数退避底数
         jitter: 1.0 # 随机抖动强度
+  qwen3_max_json: # Qwen3-Max 官方 DashScope 档案；作为非 thinking + JSON/tool 对照组
+    model: openai:qwen3-max # DashScope OpenAI 兼容接口中的 Qwen3-Max 模型名
+    provider_config: # Qwen thinking mode models 不支持 Structured Output，因此这里显式关闭 thinking
+      api_key: null # 可直接写入 DashScope API key；留空时读取 `DASHSCOPE_API_KEY`
+      api_key_env: DASHSCOPE_API_KEY # ATP 扩展字段；运行前会同步到 OPENAI_API_KEY，避免误用其他 OpenAI key
+      base_url: https://dashscope.aliyuncs.com/compatible-mode/v1 # 阿里云百炼 / DashScope 中国站 OpenAI 兼容 API 根路径
+      use_responses_api: false # DashScope OpenAI 兼容接口按 chat/completions 调用
+      temperature: null # 证明任务建议保持默认确定性
+      extra_body: # DashScope 额外参数；thinking 关闭后才适合作为 ax-prover 结构化输出对照组
+        enable_thinking: false # Qwen thinking mode 与 Structured Output 冲突，因此关闭
+      structured_output_strategy: json_object_with_schema_prompt # ATP 扩展字段；使用 JSON Object + schema prompt 兼容路径
+    retry_config: # LLM 请求失败时的重试策略
+      stop_after_attempt: 100 # 最多重试次数；调试阶段建议临时调小
+      wait_exponential_jitter: true # 是否启用带抖动的指数退避
+      exponential_jitter_params: # 指数退避参数
+        initial: 0.5 # 初始等待时间（秒）
+        max: 3 # 单次最大等待时间（秒）
+        exp_base: 2.0 # 指数退避底数
+        jitter: 1.0 # 随机抖动强度
+
+# 目前正在测试的
+  deepseek_thinking_json: # DeepSeek 官方 thinking + tool 实验候选；未通过 ATP smoke 前不应作为默认
+    model: deepseek:deepseek-v4-pro # DeepSeek Thinking Mode 文档中的 tool-call 示例模型；需要 langchain-deepseek 包支持
+    provider_config: # DeepSeek 官方接口参数
+      api_key: sk-b7d38948476d4e8589eb897bcc9f64a4 # 可直接写入 DeepSeek API key；留空时读取 `DEEPSEEK_API_KEY`
+      api_key_env: DEEPSEEK_API_KEY # ATP 扩展字段；显式要求 DeepSeek 官方密钥
+      base_url: https://api.deepseek.com # DeepSeek 官方 OpenAI 兼容 API 根路径，不使用第三方中转
+      reasoning_effort: high # DeepSeek thinking mode 支持 high/max；复杂 agent 场景可临时改为 max
+      extra_body: # DeepSeek OpenAI 兼容 thinking 开关
+        thinking:
+          type: enabled # 显式启用 thinking；默认虽为 enabled，但这里写清楚便于实验复现
+      max_tokens: 16000 # 单次输出上限；为 thinking + 最终证明 JSON 预留空间
+      structured_output_strategy: json_object_with_schema_prompt # ATP 扩展字段；理论兼容 JSON 输出，但仍需验证 tool 后最终结构化输出
+    retry_config: # LLM 请求失败时的重试策略
+      stop_after_attempt: 100 # 最多重试次数；调试阶段建议临时调小
+      wait_exponential_jitter: true # 是否启用带抖动的指数退避
+      exponential_jitter_params: # 指数退避参数
+        initial: 0.5 # 初始等待时间（秒）
+        max: 3 # 单次最大等待时间（秒）
+        exp_base: 2.0 # 指数退避底数
+        jitter: 1.0 # 随机抖动强度
+  kimi_k25_thinking_json: # Moonshot / Kimi thinking 实验候选；未通过 ATP smoke 前不应作为默认
+    model: openai:kimi-k2-thinking # Moonshot OpenAI 兼容模型名；如账号侧名称变化，只需改这里
+    provider_config: # Moonshot OpenAI 兼容接口参数
+      api_key: null # 可直接写入 Moonshot API key；留空时读取 `MOONSHOT_API_KEY`
+      api_key_env: MOONSHOT_API_KEY # ATP 扩展字段；运行前会同步到 OPENAI_API_KEY
+      base_url: https://api.moonshot.cn/v1 # Moonshot OpenAI 兼容 API 根路径
+      use_responses_api: false # Moonshot 兼容接口按 chat/completions 调用
+      temperature: null # 证明任务建议保持默认确定性
+      structured_output_strategy: json_object_with_schema_prompt # ATP 扩展字段；用于 Kimi JSON Mode 兼容路径
+    retry_config: # LLM 请求失败时的重试策略
+      stop_after_attempt: 100 # 最多重试次数；调试阶段建议临时调小
+      wait_exponential_jitter: true # 是否启用带抖动的指数退避
+      exponential_jitter_params: # 指数退避参数
+        initial: 0.5 # 初始等待时间（秒）
+        max: 3 # 单次最大等待时间（秒）
+        exp_base: 2.0 # 指数退避底数
+        jitter: 1.0 # 随机抖动强度
+  glm5_thinking_json: # Z.ai / GLM thinking 实验候选；未通过 ATP smoke 前不应作为默认
+    model: openai:glm-5 # Z.ai OpenAI 兼容模型名；如账号侧名称变化，只需改这里
+    provider_config: # Z.ai OpenAI 兼容接口参数
+      api_key: null # 可直接写入 Z.ai API key；留空时读取 `ZAI_API_KEY`
+      api_key_env: ZAI_API_KEY # ATP 扩展字段；运行前会同步到 OPENAI_API_KEY
+      base_url: https://api.z.ai/api/paas/v4 # Z.ai OpenAI 兼容 API 根路径
+      use_responses_api: false # Z.ai 兼容接口按 chat/completions 调用
+      temperature: null # 证明任务建议保持默认确定性
+      structured_output_strategy: json_object_with_schema_prompt # ATP 扩展字段；用于 GLM JSON/结构化输出兼容路径
+    retry_config: # LLM 请求失败时的重试策略
+      stop_after_attempt: 100 # 最多重试次数；调试阶段建议临时调小
+      wait_exponential_jitter: true # 是否启用带抖动的指数退避
+      exponential_jitter_params: # 指数退避参数
+        initial: 0.5 # 初始等待时间（秒）
+        max: 3 # 单次最大等待时间（秒）
+        exp_base: 2.0 # 指数退避底数
+        jitter: 1.0 # 随机抖动强度
   anthropic: # Anthropic Claude 档案
     model: anthropic:claude-opus-4-6 # Anthropic 模型标识
     provider_config: # Anthropic provider 参数；未填写额外入口时使用官方默认端点
@@ -67,6 +142,6 @@ llm_profiles: # 可复用的模型档案；每个 provider 仅保留一份配置
         jitter: 1.0 # 随机抖动强度
 
 llm_runtime: # ATP 运行期默认实际选用的 LLM 档案
-  shared_profile: ${llm_profiles.deepseek} # 当前 doctor 与 experiment 默认共用同一套模型档案；如需切到 DeepSeek，可改为 `${llm_profiles.deepseek}`
+  shared_profile: ${llm_profiles.deepseek_thinking_json} # 当前 doctor 与 experiment 默认使用 DeepSeek V4 Pro thinking 档案
   experiment_profile: ${llm_runtime.shared_profile} # 正式实验默认使用共享档案
   doctor_profile: ${llm_runtime.shared_profile} # doctor 默认使用共享档案；如需分离可单独改这里
