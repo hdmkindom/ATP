@@ -2,6 +2,7 @@
 __pycache__/
 doc/
 test/
+tests/
 promot.md
 .gitignore
 try.py
