@@ -10,7 +10,14 @@ from datetime import datetime
 from typing import Any, Callable
 
 from langchain_core.language_models import LanguageModelInput
-from langchain_core.messages import AIMessage, BaseMessage, HumanMessage, SystemMessage, ToolMessage
+from langchain_core.messages import (
+    AIMessage,
+    BaseMessage,
+    HumanMessage,
+    SystemMessage,
+    ToolMessage,
+    message_chunk_to_message,
+)
 from pydantic import BaseModel
 
 from .finalization_trace import record_structured_output_event, summarize_messages
@@ -211,17 +218,21 @@ def add_json_schema_instruction(
     输出：
       - LanguageModelInput -- 附加 schema 约束后的消息。
     """
+    instruction = _json_schema_instruction(schema)
+    if isinstance(messages, list):
+        return [*messages, instruction]
+    return [messages, instruction]
+
+
+def _json_schema_instruction(schema: type[BaseModel] | BaseModel) -> HumanMessage:
     schema_json = json.dumps(_schema_json(schema), ensure_ascii=False)
-    instruction = HumanMessage(
+    return HumanMessage(
         content=(
             "Return exactly one valid JSON object and no Markdown fences. "
             "The JSON object must conform to this schema:\n"
             f"{schema_json}"
         )
     )
-    if isinstance(messages, list):
-        return [*messages, instruction]
-    return [messages, instruction]
 
 
 def resolve_strategy_for_llm(llm) -> str:
@@ -363,12 +374,14 @@ async def _ainvoke_llm(
     llm_has_bound_tools: bool,
     raw_tool_protocol_removed: bool,
     response_format: Any = None,
+    prefer_streaming: bool = False,
     **kwargs,
 ):
     if response_format is not None:
         kwargs["response_format"] = response_format
 
     outgoing_messages = _message_list(messages)
+    use_streaming = prefer_streaming and hasattr(llm, "astream")
     _record_structured_output_request(
         stage=stage,
         input_messages=input_messages or outgoing_messages,
@@ -377,8 +390,13 @@ async def _ainvoke_llm(
         response_format=response_format,
         llm_has_bound_tools=llm_has_bound_tools,
         raw_tool_protocol_removed=raw_tool_protocol_removed,
+        transport="stream" if use_streaming else "invoke",
     )
-    request = llm.ainvoke(messages, **kwargs)
+    request = (
+        _astream_llm_to_message(llm, messages, **kwargs)
+        if use_streaming
+        else llm.ainvoke(messages, **kwargs)
+    )
     if timeout_seconds is None:
         try:
             response = await request
@@ -405,6 +423,20 @@ async def _ainvoke_llm(
         raise
 
 
+async def _astream_llm_to_message(llm, messages: LanguageModelInput, **kwargs) -> BaseMessage:
+    combined_chunk = None
+    async for chunk in llm.astream(messages, **kwargs):
+        combined_chunk = chunk if combined_chunk is None else combined_chunk + chunk
+    if combined_chunk is None:
+        raise RuntimeError("LLM stream returned no chunks.")
+    if isinstance(combined_chunk, BaseMessage):
+        return message_chunk_to_message(combined_chunk)
+    message = getattr(combined_chunk, "message", None)
+    if isinstance(message, BaseMessage):
+        return message
+    raise TypeError(f"Unsupported LLM stream chunk type: {type(combined_chunk).__name__}")
+
+
 async def _ainvoke_tool_finalization(
     messages: LanguageModelInput,
     llm,
@@ -414,7 +446,7 @@ async def _ainvoke_tool_finalization(
     llm_has_bound_tools: bool,
 ):
     source_messages = _message_list(messages)
-    finalization_messages = build_tool_finalization_messages(messages, schema)
+    finalization_messages = build_native_tool_finalization_messages(messages, schema)
     response = await _ainvoke_llm(
         llm,
         finalization_messages,
@@ -422,8 +454,9 @@ async def _ainvoke_tool_finalization(
         stage="tool_finalization",
         input_messages=source_messages,
         llm_has_bound_tools=llm_has_bound_tools,
-        raw_tool_protocol_removed=True,
+        raw_tool_protocol_removed=False,
         response_format={"type": "json_object"},
+        prefer_streaming=True,
     )
     if _response_needs_json_repair(response, schema):
         repair_messages = build_tool_finalization_repair_messages(
@@ -440,8 +473,24 @@ async def _ainvoke_tool_finalization(
             llm_has_bound_tools=llm_has_bound_tools,
             raw_tool_protocol_removed=True,
             response_format={"type": "json_object"},
+            prefer_streaming=True,
         )
     return response
+
+
+def build_native_tool_finalization_messages(
+    messages: LanguageModelInput,
+    schema: type[BaseModel] | BaseModel,
+) -> list[BaseMessage]:
+    """
+    Preserve the provider-native tool protocol when asking for the final JSON answer.
+
+    DeepSeek thinking/tool-call continuations need the assistant tool-call messages and
+    their paired tool observations to remain in the conversation so the runtime
+    compatibility patch can pass `reasoning_content` back to the provider.
+    """
+    source_messages = _message_list(messages)
+    return [*source_messages, _json_schema_instruction(schema)]
 
 
 def resolve_structured_output_timeout_for_llm(llm) -> float | None:
@@ -571,6 +620,7 @@ def _record_structured_output_request(
     response_format: Any,
     llm_has_bound_tools: bool,
     raw_tool_protocol_removed: bool,
+    transport: str,
 ) -> None:
     input_summary = summarize_messages(input_messages)
     outgoing_summary = summarize_messages(outgoing_messages)
@@ -582,6 +632,7 @@ def _record_structured_output_request(
         response_format=response_format,
         llm_has_bound_tools=llm_has_bound_tools,
         raw_tool_protocol_removed=raw_tool_protocol_removed,
+        note=f"transport={transport}",
     )
     artifact_suffix = f" artifact={artifact_path}" if artifact_path else ""
     _print_structured_output_info(
@@ -591,6 +642,7 @@ def _record_structured_output_request(
         response_format=response_format,
         llm_has_bound_tools=llm_has_bound_tools,
         raw_tool_protocol_removed=raw_tool_protocol_removed,
+        transport=transport,
         input_summary=input_summary,
         outgoing_summary=outgoing_summary,
         artifact_suffix=artifact_suffix,
@@ -605,6 +657,7 @@ def _print_structured_output_info(
     response_format: Any,
     llm_has_bound_tools: bool,
     raw_tool_protocol_removed: bool,
+    transport: str,
     input_summary: dict[str, Any],
     outgoing_summary: dict[str, Any],
     artifact_suffix: str,
@@ -613,6 +666,7 @@ def _print_structured_output_info(
     print(
         f"{timestamp} - INFO - [structured_output] - {action} stage={stage} "
         f"timeout={timeout_seconds} response_format={_response_format_label(response_format)} "
+        f"transport={transport} "
         f"llm_has_tools={llm_has_bound_tools} raw_tool_protocol_removed={raw_tool_protocol_removed} "
         f"input_messages={input_summary['message_count']} input_chars={input_summary['total_content_chars']} "
         f"input_tool_messages={input_summary['tool_message_count']} input_ai_tool_calls={input_summary['ai_tool_call_count']} "

@@ -7,7 +7,7 @@ artifacts_dir: ATP/artifacts # 所有运行归档文件的根目录
 execution: # ATP 框架执行层的总开关
   prebuild_repo: true # 运行批量实验前是否先执行 Lean 预构建
   restore_source_after_run: true # 每次运行后是否恢复模板源文件
-  default_repeats: 10 # 未显式指定时每个场景的默认重复次数
+  default_repeats: 1 # 每个场景的默认重复次数
   persist_successful_proofs: false # 成功运行后是否默认保留对模板文件的修改
   persist_last_attempt_on_failure: true # 达到最大轮次或失败退出后，是否保留最后一次失败产物在模板文件中
   disable_langsmith_tracing: true # 是否在 ATP 进程内强制禁用 LangSmith tracing

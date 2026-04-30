@@ -69,7 +69,7 @@ llm_profiles: # 可复用的模型档案；每个 provider 仅保留一份配置
           type: enabled # 显式启用 thinking；默认虽为 enabled，但这里写清楚便于实验复现
       max_tokens: 16000 # 单次输出上限；为 thinking + 最终证明 JSON 预留空间
       structured_output_strategy: json_object_with_schema_prompt # ATP 扩展字段；理论兼容 JSON 输出，但仍需验证 tool 后最终结构化输出
-      structured_output_timeout_seconds: 3600 # ATP 结构化输出硬超时；超时后结束本次 attempt，避免 20+ 分钟无日志
+      structured_output_timeout_seconds: 3600 # ATP 结构化输出硬超时；超时后结束本次 attempt
     retry_config: # LLM 请求失败时的重试策略
       stop_after_attempt: 3 # 最多重试次数；允许工具后的瞬时 APIConnectionError 自动恢复
       wait_exponential_jitter: true # 启用短退避，避免 DeepSeek 网关瞬时抖动直接打掉 attempt

@@ -480,6 +480,7 @@ def install_llm_request_logging() -> None:
     for cls in targets:
         _patch_llm_method(cls, "invoke", is_async=False)
         _patch_llm_method(cls, "ainvoke", is_async=True)
+        _patch_llm_stream_method(cls, "astream")
 
     _patch_ax_agent_request_phases()
     _LLM_REQUEST_PATCHED = True
@@ -569,6 +570,34 @@ def _patch_llm_method(cls: type, method_name: str, is_async: bool) -> None:
                     exc=exc,
                 )
                 raise
+
+    wrapped._atp_llm_request_patched = True
+    setattr(cls, method_name, wrapped)
+
+
+def _patch_llm_stream_method(cls: type, method_name: str) -> None:
+    """为单个模型类的异步流式方法打请求日志补丁。"""
+    original = getattr(cls, method_name, None)
+    if original is None or getattr(original, "_atp_llm_request_patched", False):
+        return
+
+    @functools.wraps(original)
+    async def wrapped(self, *args, **kwargs):
+        request_id, model_name, scope_suffix = _print_llm_request(self, method_name)
+        started_at = monotonic()
+        try:
+            async for chunk in original(self, *args, **kwargs):
+                yield chunk
+        except Exception as exc:
+            _print_llm_request_timeout_warning(
+                request_id=request_id,
+                model_name=model_name,
+                method_name=method_name,
+                scope_suffix=scope_suffix,
+                elapsed_seconds=monotonic() - started_at,
+                exc=exc,
+            )
+            raise
 
     wrapped._atp_llm_request_patched = True
     setattr(cls, method_name, wrapped)
@@ -725,5 +754,18 @@ def _is_timeout_like_llm_exception(exc: Exception, elapsed_seconds: float) -> bo
 
 def _format_exception_brief(exc: BaseException) -> str:
     """生成适合终端单行展示的异常摘要。"""
-    message = str(exc).strip() or "no details"
-    return f"{exc.__class__.__name__}: {message}"
+    parts: list[str] = []
+    pending: list[BaseException] = [exc]
+    visited: set[int] = set()
+    while pending and len(parts) < 4:
+        current = pending.pop(0)
+        current_id = id(current)
+        if current_id in visited:
+            continue
+        visited.add(current_id)
+        message = str(current).strip() or "no details"
+        parts.append(f"{current.__class__.__name__}: {message}")
+        for chained in (getattr(current, "__cause__", None), getattr(current, "__context__", None)):
+            if chained is not None:
+                pending.append(chained)
+    return " <- ".join(parts)
