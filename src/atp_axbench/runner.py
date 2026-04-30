@@ -17,6 +17,7 @@ from .console import (
     llm_request_session,
 )
 from .deepseek_compat import install_deepseek_compat_patches
+from .finalization_trace import finalization_trace_session
 from .iteration_archive import ProposalArchiveSession
 from .models import ScenarioResult, ScenarioSpec
 from .paths import REPO_ROOT
@@ -42,6 +43,7 @@ _PROVIDER_API_KEY_ENV = {
 _ATP_PROVIDER_CONFIG_KEYS = {
     "api_key_env",
     "structured_output_strategy",
+    "structured_output_timeout_seconds",
 }
 
 
@@ -253,6 +255,7 @@ def run_single_scenario(
     attempt_dir = attempt_directory(output_dir, scenario.scenario_key, attempt_index)
     state = None
     archive_session = None
+    finalization_session = None
     original_snapshot_path = ""
     ax_config = None
     request_session = None
@@ -288,7 +291,10 @@ def run_single_scenario(
             attempt_dir=attempt_dir,
             target_relative_path=scenario.target_file,
             enabled=settings.execution.archive_iteration_snapshots,
-        ) as archive_session, llm_request_session(
+        ) as archive_session, finalization_trace_session(
+            attempt_dir=attempt_dir,
+            enabled=True,
+        ) as finalization_session, llm_request_session(
             settings.execution.max_llm_requests_per_attempt
         ) as request_session:
             state = asyncio.run(_prove_item_with_ax(ax_config, scenario))
@@ -335,6 +341,13 @@ def run_single_scenario(
             result.artifact_paths["iteration_snapshot_dir"] = str(attempt_dir / "iterations")
             result.artifact_paths["iteration_snapshot_files"] = ", ".join(
                 archive_session.artifact_paths()
+            )
+        if finalization_session is not None and finalization_session.records:
+            result.artifact_paths["structured_output_trace_dir"] = str(
+                attempt_dir / "structured_output"
+            )
+            result.artifact_paths["structured_output_trace_files"] = ", ".join(
+                finalization_session.records
             )
         if settings.execution.archive_source_snapshots:
             if original_snapshot_path:

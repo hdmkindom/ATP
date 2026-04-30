@@ -470,6 +470,12 @@ def install_llm_request_logging() -> None:
         targets.append(ChatGoogleGenerativeAI)
     except Exception:
         pass
+    try:
+        from langchain_deepseek import ChatDeepSeek
+
+        targets.append(ChatDeepSeek)
+    except Exception:
+        pass
 
     for cls in targets:
         _patch_llm_method(cls, "invoke", is_async=False)
