@@ -101,8 +101,8 @@ ensure_python_venv() {
   log_info "升级 pip。"
   python -m pip install --upgrade pip
 
-  log_info "安装 Python 依赖：ax-prover, omegaconf"
-  pip install ax-prover omegaconf
+  log_info "安装 Python 依赖：ax-prover, omegaconf, langchain-deepseek"
+  pip install ax-prover omegaconf langchain-deepseek
 }
 
 run_build() {

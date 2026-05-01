@@ -21,6 +21,11 @@ from langchain_core.messages import (
 from pydantic import BaseModel
 
 from .finalization_trace import record_structured_output_event, summarize_messages
+from .structured_output_options import (
+    DEFAULT_STRUCTURED_OUTPUT_OPTIONS,
+    StructuredOutputOptions,
+    structured_output_options_from_provider_config,
+)
 
 STRUCTURED_OUTPUT_OPENAI_SCHEMA = "openai_schema"
 STRUCTURED_OUTPUT_JSON_OBJECT_WITH_SCHEMA_PROMPT = "json_object_with_schema_prompt"
@@ -36,13 +41,10 @@ _strategy_by_model_and_base_url: dict[tuple[str, str | None], str] = {}
 _strategy_by_model: dict[str, str] = {}
 _timeout_by_model_and_base_url: dict[tuple[str, str | None], float] = {}
 _timeout_by_model: dict[str, float] = {}
+_options_by_model_and_base_url: dict[tuple[str, str | None], StructuredOutputOptions] = {}
+_options_by_model: dict[str, StructuredOutputOptions] = {}
 
 _LOGGER = logging.getLogger(__name__)
-
-_FINALIZATION_TASK_MAX_CHARS = 9000
-_TOOL_SUMMARY_MAX_CHARS = 8000
-_TOOL_MESSAGE_MAX_CHARS = 1200
-_REPAIR_RESPONSE_MAX_CHARS = 3000
 
 
 def register_structured_output_strategies(ax_config) -> None:
@@ -59,13 +61,16 @@ def register_structured_output_strategies(ax_config) -> None:
     for llm_config in _iter_llm_configs(ax_config):
         provider_config = _provider_config_dict(llm_config)
         strategy = strategy_from_provider_config(provider_config)
-        timeout_seconds = structured_output_timeout_from_provider_config(provider_config)
+        options = structured_output_options_from_provider_config(provider_config)
+        timeout_seconds = options.timeout_seconds
         model_names = _model_name_candidates(_model_name(llm_config))
         base_url = _normalize_base_url(provider_config.get("base_url"))
 
         for model_name in model_names:
             _strategy_by_model[model_name] = strategy
             _strategy_by_model_and_base_url[(model_name, base_url)] = strategy
+            _options_by_model[model_name] = options
+            _options_by_model_and_base_url[(model_name, base_url)] = options
             if timeout_seconds is not None:
                 _timeout_by_model[model_name] = timeout_seconds
                 _timeout_by_model_and_base_url[(model_name, base_url)] = timeout_seconds
@@ -103,15 +108,7 @@ def structured_output_timeout_from_provider_config(provider_config: dict[str, An
     输出：
       - float | None -- 单次结构化输出调用的秒级超时；未配置时返回 None。
     """
-    raw_timeout = provider_config.get("structured_output_timeout_seconds")
-    if raw_timeout in (None, ""):
-        return None
-    timeout_seconds = float(raw_timeout)
-    if timeout_seconds <= 0:
-        raise ValueError(
-            "structured_output_timeout_seconds must be a positive number of seconds."
-        )
-    return timeout_seconds
+    return structured_output_options_from_provider_config(provider_config).timeout_seconds
 
 
 def install_structured_output_patch() -> None:
@@ -169,7 +166,8 @@ async def ainvoke_retry_with_structured_output_strategy(
     """
     strategy = resolve_strategy_for_llm(llm)
     if strategy == STRUCTURED_OUTPUT_JSON_OBJECT_WITH_SCHEMA_PROMPT:
-        timeout_seconds = resolve_structured_output_timeout_for_llm(llm)
+        options = resolve_structured_output_options_for_llm(llm)
+        timeout_seconds = options.timeout_seconds
         source_messages = _message_list(messages)
         llm_has_tools = _llm_has_bound_tools(llm)
         if _contains_tool_message(messages):
@@ -190,6 +188,7 @@ async def ainvoke_retry_with_structured_output_strategy(
                 schema,
                 timeout_seconds=timeout_seconds,
                 llm_has_bound_tools=llm_has_tools,
+                options=options,
             )
         invoke_messages = add_json_schema_instruction(messages, schema)
         return await _ainvoke_llm(
@@ -281,6 +280,14 @@ def structured_output_registry_snapshot() -> dict[str, Any]:
         "timeout_by_model_and_base_url": {
             f"{model}|{base_url or ''}": timeout_seconds
             for (model, base_url), timeout_seconds in _timeout_by_model_and_base_url.items()
+        },
+        "options_by_model": {
+            model: options.as_dict()
+            for model, options in _options_by_model.items()
+        },
+        "options_by_model_and_base_url": {
+            f"{model}|{base_url or ''}": options.as_dict()
+            for (model, base_url), options in _options_by_model_and_base_url.items()
         },
     }
 
@@ -444,9 +451,19 @@ async def _ainvoke_tool_finalization(
     *,
     timeout_seconds: float | None,
     llm_has_bound_tools: bool,
+    options: StructuredOutputOptions,
 ):
     source_messages = _message_list(messages)
-    finalization_messages = build_native_tool_finalization_messages(messages, schema)
+    if options.uses_native_tool_protocol:
+        finalization_messages = build_native_tool_finalization_messages(messages, schema)
+        raw_tool_protocol_removed = False
+    else:
+        finalization_messages = build_tool_finalization_messages(
+            messages,
+            schema,
+            options=options,
+        )
+        raw_tool_protocol_removed = True
     response = await _ainvoke_llm(
         llm,
         finalization_messages,
@@ -454,15 +471,16 @@ async def _ainvoke_tool_finalization(
         stage="tool_finalization",
         input_messages=source_messages,
         llm_has_bound_tools=llm_has_bound_tools,
-        raw_tool_protocol_removed=False,
+        raw_tool_protocol_removed=raw_tool_protocol_removed,
         response_format={"type": "json_object"},
-        prefer_streaming=True,
+        prefer_streaming=options.finalization_prefer_streaming,
     )
     if _response_needs_json_repair(response, schema):
         repair_messages = build_tool_finalization_repair_messages(
             messages=messages,
             schema=schema,
             bad_response_text=getattr(response, "text", str(response)),
+            options=options,
         )
         response = await _ainvoke_llm(
             llm,
@@ -473,7 +491,7 @@ async def _ainvoke_tool_finalization(
             llm_has_bound_tools=llm_has_bound_tools,
             raw_tool_protocol_removed=True,
             response_format={"type": "json_object"},
-            prefer_streaming=True,
+            prefer_streaming=options.finalization_prefer_streaming,
         )
     return response
 
@@ -494,6 +512,10 @@ def build_native_tool_finalization_messages(
 
 
 def resolve_structured_output_timeout_for_llm(llm) -> float | None:
+    return resolve_structured_output_options_for_llm(llm).timeout_seconds
+
+
+def resolve_structured_output_options_for_llm(llm) -> StructuredOutputOptions:
     base_llm = _unwrap_bound_llm(llm)
     base_url = _normalize_base_url(
         getattr(base_llm, "openai_api_base", None)
@@ -505,22 +527,28 @@ def resolve_structured_output_timeout_for_llm(llm) -> float | None:
         or getattr(base_llm, "model", None)
         or getattr(base_llm, "deployment_name", None)
     ):
-        timeout_seconds = _timeout_by_model_and_base_url.get((model_name, base_url))
-        if timeout_seconds is not None:
-            return timeout_seconds
-        timeout_seconds = _timeout_by_model.get(model_name)
-        if timeout_seconds is not None:
-            return timeout_seconds
-    return None
+        options = _options_by_model_and_base_url.get((model_name, base_url))
+        if options is not None:
+            return options
+        options = _options_by_model.get(model_name)
+        if options is not None:
+            return options
+    return DEFAULT_STRUCTURED_OUTPUT_OPTIONS
 
 
 def build_tool_finalization_messages(
     messages: LanguageModelInput,
     schema: type[BaseModel] | BaseModel,
+    *,
+    options: StructuredOutputOptions | None = None,
 ) -> list[BaseMessage]:
+    options = options or DEFAULT_STRUCTURED_OUTPUT_OPTIONS
     source_messages = _message_list(messages)
-    task_text = _truncate(_task_text(source_messages), _FINALIZATION_TASK_MAX_CHARS)
-    tool_summary = _tool_summary_text(source_messages)
+    task_text = _truncate(
+        _task_text(source_messages),
+        options.finalization_task_max_chars,
+    )
+    tool_summary = _tool_summary_text(source_messages, options=options)
     schema_json = json.dumps(_schema_json(schema), ensure_ascii=False)
     return [
         SystemMessage(
@@ -552,10 +580,20 @@ def build_tool_finalization_repair_messages(
     messages: LanguageModelInput,
     schema: type[BaseModel] | BaseModel,
     bad_response_text: str,
+    *,
+    options: StructuredOutputOptions | None = None,
 ) -> list[BaseMessage]:
-    finalization_messages = build_tool_finalization_messages(messages, schema)
+    options = options or DEFAULT_STRUCTURED_OUTPUT_OPTIONS
+    finalization_messages = build_tool_finalization_messages(
+        messages,
+        schema,
+        options=options,
+    )
     schema_json = json.dumps(_schema_json(schema), ensure_ascii=False)
-    bad_response_excerpt = _truncate(str(bad_response_text), _REPAIR_RESPONSE_MAX_CHARS)
+    bad_response_excerpt = _truncate(
+        str(bad_response_text),
+        options.repair_response_max_chars,
+    )
     finalization_messages.append(
         HumanMessage(
             content=(
@@ -736,20 +774,28 @@ def _task_text(messages: list[BaseMessage]) -> str:
     return "\n\n".join(task_parts).strip() or "Complete the Lean proof."
 
 
-def _tool_summary_text(messages: list[BaseMessage]) -> str:
+def _tool_summary_text(
+    messages: list[BaseMessage],
+    *,
+    options: StructuredOutputOptions | None = None,
+) -> str:
+    options = options or DEFAULT_STRUCTURED_OUTPUT_OPTIONS
     summaries: list[str] = []
     search_index = 1
     for index, message in enumerate(messages):
         if not isinstance(message, ToolMessage):
             continue
         call_description = _preceding_tool_call_description(messages, index)
-        content = _truncate(str(message.content), _TOOL_MESSAGE_MAX_CHARS)
+        content = _truncate(str(message.content), options.tool_message_max_chars)
         summaries.append(
             f"Tool observation {search_index}: {call_description}\n{content}".strip()
         )
         search_index += 1
     summary = "\n\n".join(summaries)
-    return _truncate(summary, _TOOL_SUMMARY_MAX_CHARS) or "No tool observations were available."
+    return (
+        _truncate(summary, options.tool_summary_max_chars)
+        or "No tool observations were available."
+    )
 
 
 def _preceding_tool_call_description(messages: list[BaseMessage], tool_message_index: int) -> str:

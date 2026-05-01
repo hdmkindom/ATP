@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import importlib
 import time
 from datetime import datetime
 from pathlib import Path
@@ -18,7 +19,14 @@ _PROVIDER_API_KEYS = {
     "openai": "OPENAI_API_KEY",
     "anthropic": "ANTHROPIC_API_KEY",
     "google_genai": "GOOGLE_API_KEY",
+    "deepseek": "DEEPSEEK_API_KEY",
 }
+
+_PROVIDER_DEPENDENCIES = {
+    "deepseek": ("langchain_deepseek", "langchain-deepseek"),
+}
+
+_OPENAI_COMPATIBLE_PROVIDERS = {"openai", "deepseek"}
 
 
 def run_doctor(
@@ -54,6 +62,7 @@ def run_doctor(
     checks.append(_run_check("ax_prover_import", _check_ax_prover_import))
     checks.append(_run_check("llm_credentials", lambda: _check_llm_credentials(ax_config)))
     checks.append(_run_check("llm_base_url", lambda: _check_base_url(ax_config)))
+    checks.append(_run_check("provider_dependency", lambda: _check_provider_dependency(ax_config)))
     checks.append(_run_check("lean_repo_build", lambda: _check_build(ax_config)))
     checks.append(_run_check("template_smoke_file", lambda: _check_test_file(ax_config)))
 
@@ -119,6 +128,30 @@ def _check_llm_credentials(ax_config) -> str:
     return f"{env_name} is set for provider {provider}."
 
 
+def _check_provider_dependency(ax_config) -> str:
+    """
+    函数 `_check_provider_dependency` 检查当前 provider 对应的 LangChain 集成包是否可导入。
+    输入：
+      - ax_config: Any -- ax-prover 配置对象。
+    输出：
+      - str -- 依赖检查结果说明。
+    """
+    provider = _provider_name(ax_config)
+    dependency = _PROVIDER_DEPENDENCIES.get(provider)
+    if dependency is None:
+        return f"No extra provider package is required for provider {provider}."
+
+    module_name, package_name = dependency
+    try:
+        importlib.import_module(module_name)
+    except ImportError as exc:
+        raise RuntimeError(
+            f"Provider {provider} requires `{package_name}`. Install it in the active "
+            f"environment with: conda run -n axprover python -m pip install {package_name}"
+        ) from exc
+    return f"Provider dependency `{package_name}` is importable for provider {provider}."
+
+
 def _check_base_url(ax_config) -> str:
     """
     函数 `_check_base_url` 检查模型 provider 的 `base_url` 配置是否合法。
@@ -133,17 +166,18 @@ def _check_base_url(ax_config) -> str:
     parsed = urlparse(base_url)
     if not parsed.scheme or not parsed.netloc:
         raise RuntimeError(f"Invalid base_url: {base_url}")
-    if _provider_name(ax_config) == "openai" and parsed.path.rstrip("/").endswith("/chat/completions"):
+    provider = _provider_name(ax_config)
+    if provider in _OPENAI_COMPATIBLE_PROVIDERS and parsed.path.rstrip("/").endswith("/chat/completions"):
         raise RuntimeError(
             "For OpenAI-compatible providers, `base_url` must be the API root rather than the final "
             f"`/chat/completions` endpoint. Use something like `{parsed.scheme}://{parsed.netloc}/v1` instead of `{base_url}`."
         )
-    if _provider_name(ax_config) == "openai" and parsed.path.rstrip("/").endswith("/responses"):
+    if provider in _OPENAI_COMPATIBLE_PROVIDERS and parsed.path.rstrip("/").endswith("/responses"):
         raise RuntimeError(
             "For OpenAI-compatible providers, `base_url` must be the API root rather than the final "
             f"`/responses` endpoint. Use something like `{parsed.scheme}://{parsed.netloc}/v1` instead of `{base_url}`."
         )
-    if _provider_name(ax_config) == "openai" and parsed.path in {"", "/"}:
+    if provider == "openai" and parsed.path in {"", "/"}:
         return (
             f"base_url looks syntactically valid but has no explicit API path: {base_url}. "
             "Many OpenAI-compatible relays expect a `/v1` suffix."

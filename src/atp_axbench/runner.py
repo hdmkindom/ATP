@@ -16,7 +16,7 @@ from .console import (
     install_llm_request_logging,
     llm_request_session,
 )
-from .deepseek_compat import install_deepseek_compat_patches
+from .deepseek_compat import DEEPSEEK_PROVIDER_CONFIG_KEYS, install_deepseek_compat_patches
 from .finalization_trace import finalization_trace_session
 from .iteration_archive import ProposalArchiveSession
 from .models import ScenarioResult, ScenarioSpec
@@ -32,6 +32,7 @@ from .reporting import (
 from .runtime_monitor import BatchProgressTracker
 from .settings import ProjectSettings
 from .structured_output import register_structured_output_strategies
+from .structured_output_options import STRUCTURED_OUTPUT_PROVIDER_CONFIG_KEYS
 
 _PROVIDER_API_KEY_ENV = {
     "openai": "OPENAI_API_KEY",
@@ -42,8 +43,8 @@ _PROVIDER_API_KEY_ENV = {
 
 _ATP_PROVIDER_CONFIG_KEYS = {
     "api_key_env",
-    "structured_output_strategy",
-    "structured_output_timeout_seconds",
+    *DEEPSEEK_PROVIDER_CONFIG_KEYS,
+    *STRUCTURED_OUTPUT_PROVIDER_CONFIG_KEYS,
 }
 
 
