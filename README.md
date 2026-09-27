@@ -150,7 +150,7 @@ python ATP/scripts/atp_axbench.py run test --skip-prebuild
 - `config/ax_prover_profiles.yaml` 中的 `model`
 - `config/ax_prover_profiles.yaml` 中的 `base_url`
 
-## 6. Commands
+## 5. Commands
 
 常用命令如下：
 
@@ -162,29 +162,4 @@ python ATP/scripts/atp_axbench.py run test
 python ATP/scripts/atp_axbench.py run T1
 python ATP/scripts/atp_axbench.py run candidates --repeats 2
 ```
-
-命令与参数详解见：
-
-- [command-wiki.md](ATP/doc/command-wiki.md)
-
-如果你只想绕过 ATP 批量实验层，直接验证“当前 `model / api_key / base_url` 能否驱动 ax-prover 证明单个 Lean 目标”，可以使用最小脚本：
-
-```bash
-source ~/ax-prover-env/bin/activate
-python ATP/scripts/min_ax_prover.py \
-  --target ATP/temTH/CandidateTheorems/T9/Free.lean:candidate_T9_free \
-  --model openai:gpt-5.3-codex \
-  --base-url https://your-relay.example/v1 \
-  --api-key 'YOUR_API_KEY' \
-  --use-chat-completions \
-  --skip-prebuild
-```
-
-说明：
-
-- 该脚本默认沿用 `ATP/config/ax_prover_experiment.yaml` 的其他 ax-prover 运行参数。
-- `--model / --base-url / --api-key` 只覆盖本次运行，不会改写 YAML。
-- `--dry-run` 可先检查最终注入给 ax-prover 的关键配置。
-- 目标必须是现有 Lean 文件中的 `path/to/file.lean:theorem_name`，而不是自然语言题目。
-
 by OpenAI CODEX 5.4 
